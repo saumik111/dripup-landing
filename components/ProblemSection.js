@@ -126,9 +126,10 @@ export default function ProblemSection() {
       >
         <h2
           style={{
-            fontFamily: '"Figtree", sans-serif',
+            fontFamily: '"EB Garamond", Georgia, serif',
+            fontStyle: "italic",
             fontSize: "clamp(32px, 4.5vw, 64px)",
-            fontWeight: 600,
+            fontWeight: 400,
             lineHeight: 1.1,
             color: "#1C1C1A",
           }}
@@ -137,9 +138,10 @@ export default function ProblemSection() {
         </h2>
         <h2
           style={{
-            fontFamily: '"Figtree", sans-serif',
+            fontFamily: '"EB Garamond", Georgia, serif',
+            fontStyle: "italic",
             fontSize: "clamp(32px, 4.5vw, 64px)",
-            fontWeight: 600,
+            fontWeight: 400,
             lineHeight: 1.1,
             color: "#6B6860",
             marginTop: 8,

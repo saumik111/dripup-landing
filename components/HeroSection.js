@@ -88,18 +88,17 @@ export default function HeroSection({ videoRef }) {
         {/* H1 with EB Garamond italic accent on "simply" */}
         <h1
           style={{
-            fontFamily: FONT,
+            fontFamily: '"EB Garamond", Georgia, serif',
+            fontStyle: "italic",
             fontSize: "clamp(36px, 5vw, 72px)",
-            fontWeight: 600,
+            fontWeight: 400,
             lineHeight: 1.05,
             color: "#1C1C1A",
             textAlign: "center",
             maxWidth: 780,
           }}
         >
-          Grow &amp; manage your e-commerce store{" "}
-          <em>simply</em>{" "}
-          by chatting
+          Grow &amp; manage your e-commerce store simply by chatting
         </h1>
 
         {/* Subline */}

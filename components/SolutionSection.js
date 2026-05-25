@@ -34,7 +34,7 @@ export default function SolutionSection() {
       }}
     >
       <div ref={textRef} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center" }}>
-        <h2 style={{ fontFamily: FONT, fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 600, lineHeight: 1.1, color: "#1C1C1A", maxWidth: 640 }}>
+        <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "italic", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, color: "#1C1C1A", maxWidth: 640 }}>
           Chat with Drip Up like you chat with your manager
         </h2>
         <p style={{ fontFamily: FONT, fontSize: 18, fontWeight: 500, lineHeight: 1.6, color: "#6B6860", maxWidth: 480 }}>

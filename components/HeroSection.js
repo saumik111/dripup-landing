@@ -87,7 +87,7 @@ export default function HeroSection({ videoRef }) {
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
             fontStyle: "normal",
-            fontSize: "clamp(36px, 5vw, 72px)",
+            fontSize: "clamp(2rem, 4vw, 3.5rem)",
             fontWeight: 500,
             lineHeight: 1.05,
             color: "#1C1C1A",
@@ -97,7 +97,7 @@ export default function HeroSection({ videoRef }) {
             marginRight: "auto",
           }}
         >
-          <span className="line1">Grow &amp; manage your e-commerce store</span>
+          <span className="line1">Grow &amp; manage your e-commerce store </span>
           <span className="line2">simply by chatting</span>
         </h1>
 
@@ -115,7 +115,7 @@ export default function HeroSection({ videoRef }) {
             marginRight: "auto",
           }}
         >
-          <span className="line1">Drip Up handles every operation in your online store</span>
+          <span className="line1">Drip Up handles every operation in your online store </span>
           <span className="line2">and turns your goals into outcomes — just tell it</span>
         </p>
 

@@ -30,10 +30,10 @@ export default function CTASection({ videoRef, visible }) {
       ref={sectionRef}
       style={{ position: "relative", width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", opacity: 0 }}
     >
-      <video
-        autoPlay muted loop playsInline
+      <img
+        src="/images/hero-bg.png"
+        alt=""
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
-        src="/videos/hero-bg.mp4"
       />
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
 

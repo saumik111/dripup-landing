@@ -54,14 +54,11 @@ export default function HeroSection({ videoRef }) {
     <section
       style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
     >
-      <video
+      <img
         ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
+        src="/images/hero-bg.png"
+        alt=""
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
-        src="/videos/hero-bg.mp4"
       />
 
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />

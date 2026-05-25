@@ -50,7 +50,7 @@ export default function CTASection({ videoRef, visible }) {
           width: "calc(100% - 80px)", textAlign: "center",
         }}
       >
-        <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "italic", fontSize: "clamp(28px, 3vw, 48px)", fontWeight: 400, lineHeight: 1.1, color: "#1C1C1A" }}>
+        <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(28px, 3vw, 48px)", fontWeight: 500, lineHeight: 1.1, color: "#1C1C1A" }}>
           Tell Drip Up what to do
         </h2>
         <h3 style={{ fontFamily: FONT, fontSize: "clamp(20px, 2vw, 32px)", fontWeight: 500, lineHeight: 1.2, color: "#6B6860" }}>

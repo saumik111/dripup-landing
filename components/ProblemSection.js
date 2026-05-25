@@ -127,9 +127,9 @@ export default function ProblemSection() {
         <h2
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
-            fontStyle: "italic",
+            fontStyle: "normal",
             fontSize: "clamp(32px, 4.5vw, 64px)",
-            fontWeight: 400,
+            fontWeight: 500,
             lineHeight: 1.1,
             color: "#1C1C1A",
           }}
@@ -139,9 +139,9 @@ export default function ProblemSection() {
         <h2
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
-            fontStyle: "italic",
+            fontStyle: "normal",
             fontSize: "clamp(32px, 4.5vw, 64px)",
-            fontWeight: 400,
+            fontWeight: 500,
             lineHeight: 1.1,
             color: "#6B6860",
             marginTop: 8,

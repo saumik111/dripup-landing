@@ -142,7 +142,7 @@ export default function FeatureCards({ onReady }) {
         >
           <div style={{ width: "100%", maxWidth: 1200, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "italic", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, color: "#1C1C1A" }}>
+              <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 500, lineHeight: 1.1, color: "#1C1C1A" }}>
                 {card.heading}
               </h2>
               <p style={{ fontFamily: FONT, fontSize: 18, fontWeight: 500, lineHeight: 1.6, color: "#6B6860", maxWidth: 360 }}>

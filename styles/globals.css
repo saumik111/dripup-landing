@@ -1,2 +1,23 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
+
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap");
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F5F0E8;
+  color: #1C1C1A;
+  font-family: "Geist", "Inter", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

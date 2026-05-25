@@ -136,19 +136,19 @@ export default function ProblemSection() {
         >
           Your ambitions can&apos;t wait
         </h2>
-        <p
+        <h2
           style={{
-            fontFamily: '"Figtree", sans-serif',
+            fontFamily: '"EB Garamond", Georgia, serif',
             fontStyle: "normal",
             fontSize: "clamp(32px, 4.5vw, 64px)",
-            fontWeight: 400,
+            fontWeight: 500,
             lineHeight: 1.1,
-            color: "#6B6860",
+            color: "#1C1C1A",
             marginTop: 8,
           }}
         >
           But admin work eats your entire day
-        </p>
+        </h2>
       </div>
 
       {/* Tags layer — absolute, centred, positioned relative to centre */}

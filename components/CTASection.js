@@ -53,7 +53,7 @@ export default function CTASection({ videoRef, visible }) {
         <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(28px, 3vw, 48px)", fontWeight: 500, lineHeight: 1.1, color: "#1C1C1A" }}>
           Tell Drip Up what to do
         </h2>
-        <p style={{ fontFamily: FONT, fontSize: "clamp(20px, 2vw, 32px)", fontWeight: 400, lineHeight: 1.2, color: "#6B6860" }}>
+        <p style={{ fontFamily: FONT, fontSize: "clamp(20px, 2vw, 32px)", fontWeight: 400, lineHeight: 1.2, color: "#1C1C1A" }}>
           And it manages the rest
         </p>
         <a

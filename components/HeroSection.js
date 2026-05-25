@@ -108,7 +108,7 @@ export default function HeroSection({ videoRef }) {
             fontSize: "clamp(16px, 1.6vw, 20px)",
             fontWeight: 400,
             lineHeight: 1.6,
-            color: "#6B6860",
+            color: "#1C1C1A",
             textAlign: "center",
             maxWidth: 560,
           }}

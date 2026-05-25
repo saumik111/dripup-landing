@@ -89,9 +89,9 @@ export default function HeroSection({ videoRef }) {
         <h1
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
-            fontStyle: "italic",
+            fontStyle: "normal",
             fontSize: "clamp(36px, 5vw, 72px)",
-            fontWeight: 400,
+            fontWeight: 700,
             lineHeight: 1.05,
             color: "#1C1C1A",
             textAlign: "center",
@@ -123,7 +123,7 @@ export default function HeroSection({ videoRef }) {
             width: "100%", maxWidth: 860,
             background: "rgba(255, 255, 255, 0.04)",
             backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
-            border: "1px solid rgba(255, 255, 255, 0.10)",
+            border: "1px solid rgba(255, 255, 255, 0.28)",
             borderRadius: 20,
             boxShadow: "0 4px 20px rgba(0, 0, 0, 0.10)",
             padding: "40px 40px",

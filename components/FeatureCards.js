@@ -145,7 +145,7 @@ export default function FeatureCards({ onReady }) {
               <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 500, lineHeight: 1.1, color: "#1C1C1A" }}>
                 {card.heading}
               </h2>
-              <p style={{ fontFamily: FONT, fontSize: 18, fontWeight: 500, lineHeight: 1.6, color: "#6B6860", maxWidth: 360 }}>
+              <p style={{ fontFamily: FONT, fontSize: 18, fontWeight: 400, lineHeight: 1.6, color: "#6B6860", maxWidth: 360 }}>
                 {card.subline}
               </p>
             </div>

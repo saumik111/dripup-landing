@@ -37,7 +37,7 @@ export default function SolutionSection() {
         <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 500, lineHeight: 1.1, color: "#1C1C1A", maxWidth: 640 }}>
           Chat with Drip Up like you chat with your manager
         </h2>
-        <p style={{ fontFamily: FONT, fontSize: 18, fontWeight: 500, lineHeight: 1.6, color: "#6B6860", maxWidth: 480 }}>
+        <p style={{ fontFamily: FONT, fontSize: 18, fontWeight: 400, lineHeight: 1.6, color: "#6B6860", maxWidth: 480 }}>
           Drip Up plugs into your Shopify store and takes over all the repetitive work
         </p>
       </div>

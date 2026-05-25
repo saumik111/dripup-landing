@@ -98,7 +98,7 @@ export default function HeroSection({ videoRef }) {
             maxWidth: 780,
           }}
         >
-          Grow &amp; manage your e-commerce store simply by chatting
+          Grow &amp; manage your e-commerce store<br />simply by chatting
         </h1>
 
         {/* Subline */}
@@ -106,15 +106,14 @@ export default function HeroSection({ videoRef }) {
           style={{
             fontFamily: FONT,
             fontSize: "clamp(16px, 1.6vw, 20px)",
-            fontWeight: 500,
+            fontWeight: 400,
             lineHeight: 1.6,
-            color: "#1C1C1A",
+            color: "#6B6860",
             textAlign: "center",
             maxWidth: 560,
-            opacity: 0.75,
           }}
         >
-          Drip Up handles every operation in your online store and turns your goals into outcomes — just tell it
+          Drip Up handles every operation in your online store<br />and turns your goals into outcomes — just tell it
         </p>
 
         {/* Glass panel */}

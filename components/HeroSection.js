@@ -87,7 +87,7 @@ export default function HeroSection({ videoRef }) {
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
             fontStyle: "normal",
-            fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
+            fontSize: "clamp(2rem, 4vw, 3.5rem)",
             fontWeight: 500,
             lineHeight: 1.05,
             color: "#1C1C1A",

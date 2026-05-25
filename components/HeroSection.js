@@ -92,7 +92,9 @@ export default function HeroSection({ videoRef }) {
             lineHeight: 1.05,
             color: "#1C1C1A",
             textAlign: "center",
-            maxWidth: 780,
+            maxWidth: 700,
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           Grow &amp; manage your e-commerce store<br />simply by chatting
@@ -108,6 +110,8 @@ export default function HeroSection({ videoRef }) {
             color: "#1C1C1A",
             textAlign: "center",
             maxWidth: 560,
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           Drip Up handles every operation in your online store<br />and turns your goals into outcomes — just tell it

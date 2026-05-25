@@ -21,7 +21,8 @@ module.exports = {
         "card-taupe": "#D6D0C3",
       },
       fontFamily: {
-        geist: ["Geist", "Inter", "sans-serif"],
+        figtree: ["Figtree", "sans-serif"],
+        garamond: ["EB Garamond", "Georgia", "serif"],
       },
       fontSize: {
         h1: ["72px", { lineHeight: "1.05", fontWeight: "500" }],

@@ -126,9 +126,9 @@ export default function ProblemSection() {
       >
         <h2
           style={{
-            fontFamily: "Geist, Inter, sans-serif",
+            fontFamily: '"Figtree", sans-serif',
             fontSize: "clamp(32px, 4.5vw, 64px)",
-            fontWeight: 500,
+            fontWeight: 600,
             lineHeight: 1.1,
             color: "#1C1C1A",
           }}
@@ -137,9 +137,9 @@ export default function ProblemSection() {
         </h2>
         <h2
           style={{
-            fontFamily: "Geist, Inter, sans-serif",
+            fontFamily: '"Figtree", sans-serif',
             fontSize: "clamp(32px, 4.5vw, 64px)",
-            fontWeight: 500,
+            fontWeight: 600,
             lineHeight: 1.1,
             color: "#6B6860",
             marginTop: 8,
@@ -172,9 +172,9 @@ export default function ProblemSection() {
               color: "#F5F0E8",
               borderRadius: 4,
               padding: "6px 14px",
-              fontFamily: "Geist, Inter, sans-serif",
+              fontFamily: '"Figtree", sans-serif',
               fontSize: 13,
-              fontWeight: 400,
+              fontWeight: 500,
               whiteSpace: "nowrap",
               opacity: 0,
               willChange: "transform, opacity",

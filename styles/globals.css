@@ -29,3 +29,8 @@ em {
 h1 em {
   font-style: normal;
 }
+
+.line1, .line2 {
+  display: block;
+  text-align: center;
+}

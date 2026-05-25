@@ -97,7 +97,8 @@ export default function HeroSection({ videoRef }) {
             marginRight: "auto",
           }}
         >
-          Grow &amp; manage your e-commerce store<br />simply by chatting
+          <span className="line1">Grow &amp; manage your e-commerce store</span>
+          <span className="line2">simply by chatting</span>
         </h1>
 
         {/* Subline */}
@@ -114,7 +115,8 @@ export default function HeroSection({ videoRef }) {
             marginRight: "auto",
           }}
         >
-          Drip Up handles every operation in your online store<br />and turns your goals into outcomes — just tell it
+          <span className="line1">Drip Up handles every operation in your online store</span>
+          <span className="line2">and turns your goals into outcomes — just tell it</span>
         </p>
 
         {/* Glass panel */}

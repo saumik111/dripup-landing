@@ -26,6 +26,37 @@ export default function HeroSection({ videoRef }) {
   const promptRef = useRef(null);
   const responseRef = useRef(null);
   const rightImageRef = useRef(null);
+  const chattingRef = useRef(null);
+  useEffect(() => {
+    const word = "chatting";
+    const obj = { count: 0 };
+    if (chattingRef.current) chattingRef.current.textContent = "";
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+    tl.to(obj, {
+      count: word.length,
+      duration: word.length * 0.09,
+      ease: "none",
+      delay: 0.4,
+      onUpdate() {
+        if (chattingRef.current)
+          chattingRef.current.textContent = word.slice(0, Math.round(obj.count));
+      },
+    })
+    .to({}, { duration: 3.5 })
+    .to(obj, {
+      count: 0,
+      duration: word.length * 0.055,
+      ease: "none",
+      onUpdate() {
+        if (chattingRef.current)
+          chattingRef.current.textContent = word.slice(0, Math.round(obj.count));
+      },
+    })
+    .to({}, { duration: 0.4 });
+
+    return () => tl.kill();
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
@@ -89,35 +120,20 @@ export default function HeroSection({ videoRef }) {
             fontStyle: "normal",
             fontSize: "clamp(2rem, 4vw, 3.5rem)",
             fontWeight: 500,
-            lineHeight: 1.05,
+            lineHeight: 1.15,
             color: "#1C1C1A",
             textAlign: "center",
-            maxWidth: 700,
+            maxWidth: "min(95vw, 960px)",
             marginLeft: "auto",
             marginRight: "auto",
           }}
         >
-          <span className="line1">Grow &amp; manage your e-commerce store </span>
-          <span className="line2">simply by chatting</span>
+          <span style={{ display: "block", whiteSpace: "nowrap" }}>Grow &amp; manage your e-commerce store</span>
+          <span style={{ display: "block" }}>
+            simply by{" "}
+            <span ref={chattingRef} />
+          </span>
         </h1>
-
-        {/* Subline */}
-        <p
-          style={{
-            fontFamily: FONT,
-            fontSize: "clamp(16px, 1.6vw, 20px)",
-            fontWeight: 400,
-            lineHeight: 1.6,
-            color: "#1C1C1A",
-            textAlign: "center",
-            maxWidth: 560,
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          <span className="line1">Drip Up handles every operation in your online store </span>
-          <span className="line2">and turns your goals into outcomes — just tell it</span>
-        </p>
 
         {/* Glass panel */}
         <div

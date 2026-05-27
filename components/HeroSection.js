@@ -143,7 +143,7 @@ export default function HeroSection({ videoRef }) {
       ScrollTrigger.create({
         trigger: container,
         start: "top 22%",
-        end: "top -25%",
+        end: "top 5%",
         onUpdate(self) {
           const progress = self.progress;
           const total = wordEls.length;

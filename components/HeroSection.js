@@ -137,7 +137,7 @@ export default function HeroSection({ videoRef }) {
   return (
     <section
       ref={heroRef}
-      style={{ position: "relative", width: "100%", height: "100vh", isolation: "isolate" }}
+      style={{ position: "relative", width: "100%", height: "115vh", overflow: "hidden" }}
     >
       {/* Background image — scrolls with the section */}
       <img

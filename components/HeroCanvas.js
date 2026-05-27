@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const FILL_COLOR = { r: 1, g: 1, b: 1 }; // white — destination-out blend punches holes
+const FILL_COLOR = { r: 245 / 255, g: 240 / 255, b: 232 / 255 };
 const SPEED = 1.5;
 const SPREAD = 0.5;
 
@@ -149,7 +149,6 @@ export default function HeroCanvas({ heroRef }) {
         height: "100%",
         zIndex: 2,
         pointerEvents: "none",
-        mixBlendMode: "destination-out",
       }}
     />
   );

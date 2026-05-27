@@ -125,8 +125,11 @@ export default function HeroSection({ videoRef }) {
     // Split into word spans manually (no SplitText dependency)
     const text = h2.textContent;
     const words = text.split(" ").filter(Boolean);
+    const MUTED = "#C8C4BC";   // light muted — visible but faded
+    const DARK  = "#1C1C1A";   // full ink
+
     h2.innerHTML = words
-      .map((w) => `<span style="display:inline-block;opacity:0">${w}</span>`)
+      .map((w) => `<span style="display:inline-block;color:${MUTED}">${w}</span>`)
       .join(" ");
     const wordEls = Array.from(h2.querySelectorAll("span"));
 
@@ -145,10 +148,10 @@ export default function HeroSection({ videoRef }) {
           wordEls.forEach((word, i) => {
             const a = i / total;
             const b = (i + 1) / total;
-            let opacity = 0;
-            if (progress >= b) opacity = 1;
-            else if (progress >= a) opacity = (progress - a) / (b - a);
-            gsap.to(word, { opacity, duration: 0.1, overwrite: true });
+            let t = 0;
+            if (progress >= b) t = 1;
+            else if (progress >= a) t = (progress - a) / (b - a);
+            gsap.to(word, { color: t >= 1 ? DARK : MUTED, duration: 0.3, overwrite: true });
           });
         },
       });

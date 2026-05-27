@@ -5,6 +5,14 @@ const FONT = '"Figtree", sans-serif';
 
 const SWAPPING_WORDS = ["e-commerce", "Shopify"];
 
+function setLetters(container, word) {
+  container.innerHTML = word
+    .split("")
+    .map((ch) => `<span style="display:inline-block">${ch}</span>`)
+    .join("");
+  return Array.from(container.querySelectorAll("span"));
+}
+
 const chatItems = [
   { prompt: "List this product", response: "Listed your product across your store." },
   { prompt: "What are my sales today?", response: "You've made ₹14,200 across 8 orders today." },
@@ -18,22 +26,65 @@ export default function HeroSection({ videoRef }) {
   const rightImageRef = useRef(null);
   const swapRef = useRef(null);
 
-  // Word swap animation on "e-commerce" / "Shopify"
+  // Word swap: shake → letters exit → new letters enter → hold → repeat
   useEffect(() => {
-    const el = swapRef.current;
-    if (!el) return;
-    let index = 0;
+    const container = swapRef.current;
+    if (!container) return;
 
-    const tl = gsap.timeline({ repeat: -1 });
+    let currentIndex = 0;
+    let killed = false;
+    let activeTl = null;
 
-    SWAPPING_WORDS.forEach((word, i) => {
-      tl.call(() => { el.textContent = SWAPPING_WORDS[i]; })
-        .from(el, { y: 18, opacity: 0, duration: 0.45, ease: "power3.out" })
-        .to({}, { duration: 2 })
-        .to(el, { y: -18, opacity: 0, duration: 0.35, ease: "power3.in" });
+    function runCycle() {
+      if (killed) return;
+      const word = SWAPPING_WORDS[currentIndex];
+      const letters = setLetters(container, word);
+      const tl = gsap.timeline({
+        onComplete: () => {
+          if (!killed) {
+            currentIndex = (currentIndex + 1) % SWAPPING_WORDS.length;
+            runCycle();
+          }
+        },
+      });
+      activeTl = tl;
+
+      // 1. Appear instantly, then shake
+      gsap.set(letters, { opacity: 1, y: 0 });
+      tl.to(container, {
+        x: -3, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 5,
+      })
+      .to(container, { x: 0, duration: 0.05 })
+
+      // 2. Hold for 3.5s
+      .to({}, { duration: 3.5 })
+
+      // 3. Letters exit upward one by one (left to right)
+      .to(letters, {
+        y: -22,
+        opacity: 0,
+        duration: 0.22,
+        ease: "power2.in",
+        stagger: 0.04,
+      })
+
+      // 4. Reset positions for incoming word (handled in next cycle via setLetters)
+      .to({}, { duration: 0.05 });
+    }
+
+    // First word: slide in from below on load
+    const firstWord = SWAPPING_WORDS[0];
+    const firstLetters = setLetters(container, firstWord);
+    gsap.set(firstLetters, { y: 20, opacity: 0 });
+    gsap.to(firstLetters, {
+      y: 0, opacity: 1, duration: 0.4, ease: "power3.out", stagger: 0.04,
+      onComplete: () => { if (!killed) runCycle(); },
     });
 
-    return () => tl.kill();
+    return () => {
+      killed = true;
+      if (activeTl) activeTl.kill();
+    };
   }, []);
 
   // Glass panel chat loop
@@ -103,13 +154,18 @@ export default function HeroSection({ videoRef }) {
             marginRight: "auto",
           }}
         >
-          {/* Line 1: "Grow & manage your" + animated word + "store" */}
+          {/* Line 1: "Grow & manage your" + animated word */}
           <span style={{ display: "block", whiteSpace: "nowrap" }}>
             Grow &amp; manage your{" "}
-            <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom" }}>
-              <span ref={swapRef} style={{ display: "inline-block" }}>e-commerce</span>
-            </span>
-            {" "}store
+            <span
+              ref={swapRef}
+              style={{
+                display: "inline-block",
+                verticalAlign: "bottom",
+                overflow: "hidden",
+                minWidth: "4ch",
+              }}
+            />
           </span>
           {/* Line 2 */}
           <span style={{ display: "block" }}>simply by chatting</span>

@@ -128,6 +128,7 @@ export default function HeroSection({ videoRef }) {
     const MUTED = "#C8C4BC";   // light muted — visible but faded
     const DARK  = "#1C1C1A";   // full ink
 
+    h2.style.color = MUTED;
     h2.innerHTML = words
       .map((w) => `<span style="display:inline-block;color:${MUTED}">${w}</span>`)
       .join(" ");
@@ -140,8 +141,8 @@ export default function HeroSection({ videoRef }) {
 
       ScrollTrigger.create({
         trigger: container,
-        start: "top bottom",
-        end: "center center",
+        start: "top 30%",
+        end: "top -20%",
         onUpdate(self) {
           const progress = self.progress;
           const total = wordEls.length;

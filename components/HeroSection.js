@@ -40,7 +40,7 @@ export default function HeroSection({ videoRef }) {
       gsap.set(letters, { opacity: 0 });
       return container.offsetWidth;
     });
-    const avgWidth = widths.reduce((a, b) => a + b, 0) / widths.length;
+    const avgWidth = Math.max(...widths);
     container.innerHTML = "";
     container.style.width = avgWidth + "px";
     container.style.flexShrink = "0";
@@ -146,7 +146,6 @@ export default function HeroSection({ videoRef }) {
               style={{
                 display: "inline-block",
                 verticalAlign: "bottom",
-                overflow: "hidden",
               }}
             />
           </span>

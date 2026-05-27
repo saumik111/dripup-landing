@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const FILL_COLOR = { r: 245 / 255, g: 240 / 255, b: 232 / 255 };
 const SPEED = 1.5;
-const SPREAD = -1.0;
+const SPREAD = -0.4;
 
 const vertexShader = `
   varying vec2 vUv;

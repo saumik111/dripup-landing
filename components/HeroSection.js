@@ -323,7 +323,8 @@ export default function HeroSection({ videoRef }) {
             </svg>
           </div>
         </a>
-      </div>{/* end content */}
+      </div>{/* end main content column */}
+      </div>{/* end content wrapper */}
     </section>
   );
 }

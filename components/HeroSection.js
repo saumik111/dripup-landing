@@ -84,7 +84,7 @@ export default function HeroSection({ videoRef }) {
       });
 
       tl
-        .to({}, { duration: 3.2 })
+        .to({}, { duration: 2.5 })
         .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
         .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }

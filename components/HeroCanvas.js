@@ -55,12 +55,11 @@ const fragmentShader = `
 
     float noiseValue = fbm(adjustedUV * 10.0);
 
-    // Directional wipe: bottom→top using (1.0 - uv.y)
-    // noise distorts the edge, progress drives how far up the wipe has gone
-    float threshold = (1.0 - uv.y) + (noiseValue * 0.5) - (uProgress * 1.5);
+    // Bottom-to-top wipe: low uv.y (bottom) fills first, moves upward
+    float threshold = uv.y + (noiseValue * 0.5) - (uProgress * 1.5);
 
-    // Tight smoothstep = sharp liquid edge
-    float alpha = smoothstep(0.0, 0.05, threshold);
+    // Inverted smoothstep: alpha=0 at start everywhere, cream rises from bottom
+    float alpha = 1.0 - smoothstep(0.0, 0.05, threshold);
 
     gl_FragColor = vec4(uColor, alpha);
   }

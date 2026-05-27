@@ -155,7 +155,7 @@ export default function HeroCanvas({ heroRef }) {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: 2,
+        zIndex: 20,
         pointerEvents: "none",
       }}
     />

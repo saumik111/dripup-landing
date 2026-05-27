@@ -5,60 +5,50 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const FONT = '"Figtree", sans-serif';
+const HEADING_STYLE = {
+  fontFamily: '"EB Garamond", Georgia, serif',
+  fontStyle: "normal",
+  fontSize: "clamp(28px, 3.5vw, 48px)",
+  fontWeight: 500,
+  lineHeight: 1.2,
+  color: "#1C1C1A",
+  margin: 0,
+};
 
 export default function SolutionSection() {
   const sectionRef = useRef(null);
-  const textRef = useRef(null);
+  const sceneRef = useRef(null);
+  const cubeRef = useRef(null);
   const cardRef = useRef(null);
-  const line1Ref = useRef(null);
-  const line2Ref = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const lines = [line1Ref.current, line2Ref.current];
 
-      // Card fade in on scroll
+      // Card fade in
       gsap.from(cardRef.current, {
         opacity: 0, y: 32, duration: 0.7, ease: "power3.out",
         scrollTrigger: { trigger: cardRef.current, start: "top 80%" },
       });
 
-      // Heading: fade + rise in when section enters
-      gsap.from(lines, {
-        opacity: 0, y: 24, stagger: 0.12, duration: 0.7, ease: "power3.out",
-        scrollTrigger: { trigger: textRef.current, start: "top 75%" },
-      });
-
-      // Set perspective on heading container for 3D effect
-      gsap.set(textRef.current, { perspective: 800 });
-
-      // Pin section and rotate lines out upward on scroll exit
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "center center",   // pin when heading is in the middle
-          end: "+=400",             // 400px of scroll to complete the exit
-          pin: true,
-          scrub: 1,
+      // Cube face roll animation — fires once when section is centered
+      ScrollTrigger.create({
+        trigger: sceneRef.current,
+        start: "top 60%",
+        once: true,
+        onEnter: () => {
+          const tl = gsap.timeline();
+          tl.to(cubeRef.current, {
+            rotationX: -8,
+            duration: 0.18,
+            ease: "power1.out",
+          })
+          .to(cubeRef.current, {
+            rotationX: 90,
+            duration: 0.65,
+            ease: "power3.inOut",
+          });
         },
       });
-
-      // Line 1 exits first (rotates up)
-      tl.to(line1Ref.current, {
-        rotationX: -90,
-        opacity: 0,
-        transformOrigin: "bottom center",
-        ease: "power2.in",
-        duration: 0.5,
-      })
-      // Line 2 exits after (rotates up)
-      .to(line2Ref.current, {
-        rotationX: -90,
-        opacity: 0,
-        transformOrigin: "bottom center",
-        ease: "power2.in",
-        duration: 0.5,
-      }, "-=0.25");
 
     }, sectionRef);
 
@@ -73,39 +63,70 @@ export default function SolutionSection() {
         display: "flex", flexDirection: "column", alignItems: "center", gap: 48,
       }}
     >
-      <div ref={textRef} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textAlign: "center", overflow: "hidden" }}>
-        <span
-          ref={line1Ref}
+      {/* 3D scene container */}
+      <div
+        ref={sceneRef}
+        style={{
+          perspective: "900px",
+          width: "100%",
+          maxWidth: 760,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {/* Cube */}
+        <div
+          ref={cubeRef}
           style={{
-            display: "block",
-            fontFamily: '"EB Garamond", Georgia, serif',
-            fontStyle: "normal",
-            fontSize: "clamp(28px, 3.5vw, 48px)",
-            fontWeight: 500,
-            lineHeight: 1.2,
-            color: "#1C1C1A",
-            maxWidth: 760,
+            position: "relative",
+            width: "100%",
+            height: "clamp(80px, 12vw, 140px)",
             transformStyle: "preserve-3d",
+            transformOrigin: "center center",
           }}
         >
-          Drip Up plugs into your Shopify store and takes over all the repetitive tasks,
-        </span>
-        <span
-          ref={line2Ref}
-          style={{
-            display: "block",
-            fontFamily: '"EB Garamond", Georgia, serif',
-            fontStyle: "normal",
-            fontSize: "clamp(28px, 3.5vw, 48px)",
-            fontWeight: 500,
-            lineHeight: 1.2,
-            color: "#1C1C1A",
-            maxWidth: 760,
-            transformStyle: "preserve-3d",
-          }}
-        >
-          just like your manager
-        </span>
+          {/* Face front — current text */}
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 6,
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              textAlign: "center",
+              transform: "rotateX(0deg) translateZ(60px)",
+            }}
+          >
+            <p style={HEADING_STYLE}>We handle the boring work,</p>
+            <p style={HEADING_STYLE}>so you can focus on <em>growing</em>.</p>
+          </div>
+
+          {/* Face bottom — next text */}
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 6,
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              textAlign: "center",
+              transform: "rotateX(-90deg) translateZ(60px)",
+            }}
+          >
+            <p style={HEADING_STYLE}>Drip Up plugs into your Shopify store</p>
+            <p style={HEADING_STYLE}>and takes over all the repetitive tasks.</p>
+          </div>
+        </div>
       </div>
 
       <div

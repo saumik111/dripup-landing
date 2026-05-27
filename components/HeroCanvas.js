@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 const CONFIG = {
   color: "#F5F0E8",
   spread: 0.5,
-  speed: 2,
+  speed: 1.2,
 };
 
 function hexToRgb(hex) {

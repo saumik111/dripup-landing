@@ -1,26 +1,18 @@
 import { useEffect, useRef } from "react";
 
-// Exact port of IronHill WebGL scroll animation
-// Ref: https://github.com/Thakuma07/IronHill-WebGL-ScrollAnimation
-// CONFIG matches reference exactly
 const CONFIG = {
-  color: "#F5F0E8", // our cream background
-  spread: 0.5,
+  color: "#F5F0E8",
+  spread: -0.5,
   speed: 2,
 };
 
 function hexToRgb(hex) {
   const res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return res
-    ? {
-        r: parseInt(res[1], 16) / 255,
-        g: parseInt(res[2], 16) / 255,
-        b: parseInt(res[3], 16) / 255,
-      }
+    ? { r: parseInt(res[1], 16) / 255, g: parseInt(res[2], 16) / 255, b: parseInt(res[3], 16) / 255 }
     : { r: 1, g: 1, b: 1 };
 }
 
-// Exact vertex shader from IronHill reference
 const vertexShader = `
   varying vec2 vUv;
   void main() {
@@ -29,7 +21,6 @@ const vertexShader = `
   }
 `;
 
-// Exact fragment shader from IronHill reference
 const fragmentShader = `
   uniform float uProgress;
   uniform vec2 uResolution;
@@ -82,14 +73,19 @@ export default function HeroCanvas({ heroRef }) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const hero = heroRef?.current;
-    if (!canvas || !hero) return;
+    if (!canvas) return;
 
     let renderer, material, animId, killed = false;
     const rgb = hexToRgb(CONFIG.color);
 
     async function init() {
       const THREE = await import("three");
+
+      // Wait one frame to ensure heroRef is attached after dynamic load
+      await new Promise((r) => requestAnimationFrame(r));
+
+      const hero = heroRef?.current;
+      if (!hero || killed) return;
 
       const scene = new THREE.Scene();
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -124,14 +120,10 @@ export default function HeroCanvas({ heroRef }) {
       }
       animate();
 
-      // IronHill scroll method — direct scroll listener, not ScrollTrigger
       function onScroll() {
         const maxScroll = hero.offsetHeight - window.innerHeight;
         if (maxScroll <= 0) return;
-        scrollProgress = Math.min(
-          (window.scrollY / maxScroll) * CONFIG.speed,
-          1.1
-        );
+        scrollProgress = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1.1);
       }
       window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -141,11 +133,6 @@ export default function HeroCanvas({ heroRef }) {
         material.uniforms.uResolution.value.set(hero.offsetWidth, hero.offsetHeight);
       }
       window.addEventListener("resize", onResize);
-
-      return () => {
-        window.removeEventListener("scroll", onScroll);
-        window.removeEventListener("resize", onResize);
-      };
     }
 
     init();

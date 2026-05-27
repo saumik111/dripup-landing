@@ -198,8 +198,8 @@ export default function HeroSection({ videoRef }) {
       <HeroCanvas heroRef={heroRef} />
 
 
-      {/* Content */}
-      <div style={{ position: "relative", zIndex: 10, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      {/* Content — pinned to first viewport, exact source: hero-header is position:absolute height:100vh */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
 
       {/* Logo */}
       <div

@@ -1,11 +1,26 @@
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// Exact port of IronHill WebGL scroll animation
+// Ref: https://github.com/Thakuma07/IronHill-WebGL-ScrollAnimation
+// CONFIG matches reference exactly
+const CONFIG = {
+  color: "#F5F0E8", // our cream background
+  spread: 0.5,
+  speed: 2,
+};
 
-const FILL_COLOR = { r: 245 / 255, g: 240 / 255, b: 232 / 255 };
+function hexToRgb(hex) {
+  const res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return res
+    ? {
+        r: parseInt(res[1], 16) / 255,
+        g: parseInt(res[2], 16) / 255,
+        b: parseInt(res[3], 16) / 255,
+      }
+    : { r: 1, g: 1, b: 1 };
+}
 
+// Exact vertex shader from IronHill reference
 const vertexShader = `
   varying vec2 vUv;
   void main() {
@@ -14,10 +29,12 @@ const vertexShader = `
   }
 `;
 
+// Exact fragment shader from IronHill reference
 const fragmentShader = `
   uniform float uProgress;
   uniform vec2 uResolution;
   uniform vec3 uColor;
+  uniform float uSpread;
   varying vec2 vUv;
 
   float Hash(vec2 p) {
@@ -36,31 +53,25 @@ const fragmentShader = `
     );
   }
 
-  // 5 octaves for fine, intricate edge detail
   float fbm(vec2 p) {
     float v = 0.0;
     v += noise(p * 1.0) * 0.5;
     v += noise(p * 2.0) * 0.25;
     v += noise(p * 4.0) * 0.125;
-    v += noise(p * 8.0) * 0.0625;
-    v += noise(p * 16.0) * 0.03125;
     return v;
   }
 
   void main() {
     vec2 uv = vUv;
+    float aspect = uResolution.x / uResolution.y;
+    vec2 centeredUv = (uv - 0.5) * vec2(aspect, 1.0);
 
-    // Aspect-correct UV so noise isn't stretched horizontally
-    vec2 adjustedUV = vec2(uv.x * (uResolution.x / uResolution.y), uv.y);
+    float dissolveEdge = uv.y - uProgress * 1.2;
+    float noiseValue = fbm(centeredUv * 15.0);
+    float d = dissolveEdge + noiseValue + uSpread;
 
-    float noiseValue = fbm(adjustedUV * 10.0);
-
-    // Directional wipe: bottom→top using (1.0 - uv.y)
-    // noise distorts the edge, progress drives how far up the wipe has gone
-    float threshold = (1.0 - uv.y) + (noiseValue * 0.5) - (uProgress * 1.5);
-
-    // Tight smoothstep = sharp liquid edge
-    float alpha = smoothstep(0.0, 0.05, threshold);
+    float pixelSize = 1.0 / uResolution.y;
+    float alpha = 1.0 - smoothstep(-pixelSize, pixelSize, d);
 
     gl_FragColor = vec4(uColor, alpha);
   }
@@ -75,6 +86,7 @@ export default function HeroCanvas({ heroRef }) {
     if (!canvas || !hero) return;
 
     let renderer, material, animId, killed = false;
+    const rgb = hexToRgb(CONFIG.color);
 
     async function init() {
       const THREE = await import("three");
@@ -84,7 +96,7 @@ export default function HeroCanvas({ heroRef }) {
 
       renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(hero.offsetWidth, hero.offsetHeight);
 
       const geometry = new THREE.PlaneGeometry(2, 2);
       material = new THREE.ShaderMaterial({
@@ -92,8 +104,9 @@ export default function HeroCanvas({ heroRef }) {
         fragmentShader,
         uniforms: {
           uProgress: { value: 0 },
-          uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-          uColor: { value: new THREE.Vector3(FILL_COLOR.r, FILL_COLOR.g, FILL_COLOR.b) },
+          uResolution: { value: new THREE.Vector2(hero.offsetWidth, hero.offsetHeight) },
+          uColor: { value: new THREE.Vector3(rgb.r, rgb.g, rgb.b) },
+          uSpread: { value: CONFIG.spread },
         },
         transparent: true,
       });
@@ -101,30 +114,38 @@ export default function HeroCanvas({ heroRef }) {
       const mesh = new THREE.Mesh(geometry, material);
       scene.add(mesh);
 
+      let scrollProgress = 0;
+
       function animate() {
         if (killed) return;
         animId = requestAnimationFrame(animate);
+        material.uniforms.uProgress.value = scrollProgress;
         renderer.render(scene, camera);
       }
       animate();
 
-      ScrollTrigger.create({
-        trigger: hero,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        onUpdate: (self) => {
-          if (material) material.uniforms.uProgress.value = self.progress;
-        },
-      });
+      // IronHill scroll method — direct scroll listener, not ScrollTrigger
+      function onScroll() {
+        const maxScroll = hero.offsetHeight - window.innerHeight;
+        if (maxScroll <= 0) return;
+        scrollProgress = Math.min(
+          (window.scrollY / maxScroll) * CONFIG.speed,
+          1.1
+        );
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
 
       function onResize() {
         if (!renderer || !material) return;
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        material.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
+        renderer.setSize(hero.offsetWidth, hero.offsetHeight);
+        material.uniforms.uResolution.value.set(hero.offsetWidth, hero.offsetHeight);
       }
       window.addEventListener("resize", onResize);
-      return () => window.removeEventListener("resize", onResize);
+
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onResize);
+      };
     }
 
     init();
@@ -140,11 +161,11 @@ export default function HeroCanvas({ heroRef }) {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "100%",
         zIndex: 2,
         pointerEvents: "none",
       }}

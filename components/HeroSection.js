@@ -26,65 +26,46 @@ export default function HeroSection({ videoRef }) {
   const rightImageRef = useRef(null);
   const swapRef = useRef(null);
 
-  // Word swap: shake → letters exit → new letters enter → hold → repeat
+  // Word swap: enter letters → hold → gentle shake → exit letters → repeat
   useEffect(() => {
     const container = swapRef.current;
     if (!container) return;
 
-    let currentIndex = 0;
     let killed = false;
-    let activeTl = null;
+    let idx = 0;
 
-    function runCycle() {
+    function playWord() {
       if (killed) return;
-      const word = SWAPPING_WORDS[currentIndex];
+      const word = SWAPPING_WORDS[idx];
       const letters = setLetters(container, word);
+      gsap.set(letters, { y: 20, opacity: 0 });
+
+      const enterDuration = 0.38 + letters.length * 0.05;
+      const exitDuration  = 0.22 + letters.length * 0.04;
+
       const tl = gsap.timeline({
         onComplete: () => {
-          if (!killed) {
-            currentIndex = (currentIndex + 1) % SWAPPING_WORDS.length;
-            runCycle();
-          }
+          if (killed) return;
+          idx = (idx + 1) % SWAPPING_WORDS.length;
+          playWord();
         },
       });
-      activeTl = tl;
 
-      // 1. Appear instantly, then shake
-      gsap.set(letters, { opacity: 1, y: 0 });
-      tl.to(container, {
-        x: -3, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 5,
-      })
-      .to(container, { x: 0, duration: 0.05 })
-
-      // 2. Hold for 3.5s
-      .to({}, { duration: 3.5 })
-
-      // 3. Letters exit upward one by one (left to right)
-      .to(letters, {
-        y: -22,
-        opacity: 0,
-        duration: 0.22,
-        ease: "power2.in",
-        stagger: 0.04,
-      })
-
-      // 4. Reset positions for incoming word (handled in next cycle via setLetters)
-      .to({}, { duration: 0.05 });
+      tl
+        // Enter: letters slide up one by one
+        .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
+        // Hold
+        .to({}, { duration: 3.2 })
+        // Gentle shake — just a 1.5px nudge
+        .to(container, { x: 1.5, duration: 0.07, ease: "power1.inOut", yoyo: true, repeat: 3 })
+        .to(container, { x: 0, duration: 0.04 })
+        // Exit: letters slide up out one by one
+        .to(letters, { y: -20, opacity: 0, duration: 0.22, ease: "power2.in", stagger: 0.04 });
     }
 
-    // First word: slide in from below on load
-    const firstWord = SWAPPING_WORDS[0];
-    const firstLetters = setLetters(container, firstWord);
-    gsap.set(firstLetters, { y: 20, opacity: 0 });
-    gsap.to(firstLetters, {
-      y: 0, opacity: 1, duration: 0.4, ease: "power3.out", stagger: 0.04,
-      onComplete: () => { if (!killed) runCycle(); },
-    });
+    playWord();
 
-    return () => {
-      killed = true;
-      if (activeTl) activeTl.kill();
-    };
+    return () => { killed = true; };
   }, []);
 
   // Glass panel chat loop

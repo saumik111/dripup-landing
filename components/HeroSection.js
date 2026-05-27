@@ -180,22 +180,26 @@ export default function HeroSection({ videoRef }) {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      // Pin the hero-content after word reveal ends (top 5% = words all dark)
-      // Scrub-linked so scroll down = roll forward, scroll up = roll back
+      const wordRevealEl = container.querySelector(".cube-front");
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
           start: "top 5%",
-          end: "+=400",
+          end: "+=500",
           pin: true,
           scrub: 1,
           anticipatePin: 1,
         },
       });
 
-      // Slight wind-up then full 90° roll
-      tl.to(cube, { rotationX: -8, ease: "power1.out", duration: 0.15 })
-        .to(cube, { rotationX: 90, ease: "power3.inOut", duration: 0.85 });
+      // 1. Fade out word-reveal text, fade in cube (same position)
+      tl.to(wordRevealEl, { opacity: 0, duration: 0.15 }, 0)
+        .to(cube, { opacity: 1, duration: 0.15 }, 0)
+        // 2. Wind-up
+        .to(cube, { rotationX: -8, ease: "power1.out", duration: 0.15 })
+        // 3. Full 90° roll
+        .to(cube, { rotationX: 90, ease: "power3.inOut", duration: 0.7 });
     }
     setup();
   }, []);
@@ -412,7 +416,7 @@ export default function HeroSection({ videoRef }) {
       </div>{/* end panel inner column */}
       </div>{/* end panel wrapper */}
 
-      {/* hero-content — exact source: position absolute, bottom 0, height 125vh */}
+      {/* hero-content — position absolute, bottom 0, height 125vh */}
       <div
         ref={heroContentRef}
         style={{
@@ -429,43 +433,55 @@ export default function HeroSection({ videoRef }) {
           textAlign: "center",
         }}
       >
-        {/* 3D cube — front face is the word-reveal text, bottom face is the next message */}
+        {/* Word reveal text — separate from cube, gets faded out before cube appears */}
+        <div
+          className="cube-front"
+          style={{
+            position: "absolute",
+            fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
+            fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
+            textAlign: "center", maxWidth: 900,
+          }}
+        >
+          We handle the boring work,<br />so you can focus on <em>growing</em>
+        </div>
+
+        {/* Cube — hidden initially, shown after word reveal fades */}
         <div style={{ perspective: "900px", width: "100%", maxWidth: 900, display: "flex", justifyContent: "center" }}>
           <div
             ref={cubeRef}
             style={{
               position: "relative",
               width: "100%",
-              height: "clamp(100px, 10vw, 140px)",
+              height: "clamp(120px, 12vw, 160px)",
               transformStyle: "preserve-3d",
               transformOrigin: "center center",
+              opacity: 0,
             }}
           >
-            {/* Front face — word reveal text, same font as hero H1 */}
-            <div
-              className="cube-front"
-              style={{
-                position: "absolute", width: "100%", height: "100%",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                gap: "0.15em",
-                backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
-                textAlign: "center",
-                transform: "rotateX(0deg) translateZ(70px)",
-                fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-                fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
-              }}
-            >
-              We handle the boring work,<br />so you can focus on <em>growing</em>
-            </div>
-
-            {/* Bottom face — same font, same size, lines align with front face lines */}
+            {/* Front face */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
               display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: "0.15em",
+              gap: "0.2em",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
-              transform: "rotateX(-90deg) translateZ(70px)",
+              transform: "rotateX(0deg) translateZ(80px)",
+              fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
+            }}>
+              <span style={{ display: "block" }}>We handle the boring work,</span>
+              <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
+            </div>
+
+            {/* Bottom face */}
+            <div style={{
+              position: "absolute", width: "100%", height: "100%",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              gap: "0.2em",
+              backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
+              textAlign: "center",
+              transform: "rotateX(-90deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
             }}>

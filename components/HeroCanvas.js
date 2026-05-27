@@ -1,20 +1,18 @@
 import { useEffect, useRef } from "react";
 
-// Exact IronHill config
 const CONFIG = {
   color: "#F5F0E8",
   spread: 0.5,
-  speed: 1.0,
+  speed: 2,
 };
 
 function hexToRgb(hex) {
-  const res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return res
-    ? { r: parseInt(res[1], 16) / 255, g: parseInt(res[2], 16) / 255, b: parseInt(res[3], 16) / 255 }
-    : { r: 1, g: 1, b: 1 };
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? { r: parseInt(result[1], 16) / 255, g: parseInt(result[2], 16) / 255, b: parseInt(result[3], 16) / 255 }
+    : { r: 0.96, g: 0.94, b: 0.91 };
 }
 
-// Exact IronHill shaders
 const vertexShader = `
   varying vec2 vUv;
   void main() {
@@ -23,6 +21,7 @@ const vertexShader = `
   }
 `;
 
+// EXACT source shader — note: noiseValue * uSpread (not + uSpread)
 const fragmentShader = `
   uniform float uProgress;
   uniform vec2 uResolution;
@@ -61,7 +60,7 @@ const fragmentShader = `
 
     float dissolveEdge = uv.y - uProgress * 1.2;
     float noiseValue = fbm(centeredUv * 15.0);
-    float d = dissolveEdge + noiseValue + uSpread;
+    float d = dissolveEdge + noiseValue * uSpread;
 
     float pixelSize = 1.0 / uResolution.y;
     float alpha = 1.0 - smoothstep(-pixelSize, pixelSize, d);
@@ -82,7 +81,6 @@ export default function HeroCanvas({ heroRef }) {
 
     async function init() {
       const THREE = await import("three");
-
       const hero = heroRef?.current;
       if (!hero || killed) return;
 
@@ -91,13 +89,11 @@ export default function HeroCanvas({ heroRef }) {
 
       renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
 
-      // Canvas is sized to the hero element — same as IronHill
+      // Sized to full hero dimensions — exact source behavior
       function resize() {
-        const w = hero.offsetWidth;
-        const h = hero.offsetHeight;
-        renderer.setSize(w, h);
+        renderer.setSize(hero.offsetWidth, hero.offsetHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        if (material) material.uniforms.uResolution.value.set(w, h);
+        if (material) material.uniforms.uResolution.value.set(hero.offsetWidth, hero.offsetHeight);
       }
       resize();
       window.addEventListener("resize", resize);
@@ -128,11 +124,11 @@ export default function HeroCanvas({ heroRef }) {
       }
       animate();
 
-      // Exact IronHill scroll math:
-      // maxScroll = hero height - window height (scroll distance until hero bottom hits viewport bottom)
-      // progress = (scrollY / maxScroll) * speed, clamped to 1.1
+      // Exact source scroll math using window.scrollY (Lenis equivalent)
       function onScroll() {
-        const maxScroll = hero.offsetHeight - window.innerHeight;
+        const heroHeight = hero.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const maxScroll = heroHeight - windowHeight;
         if (maxScroll <= 0) return;
         scrollProgress = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1.1);
       }
@@ -149,8 +145,7 @@ export default function HeroCanvas({ heroRef }) {
     };
   }, [heroRef]);
 
-  // KEY: canvas is positioned at BOTTOM of hero, full width, viewport height
-  // This matches IronHill's CSS: position:absolute; bottom:0; width:100%; height:100vh
+  // Exact source CSS: position absolute, bottom 0, full width, full hero height
   return (
     <canvas
       ref={canvasRef}
@@ -159,7 +154,7 @@ export default function HeroCanvas({ heroRef }) {
         bottom: 0,
         left: 0,
         width: "100%",
-        height: "100vh",
+        height: "100%",
         zIndex: 2,
         pointerEvents: "none",
       }}

@@ -182,7 +182,7 @@ export default function HeroSection({ videoRef }) {
   return (
     <section
       ref={heroRef}
-      style={{ position: "relative", width: "100%", height: "280vh", overflow: "hidden" }}
+      style={{ position: "relative", width: "100%", height: "175vh", overflow: "hidden" }}
     >
       {/* Background image — scrolls with the section */}
       <img
@@ -372,7 +372,7 @@ export default function HeroSection({ videoRef }) {
       </div>{/* end main content column */}
       </div>{/* end content wrapper */}
 
-      {/* hero-content — sits at bottom of hero, word reveal happens here */}
+      {/* hero-content — exact source: position absolute, bottom 0, height 125vh */}
       <div
         ref={heroContentRef}
         style={{
@@ -380,12 +380,13 @@ export default function HeroSection({ videoRef }) {
           bottom: 0,
           left: 0,
           width: "100%",
-          height: "140vh",
+          height: "125vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           zIndex: 10,
           padding: "0 40px",
+          textAlign: "center",
         }}
       >
         <h2

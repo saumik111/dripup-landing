@@ -56,11 +56,10 @@ export default function HeroSection({ videoRef }) {
         .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
         // Hold
         .to({}, { duration: 3.2 })
-        // Gentle shake — just a 1.5px nudge
-        .to(container, { x: 1.5, duration: 0.07, ease: "power1.inOut", yoyo: true, repeat: 3 })
-        .to(container, { x: 0, duration: 0.04 })
-        // Exit: letters slide up out one by one
-        .to(letters, { y: -20, opacity: 0, duration: 0.22, ease: "power2.in", stagger: 0.04 });
+        // Pre-jump: each letter dips down slightly before launching up
+        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0.04 })
+        // Exit: letters jump up and out one by one
+        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 }, "-=0.05");
     }
 
     playWord();
@@ -144,7 +143,8 @@ export default function HeroSection({ videoRef }) {
                 display: "inline-block",
                 verticalAlign: "bottom",
                 overflow: "hidden",
-                minWidth: "4ch",
+                minWidth: "10ch",
+                textAlign: "left",
               }}
             />
           </span>

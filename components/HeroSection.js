@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 const FONT = '"Figtree", sans-serif';
 
-const SWAPPING_WORDS = ["Shopify store", "online store"];
+const SWAPPING_WORDS = ["shopify store", "online store"];
 
 function setLetters(container, word) {
   container.innerHTML = word

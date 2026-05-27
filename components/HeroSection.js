@@ -89,33 +89,24 @@ export default function HeroSection({ videoRef }) {
         .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }
 
-    // One-time entrance
-    const staticParts = heading.querySelectorAll("span[data-static], span[data-line='2']");
+    // One-time entrance — collect all [data-word] spans in DOM order
+    // This includes: Grow, &, manage, your, [swapRef], simply, by, chatting
     gsap.set(heading, { opacity: 1 });
-    gsap.set(staticParts, { y: 48, opacity: 0 });
 
-    // First word letters start hidden below
-    const firstLetters = setLetters(container, SWAPPING_WORDS[0]);
-    gsap.set(firstLetters, { y: 48, opacity: 0 });
+    // Set first word into container, hidden
+    setLetters(container, SWAPPING_WORDS[0]);
+    const allWords = Array.from(heading.querySelectorAll("span[data-word]"));
+    gsap.set(allWords, { y: 48, opacity: 0 });
 
-    const entranceTl = gsap.timeline({
+    gsap.to(allWords, {
+      y: 0,
+      opacity: 1,
+      duration: 0.65,
+      ease: "power3.out",
+      stagger: 0.08,
       delay: 0.2,
       onComplete: () => { if (!killed) holdThenLoop(); },
     });
-
-    entranceTl
-      // Static text ("Grow & manage your") rises up
-      .to(heading.querySelector("span[data-static]"), {
-        y: 0, opacity: 1, duration: 0.7, ease: "power3.out",
-      })
-      // First word letters rise up one by one, slightly staggered after static text
-      .to(firstLetters, {
-        y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05,
-      }, "-=0.3")
-      // Line 2 rises up after
-      .to(heading.querySelector("span[data-line='2']"), {
-        y: 0, opacity: 1, duration: 0.7, ease: "power3.out",
-      }, "-=0.2");
 
     return () => { killed = true; };
   }, []);
@@ -189,19 +180,27 @@ export default function HeroSection({ videoRef }) {
             opacity: 0,
           }}
         >
-          {/* Line 1 */}
-          <span data-line="1" style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
-            <span data-static="1">Grow &amp; manage your&nbsp;</span>
+          {/* Line 1 — each word is its own span for entrance stagger */}
+          <span style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
+            {["Grow", "&", "manage", "your"].map((w, i) => (
+              <span key={i} data-word style={{ display: "inline-block" }}>
+                {w}&nbsp;
+              </span>
+            ))}
             <span
               ref={swapRef}
-              style={{
-                display: "inline-block",
-                verticalAlign: "bottom",
-              }}
+              data-word
+              style={{ display: "inline-block", verticalAlign: "bottom" }}
             />
           </span>
-          {/* Line 2 */}
-          <span data-line="2" style={{ display: "block" }}>simply by chatting</span>
+          {/* Line 2 — each word is its own span */}
+          <span style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap", marginTop: "0.1em" }}>
+            {["simply", "by", "chatting"].map((w, i) => (
+              <span key={i} data-word style={{ display: "inline-block" }}>
+                {i < 2 ? <>{w}&nbsp;</> : w}
+              </span>
+            ))}
+          </span>
         </h1>
 
         {/* Glass panel */}

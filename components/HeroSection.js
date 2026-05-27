@@ -47,6 +47,7 @@ export default function HeroSection({ videoRef }) {
     container.style.width = avgWidth + "px";
     container.style.flexShrink = "0";
 
+    // playWord — normal loop cycle (enter → hold → dip → exit → repeat)
     function playWord() {
       if (killed) return;
       const word = SWAPPING_WORDS[idx];
@@ -68,20 +69,53 @@ export default function HeroSection({ videoRef }) {
         .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }
 
-    // One-time entrance: whole heading rises from below, then swap loop starts
-    const lines = heading.querySelectorAll("span[data-line]");
-    gsap.set(heading, { opacity: 1 });
-    gsap.set(lines, { y: 48, opacity: 0 });
+    // holdThenLoop — first word already visible, skip enter, go straight to hold
+    function holdThenLoop() {
+      if (killed) return;
+      const word = SWAPPING_WORDS[idx];
+      const letters = Array.from(container.querySelectorAll("span"));
 
-    gsap.to(lines, {
-      y: 0,
-      opacity: 1,
-      duration: 0.7,
-      ease: "power3.out",
-      stagger: 0.12,
+      const tl = gsap.timeline({
+        onComplete: () => {
+          if (killed) return;
+          idx = (idx + 1) % SWAPPING_WORDS.length;
+          playWord();
+        },
+      });
+
+      tl
+        .to({}, { duration: 3.2 })
+        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
+        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
+    }
+
+    // One-time entrance
+    const staticParts = heading.querySelectorAll("span[data-static], span[data-line='2']");
+    gsap.set(heading, { opacity: 1 });
+    gsap.set(staticParts, { y: 48, opacity: 0 });
+
+    // First word letters start hidden below
+    const firstLetters = setLetters(container, SWAPPING_WORDS[0]);
+    gsap.set(firstLetters, { y: 48, opacity: 0 });
+
+    const entranceTl = gsap.timeline({
       delay: 0.2,
-      onComplete: () => { if (!killed) playWord(); },
+      onComplete: () => { if (!killed) holdThenLoop(); },
     });
+
+    entranceTl
+      // Static text ("Grow & manage your") rises up
+      .to(heading.querySelector("span[data-static]"), {
+        y: 0, opacity: 1, duration: 0.7, ease: "power3.out",
+      })
+      // First word letters rise up one by one, slightly staggered after static text
+      .to(firstLetters, {
+        y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05,
+      }, "-=0.3")
+      // Line 2 rises up after
+      .to(heading.querySelector("span[data-line='2']"), {
+        y: 0, opacity: 1, duration: 0.7, ease: "power3.out",
+      }, "-=0.2");
 
     return () => { killed = true; };
   }, []);
@@ -157,7 +191,7 @@ export default function HeroSection({ videoRef }) {
         >
           {/* Line 1 */}
           <span data-line="1" style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
-            <span>Grow &amp; manage your&nbsp;</span>
+            <span data-static="1">Grow &amp; manage your&nbsp;</span>
             <span
               ref={swapRef}
               style={{

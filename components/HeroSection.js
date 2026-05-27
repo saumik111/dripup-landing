@@ -140,7 +140,7 @@ export default function HeroSection({ videoRef }) {
 
       ScrollTrigger.create({
         trigger: container,
-        start: "top 75%",
+        start: "top bottom",
         end: "center center",
         onUpdate(self) {
           const progress = self.progress;
@@ -151,7 +151,11 @@ export default function HeroSection({ videoRef }) {
             let t = 0;
             if (progress >= b) t = 1;
             else if (progress >= a) t = (progress - a) / (b - a);
-            gsap.to(word, { color: t >= 1 ? DARK : MUTED, duration: 0.3, overwrite: true });
+            // Smooth color interpolation between muted and dark
+            const r = Math.round(200 + (28 - 200) * t);
+            const g = Math.round(196 + (28 - 196) * t);
+            const bv = Math.round(188 + (26 - 188) * t);
+            word.style.color = `rgb(${r},${g},${bv})`;
           });
         },
       });

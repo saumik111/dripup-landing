@@ -410,7 +410,7 @@ export default function HeroSection({ videoRef }) {
             maxWidth: 800,
           }}
         >
-          We handle the boring work,<br />so you can focus on growing
+          We handle the boring work,<br />so you can focus on <em>growing</em>
         </h2>
       </div>
     </section>

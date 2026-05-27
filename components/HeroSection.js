@@ -219,7 +219,7 @@ export default function HeroSection({ videoRef }) {
       </div>
 
       {/* Heading — z:1, below canvas so it gets dissolved */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: "15vh", pointerEvents: "none" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: "12vh", pointerEvents: "none" }}>
         <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <h1
           ref={headingRef}
@@ -263,7 +263,7 @@ export default function HeroSection({ videoRef }) {
       </div>{/* end heading wrapper */}
 
       {/* Panel + CTA — z:3, above image/overlay but below canvas, gets dissolved */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: "30vh" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: "36vh" }}>
       <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
 
         {/* Glass panel */}

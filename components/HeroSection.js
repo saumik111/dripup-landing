@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 const FONT = '"Figtree", sans-serif';
 
-const SWAPPING_WORDS = ["e-commerce", "Shopify store"];
+const SWAPPING_WORDS = ["online store", "Shopify store"];
 
 function setLetters(container, word) {
   container.innerHTML = word
@@ -127,17 +127,15 @@ export default function HeroSection({ videoRef }) {
             marginRight: "auto",
           }}
         >
-          {/* Line 1: "Grow & manage your" + animated word + optional " store" */}
-          <span style={{ display: "block", whiteSpace: "nowrap" }}>
-            Grow &amp; manage your{" "}
+          {/* Line 1: centered flex row so swap word doesn't shift alignment */}
+          <span style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
+            <span>Grow &amp; manage your&nbsp;</span>
             <span
               ref={swapRef}
               style={{
                 display: "inline-block",
                 verticalAlign: "bottom",
                 overflow: "hidden",
-                minWidth: "13ch",
-                textAlign: "left",
               }}
             />
           </span>

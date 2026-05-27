@@ -20,7 +20,7 @@ const chatItems = [
   { prompt: "Update price to ₹1,299", response: "Price updated on all variants." },
 ];
 
-export default function HeroSection({ videoRef }) {
+export default function HeroSection({ videoRef, heroRef }) {
   const promptRef = useRef(null);
   const responseRef = useRef(null);
   const rightImageRef = useRef(null);
@@ -133,16 +133,15 @@ export default function HeroSection({ videoRef }) {
   }, []);
 
   return (
+    // Outer section is 200vh tall — provides scroll track for canvas dissolve
     <section
-      style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
+      ref={heroRef}
+      style={{ position: "relative", width: "100%", height: "200vh" }}
     >
-      <img
-        ref={videoRef}
-        src="/images/hero-bg.png"
-        alt=""
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
-      />
+      {/* Sticky inner — stays visible as user scrolls through the 200vh track */}
+      <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
 
+      {/* Overlay — sits above canvas (z:0) */}
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
 
       {/* Logo */}
@@ -314,6 +313,7 @@ export default function HeroSection({ videoRef }) {
           </div>
         </a>
       </div>
+      </div>{/* end sticky */}
     </section>
   );
 }

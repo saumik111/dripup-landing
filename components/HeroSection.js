@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 const FONT = '"Figtree", sans-serif';
 
-const SWAPPING_WORDS = ["e-commerce", "Shopify"];
+const SWAPPING_WORDS = ["e-commerce", "Shopify store"];
 
 function setLetters(container, word) {
   container.innerHTML = word
@@ -25,7 +25,6 @@ export default function HeroSection({ videoRef }) {
   const responseRef = useRef(null);
   const rightImageRef = useRef(null);
   const swapRef = useRef(null);
-  const storeRef = useRef(null);
 
   // Word swap: enter letters → hold → gentle shake → exit letters → repeat
   useEffect(() => {
@@ -38,9 +37,7 @@ export default function HeroSection({ videoRef }) {
     function playWord() {
       if (killed) return;
       const word = SWAPPING_WORDS[idx];
-      const isShopify = idx === 1;
       const letters = setLetters(container, word);
-      const store = storeRef.current;
       gsap.set(letters, { y: 20, opacity: 0 });
 
       const tl = gsap.timeline({
@@ -52,31 +49,10 @@ export default function HeroSection({ videoRef }) {
       });
 
       tl
-        // Enter word letters one by one
-        .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 });
-
-      // "store" enters together with the last letters of Shopify
-      if (isShopify) {
-        tl.fromTo(store, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out" }, "<+=0.25");
-      }
-
-      tl
-        // Hold
+        .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
         .to({}, { duration: 3.2 })
-        // Dip all together
-        .to(isShopify ? [letters, store] : letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
-        // Exit word letters one by one
+        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
         .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
-
-      // "store" exits in sync with the last letter
-      if (isShopify) {
-        tl.to(store, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in" }, "<+=0.1");
-      }
-
-      // Ensure "store" is hidden when not Shopify
-      if (!isShopify) {
-        gsap.set(store, { opacity: 0, y: 20 });
-      }
     }
 
     playWord();
@@ -160,17 +136,10 @@ export default function HeroSection({ videoRef }) {
                 display: "inline-block",
                 verticalAlign: "bottom",
                 overflow: "hidden",
-                minWidth: "10ch",
+                minWidth: "13ch",
                 textAlign: "left",
               }}
-            /><span
-              ref={storeRef}
-              style={{
-                display: "inline-block",
-                verticalAlign: "bottom",
-                opacity: 0,
-              }}
-            >{" "}store</span>
+            />
           </span>
           {/* Line 2 */}
           <span style={{ display: "block" }}>simply by chatting</span>

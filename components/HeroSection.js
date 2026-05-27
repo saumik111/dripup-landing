@@ -8,7 +8,7 @@ const SWAPPING_WORDS = ["e-commerce", "Shopify store"];
 function setLetters(container, word) {
   container.innerHTML = word
     .split("")
-    .map((ch) => `<span style="display:inline-block">${ch}</span>`)
+    .map((ch) => `<span style="display:inline-block">${ch === " " ? " " : ch}</span>`)
     .join("");
   return Array.from(container.querySelectorAll("span"));
 }

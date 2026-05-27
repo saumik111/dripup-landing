@@ -26,7 +26,7 @@ export default function HeroSection({ videoRef }) {
   const rightImageRef = useRef(null);
   const swapRef = useRef(null);
 
-  // Word swap: fixed-width container measured at mount → "Grow & manage your" never moves
+  // Word swap: enter letters → hold → gentle shake → exit letters → repeat
   useEffect(() => {
     const container = swapRef.current;
     if (!container) return;
@@ -34,46 +34,38 @@ export default function HeroSection({ videoRef }) {
     let killed = false;
     let idx = 0;
 
-    // Step 1 — measure the longest word's rendered pixel width
-    // Render it invisible, read offsetWidth, then lock that width permanently
-    function measureAndStart() {
-      let maxWidth = 0;
-      SWAPPING_WORDS.forEach((word) => {
-        const letters = setLetters(container, word);
-        gsap.set(letters, { opacity: 0 });
-        maxWidth = Math.max(maxWidth, container.offsetWidth);
-      });
-
-      // Lock container to widest word — it will NEVER change size again
-      container.style.width = maxWidth + "px";
-      container.style.minWidth = maxWidth + "px";
-      container.innerHTML = "";
-
-      playWord();
-    }
-
     function playWord() {
       if (killed) return;
       const word = SWAPPING_WORDS[idx];
+
+      // Insert letters invisible — layout shifts silently here (nothing visible yet)
       const letters = setLetters(container, word);
       gsap.set(letters, { y: 20, opacity: 0 });
 
-      const tl = gsap.timeline({
-        onComplete: () => {
+      const tl = gsap.timeline();
+
+      tl
+        // Enter: letters rise up one by one
+        .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
+        // Hold
+        .to({}, { duration: 3.2 })
+        // All letters dip together
+        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
+        // Letters jump up and out one by one
+        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 })
+        // Empty the container — collapses to zero width, flex re-centres silently
+        .call(() => { container.innerHTML = ""; })
+        // 80ms blank window — layout settles while nothing is visible
+        .to({}, { duration: 0.08 })
+        // Advance to next word and repeat
+        .call(() => {
           if (killed) return;
           idx = (idx + 1) % SWAPPING_WORDS.length;
           playWord();
-        },
-      });
-
-      tl
-        .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
-        .to({}, { duration: 3.2 })
-        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
-        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
+        });
     }
 
-    measureAndStart();
+    playWord();
 
     return () => { killed = true; };
   }, []);

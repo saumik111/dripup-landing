@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import HeroCanvas from "@/components/HeroCanvas";
 
 const FONT = '"Figtree", sans-serif';
 
@@ -21,6 +22,7 @@ const chatItems = [
 ];
 
 export default function HeroSection({ videoRef }) {
+  const heroRef = useRef(null);
   const promptRef = useRef(null);
   const responseRef = useRef(null);
   const rightImageRef = useRef(null);
@@ -134,8 +136,11 @@ export default function HeroSection({ videoRef }) {
 
   return (
     <section
+      ref={heroRef}
       style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
     >
+      {/* Dissolve canvas — renders cream fill that dissolves upward on scroll */}
+      <HeroCanvas heroRef={heroRef} />
       <img
         ref={videoRef}
         src="/images/hero-bg.png"

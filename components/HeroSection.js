@@ -262,8 +262,8 @@ export default function HeroSection({ videoRef }) {
         </div>
       </div>{/* end heading wrapper */}
 
-      {/* Panel + CTA — below canvas z:10, gets dissolved */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      {/* Panel + CTA — below canvas z:10, gets dissolved. justifyContent:flex-end so panel sits below centre where heading is */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", paddingTop: "180px" }}>
       <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
 
         {/* Glass panel */}
@@ -391,7 +391,7 @@ export default function HeroSection({ videoRef }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          zIndex: 10,
+          zIndex: 30,
           padding: "0 40px",
           textAlign: "center",
         }}

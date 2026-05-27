@@ -25,16 +25,18 @@ export default function HeroSection({ videoRef }) {
   const responseRef = useRef(null);
   const rightImageRef = useRef(null);
   const swapRef = useRef(null);
+  const headingRef = useRef(null);
 
-  // Word swap: lock container to average width of all words — never shifts layout
+  // Word swap + one-time entrance animation
   useEffect(() => {
     const container = swapRef.current;
-    if (!container) return;
+    const heading = headingRef.current;
+    if (!container || !heading) return;
 
     let killed = false;
     let idx = 0;
 
-    // Measure all words invisibly, average their widths, lock container permanently
+    // Measure all words invisibly, average widths, lock container permanently
     const widths = SWAPPING_WORDS.map((word) => {
       const letters = setLetters(container, word);
       gsap.set(letters, { opacity: 0 });
@@ -66,7 +68,20 @@ export default function HeroSection({ videoRef }) {
         .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }
 
-    playWord();
+    // One-time entrance: whole heading rises from below, then swap loop starts
+    const lines = heading.querySelectorAll("span[data-line]");
+    gsap.set(heading, { opacity: 1 });
+    gsap.set(lines, { y: 48, opacity: 0 });
+
+    gsap.to(lines, {
+      y: 0,
+      opacity: 1,
+      duration: 0.7,
+      ease: "power3.out",
+      stagger: 0.12,
+      delay: 0.2,
+      onComplete: () => { if (!killed) playWord(); },
+    });
 
     return () => { killed = true; };
   }, []);
@@ -125,6 +140,7 @@ export default function HeroSection({ videoRef }) {
         }}
       >
         <h1
+          ref={headingRef}
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
             fontStyle: "normal",
@@ -136,10 +152,11 @@ export default function HeroSection({ videoRef }) {
             maxWidth: "min(95vw, 960px)",
             marginLeft: "auto",
             marginRight: "auto",
+            opacity: 0,
           }}
         >
-          {/* Line 1: centered flex row so swap word doesn't shift alignment */}
-          <span style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
+          {/* Line 1 */}
+          <span data-line="1" style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
             <span>Grow &amp; manage your&nbsp;</span>
             <span
               ref={swapRef}
@@ -150,7 +167,7 @@ export default function HeroSection({ videoRef }) {
             />
           </span>
           {/* Line 2 */}
-          <span style={{ display: "block" }}>simply by chatting</span>
+          <span data-line="2" style={{ display: "block" }}>simply by chatting</span>
         </h1>
 
         {/* Glass panel */}

@@ -135,26 +135,25 @@ export default function HeroSection({ videoRef }) {
   }, []);
 
   return (
-    <>
-      {/* Fixed background image — locked to viewport, never scrolls */}
+    <section
+      ref={heroRef}
+      style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}
+    >
+      {/* Background image — scrolls with the section */}
       <img
         ref={videoRef}
         src="/images/hero-bg.png"
         alt=""
-        style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", objectFit: "cover", zIndex: 0 }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
       />
-      {/* Fixed dark overlay */}
-      <div style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
+      {/* Dark overlay */}
+      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
 
-      {/* 160vh scroll track — gives scroll distance for the dissolve */}
-      <section
-        ref={heroRef}
-        style={{ position: "relative", width: "100%", height: "160vh", zIndex: 3 }}
-      >
-        <HeroCanvas heroRef={heroRef} />
+      {/* Dissolve canvas — scrolls with section, covers image on scroll */}
+      <HeroCanvas heroRef={heroRef} />
 
-        {/* Sticky content — stays centered while user scrolls through 160vh */}
-        <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      {/* Content */}
+      <div style={{ position: "relative", zIndex: 10, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
 
       {/* Logo */}
       <div
@@ -324,9 +323,7 @@ export default function HeroSection({ videoRef }) {
             </svg>
           </div>
         </a>
-        </div>{/* end main content column */}
-        </div>{/* end sticky */}
-      </section>
-    </>
+      </div>{/* end content */}
+    </section>
   );
 }

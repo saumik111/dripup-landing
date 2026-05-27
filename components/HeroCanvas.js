@@ -82,7 +82,7 @@ export default function HeroCanvas({ heroRef }) {
 
       renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(hero.offsetWidth, hero.offsetHeight);
 
       const geometry = new THREE.PlaneGeometry(2, 2);
       material = new THREE.ShaderMaterial({
@@ -90,7 +90,7 @@ export default function HeroCanvas({ heroRef }) {
         fragmentShader,
         uniforms: {
           uProgress: { value: 0 },
-          uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+          uResolution: { value: new THREE.Vector2(hero.offsetWidth, hero.offsetHeight) },
           uColor: { value: new THREE.Vector3(FILL_COLOR.r, FILL_COLOR.g, FILL_COLOR.b) },
           uSpread: { value: SPREAD },
         },
@@ -110,20 +110,22 @@ export default function HeroCanvas({ heroRef }) {
       }
       animate();
 
-      // IronHill method: direct scroll listener
-      // maxScroll = hero scroll track height minus one viewport
+      // Progress = how far hero top has scrolled past viewport top
+      // Full dissolve completes by the time hero scrolls fully off screen
       function onScroll() {
-        const maxScroll = hero.offsetHeight - window.innerHeight;
-        if (maxScroll <= 0) return;
-        scrollProgress = Math.min((window.scrollY / maxScroll) * SPEED, 1.1);
+        const rect = hero.getBoundingClientRect();
+        const traveled = -rect.top; // px scrolled past top
+        const total = hero.offsetHeight; // full hero height
+        if (total <= 0) return;
+        scrollProgress = Math.min(Math.max(traveled / total, 0) * SPEED, 1.1);
       }
       window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll(); // init on mount
+      onScroll();
 
       function onResize() {
         if (!renderer || !material) return;
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        material.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
+        renderer.setSize(hero.offsetWidth, hero.offsetHeight);
+        material.uniforms.uResolution.value.set(hero.offsetWidth, hero.offsetHeight);
       }
       window.addEventListener("resize", onResize);
     }
@@ -141,11 +143,10 @@ export default function HeroCanvas({ heroRef }) {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
+        position: "absolute",
+        inset: 0,
+        width: "100%",
+        height: "100%",
         zIndex: 2,
         pointerEvents: "none",
       }}

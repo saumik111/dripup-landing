@@ -122,16 +122,17 @@ export default function HeroSection({ videoRef }) {
     const h2 = container.querySelector("h2");
     if (!h2) return;
 
-    // Split into word spans manually (no SplitText dependency)
-    const text = h2.textContent;
-    const words = text.split(" ").filter(Boolean);
-    const MUTED = "#C8C4BC";   // light muted — visible but faded
-    const DARK  = "#1C1C1A";   // full ink
+    const MUTED = "#C8C4BC";
+    const DARK  = "#1C1C1A";
 
-    h2.style.color = MUTED;
-    h2.innerHTML = words
-      .map((w) => `<span style="display:inline-block;color:${MUTED}">${w}</span>`)
-      .join(" ");
+    // Preserve <br> line breaks while splitting into word spans
+    const rawHTML = h2.innerHTML;
+    const lines = rawHTML.split(/<br\s*\/?>/i);
+    h2.innerHTML = lines.map((line) =>
+      line.trim().split(/\s+/).filter(Boolean)
+        .map((w) => `<span style="display:inline-block;color:${MUTED}">${w}</span>`)
+        .join(" ")
+    ).join("<br />");
     const wordEls = Array.from(h2.querySelectorAll("span"));
 
     async function setup() {
@@ -409,7 +410,7 @@ export default function HeroSection({ videoRef }) {
             maxWidth: 800,
           }}
         >
-          We handle the boring work, so you can focus on growing
+          We handle the boring work,<br />so you can focus on growing
         </h2>
       </div>
     </section>

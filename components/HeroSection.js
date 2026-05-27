@@ -3,69 +3,45 @@ import { gsap } from "gsap";
 
 const FONT = '"Figtree", sans-serif';
 
+const SWAPPING_WORDS = ["e-commerce", "Shopify"];
+
 const chatItems = [
-  {
-    prompt: "List this product",
-    response: "Listed your product across your store.",
-  },
-  {
-    prompt: "What are my sales today?",
-    response: "You've made ₹14,200 across 8 orders today.",
-  },
-  {
-    prompt: "Generate a product image",
-    response: "Studio-quality image ready to publish.",
-  },
-  {
-    prompt: "Update price to ₹1,299",
-    response: "Price updated on all variants.",
-  },
+  { prompt: "List this product", response: "Listed your product across your store." },
+  { prompt: "What are my sales today?", response: "You've made ₹14,200 across 8 orders today." },
+  { prompt: "Generate a product image", response: "Studio-quality image ready to publish." },
+  { prompt: "Update price to ₹1,299", response: "Price updated on all variants." },
 ];
 
 export default function HeroSection({ videoRef }) {
   const promptRef = useRef(null);
   const responseRef = useRef(null);
   const rightImageRef = useRef(null);
-  const chattingRef = useRef(null);
-  useEffect(() => {
-    const word = "chatting";
-    const obj = { count: 0 };
-    if (chattingRef.current) chattingRef.current.textContent = "";
+  const swapRef = useRef(null);
 
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-    tl.to(obj, {
-      count: word.length,
-      duration: word.length * 0.09,
-      ease: "none",
-      delay: 0.4,
-      onUpdate() {
-        if (chattingRef.current)
-          chattingRef.current.textContent = word.slice(0, Math.round(obj.count));
-      },
-    })
-    .to({}, { duration: 3.5 })
-    .to(obj, {
-      count: 0,
-      duration: word.length * 0.055,
-      ease: "none",
-      onUpdate() {
-        if (chattingRef.current)
-          chattingRef.current.textContent = word.slice(0, Math.round(obj.count));
-      },
-    })
-    .to({}, { duration: 0.4 });
+  // Word swap animation on "e-commerce" / "Shopify"
+  useEffect(() => {
+    const el = swapRef.current;
+    if (!el) return;
+    let index = 0;
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    SWAPPING_WORDS.forEach((word, i) => {
+      tl.call(() => { el.textContent = SWAPPING_WORDS[i]; })
+        .from(el, { y: 18, opacity: 0, duration: 0.45, ease: "power3.out" })
+        .to({}, { duration: 2 })
+        .to(el, { y: -18, opacity: 0, duration: 0.35, ease: "power3.in" });
+    });
 
     return () => tl.kill();
   }, []);
 
+  // Glass panel chat loop
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
 
     function buildCycle(item) {
-      tl.set([promptRef.current, responseRef.current, rightImageRef.current], {
-        opacity: 0,
-        y: 12,
-      })
+      tl.set([promptRef.current, responseRef.current, rightImageRef.current], { opacity: 0, y: 12 })
         .call(() => {
           if (promptRef.current) promptRef.current.textContent = item.prompt;
           if (responseRef.current) responseRef.current.textContent = item.response;
@@ -113,7 +89,6 @@ export default function HeroSection({ videoRef }) {
           alignItems: "center", gap: 24,
         }}
       >
-        {/* H1 with EB Garamond italic accent on "simply" */}
         <h1
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
@@ -128,11 +103,16 @@ export default function HeroSection({ videoRef }) {
             marginRight: "auto",
           }}
         >
-          <span style={{ display: "block", whiteSpace: "nowrap" }}>Grow &amp; manage your e-commerce store</span>
-          <span style={{ display: "block" }}>
-            simply by{" "}
-            <span ref={chattingRef} />
+          {/* Line 1: "Grow & manage your" + animated word + "store" */}
+          <span style={{ display: "block", whiteSpace: "nowrap" }}>
+            Grow &amp; manage your{" "}
+            <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom" }}>
+              <span ref={swapRef} style={{ display: "inline-block" }}>e-commerce</span>
+            </span>
+            {" "}store
           </span>
+          {/* Line 2 */}
+          <span style={{ display: "block" }}>simply by chatting</span>
         </h1>
 
         {/* Glass panel */}

@@ -109,10 +109,35 @@ const UI_MAP = {
 export default function FeatureCards({ onReady }) {
   const wrapperRef = useRef(null);
   const cardRefs = useRef([]);
+  const firstHeadingRef = useRef(null);
+  const firstSublineRef = useRef(null);
 
   useEffect(() => {
     const cards = cardRefs.current;
     gsap.set(cards.slice(1), { y: "100vh" });
+
+    // First card heading + subline: enter from below with rotateX (wheel effect)
+    if (firstHeadingRef.current && firstSublineRef.current) {
+      const lines = [firstHeadingRef.current, firstSublineRef.current];
+      gsap.set(wrapperRef.current, { perspective: 800 });
+      gsap.set(lines, { rotationX: 90, opacity: 0, transformOrigin: "top center" });
+
+      ScrollTrigger.create({
+        trigger: wrapperRef.current,
+        start: "top 80%",
+        once: true,
+        onEnter: () => {
+          gsap.to(lines, {
+            rotationX: 0,
+            opacity: 1,
+            transformOrigin: "top center",
+            duration: 0.7,
+            ease: "power3.out",
+            stagger: 0.15,
+          });
+        },
+      });
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -141,11 +166,17 @@ export default function FeatureCards({ onReady }) {
           style={{ position: "absolute", inset: 0, background: card.bg, display: "flex", alignItems: "center", justifyContent: "center", padding: "128px 40px", willChange: "transform" }}
         >
           <div style={{ width: "100%", maxWidth: 1200, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              <h2 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 500, lineHeight: 1.1, color: "#1C1C1A" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16, perspective: 800 }}>
+              <h2
+                ref={i === 0 ? firstHeadingRef : null}
+                style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 500, lineHeight: 1.1, color: "#1C1C1A", transformStyle: "preserve-3d" }}
+              >
                 {card.heading}
               </h2>
-              <p style={{ fontFamily: FONT, fontSize: 18, fontWeight: 400, lineHeight: 1.6, color: "#1C1C1A", maxWidth: 360 }}>
+              <p
+                ref={i === 0 ? firstSublineRef : null}
+                style={{ fontFamily: FONT, fontSize: 18, fontWeight: 400, lineHeight: 1.6, color: "#1C1C1A", maxWidth: 360, transformStyle: "preserve-3d" }}
+              >
                 {card.subline}
               </p>
             </div>

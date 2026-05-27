@@ -11,11 +11,22 @@ export default function Home() {
 
   return (
     <main style={{ background: "#F5F0E8", overflowX: "hidden" }}>
-      <HeroSection videoRef={heroVideoRef} />
+      {/* Stacking context: ProblemSection sits at bottom, hero overlays it */}
+      <div style={{ position: "relative" }}>
 
-      {/* z-index 5 so these sections slide over the fixed image + canvas */}
+        {/* ProblemSection underneath — always there, revealed as hero dissolves */}
+        <div style={{ position: "sticky", top: 0, zIndex: 1 }}>
+          <ProblemSection />
+        </div>
+
+        {/* Hero overlays ProblemSection exactly, pulled up by -100vh */}
+        <div style={{ position: "relative", zIndex: 2, marginTop: "-100vh" }}>
+          <HeroSection videoRef={heroVideoRef} />
+        </div>
+
+      </div>
+
       <div style={{ position: "relative", zIndex: 5, background: "#F5F0E8" }}>
-        <ProblemSection />
         <SolutionSection />
         <FeatureCards onReady={() => setCtaVisible(true)} />
         <CTASection videoRef={heroVideoRef} visible={ctaVisible} />

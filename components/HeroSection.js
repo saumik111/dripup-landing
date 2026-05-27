@@ -169,7 +169,7 @@ export default function HeroSection({ videoRef }) {
     return () => {};
   }, []);
 
-  // Cube face roll — fires after word reveal settles
+  // Cube face roll — pinned, scrub-linked, reversible
   useEffect(() => {
     const cube = cubeRef.current;
     const container = heroContentRef.current;
@@ -180,16 +180,22 @@ export default function HeroSection({ videoRef }) {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      ScrollTrigger.create({
-        trigger: container,
-        start: "top 5%",   // fires when hero-content has scrolled near viewport top
-        once: true,
-        onEnter: () => {
-          const tl = gsap.timeline();
-          tl.to(cube, { rotationX: -8, duration: 0.18, ease: "power1.out" })
-            .to(cube, { rotationX: 90, duration: 0.65, ease: "power3.inOut" });
+      // Pin the hero-content after word reveal ends (top 5% = words all dark)
+      // Scrub-linked so scroll down = roll forward, scroll up = roll back
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: "top 5%",
+          end: "+=400",
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
         },
       });
+
+      // Slight wind-up then full 90° roll
+      tl.to(cube, { rotationX: -8, ease: "power1.out", duration: 0.15 })
+        .to(cube, { rotationX: 90, ease: "power3.inOut", duration: 0.85 });
     }
     setup();
   }, []);
@@ -424,45 +430,47 @@ export default function HeroSection({ videoRef }) {
         }}
       >
         {/* 3D cube — front face is the word-reveal text, bottom face is the next message */}
-        <div style={{ perspective: "900px", width: "100%", maxWidth: 800, display: "flex", justifyContent: "center" }}>
+        <div style={{ perspective: "900px", width: "100%", maxWidth: 900, display: "flex", justifyContent: "center" }}>
           <div
             ref={cubeRef}
             style={{
               position: "relative",
               width: "100%",
-              height: "clamp(80px, 14vw, 160px)",
+              height: "clamp(100px, 10vw, 140px)",
               transformStyle: "preserve-3d",
               transformOrigin: "center center",
             }}
           >
-            {/* Front face — word reveal text */}
+            {/* Front face — word reveal text, same font as hero H1 */}
             <div
               className="cube-front"
               style={{
                 position: "absolute", width: "100%", height: "100%",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6,
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                gap: "0.15em",
                 backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
-                textAlign: "center", transform: "rotateX(0deg) translateZ(60px)",
+                textAlign: "center",
+                transform: "rotateX(0deg) translateZ(70px)",
                 fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-                fontSize: "clamp(32px, 4.5vw, 64px)", fontWeight: 500, lineHeight: 1.2, color: "#1C1C1A",
+                fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
               }}
             >
               We handle the boring work,<br />so you can focus on <em>growing</em>
             </div>
 
-            {/* Bottom face — next message */}
+            {/* Bottom face — same font, same size, lines align with front face lines */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6,
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              gap: "0.15em",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
-              textAlign: "center", transform: "rotateX(-90deg) translateZ(60px)",
+              textAlign: "center",
+              transform: "rotateX(-90deg) translateZ(70px)",
+              fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
             }}>
-              <p style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(32px, 4.5vw, 64px)", fontWeight: 500, lineHeight: 1.2, color: "#1C1C1A", margin: 0 }}>
-                Drip Up plugs into your Shopify store
-              </p>
-              <p style={{ fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal", fontSize: "clamp(32px, 4.5vw, 64px)", fontWeight: 500, lineHeight: 1.2, color: "#1C1C1A", margin: 0 }}>
-                and takes over all the repetitive tasks.
-              </p>
+              <span style={{ display: "block" }}>Drip Up plugs into your Shopify store</span>
+              <span style={{ display: "block" }}>and takes over all the repetitive tasks.</span>
             </div>
           </div>
         </div>

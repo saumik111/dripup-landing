@@ -115,52 +115,30 @@ export default function HeroSection({ videoRef }) {
     return () => { killed = true; };
   }, []);
 
-  // Word-by-word reveal on hero-content — exact transcript method
+  // Color reveal on hero-content — whole div fades from muted to dark as one unit
   useEffect(() => {
     const container = heroContentRef.current;
     if (!container) return;
 
-    // Target the front face paragraphs inside the cube for word reveal
-    const h2 = container.querySelector(".cube-front");
-    if (!h2) return;
+    const el = container.querySelector(".cube-front");
+    if (!el) return;
 
-    const MUTED = "#C8C4BC";
-    const DARK  = "#1C1C1A";
-
-    // Preserve <br> line breaks while splitting into word spans
-    const rawHTML = h2.innerHTML;
-    const lines = rawHTML.split(/<br\s*\/?>/i);
-    h2.innerHTML = lines.map((line) =>
-      line.trim().split(/\s+/).filter(Boolean)
-        .map((w) => `<span style="display:inline-block;color:${MUTED}">${w}</span>`)
-        .join(" ")
-    ).join("<br />");
-    const wordEls = Array.from(h2.querySelectorAll("span"));
+    // Start muted
+    el.style.color = "#C8C4BC";
 
     async function setup() {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      ScrollTrigger.create({
-        trigger: container,
-        start: "top 22%",
-        end: "top 5%",
-        onUpdate(self) {
-          const progress = self.progress;
-          const total = wordEls.length;
-          wordEls.forEach((word, i) => {
-            const a = i / total;
-            const b = (i + 1) / total;
-            let t = 0;
-            if (progress >= b) t = 1;
-            else if (progress >= a) t = (progress - a) / (b - a);
-            // Smooth color interpolation between muted and dark
-            const r = Math.round(200 + (28 - 200) * t);
-            const g = Math.round(196 + (28 - 196) * t);
-            const bv = Math.round(188 + (26 - 188) * t);
-            word.style.color = `rgb(${r},${g},${bv})`;
-          });
+      gsap.to(el, {
+        color: "#1C1C1A",
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          start: "top 22%",
+          end: "top 5%",
+          scrub: true,
         },
       });
     }
@@ -439,9 +417,9 @@ export default function HeroSection({ videoRef }) {
           style={{
             position: "absolute",
             width: "calc(100% - 80px)", maxWidth: 900,
-            display: "flex", flexDirection: "column", alignItems: "center", gap: "0.2em",
+            display: "block",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-            fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
+            fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             textAlign: "center",
           }}
         >

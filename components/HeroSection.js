@@ -446,8 +446,8 @@ export default function HeroSection({ videoRef }) {
           We handle the boring work,<br />so you can focus on <em>growing</em>
         </div>
 
-        {/* Cube — hidden initially, shown after word reveal fades */}
-        <div style={{ perspective: "900px", width: "100%", maxWidth: 900, display: "flex", justifyContent: "center" }}>
+        {/* Cube — position absolute, same spot as word-reveal, hidden until swap */}
+        <div style={{ position: "absolute", perspective: "900px", width: "calc(100% - 80px)", maxWidth: 900, display: "flex", justifyContent: "center" }}>
           <div
             ref={cubeRef}
             style={{

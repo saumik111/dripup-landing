@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import HeroCanvas from "@/components/HeroCanvas";
+import dynamic from "next/dynamic";
+const HeroCanvas = dynamic(() => import("@/components/HeroCanvas"), { ssr: false });
 
 const FONT = '"Figtree", sans-serif';
 
@@ -139,7 +140,6 @@ export default function HeroSection({ videoRef }) {
       ref={heroRef}
       style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
     >
-      {/* Dissolve canvas — renders cream fill that dissolves upward on scroll */}
       <HeroCanvas heroRef={heroRef} />
       <img
         ref={videoRef}

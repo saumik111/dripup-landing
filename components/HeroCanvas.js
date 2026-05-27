@@ -1,17 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const CONFIG = {
-  color: "#F5F0E8",
-  spread: -0.5,
-  speed: 2,
-};
-
-function hexToRgb(hex) {
-  const res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return res
-    ? { r: parseInt(res[1], 16) / 255, g: parseInt(res[2], 16) / 255, b: parseInt(res[3], 16) / 255 }
-    : { r: 1, g: 1, b: 1 };
-}
+const FILL_COLOR = { r: 245 / 255, g: 240 / 255, b: 232 / 255 };
 
 const vertexShader = `
   varying vec2 vUv;
@@ -73,19 +62,16 @@ export default function HeroCanvas({ heroRef }) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const hero = heroRef?.current;
+    if (!canvas || !hero) return;
 
     let renderer, material, animId, killed = false;
-    const rgb = hexToRgb(CONFIG.color);
 
     async function init() {
       const THREE = await import("three");
-
-      // Wait one frame to ensure heroRef is attached after dynamic load
-      await new Promise((r) => requestAnimationFrame(r));
-
-      const hero = heroRef?.current;
-      if (!hero || killed) return;
+      const { gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
 
       const scene = new THREE.Scene();
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -101,8 +87,8 @@ export default function HeroCanvas({ heroRef }) {
         uniforms: {
           uProgress: { value: 0 },
           uResolution: { value: new THREE.Vector2(hero.offsetWidth, hero.offsetHeight) },
-          uColor: { value: new THREE.Vector3(rgb.r, rgb.g, rgb.b) },
-          uSpread: { value: CONFIG.spread },
+          uColor: { value: new THREE.Vector3(FILL_COLOR.r, FILL_COLOR.g, FILL_COLOR.b) },
+          uSpread: { value: 0.5 },
         },
         transparent: true,
       });
@@ -110,22 +96,22 @@ export default function HeroCanvas({ heroRef }) {
       const mesh = new THREE.Mesh(geometry, material);
       scene.add(mesh);
 
-      let scrollProgress = 0;
-
       function animate() {
         if (killed) return;
         animId = requestAnimationFrame(animate);
-        material.uniforms.uProgress.value = scrollProgress;
         renderer.render(scene, camera);
       }
       animate();
 
-      function onScroll() {
-        const maxScroll = hero.offsetHeight - window.innerHeight;
-        if (maxScroll <= 0) return;
-        scrollProgress = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1.1);
-      }
-      window.addEventListener("scroll", onScroll, { passive: true });
+      ScrollTrigger.create({
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+        onUpdate: (self) => {
+          if (material) material.uniforms.uProgress.value = self.progress;
+        },
+      });
 
       function onResize() {
         if (!renderer || !material) return;
@@ -149,8 +135,7 @@ export default function HeroCanvas({ heroRef }) {
       ref={canvasRef}
       style={{
         position: "absolute",
-        top: 0,
-        left: 0,
+        inset: 0,
         width: "100%",
         height: "100%",
         zIndex: 2,

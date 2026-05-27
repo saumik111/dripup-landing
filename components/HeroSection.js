@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import dynamic from "next/dynamic";
-const HeroCanvas = dynamic(() => import("@/components/HeroCanvas"), { ssr: false });
+import HeroCanvas from "@/components/HeroCanvas";
 
 const FONT = '"Figtree", sans-serif';
 

@@ -207,10 +207,13 @@ export default function HeroSection({ videoRef }) {
       <HeroCanvas heroRef={heroRef} />
 
 
-      {/* Logo — above canvas */}
+      {/* Content — pinned to first viewport, exact source: hero-header is position:absolute height:100vh */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+
+      {/* Logo */}
       <div
         style={{
-          position: "absolute", top: 32, left: 40, zIndex: 30,
+          position: "absolute", top: 32, left: 40, zIndex: 10,
           fontFamily: FONT, fontWeight: 600, fontSize: 15,
           letterSpacing: "0.15em", color: "#1C1C1A",
         }}
@@ -218,9 +221,14 @@ export default function HeroSection({ videoRef }) {
         DRIP UP
       </div>
 
-      {/* Heading — above canvas z:30, stays visible during dissolve */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 30, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", pointerEvents: "none" }}>
-        <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      {/* Main content column */}
+      <div
+        style={{
+          position: "relative", zIndex: 10, width: "100%", maxWidth: 1200,
+          padding: "0 40px", display: "flex", flexDirection: "column",
+          alignItems: "center", gap: 24,
+        }}
+      >
         <h1
           ref={headingRef}
           style={{
@@ -259,12 +267,6 @@ export default function HeroSection({ videoRef }) {
             ))}
           </span>
         </h1>
-        </div>
-      </div>{/* end heading wrapper */}
-
-      {/* Panel + CTA — below canvas z:10, gets dissolved. justifyContent:flex-end so panel sits below centre where heading is */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", paddingTop: "180px" }}>
-      <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
 
         {/* Glass panel */}
         <div
@@ -376,8 +378,8 @@ export default function HeroSection({ videoRef }) {
             </svg>
           </div>
         </a>
-      </div>{/* end panel inner column */}
-      </div>{/* end panel wrapper */}
+      </div>{/* end main content column */}
+      </div>{/* end content wrapper */}
 
       {/* hero-content — exact source: position absolute, bottom 0, height 125vh */}
       <div
@@ -391,7 +393,7 @@ export default function HeroSection({ videoRef }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          zIndex: 30,
+          zIndex: 10,
           padding: "0 40px",
           textAlign: "center",
         }}

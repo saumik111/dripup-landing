@@ -40,7 +40,7 @@ export default function HeroSection({ videoRef }) {
       gsap.set(letters, { opacity: 0 });
       return container.offsetWidth;
     });
-    const avgWidth = Math.max(...widths);
+    const avgWidth = widths.reduce((a, b) => a + b, 0) / widths.length;
     container.innerHTML = "";
     container.style.width = avgWidth + "px";
     container.style.flexShrink = "0";

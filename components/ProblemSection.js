@@ -134,7 +134,7 @@ export default function ProblemSection() {
             color: "#1C1C1A",
           }}
         >
-          Your ambitions can&apos;t wait
+          We handle the boring work,
         </h2>
         <h2
           style={{
@@ -147,7 +147,7 @@ export default function ProblemSection() {
             marginTop: 8,
           }}
         >
-          But admin work eats your entire day
+          so you can focus on growing
         </h2>
       </div>
 

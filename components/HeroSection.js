@@ -23,6 +23,7 @@ const chatItems = [
 
 export default function HeroSection({ videoRef }) {
   const heroRef = useRef(null);
+  const heroContentRef = useRef(null);
   const promptRef = useRef(null);
   const responseRef = useRef(null);
   const rightImageRef = useRef(null);
@@ -113,6 +114,50 @@ export default function HeroSection({ videoRef }) {
     return () => { killed = true; };
   }, []);
 
+  // Word-by-word reveal on hero-content — exact transcript method
+  useEffect(() => {
+    const container = heroContentRef.current;
+    if (!container) return;
+
+    const h2 = container.querySelector("h2");
+    if (!h2) return;
+
+    // Split into word spans manually (no SplitText dependency)
+    const text = h2.textContent;
+    const words = text.split(" ").filter(Boolean);
+    h2.innerHTML = words
+      .map((w) => `<span style="display:inline-block;opacity:0">${w}</span>`)
+      .join(" ");
+    const wordEls = Array.from(h2.querySelectorAll("span"));
+
+    async function setup() {
+      const { gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+
+      ScrollTrigger.create({
+        trigger: container,
+        start: "top 25%",
+        end: "bottom 100%",
+        onUpdate(self) {
+          const progress = self.progress;
+          const total = wordEls.length;
+          wordEls.forEach((word, i) => {
+            const a = i / total;
+            const b = (i + 1) / total;
+            let opacity = 0;
+            if (progress >= b) opacity = 1;
+            else if (progress >= a) opacity = (progress - a) / (b - a);
+            gsap.to(word, { opacity, duration: 0.1, overwrite: true });
+          });
+        },
+      });
+    }
+    setup();
+
+    return () => {};
+  }, []);
+
   // Glass panel chat loop
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
@@ -137,7 +182,7 @@ export default function HeroSection({ videoRef }) {
   return (
     <section
       ref={heroRef}
-      style={{ position: "relative", width: "100%", height: "140vh", overflow: "hidden" }}
+      style={{ position: "relative", width: "100%", height: "280vh", overflow: "hidden" }}
     >
       {/* Background image — scrolls with the section */}
       <img
@@ -326,6 +371,38 @@ export default function HeroSection({ videoRef }) {
         </a>
       </div>{/* end main content column */}
       </div>{/* end content wrapper */}
+
+      {/* hero-content — sits at bottom of hero, word reveal happens here */}
+      <div
+        ref={heroContentRef}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: "140vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 10,
+          padding: "0 40px",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: '"EB Garamond", Georgia, serif',
+            fontStyle: "normal",
+            fontSize: "clamp(32px, 4.5vw, 64px)",
+            fontWeight: 500,
+            lineHeight: 1.2,
+            color: "#1C1C1A",
+            textAlign: "center",
+            maxWidth: 800,
+          }}
+        >
+          We handle the boring work, so you can focus on growing
+        </h2>
+      </div>
     </section>
   );
 }

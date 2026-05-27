@@ -55,11 +55,12 @@ const fragmentShader = `
 
     float noiseValue = fbm(adjustedUV * 10.0);
 
-    // Bottom-to-top wipe: low uv.y (bottom) fills first, moves upward
-    float threshold = uv.y + (noiseValue * 0.5) - (uProgress * 1.5);
+    // Directional wipe: bottom→top using (1.0 - uv.y)
+    // noise distorts the edge, progress drives how far up the wipe has gone
+    float threshold = (1.0 - uv.y) + (noiseValue * 0.5) - (uProgress * 1.5);
 
-    // Inverted smoothstep: alpha=0 at start everywhere, cream rises from bottom
-    float alpha = 1.0 - smoothstep(0.0, 0.05, threshold);
+    // Tight smoothstep = sharp liquid edge
+    float alpha = smoothstep(0.0, 0.05, threshold);
 
     gl_FragColor = vec4(uColor, alpha);
   }
@@ -107,7 +108,6 @@ export default function HeroCanvas({ heroRef }) {
       }
       animate();
 
-      // Trigger on hero section — starts the instant hero top hits viewport top
       ScrollTrigger.create({
         trigger: hero,
         start: "top top",

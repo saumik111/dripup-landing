@@ -146,6 +146,7 @@ export default function HeroSection({ videoRef }) {
                 display: "inline-block",
                 verticalAlign: "bottom",
                 overflow: "hidden",
+                transition: "width 0.3s ease",
               }}
             />
           </span>

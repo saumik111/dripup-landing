@@ -26,7 +26,7 @@ export default function HeroSection({ videoRef }) {
   const rightImageRef = useRef(null);
   const swapRef = useRef(null);
 
-  // Word swap: enter letters → hold → gentle shake → exit letters → repeat
+  // Word swap: lock container to average width of all words — never shifts layout
   useEffect(() => {
     const container = swapRef.current;
     if (!container) return;
@@ -34,35 +34,36 @@ export default function HeroSection({ videoRef }) {
     let killed = false;
     let idx = 0;
 
+    // Measure all words invisibly, average their widths, lock container permanently
+    const widths = SWAPPING_WORDS.map((word) => {
+      const letters = setLetters(container, word);
+      gsap.set(letters, { opacity: 0 });
+      return container.offsetWidth;
+    });
+    const avgWidth = widths.reduce((a, b) => a + b, 0) / widths.length;
+    container.innerHTML = "";
+    container.style.width = avgWidth + "px";
+    container.style.flexShrink = "0";
+
     function playWord() {
       if (killed) return;
       const word = SWAPPING_WORDS[idx];
-
-      // Insert letters invisible — layout shifts silently here (nothing visible yet)
       const letters = setLetters(container, word);
       gsap.set(letters, { y: 20, opacity: 0 });
 
-      const tl = gsap.timeline();
-
-      tl
-        // Enter: letters rise up one by one
-        .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
-        // Hold
-        .to({}, { duration: 3.2 })
-        // All letters dip together
-        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
-        // Letters jump up and out one by one
-        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 })
-        // Empty the container — collapses to zero width, flex re-centres silently
-        .call(() => { container.innerHTML = ""; })
-        // 80ms blank window — layout settles while nothing is visible
-        .to({}, { duration: 0.08 })
-        // Advance to next word and repeat
-        .call(() => {
+      const tl = gsap.timeline({
+        onComplete: () => {
           if (killed) return;
           idx = (idx + 1) % SWAPPING_WORDS.length;
           playWord();
-        });
+        },
+      });
+
+      tl
+        .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
+        .to({}, { duration: 3.2 })
+        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
+        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }
 
     playWord();
@@ -146,7 +147,6 @@ export default function HeroSection({ videoRef }) {
                 display: "inline-block",
                 verticalAlign: "bottom",
                 overflow: "hidden",
-                transition: "width 0.3s ease",
               }}
             />
           </span>

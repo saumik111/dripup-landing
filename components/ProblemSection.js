@@ -10,7 +10,7 @@ export default function ProblemSection() {
         alignItems: "center",
         justifyContent: "center",
         padding: "128px 40px",
-        marginTop: "-40vh",
+        marginTop: 0,
       }}
     >
       {/* Gradient top — fades from transparent into cream, masks the hard section boundary */}

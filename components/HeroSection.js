@@ -149,7 +149,7 @@ export default function HeroSection({ videoRef }) {
       {/* Dark overlay */}
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
 
-      {/* Dissolve canvas — scrolls with section, covers image on scroll */}
+      {/* Dissolve canvas — positioned at BOTTOM of hero, one viewport tall */}
       <HeroCanvas heroRef={heroRef} />
 
 

@@ -56,10 +56,10 @@ export default function HeroSection({ videoRef }) {
         .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
         // Hold
         .to({}, { duration: 3.2 })
-        // Pre-jump: each letter dips down slightly before launching up
-        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0.04 })
+        // Pre-jump: ALL letters dip down together (no stagger — prevents sideways look)
+        .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
         // Exit: letters jump up and out one by one
-        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 }, "-=0.05");
+        .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }
 
     playWord();

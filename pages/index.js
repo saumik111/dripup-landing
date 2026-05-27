@@ -12,10 +12,14 @@ export default function Home() {
   return (
     <main style={{ background: "#F5F0E8", overflowX: "hidden" }}>
       <HeroSection videoRef={heroVideoRef} />
-      <ProblemSection />
-      <SolutionSection />
-      <FeatureCards onReady={() => setCtaVisible(true)} />
-      <CTASection videoRef={heroVideoRef} visible={ctaVisible} />
+
+      {/* z-index 5 so these sections slide over the fixed image + canvas */}
+      <div style={{ position: "relative", zIndex: 5, background: "#F5F0E8" }}>
+        <ProblemSection />
+        <SolutionSection />
+        <FeatureCards onReady={() => setCtaVisible(true)} />
+        <CTASection videoRef={heroVideoRef} visible={ctaVisible} />
+      </div>
     </main>
   );
 }

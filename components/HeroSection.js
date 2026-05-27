@@ -135,19 +135,26 @@ export default function HeroSection({ videoRef }) {
   }, []);
 
   return (
-    <section
-      ref={heroRef}
-      style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
-    >
-      <HeroCanvas heroRef={heroRef} />
+    <>
+      {/* Fixed background image — locked to viewport, never scrolls */}
       <img
         ref={videoRef}
         src="/images/hero-bg.png"
         alt=""
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
+        style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", objectFit: "cover", zIndex: 0 }}
       />
+      {/* Fixed dark overlay */}
+      <div style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
 
-      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
+      {/* 160vh scroll track — gives scroll distance for the dissolve */}
+      <section
+        ref={heroRef}
+        style={{ position: "relative", width: "100%", height: "160vh", zIndex: 3 }}
+      >
+        <HeroCanvas heroRef={heroRef} />
+
+        {/* Sticky content — stays centered while user scrolls through 160vh */}
+        <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
 
       {/* Logo */}
       <div
@@ -317,7 +324,9 @@ export default function HeroSection({ videoRef }) {
             </svg>
           </div>
         </a>
-      </div>
-    </section>
+        </div>{/* end main content column */}
+        </div>{/* end sticky */}
+      </section>
+    </>
   );
 }

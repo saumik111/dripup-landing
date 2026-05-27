@@ -114,10 +114,16 @@ export default function HeroCanvas({ heroRef }) {
       // Full dissolve completes by the time hero scrolls fully off screen
       function onScroll() {
         const rect = hero.getBoundingClientRect();
-        const traveled = -rect.top; // px scrolled past top
-        const total = hero.offsetHeight; // full hero height
+        const traveled = -rect.top;
+        const total = hero.offsetHeight;
         if (total <= 0) return;
-        scrollProgress = Math.min(Math.max(traveled / total, 0) * SPEED, 1.1);
+        const raw = traveled / total; // 0 to 1 over full hero height
+
+        // 0–20%: nothing, 20–80%: full dissolve plays, remapped to 0–1
+        const start = 0.20;
+        const end = 0.80;
+        const remapped = Math.max(0, Math.min((raw - start) / (end - start), 1));
+        scrollProgress = remapped * 1.5; // 1.5 = SPEED to ensure full coverage
       }
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();

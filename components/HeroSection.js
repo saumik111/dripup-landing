@@ -152,17 +152,6 @@ export default function HeroSection({ videoRef }) {
       {/* Dissolve canvas — scrolls with section, covers image on scroll */}
       <HeroCanvas heroRef={heroRef} />
 
-      {/* CSS gradient bridge — always-present fade at bottom, masks hard CSS edge */}
-      <div style={{
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        height: "120px",
-        background: "linear-gradient(to bottom, transparent, #F5F0E8)",
-        zIndex: 3,
-        pointerEvents: "none",
-      }} />
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 10, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>

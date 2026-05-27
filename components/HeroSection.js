@@ -433,14 +433,16 @@ export default function HeroSection({ videoRef }) {
           textAlign: "center",
         }}
       >
-        {/* Word reveal text — separate from cube, gets faded out before cube appears */}
+        {/* Word reveal text — position absolute, same size as cube wrapper */}
         <div
           className="cube-front"
           style={{
             position: "absolute",
+            width: "calc(100% - 80px)", maxWidth: 900,
+            display: "flex", flexDirection: "column", alignItems: "center", gap: "0.2em",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
             fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
-            textAlign: "center", maxWidth: 900,
+            textAlign: "center",
           }}
         >
           We handle the boring work,<br />so you can focus on <em>growing</em>
@@ -466,7 +468,7 @@ export default function HeroSection({ videoRef }) {
               gap: "0.2em",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
-              transform: "rotateX(0deg) translateZ(80px)",
+              transform: "rotateX(0deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
             }}>
@@ -481,7 +483,7 @@ export default function HeroSection({ videoRef }) {
               gap: "0.2em",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
-              transform: "rotateX(-90deg) translateZ(80px)",
+              transform: "rotateX(-90deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
             }}>

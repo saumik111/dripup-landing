@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Cream color matching our site background #F5F0E8
 const FILL_COLOR = { r: 245 / 255, g: 240 / 255, b: 232 / 255 };
 
 const vertexShader = `
@@ -19,7 +18,6 @@ const fragmentShader = `
   uniform float uProgress;
   uniform vec2 uResolution;
   uniform vec3 uColor;
-  uniform float uSpread;
   varying vec2 vUv;
 
   float Hash(vec2 p) {
@@ -38,25 +36,31 @@ const fragmentShader = `
     );
   }
 
+  // 5 octaves for fine, intricate edge detail
   float fbm(vec2 p) {
     float v = 0.0;
     v += noise(p * 1.0) * 0.5;
     v += noise(p * 2.0) * 0.25;
     v += noise(p * 4.0) * 0.125;
+    v += noise(p * 8.0) * 0.0625;
+    v += noise(p * 16.0) * 0.03125;
     return v;
   }
 
   void main() {
     vec2 uv = vUv;
-    float aspect = uResolution.x / uResolution.y;
-    vec2 centeredUv = (uv - 0.5) * vec2(aspect, 1.0);
 
-    float dissolveEdge = uv.y - uProgress * 1.2;
-    float noiseValue = fbm(centeredUv * 15.0);
-    float d = dissolveEdge + noiseValue + uSpread;
+    // Aspect-correct UV so noise isn't stretched horizontally
+    vec2 adjustedUV = vec2(uv.x * (uResolution.x / uResolution.y), uv.y);
 
-    float pixelSize = 1.0 / uResolution.y;
-    float alpha = 1.0 - smoothstep(-pixelSize, pixelSize, d);
+    float noiseValue = fbm(adjustedUV * 10.0);
+
+    // Directional wipe: bottom→top using (1.0 - uv.y)
+    // noise distorts the edge, progress drives how far up the wipe has gone
+    float threshold = (1.0 - uv.y) + (noiseValue * 0.5) - (uProgress * 1.5);
+
+    // Tight smoothstep = sharp liquid edge
+    float alpha = smoothstep(0.0, 0.05, threshold);
 
     gl_FragColor = vec4(uColor, alpha);
   }
@@ -80,7 +84,7 @@ export default function HeroCanvas({ heroRef }) {
 
       renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(hero.offsetWidth, hero.offsetHeight);
+      renderer.setSize(window.innerWidth, window.innerHeight);
 
       const geometry = new THREE.PlaneGeometry(2, 2);
       material = new THREE.ShaderMaterial({
@@ -88,9 +92,8 @@ export default function HeroCanvas({ heroRef }) {
         fragmentShader,
         uniforms: {
           uProgress: { value: 0 },
-          uResolution: { value: new THREE.Vector2(hero.offsetWidth, hero.offsetHeight) },
+          uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
           uColor: { value: new THREE.Vector3(FILL_COLOR.r, FILL_COLOR.g, FILL_COLOR.b) },
-          uSpread: { value: 0.5 },
         },
         transparent: true,
       });
@@ -105,7 +108,7 @@ export default function HeroCanvas({ heroRef }) {
       }
       animate();
 
-      // Drive uProgress from scroll — starts when hero begins leaving viewport
+      // Trigger on hero section — starts the instant hero top hits viewport top
       ScrollTrigger.create({
         trigger: hero,
         start: "top top",
@@ -118,8 +121,8 @@ export default function HeroCanvas({ heroRef }) {
 
       function onResize() {
         if (!renderer || !material) return;
-        renderer.setSize(hero.offsetWidth, hero.offsetHeight);
-        material.uniforms.uResolution.value.set(hero.offsetWidth, hero.offsetHeight);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        material.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
       }
       window.addEventListener("resize", onResize);
       return () => window.removeEventListener("resize", onResize);
@@ -138,10 +141,11 @@ export default function HeroCanvas({ heroRef }) {
     <canvas
       ref={canvasRef}
       style={{
-        position: "absolute",
-        inset: 0,
-        width: "100%",
-        height: "100%",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
         zIndex: 2,
         pointerEvents: "none",
       }}

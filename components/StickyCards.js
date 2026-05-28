@@ -220,7 +220,7 @@ export default function StickyCards() {
               {card.heading}
             </span>
             {/* Subline — Figtree 300, same color, 1.333 ratio smaller, pre-line for forced breaks */}
-            <span style={{ fontFamily: FONT_BODY, fontWeight: 200, fontSize: "clamp(21px, 2.25vw, 36px)", lineHeight: 1.3, letterSpacing: "-0.01em", color: "#1C1C1A", display: "block", marginTop: 8, whiteSpace: "pre-line" }}>
+            <span style={{ fontFamily: FONT_BODY, fontWeight: 200, fontSize: "clamp(19px, 2.07vw, 33px)", lineHeight: 1.3, letterSpacing: "-0.01em", color: "#1C1C1A", display: "block", marginTop: 8, whiteSpace: "pre-line" }}>
               {card.subline}
             </span>
           </div>

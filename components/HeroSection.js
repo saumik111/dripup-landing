@@ -445,7 +445,7 @@ export default function HeroSection({ videoRef }) {
         </div>
 
         {/* Cube — center pivot, faces on outer surfaces, bottom face lands at front position */}
-        <div style={{ position: "absolute", perspective: "1200px", width: "calc(100% - 80px)", maxWidth: 900, display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", perspective: "5000px", width: "calc(100% - 80px)", maxWidth: 900, display: "flex", justifyContent: "center" }}>
           <div
             ref={cubeRef}
             style={{
@@ -465,7 +465,7 @@ export default function HeroSection({ videoRef }) {
               textAlign: "center",
               transform: "rotateX(0deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(1.87rem, 3.74vw, 3.27rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>
               <span style={{ display: "block" }}>We handle the boring work,</span>
               <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
@@ -479,7 +479,7 @@ export default function HeroSection({ videoRef }) {
               textAlign: "center",
               transform: "rotateX(-90deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(1.87rem, 3.74vw, 3.27rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>
               <span style={{ display: "block" }}>Drip Up plugs into your Shopify store</span>
               <span style={{ display: "block" }}>and takes over all the repetitive tasks.</span>

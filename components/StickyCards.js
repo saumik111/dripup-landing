@@ -24,15 +24,15 @@ const CARDS = [
   },
   {
     bg: "#DFD9CC",
-    heading: "Control the chaos,",
-    subline: "everything that matters, right in front of you",
+    heading: "Control the chaos",
+    subline: "everything that matters,\nright in front of you",
     ui: "insights",
     zIndex: 3,
   },
   {
     bg: "#D6D0C3",
     heading: "Grow with confidence",
-    subline: "know exactly how your brand is performing",
+    subline: "know exactly how your\nbrand is performing",
     ui: "analytics",
     zIndex: 2,
   },
@@ -219,8 +219,8 @@ export default function StickyCards() {
             <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
               {card.heading}
             </span>
-            {/* Subline — Figtree, same color as heading, 1.333 ratio smaller */}
-            <span style={{ fontFamily: FONT_BODY, fontWeight: 400, fontSize: "clamp(21px, 2.25vw, 36px)", lineHeight: 1.3, color: "#1C1C1A", display: "block", marginTop: 8 }}>
+            {/* Subline — Figtree 300, same color, 1.333 ratio smaller, pre-line for forced breaks */}
+            <span style={{ fontFamily: FONT_BODY, fontWeight: 300, fontSize: "clamp(21px, 2.25vw, 36px)", lineHeight: 1.3, color: "#1C1C1A", display: "block", marginTop: 8, whiteSpace: "pre-line" }}>
               {card.subline}
             </span>
           </div>

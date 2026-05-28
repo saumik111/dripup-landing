@@ -432,17 +432,17 @@ export default function HeroSection({ videoRef }) {
             textAlign: "center",
           }}
         >
-          <div style={{ display: "block", textAlign: "center" }}>
-            {"We handle the boring work,".split(" ").map((w, i) => (
-              <span key={`l1-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
+          <span style={{ display: "block", textAlign: "center" }}>
+            {["We", "handle", "the", "boring", "work,"].map((w, i, arr) => (
+              <span key={`l1-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w}{i < arr.length - 1 ? " " : ""}</span>
             ))}
-          </div>
-          <div style={{ display: "block", textAlign: "center" }}>
-            {"so you can focus on".split(" ").map((w, i) => (
-              <span key={`l2-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
+          </span>
+          <span style={{ display: "block", textAlign: "center" }}>
+            {["so", "you", "can", "focus", "on"].map((w, i) => (
+              <span key={`l2-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w}{" "}</span>
             ))}
             <span className="reveal-line" style={{ display: "inline", opacity: 0 }}><em>growing</em></span>
-          </div>
+          </span>
         </div>
 
         {/* Cube — center pivot, faces on outer surfaces, bottom face lands at front position */}

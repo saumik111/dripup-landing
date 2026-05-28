@@ -129,8 +129,6 @@ const UI_MAP = { photoshoots: <PhotoshootsUI />, listings: <ListingsUI />, insig
 export default function StickyCards() {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
-  const lastCardRef = useRef(null);
-  const lastCardImageRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -141,8 +139,11 @@ export default function StickyCards() {
     const segmentSize = 1 / totalCards;
     const cardYOffset = 5;
     const cardScaleStep = 0.075;
+    const stackDist = window.innerHeight * 2.5;
+    const expandDist = window.innerHeight * 1.2;
+    const totalDist = stackDist + expandDist;
 
-    // Initial stacked positions — exact source
+    // Initial stacked positions
     cards.forEach((card, i) => {
       gsap.set(card, {
         xPercent: -50,
@@ -151,11 +152,7 @@ export default function StickyCards() {
       });
     });
 
-    const stackDist = window.innerHeight * 2.5;
-    const expandDist = window.innerHeight * 1.2;
-    const totalDist = stackDist + expandDist;
-
-    // Set image initial zoom
+    // Set last card image initial zoom
     if (lastCardImageRef.current) {
       gsap.set(lastCardImageRef.current, { scale: 1.2 });
     }
@@ -169,11 +166,11 @@ export default function StickyCards() {
       scrub: 1.5,
       onUpdate: (self) => {
         const totalProgress = self.progress;
-        const stackProgress = Math.min(totalProgress / (stackDist / totalDist), 1);
-        const expandRaw = (totalProgress - stackDist / totalDist) / (expandDist / totalDist);
-        const expandProgress = Math.max(0, Math.min(expandRaw, 1));
+        const stackFraction = stackDist / totalDist;
+        const stackProgress = Math.min(totalProgress / stackFraction, 1);
+        const expandProgress = Math.max(0, (totalProgress - stackFraction) / (1 - stackFraction));
 
-        // — Stacking phase —
+        // Stacking phase
         const activeIndex = Math.min(Math.floor(stackProgress / segmentSize), totalCards - 1);
         const segProgress = (stackProgress - activeIndex * segmentSize) / segmentSize;
         const lastIndex = totalCards - 1;
@@ -201,40 +198,22 @@ export default function StickyCards() {
           }
         });
 
-        // — Expansion phase — only the last card
-        if (lastCardRef.current && expandProgress > 0) {
-          const card = lastCardRef.current;
+        // Expansion phase — width/height only, position anchor never changes
+        // top:50% left:50% xPercent:-50 yPercent:-50 stays locked → grows from center
+        if (lastCardRef.current) {
           const vw = window.innerWidth;
           const vh = window.innerHeight;
-
-          // Card starts at 65vw wide, 60vh tall, centered
-          const startW = vw * 0.65;
-          const startH = vh * 0.60;
-          const startLeft = (vw - startW) / 2;
-          const startTop = (vh - startH) / 2;
-
-          const currentW = gsap.utils.interpolate(startW, vw, expandProgress);
-          const currentH = gsap.utils.interpolate(startH, vh, expandProgress);
-          const currentLeft = gsap.utils.interpolate(startLeft, 0, expandProgress);
-          const currentTop = gsap.utils.interpolate(startTop, 0, expandProgress);
-          const currentRadius = gsap.utils.interpolate(16, 0, expandProgress);
-
-          gsap.set(card, {
-            width: currentW,
-            height: currentH,
-            left: currentLeft,
-            top: currentTop,
-            xPercent: 0,
-            yPercent: 0,
-            borderRadius: currentRadius,
+          gsap.set(lastCardRef.current, {
+            width: gsap.utils.interpolate(vw * 0.65, vw, expandProgress),
+            height: gsap.utils.interpolate(vh * 0.60, vh, expandProgress),
+            borderRadius: gsap.utils.interpolate(16, 0, expandProgress),
           });
+        }
 
-          // Image zooms out as card expands
-          if (lastCardImageRef.current) {
-            gsap.set(lastCardImageRef.current, {
-              scale: gsap.utils.interpolate(1.2, 1, expandProgress),
-            });
-          }
+        if (lastCardImageRef.current) {
+          gsap.set(lastCardImageRef.current, {
+            scale: gsap.utils.interpolate(1.2, 1, expandProgress),
+          });
         }
       },
     });
@@ -284,13 +263,12 @@ export default function StickyCards() {
           {/* Last card — hero image fills card, no text */}
           {i === CARDS.length - 1 ? (
             <img
-              ref={lastCardImageRef}
               src="/images/hero-bg.png"
               alt=""
               style={{
                 position: "absolute", inset: 0,
                 width: "100%", height: "100%",
-                objectFit: "cover",
+                objectFit: "cover", borderRadius: "1rem",
               }}
             />
           ) : (

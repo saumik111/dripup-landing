@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import StickyCards from "@/components/StickyCards";
+import CardExpand from "@/components/CardExpand";
 import { useRef } from "react";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection videoRef={heroVideoRef} />
       <div style={{ position: "relative", zIndex: 5, background: "#F5F0E8" }}>
         <StickyCards />
+        <CardExpand />
       </div>
     </main>
   );

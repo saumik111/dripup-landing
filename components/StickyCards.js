@@ -219,8 +219,8 @@ export default function StickyCards() {
             <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
               {card.heading}
             </span>
-            {/* Subline — Figtree, muted color */}
-            <span style={{ fontFamily: FONT_BODY, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.3, color: "#6B6860", display: "block", marginTop: 8 }}>
+            {/* Subline — Figtree, muted color, not bold */}
+            <span style={{ fontFamily: FONT_BODY, fontWeight: 400, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.3, color: "#6B6860", display: "block", marginTop: 8 }}>
               {card.subline}
             </span>
           </div>

@@ -464,7 +464,7 @@ export default function HeroSection({ videoRef }) {
               display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
-              transform: "rotateX(0deg) translateZ(80px)",
+              transform: "rotateX(0deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>

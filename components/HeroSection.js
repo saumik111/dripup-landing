@@ -136,7 +136,7 @@ export default function HeroSection({ videoRef }) {
         ease: "none",
         scrollTrigger: {
           trigger: container,
-          start: "top 22%",
+          start: "top 80%",
           end: "center center",
           scrub: true,
         },

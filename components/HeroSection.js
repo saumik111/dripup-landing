@@ -439,34 +439,31 @@ export default function HeroSection({ videoRef }) {
               opacity: 0,
             }}
           >
-            {/* Front face */}
+            {/* Front face — display:block + br, identical to word-reveal div */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: "0.2em",
+              display: "block",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
               transform: "rotateX(0deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             }}>
-              <span style={{ display: "block" }}>We handle the boring work,</span>
-              <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
+              <span style={{ display: "block", textAlign: "center" }}>We handle the boring work,<br />so you can focus on <em>growing</em></span>
             </div>
 
-            {/* Bottom face */}
+            {/* Bottom face — same layout */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: "0.2em",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
               transform: "rotateX(-90deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.15, color: "#1C1C1A",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             }}>
-              <span style={{ display: "block" }}>Drip Up plugs into your Shopify store</span>
-              <span style={{ display: "block" }}>and takes over all the repetitive tasks.</span>
+              <span style={{ display: "block", textAlign: "center" }}>Drip Up plugs into your Shopify store<br />and takes over all the repetitive tasks.</span>
             </div>
           </div>
         </div>

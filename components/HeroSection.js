@@ -425,14 +425,20 @@ export default function HeroSection({ videoRef }) {
           style={{
             position: "absolute",
             width: "calc(100% - 80px)", maxWidth: 900,
-            display: "flex", flexDirection: "column", alignItems: "center", gap: "0.15em",
+            display: "block",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
             fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             textAlign: "center",
           }}
         >
-          <span className="reveal-line" style={{ display: "block" }}>We handle the boring work,</span>
-          <span className="reveal-line" style={{ display: "block" }}>so you can focus on <em>growing</em></span>
+          {"We handle the boring work,".split(" ").map((w, i) => (
+            <span key={`l1-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
+          ))}
+          <br />
+          {"so you can focus on".split(" ").map((w, i) => (
+            <span key={`l2-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
+          ))}
+          <span className="reveal-line" style={{ display: "inline", opacity: 0 }}><em>growing</em></span>
         </div>
 
         {/* Cube — position absolute, same spot as word-reveal, hidden until swap */}

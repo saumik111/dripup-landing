@@ -36,6 +36,13 @@ const CARDS = [
     ui: "analytics",
     zIndex: 2,
   },
+  {
+    bg: "#CCC6B8",
+    heading: "Watch it in action",
+    subline: "see exactly what drip up\ncan do for your store",
+    ui: "analytics",
+    zIndex: 1,
+  },
 ];
 
 function PhotoshootsUI() {
@@ -154,15 +161,22 @@ export default function StickyCards() {
         const activeIndex = Math.min(Math.floor(progress / segmentSize), totalCards - 1);
         const segProgress = (progress - activeIndex * segmentSize) / segmentSize;
 
+        const lastIndex = totalCards - 1;
+
         cards.forEach((card, i) => {
           if (i < activeIndex) {
             gsap.set(card, { yPercent: -250, rotationX: 35 });
           } else if (i === activeIndex) {
-            gsap.set(card, {
-              yPercent: gsap.utils.interpolate(-50, -200, segProgress),
-              rotationX: gsap.utils.interpolate(0, 35, segProgress),
-              scale: 1,
-            });
+            // Last card never exits — stays flat and centered
+            if (i === lastIndex) {
+              gsap.set(card, { yPercent: -50, rotationX: 0, scale: 1 });
+            } else {
+              gsap.set(card, {
+                yPercent: gsap.utils.interpolate(-50, -200, segProgress),
+                rotationX: gsap.utils.interpolate(0, 35, segProgress),
+                scale: 1,
+              });
+            }
           } else {
             const behindIndex = i - activeIndex;
             gsap.set(card, {

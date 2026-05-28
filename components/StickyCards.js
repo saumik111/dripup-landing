@@ -227,22 +227,34 @@ export default function StickyCards() {
             willChange: "transform",
           }}
         >
-          {/* Left col — text */}
-          <div style={{ flex: 1, height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0.5rem" }}>
-            {/* Heading — full phrase, EB Garamond */}
-            <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
-              {card.heading}
-            </span>
-            {/* Subline — Figtree 300, same color, 1.333 ratio smaller, pre-line for forced breaks */}
-            <span style={{ fontFamily: FONT_BODY, fontWeight: 200, fontSize: "clamp(19px, 2.07vw, 33px)", lineHeight: 1.3, letterSpacing: "-0.01em", color: "#1C1C1A", display: "block", marginTop: 8, whiteSpace: "pre-line" }}>
-              {card.subline}
-            </span>
-          </div>
-
-          {/* Right col — UI mockup */}
-          <div style={{ flex: 1, height: "100%", background: "#FFFFFF", borderRadius: "0.75rem", overflow: "hidden", padding: 20, display: "flex", flexDirection: "column" }}>
-            {UI_MAP[card.ui]}
-          </div>
+          {/* Last card — full image placeholder, no text or mockup */}
+          {i === CARDS.length - 1 ? (
+            <div style={{
+              width: "100%", height: "100%",
+              background: "rgba(26,61,53,0.06)",
+              borderRadius: "0.5rem",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              border: "1.5px dashed rgba(26,61,53,0.2)",
+            }}>
+              <span style={{ fontFamily: FONT_BODY, fontSize: 13, fontWeight: 500, color: "rgba(26,61,53,0.35)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Image</span>
+            </div>
+          ) : (
+            <>
+              {/* Left col — text */}
+              <div style={{ flex: 1, height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0.5rem" }}>
+                <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
+                  {card.heading}
+                </span>
+                <span style={{ fontFamily: FONT_BODY, fontWeight: 200, fontSize: "clamp(19px, 2.07vw, 33px)", lineHeight: 1.3, letterSpacing: "-0.01em", color: "#1C1C1A", display: "block", marginTop: 8, whiteSpace: "pre-line" }}>
+                  {card.subline}
+                </span>
+              </div>
+              {/* Right col — UI mockup */}
+              <div style={{ flex: 1, height: "100%", background: "#FFFFFF", borderRadius: "0.75rem", overflow: "hidden", padding: 20, display: "flex", flexDirection: "column" }}>
+                {UI_MAP[card.ui]}
+              </div>
+            </>
+          )}
         </div>
       ))}
     </section>

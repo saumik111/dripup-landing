@@ -419,12 +419,13 @@ export default function HeroSection({ videoRef }) {
           textAlign: "center",
         }}
       >
-        {/* Word reveal text — no perspective, no translateZ, natural text size */}
+        {/* Word reveal text — same height as cube so flex centering matches exactly */}
         <div
           className="cube-front"
           style={{
             position: "absolute",
             width: "calc(100% - 80px)", maxWidth: 900,
+            height: "clamp(120px, 12vw, 160px)",
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
             fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",

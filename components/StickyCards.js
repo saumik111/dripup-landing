@@ -131,6 +131,8 @@ export default function StickyCards() {
   const cardRefs = useRef([]);
   const lastCardRef = useRef(null);
   const lastCardImageRef = useRef(null);
+  const ctaHeadingWordsRef = useRef([]);
+  const ctaPanelRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -217,6 +219,28 @@ export default function StickyCards() {
             scale: gsap.utils.interpolate(1.2, 1, expandProgress),
           });
         }
+
+        // CTA word reveal — starts halfway through expansion, completes at end
+        const ctaProgress = Math.max(0, Math.min((expandProgress - 0.4) / 0.6, 1));
+        const words = ctaHeadingWordsRef.current;
+        if (words.length) {
+          words.forEach((word, i) => {
+            const a = i / words.length;
+            const b = (i + 1) / words.length;
+            let t = 0;
+            if (ctaProgress >= b) t = 1;
+            else if (ctaProgress >= a) t = (ctaProgress - a) / (b - a);
+            const yVal = gsap.utils.interpolate(40, 0, t);
+            gsap.set(word, { opacity: t, y: yVal });
+          });
+        }
+
+        // Panel fades in at end of expansion
+        if (ctaPanelRef.current) {
+          gsap.set(ctaPanelRef.current, {
+            opacity: Math.max(0, (expandProgress - 0.7) / 0.3),
+          });
+        }
       },
     });
 
@@ -293,6 +317,114 @@ export default function StickyCards() {
           )}
         </div>
       ))}
+
+      {/* CTA overlay — sits above expanded last card, animated in during expansion */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0, left: 0, width: "100%", height: "100%",
+          zIndex: 20,
+          pointerEvents: "none",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {/* Heading — same position as hero H1 (12vh from top) */}
+        <div
+          style={{
+            marginTop: "12vh",
+            textAlign: "center",
+            maxWidth: "min(95vw, 960px)",
+            padding: "0 40px",
+          }}
+        >
+          {/* Line 1: Tell Drip Up what to do */}
+          <span style={{ display: "block" }}>
+            {["Tell", "Drip", "Up", "what", "to", "do"].map((word, i) => (
+              <span
+                key={`l1-${i}`}
+                ref={(el) => { ctaHeadingWordsRef.current[i] = el; }}
+                style={{
+                  display: "inline-block", opacity: 0,
+                  fontFamily: '"EB Garamond", Georgia, serif',
+                  fontStyle: "normal", fontWeight: 500,
+                  fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.15,
+                  color: "#1C1C1A", marginRight: "0.25em",
+                }}
+              >{word}</span>
+            ))}
+          </span>
+          {/* Line 2: and it manages the rest */}
+          <span style={{ display: "block" }}>
+            {["and", "it", "manages", "the", "rest"].map((word, i) => (
+              <span
+                key={`l2-${i}`}
+                ref={(el) => { ctaHeadingWordsRef.current[6 + i] = el; }}
+                style={{
+                  display: "inline-block", opacity: 0,
+                  fontFamily: '"EB Garamond", Georgia, serif',
+                  fontStyle: "normal", fontWeight: 500,
+                  fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.15,
+                  color: "#1C1C1A", marginRight: "0.25em",
+                }}
+              >{word}</span>
+            ))}
+          </span>
+        </div>
+
+        {/* Glass panel + CTA */}
+        <div
+          ref={ctaPanelRef}
+          style={{
+            opacity: 0,
+            marginTop: 32,
+            pointerEvents: "auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 16,
+          }}
+        >
+          <div
+            style={{
+              background: "rgba(255, 255, 255, 0.08)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              borderRadius: 16,
+              padding: "14px 40px",
+              fontFamily: '"Figtree", sans-serif',
+              fontSize: 16,
+              fontWeight: 500,
+              color: "#1C1C1A",
+              letterSpacing: "0.01em",
+            }}
+          >
+            Free for 1 month
+          </div>
+
+          <a
+            href="/demo"
+            style={{
+              display: "inline-block",
+              background: "#1A3D35",
+              color: "#F5F0E8",
+              borderRadius: 99,
+              padding: "12px 32px",
+              fontFamily: '"Figtree", sans-serif',
+              fontSize: 16,
+              fontWeight: 500,
+              textDecoration: "none",
+              transition: "background 0.2s ease",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#2D5E52")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#1A3D35")}
+          >
+            Try it with your store
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

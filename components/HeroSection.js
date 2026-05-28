@@ -133,7 +133,7 @@ export default function HeroSection({ videoRef }) {
 
       ScrollTrigger.create({
         trigger: container,
-        start: "top 25%",
+        start: "top -10%",
         end: "center center",
         scrub: true,
         onUpdate: (self) => {

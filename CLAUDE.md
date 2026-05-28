@@ -19,6 +19,8 @@
 | v1.2 | Dissolve transition, word reveal, panel dissolve, solution copy updated |
 | v1.3 | Cube roll animation working, text horizontal, color reveal clean |
 | v1.4 | Word reveal working, cube positioned correctly, seamless swap |
+| v1.5 | Cube roll with anticipation/overshoot/settle, word reveal per-word |
+| v1.6 | StickyCards implemented, typography refined, cube roll polished |
 
 ---
 
@@ -89,23 +91,41 @@
 - Trailing spaces inside inline spans were adding micro-height to line boxes. Fixed by putting space between words outside the span
 
 #### ProblemSection.js — Current State
-- Removed all chaos tags and explosion animation
-- Just two lines: "We handle the boring work," + "so you can focus on growing"
-- Plain section, no animations
+- Gutted/unused — content moved into HeroSection hero-content cube animation
+- Returns null
 
 #### SolutionSection.js — Current State
-- Heading: "Drip Up plugs into your Shopify store and takes over all the repetitive tasks, / just like your manager"
-- Product UI card with tabs (Summary/Insights/Artifacts) + 3 report rows
-- Fade-in on scroll (gsap.from children)
+- Gutted/unused — replaced by StickyCards
+- Returns null
 
 #### FeatureCards.js — Current State
-- 4 stacked cards, GSAP ScrollTrigger pin, scrub:0.6
-- Card 1 heading + subline: enter from below with rotateX(90→0) on scroll in
-- onLeave fires onReady() → shows CTASection
+- Removed from page — replaced by StickyCards
+- File still exists but not used
+
+#### StickyCards.js — Current State (NEW — replaces SolutionSection + FeatureCards)
+- Source: BrandAppart sticky cards mechanic (codegrid-brandappart-sticky-cards)
+- 4 cards stacked centered, `position: absolute; top: 50%; left: 50%`
+- Section pinned, `end: 2.5 * windowHeight`, scrub:1
+- Each card scrolls up with rotationX(0→35) + yPercent(-50→-200) as next card rises
+- Initial state: cards offset by `cardYOffset: 5` (y) and `cardScaleStep: 0.075` (scale)
+- Card backgrounds: Linen → Sand → Stone → Taupe (warm family)
+- Card layout: left col (text) + right col (UI mockup)
+- Text: heading in EB Garamond 500, subline in Figtree 200, `letter-spacing: -0.01em`
+- Subline font size: `clamp(19px, 2.07vw, 33px)` — 1.45:1 ratio to heading
+- Cards content:
+  - Card 1: "Create" / "studio-free product photoshoots"
+  - Card 2: "Expand your reach" / "SEO & GEO optimized listings"
+  - Card 3: "Control the chaos" / "everything that matters,\nright in front of you"
+  - Card 4: "Grow with confidence" / "know exactly how your\nbrand is performing"
+
+#### CTASection.js — Current State
+- Simplified — always visible, no trigger logic
+- Background image + dark overlay + glass panel
+- Contains: H2 "Tell Drip Up what to do" + p "And it manages the rest" + green CTA button → /demo
 
 #### pages/index.js — Current State
-- HeroSection + SolutionSection + FeatureCards + CTASection
-- ProblemSection removed from page (its content moved into HeroSection hero-content)
+- Page order: HeroSection → StickyCards → CTASection
+- ProblemSection, SolutionSection, FeatureCards all removed
 - Sections after hero wrapped in `position: relative; z-index: 5; background: #F5F0E8`
 
 ---

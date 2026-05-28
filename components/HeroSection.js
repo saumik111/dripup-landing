@@ -419,26 +419,30 @@ export default function HeroSection({ videoRef }) {
           textAlign: "center",
         }}
       >
-        {/* Word reveal text — two lines, each starts opacity:0, revealed by scroll */}
+        {/* Word reveal text — same height as cube, text vertically centered */}
         <div
           className="cube-front"
           style={{
             position: "absolute",
             width: "calc(100% - 80px)", maxWidth: 900,
-            display: "block",
+            height: "clamp(120px, 12vw, 160px)",
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
             fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             textAlign: "center",
           }}
         >
-          {"We handle the boring work,".split(" ").map((w, i) => (
-            <span key={`l1-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
-          ))}
-          <br />
-          {"so you can focus on".split(" ").map((w, i) => (
-            <span key={`l2-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
-          ))}
-          <span className="reveal-line" style={{ display: "inline", opacity: 0 }}><em>growing</em></span>
+          <div style={{ display: "block", textAlign: "center" }}>
+            {"We handle the boring work,".split(" ").map((w, i) => (
+              <span key={`l1-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
+            ))}
+          </div>
+          <div style={{ display: "block", textAlign: "center" }}>
+            {"so you can focus on".split(" ").map((w, i) => (
+              <span key={`l2-${i}`} className="reveal-line" style={{ display: "inline", opacity: 0 }}>{w} </span>
+            ))}
+            <span className="reveal-line" style={{ display: "inline", opacity: 0 }}><em>growing</em></span>
+          </div>
         </div>
 
         {/* Cube — position absolute, same spot as word-reveal, hidden until swap */}
@@ -448,6 +452,7 @@ export default function HeroSection({ videoRef }) {
             style={{
               position: "relative",
               width: "100%",
+              height: "clamp(120px, 12vw, 160px)",
               transformStyle: "preserve-3d",
               transformOrigin: "center center",
               opacity: 0,
@@ -456,14 +461,15 @@ export default function HeroSection({ videoRef }) {
             {/* Front face — identical layout to word-reveal div */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
-              display: "block",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
               transform: "rotateX(0deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>
-              We handle the boring work,<br />so you can focus on <em>growing</em>
+              <span style={{ display: "block" }}>We handle the boring work,</span>
+              <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
             </div>
 
             {/* Bottom face — same layout */}

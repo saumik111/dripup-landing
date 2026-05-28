@@ -10,33 +10,29 @@ const FONT_BODY = '"Figtree", sans-serif';
 const CARDS = [
   {
     bg: "#F0EBE0",
-    line1: "Create",
-    line2: null,
+    heading: "Create",
     subline: "Studio-free product photoshoots",
     ui: "photoshoots",
     zIndex: 5,
   },
   {
     bg: "#E8E2D4",
-    line1: "Expand",
-    line2: "your reach",
+    heading: "Expand your reach",
     subline: "SEO & GEO optimized listings",
     ui: "listings",
     zIndex: 4,
   },
   {
     bg: "#DFD9CC",
-    line1: "Control",
-    line2: "the chaos,",
-    subline: "everything that matters,\nright in front of you",
+    heading: "Control the chaos,",
+    subline: "everything that matters, right in front of you",
     ui: "insights",
     zIndex: 3,
   },
   {
     bg: "#D6D0C3",
-    line1: "Grow",
-    line2: "with confidence",
-    subline: "know exactly how your brand\nis performing",
+    heading: "Grow with confidence",
+    subline: "know exactly how your brand is performing",
     ui: "analytics",
     zIndex: 2,
   },
@@ -219,18 +215,12 @@ export default function StickyCards() {
         >
           {/* Left col — text */}
           <div style={{ flex: 1, height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0.5rem" }}>
-            {/* Line 1 — main word */}
+            {/* Heading — full phrase, EB Garamond */}
             <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
-              {card.line1}
+              {card.heading}
             </span>
-            {/* Line 2 — heading continuation, same style */}
-            {card.line2 && (
-              <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
-                {card.line2}
-              </span>
-            )}
-            {/* Subline — same size, lighter */}
-            <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.2, color: "#1C1C1A", opacity: 0.4, display: "block", marginTop: 8, whiteSpace: "pre-line" }}>
+            {/* Subline — Figtree, muted color */}
+            <span style={{ fontFamily: FONT_BODY, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.3, color: "#6B6860", display: "block", marginTop: 8 }}>
               {card.subline}
             </span>
           </div>

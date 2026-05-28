@@ -10,33 +10,33 @@ const FONT_BODY = '"Figtree", sans-serif';
 const CARDS = [
   {
     bg: "#F0EBE0",
-    heading: "Create",
+    line1: "Create",
+    line2: null,
     subline: "Studio-free product photoshoots",
-    body: "Generate professional product images without a photographer. AI-powered shoots, ready to publish in minutes.",
     ui: "photoshoots",
     zIndex: 5,
   },
   {
     bg: "#E8E2D4",
-    heading: "Expand your reach",
+    line1: "Expand",
+    line2: "your reach",
     subline: "SEO & GEO optimized listings",
-    body: "Drip Up writes product titles, descriptions and tags optimized for search — automatically pushed to your Shopify store.",
     ui: "listings",
     zIndex: 4,
   },
   {
     bg: "#DFD9CC",
-    heading: "Control the chaos",
-    subline: "Everything that matters, right in front of you",
-    body: "Surface missing photos, low stock alerts, best sellers, and pending orders — all in one view.",
+    line1: "Control",
+    line2: "the chaos,",
+    subline: "everything that matters,\nright in front of you",
     ui: "insights",
     zIndex: 3,
   },
   {
     bg: "#D6D0C3",
-    heading: "Grow with confidence",
-    subline: "Know exactly how your brand is performing",
-    body: "Deep intelligence about your business — brand audits, competitor scans, and ad strategy reports on demand.",
+    line1: "Grow",
+    line2: "with confidence",
+    subline: "know exactly how your brand\nis performing",
     ui: "analytics",
     zIndex: 2,
   },
@@ -218,12 +218,21 @@ export default function StickyCards() {
           }}
         >
           {/* Left col — text */}
-          <div style={{ flex: 1, height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "0.5rem" }}>
-            <div>
-              <p style={{ fontFamily: FONT_BODY, fontSize: 13, fontWeight: 500, color: "#6B6860", marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.08em" }}>{card.subline}</p>
-              <h2 style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A" }}>{card.heading}</h2>
-            </div>
-            <p style={{ fontFamily: FONT_BODY, fontSize: 15, fontWeight: 400, lineHeight: 1.6, color: "#6B6860", maxWidth: 320 }}>{card.body}</p>
+          <div style={{ flex: 1, height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0.5rem" }}>
+            {/* Line 1 — main word */}
+            <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
+              {card.line1}
+            </span>
+            {/* Line 2 — heading continuation, same style */}
+            {card.line2 && (
+              <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.1, color: "#1C1C1A", display: "block" }}>
+                {card.line2}
+              </span>
+            )}
+            {/* Subline — same size, lighter */}
+            <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.2, color: "#1C1C1A", opacity: 0.4, display: "block", marginTop: 8, whiteSpace: "pre-line" }}>
+              {card.subline}
+            </span>
           </div>
 
           {/* Right col — UI mockup */}

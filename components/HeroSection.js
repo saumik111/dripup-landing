@@ -115,30 +115,38 @@ export default function HeroSection({ videoRef }) {
     return () => { killed = true; };
   }, []);
 
-  // Color reveal on hero-content — whole div fades from muted to dark as one unit
+  // Line-by-line opacity reveal — IronHill exact method, two lines
   useEffect(() => {
     const container = heroContentRef.current;
     if (!container) return;
 
-    const el = container.querySelector(".cube-front");
-    if (!el) return;
+    const lines = Array.from(container.querySelectorAll(".reveal-line"));
+    if (!lines.length) return;
 
-    // Start muted
-    el.style.color = "#C8C4BC";
+    // Start invisible
+    lines.forEach((l) => { l.style.opacity = 0; });
 
     async function setup() {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
-      gsap.to(el, {
-        color: "#1C1C1A",
-        ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          start: "top 80%",
-          end: "center center",
-          scrub: true,
+      ScrollTrigger.create({
+        trigger: container,
+        start: "top 25%",
+        end: "center center",
+        scrub: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const total = lines.length;
+          lines.forEach((line, index) => {
+            const a = index / total;
+            const b = (index + 1) / total;
+            let opacity = 0;
+            if (progress >= b) opacity = 1;
+            else if (progress >= a) opacity = (progress - a) / (b - a);
+            gsap.to(line, { opacity, duration: 0.1, overwrite: true });
+          });
         },
       });
     }
@@ -411,19 +419,20 @@ export default function HeroSection({ videoRef }) {
           textAlign: "center",
         }}
       >
-        {/* Word reveal text — position absolute, same size as cube wrapper */}
+        {/* Word reveal text — two lines, each starts opacity:0, revealed by scroll */}
         <div
           className="cube-front"
           style={{
             position: "absolute",
             width: "calc(100% - 80px)", maxWidth: 900,
-            display: "block",
+            display: "flex", flexDirection: "column", alignItems: "center", gap: "0.15em",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
             fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             textAlign: "center",
           }}
         >
-          We handle the boring work,<br />so you can focus on <em>growing</em>
+          <span className="reveal-line" style={{ display: "block" }}>We handle the boring work,</span>
+          <span className="reveal-line" style={{ display: "block" }}>so you can focus on <em>growing</em></span>
         </div>
 
         {/* Cube — position absolute, same spot as word-reveal, hidden until swap */}
@@ -448,9 +457,10 @@ export default function HeroSection({ videoRef }) {
               transform: "rotateX(0deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.15em",
             }}>
-              <span style={{ display: "block", textAlign: "center" }}>We handle the boring work,<br />so you can focus on <em>growing</em></span>
+              <span style={{ display: "block" }}>We handle the boring work,</span>
+              <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
             </div>
 
             {/* Bottom face — same layout */}

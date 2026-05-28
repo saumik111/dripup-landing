@@ -10,102 +10,113 @@
 - **Never force push to main.** If something breaks, branch off the last good tag and fix forward.
 - **Before any large change**, check `git status` to confirm the working tree is clean. If it isn't, commit or stash first.
 
-## Work State Log
+## Saved Versions
 
-This section is the live state of the project. Update it after every session. It must reflect what has been done — not just what the user asked for, but all internal decisions, fixes, and reasoning.
+| Tag | Description |
+|-----|-------------|
+| v1.0 | Hero dissolve + word reveal working |
+| v1.1 | Before glass panel dissolve experiment |
+| v1.2 | Dissolve transition, word reveal, panel dissolve, solution copy updated |
+| v1.3 | Cube roll animation working, text horizontal, color reveal clean |
+| v1.4 | Word reveal working, cube positioned correctly, seamless swap |
 
 ---
 
+## Work State Log
+
 ### Session 1 — 2026-05-25 — Initial Setup + All Sections Built
 
-#### What the user asked for
-- Initialize a Next.js project called `dripup-landing`
-- Install GSAP + @gsap/react
-- Clean boilerplate, set up Tailwind config, folder structure, Git, GitHub
+- Created Next.js 16 (Pages Router, no TypeScript, Tailwind v4)
+- Installed GSAP + @gsap/react, Three.js
+- Built all 5 sections: HeroSection, ProblemSection, SolutionSection, FeatureCards, CTASection
+- Set up GitHub repo `saumik111/dripup-landing`
+- Added jsconfig.json for `@/` path alias (Next.js 16 kept regenerating tsconfig.json)
 
-#### What was done (including internal decisions)
+---
 
-**Project init:**
-- Ran `create-next-app@latest` — CLI defaulted to TypeScript despite `--no-typescript` flag (Next.js 16 behavior)
-- Manually converted all `.tsx` → `.js` files, removed `tsconfig.json`, added `jsconfig.json` for `@/` path alias
-- Removed TypeScript devDependencies, installed `gsap` + `@gsap/react`
-- Tailwind v4 was installed (not v3) — uses CSS-based config by default. Added `@config "../tailwind.config.js"` directive in `globals.css` to wire up a standard `tailwind.config.js` for design tokens
-- Git was auto-initialized by `create-next-app`. Made first commit: `initial project setup`
-- Created GitHub repo `saumik111/dripup-landing` via API, pushed to `main`
+### Session 2 — 2026-05-25 to 2026-05-28 — Full Visual & Animation Build
 
-**Design system:**
-- Added all custom tokens to `tailwind.config.js`: colors (cream, forest-green, ink, stone, glass variants, 4 feature card backgrounds), font family (Geist), font sizes (h1–caption), spacing (xs–section), border-radius (tag/input/card/panel/btn)
-- `globals.css`: imports Tailwind, wires tailwind.config.js, imports Geist from Google Fonts, resets margins/padding, sets body background to cream + Geist font
+#### Typography
+- Fonts: **Figtree** (500, 600) for body/labels/buttons, **EB Garamond** (400, 500) for all headings
+- All major headings: EB Garamond, `font-style: normal`, `font-weight: 500`
+- `<em>` tags: EB Garamond italic via `globals.css`
+- H1 font size: `clamp(2rem, 4vw, 3.5rem)` — this is the canonical hero heading size used everywhere
 
-**Components built:**
+#### Hero Section — Current State
+**Structure:**
+- Section: `position: relative`, `height: 175vh` — scroll track for dissolve + word reveal
+- Background image: `position: absolute`, `src="/images/hero-bg.png"` — user-swappable
+- Dark overlay: `rgba(0,0,0,0.18)` at `z:1`
+- HeroCanvas: WebGL dissolve canvas at `z:2` — covers image
+- Logo "DRIP UP": `position: absolute`, `top: 32`, `left: 40`, `z:30`
+- Heading wrapper: `position: absolute`, `top: 0`, `height: 100vh`, `z:1` — pinned to first viewport, dissolved by canvas
+- Panel+CTA wrapper: `position: absolute`, `top: 0`, `height: 100vh`, `z:3`, `paddingTop: 36vh` — dissolved by canvas
+- hero-content: `position: absolute`, `bottom: 0`, `height: 125vh`, `z:30` — word reveal + cube
 
-`HeroSection.js`
-- Fullscreen `<video>` tag with autoPlay/muted/loop/playsInline, src=`/videos/hero-bg.mp4` (user needs to drop file in)
-- Semi-transparent overlay (rgba 0,0,0,0.18) for text legibility
-- Logo "DRIP UP" top-left absolute positioned
-- H1 + H2 above the glass panel, responsive with clamp()
-- Glass panel: `rgba(245,240,232,0.65)` + `blur(12px)` + `0.5px solid rgba(200,195,185,0.4)` + `border-radius:24px`
-- Glass panel interior: 2-column grid — left=chat bubbles, right=mock product UI
-- GSAP timeline (repeat:-1) cycles through 4 chat items: prompt fades+slides in → response fades in → hold 2s → both fade out → next item
-- Right side mock UI: 3 skeleton rows + "Ready to publish" bar, animates in sync with chat (scale 0.9→1)
-- CTA bar: styled as a fake chat input (rounded pill, placeholder "Tell me what…."), actually an `<a>` tag linking to `/demo`
+**Heading animation:**
+- Word-swap animation on "shopify store" ↔ "online store" with letter-by-letter stagger
+- Entry: measure both words at mount, lock container to average px width, entrance animation on page load (word-by-word rise from y:48)
+- Loop: letters enter → hold 3.2s → dip together (y:5) → jump out (y:-24) → next word → repeat
+- On scroll back: fully reversible
 
-`ProblemSection.js`
-- Cream background, full viewport height
-- Centred 2-line headline: "Your ambitions can't wait / But admin work eats your entire day"
-- 15 chaos tags (real seller admin tasks), absolutely positioned at centre, opacity:0 initially
-- ScrollTrigger 1 (top 40%): tags scatter outward with random x/y/rotation using `TAG_POSITIONS` array, staggered 0.04s each
-- ScrollTrigger 2 (80% center): tags explode outward in circular pattern (angle = index/total * 2π, distance 160-220vw), opacity→0
-- Tags styled: `#1A3D35` background, `#F5F0E8` text, `border-radius:4px`
+**Dissolve (HeroCanvas.js):**
+- Three.js WebGL canvas, IronHill shader (exact port from codegrid-ironhill-scroll-animation source)
+- Cream fill `#F5F0E8` dissolves upward over hero image+panel+heading as you scroll
+- Progress: `(scrollY / (heroHeight - windowHeight)) * speed` where speed=1.2
+- Canvas z:20 — above heading(z:1) and panel(z:3), below hero-content(z:30)
+- uSpread: 0.5, exact IronHill fragment shader with `noiseValue * uSpread` (not + uSpread)
 
-`SolutionSection.js`
-- Cream background, 128px vertical padding
-- Headline "Chat with Drip Up..." + subline, fade-in on scroll (gsap.from children, stagger 0.1s)
-- Product UI card: white background, tabs (Summary / Insights / Artifacts), 3 report rows with colored dot indicators + Download buttons, subtle shadow
+**Word reveal (hero-content):**
+- Two `<span style={{ display: "block" }}>` wrappers for line 1 and line 2
+- Individual word `<span className="reveal-line" style={{ display: "inline", opacity: 0 }}>` — IronHill method
+- ScrollTrigger: `start: "top 25%"`, `end: "center center"`, scrub:true
+- opacity 0→1 per word in sequence
 
-`FeatureCards.js`
-- 4 cards, each `position:absolute inset:0`, background from warm family (Linen→Sand→Stone→Taupe)
-- Cards 1-3 start at `y:100vh`, card 0 is base (visible)
-- GSAP ScrollTrigger: pins the wrapper, `end: +=400%`, scrub:0.6, each subsequent card slides up to y:0 on scroll
-- `onLeave` callback fires `onReady()` prop → triggers CTA section to appear
-- Each card: 2-column grid (text left, UI card right)
-- 4 inline UI mockups: PhotoshootsUI (3 image placeholders + publish bar), ListingsUI (3 checked rows + push button), InsightsUI (4 alert rows with colored dots + Fix buttons), AnalyticsUI (tabs + 3 report rows)
+**Cube roll animation:**
+- Fires at `start: "center center"` — pins hero-content when text is dead center
+- `end: "+=500"` — 500px scroll distance for full animation
+- Sequence: fade out word-reveal div → fade in cube → tilt -12° → pause 0.08s → roll to 95° → settle to 90° with `back.out(1.5)`
+- Cube geometry: `transformOrigin: "center center"`, front face `rotateX(0) translateZ(80px)`, bottom face `rotateX(-90deg) translateZ(80px)`, no perspective wrapper
+- Front face text: "We handle the boring work, / so you can focus on *growing*"
+- Bottom face text: "Drip Up plugs into your shopify store / and takes over all the repetitive tasks"
+- Both faces: same height `clamp(120px, 12vw, 160px)`, same font, same flex centering, same lineHeight 1.3
 
-`CTASection.js`
-- Hidden (opacity:0) until `visible` prop becomes true (set by FeatureCards onLeave)
-- Own `<video>` tag (same `/videos/hero-bg.mp4` src) — plays independently in this section
-- GSAP: section fades in, glass panel scales from 0.95→1
-- Glass panel: same spec as hero panel, contains H2 "Tell Drip Up what to do" + H3 "And it manages the rest" + green CTA button "Watch it in action" → `/demo`
-- Button hover: forest-green → forest-light (#2D5E52)
+#### Internal decisions — Hero
+- Canvas z:20 was chosen so heading(z:1) and panel(z:3) get dissolved, but word-reveal(z:30) and cube(z:30) stay above
+- Removed `perspective` from cube wrapper — at `translateZ(80px)` with perspective, the front face appeared ~7% larger than word-reveal div, causing visible size jump on swap. Without perspective (orthographic), translateZ has no size effect
+- Word-reveal div must have same `height: clamp(120px, 12vw, 160px)` and `display:flex; justifyContent:center` as cube to ensure text sits at identical Y position on swap
+- The word splitter originally used `display:inline-block` which caused vertical stacking in flex containers. Fixed with `display:inline` spans inside `display:block` span containers
+- Trailing spaces inside inline spans were adding micro-height to line boxes. Fixed by putting space between words outside the span
 
-`pages/index.js`
-- Imports all 5 sections, passes `heroVideoRef` to HeroSection, `ctaVisible` state + setter to FeatureCards/CTASection
+#### ProblemSection.js — Current State
+- Removed all chaos tags and explosion animation
+- Just two lines: "We handle the boring work," + "so you can focus on growing"
+- Plain section, no animations
 
-`pages/demo.js`
-- Placeholder page at `/demo` so CTA links don't 404
+#### SolutionSection.js — Current State
+- Heading: "Drip Up plugs into your Shopify store and takes over all the repetitive tasks, / just like your manager"
+- Product UI card with tabs (Summary/Insights/Artifacts) + 3 report rows
+- Fade-in on scroll (gsap.from children)
 
-#### Internal decisions / reasoning log
-- Used `position:absolute inset:0` for feature cards (not fixed) so they stack within their pinned container correctly
-- Used `scale: "0.9"` string on rightImageRef initial set because GSAP handles it, but switched to gsap.set in useEffect for correctness
-- CTASection gets its own `<video>` element rather than moving the hero video element, because the hero video is pinned in the DOM in a different scroll position — reusing the ref would cause layout issues
-- `@config` directive in Tailwind v4 CSS is the correct way to bridge to a JS config file — without it, Tailwind v4 ignores tailwind.config.js entirely
-- jsconfig.json `@/*` → `./*` maps `@/styles/globals.css` to `./styles/globals.css` from project root, which is correct for Pages Router
+#### FeatureCards.js — Current State
+- 4 stacked cards, GSAP ScrollTrigger pin, scrub:0.6
+- Card 1 heading + subline: enter from below with rotateX(90→0) on scroll in
+- onLeave fires onReady() → shows CTASection
 
-#### Outstanding items
-- `public/videos/hero-bg.mp4` — user needs to provide this file
-- Product UI mockups are all inline skeleton code — will be replaced with real screenshots when user provides them
-- Mobile responsive breakpoints not yet implemented (desktop-first for now)
-- No actual ScrollTrigger for CTA section cards-exit animation yet (currently triggered by FeatureCards onLeave — may need refinement)
+#### pages/index.js — Current State
+- HeroSection + SolutionSection + FeatureCards + CTASection
+- ProblemSection removed from page (its content moved into HeroSection hero-content)
+- Sections after hero wrapped in `position: relative; z-index: 5; background: #F5F0E8`
 
 ---
 
 ## Project Overview
 
-**Product:** DripUp — AI-powered seller management platform for Indian fashion sellers on Shopify  
-**Goal:** Single-scroll landing page whose only purpose is to get the viewer to click "Watch it in action" → `/demo`  
-**Stack:** Next.js 16 (Pages Router) + Tailwind CSS v4 + GSAP with ScrollTrigger  
-**Font:** Geist (400, 500 only)  
-**Repo:** https://github.com/saumik111/dripup-landing  
+**Product:** DripUp — AI-powered seller management platform for Indian fashion sellers on Shopify
+**Goal:** Single-scroll landing page whose only purpose is to get the viewer to click "Watch it in action" → `/demo`
+**Stack:** Next.js 16 (Pages Router) + Tailwind CSS v4 + GSAP with ScrollTrigger + Three.js (WebGL)
+**Fonts:** Figtree (body/labels) + EB Garamond (headings)
+**Repo:** https://github.com/saumik111/dripup-landing
 
 ## Design System Summary
 
@@ -115,10 +126,16 @@ This section is the live state of the project. Update it after every session. It
 | Accent | `#1A3D35` forest green |
 | Text primary | `#1C1C1A` ink |
 | Text secondary | `#6B6860` stone |
-| Glass panel | `rgba(245,240,232,0.65)` + `blur(12px)` |
-| H1 | 72px / 500 / lh 1.05 |
-| H2 | 48px / 500 / lh 1.1 |
-| H3 | 32px / 500 / lh 1.2 |
-| Body | 18px / 400 / lh 1.6 |
+| Heading font | EB Garamond, weight 500, normal |
+| Body/UI font | Figtree, weight 500 |
+| H1 size | `clamp(2rem, 4vw, 3.5rem)` |
+| H2 size | `clamp(28px, 3.5vw, 48px)` |
+| Hero glass panel | `rgba(255,255,255,0.04)` + `blur(6px)` + white border 0.28 |
 | Section padding | 128px top/bottom |
 | Max content width | 1200px |
+
+## Outstanding Items
+- Mobile responsive breakpoints not implemented (desktop-first)
+- Feature card UI mockups are skeleton placeholders — real screenshots pending
+- CTASection still uses `/images/hero-bg.png` as background — same as hero
+- `/demo` page is a placeholder

@@ -217,8 +217,9 @@ export default function StickyCards() {
             display: "flex",
             alignItems: "center",
             gap: "1rem",
-            padding: "2.5rem",
+            padding: i === CARDS.length - 1 ? 0 : "2.5rem",
             borderRadius: "1rem",
+            overflow: i === CARDS.length - 1 ? "hidden" : "visible",
             background: card.bg,
             border: "1px solid rgba(200,195,185,0.4)",
             boxShadow: "0 4px 40px rgba(28,28,26,0.08)",
@@ -227,17 +228,17 @@ export default function StickyCards() {
             willChange: "transform",
           }}
         >
-          {/* Last card — full image placeholder, no text or mockup */}
+          {/* Last card — hero image fills card, no text */}
           {i === CARDS.length - 1 ? (
-            <div style={{
-              width: "100%", height: "100%",
-              background: "rgba(26,61,53,0.06)",
-              borderRadius: "0.5rem",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              border: "1.5px dashed rgba(26,61,53,0.2)",
-            }}>
-              <span style={{ fontFamily: FONT_BODY, fontSize: 13, fontWeight: 500, color: "rgba(26,61,53,0.35)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Image</span>
-            </div>
+            <img
+              src="/images/hero-bg.png"
+              alt=""
+              style={{
+                position: "absolute", inset: 0,
+                width: "100%", height: "100%",
+                objectFit: "cover", borderRadius: "1rem",
+              }}
+            />
           ) : (
             <>
               {/* Left col — text */}

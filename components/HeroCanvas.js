@@ -87,7 +87,11 @@ export default function HeroCanvas({ heroRef }) {
       const scene = new THREE.Scene();
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+      try {
+        renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+      } catch (e) {
+        return; // WebGL context unavailable — skip silently
+      }
 
       // Sized to full hero dimensions — exact source behavior
       function resize() {

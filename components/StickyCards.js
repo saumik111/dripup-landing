@@ -252,7 +252,7 @@ export default function StickyCards() {
             alignItems: "center",
             gap: "1rem",
             padding: i === CARDS.length - 1 ? 0 : "2.5rem",
-            borderRadius: "1rem",
+            borderRadius: "16px",
             overflow: i === CARDS.length - 1 ? "hidden" : "visible",
             background: card.bg,
             border: "1px solid rgba(200,195,185,0.4)",

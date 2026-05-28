@@ -454,7 +454,7 @@ export default function HeroSection({ videoRef }) {
               width: "100%",
               height: "clamp(120px, 12vw, 160px)",
               transformStyle: "preserve-3d",
-              transformOrigin: "center center",
+              transformOrigin: "center bottom",
               opacity: 0,
             }}
           >
@@ -464,7 +464,7 @@ export default function HeroSection({ videoRef }) {
               display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
-              transform: "rotateX(0deg) translateZ(0px)",
+              transform: "rotateX(0deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>
@@ -477,7 +477,7 @@ export default function HeroSection({ videoRef }) {
               position: "absolute", width: "100%", height: "100%",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
-              transform: "rotateX(-90deg) translateZ(0px)",
+              transform: "rotateX(-90deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
               display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",

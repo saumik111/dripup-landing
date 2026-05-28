@@ -419,13 +419,12 @@ export default function HeroSection({ videoRef }) {
           textAlign: "center",
         }}
       >
-        {/* Word reveal text — same height as cube, text vertically centered */}
+        {/* Word reveal text — no perspective, no translateZ, natural text size */}
         <div
           className="cube-front"
           style={{
             position: "absolute",
             width: "calc(100% - 80px)", maxWidth: 900,
-            height: "clamp(120px, 12vw, 160px)",
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
             fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
@@ -445,8 +444,8 @@ export default function HeroSection({ videoRef }) {
           </div>
         </div>
 
-        {/* Cube — position absolute, same spot as word-reveal, hidden until swap */}
-        <div style={{ position: "absolute", perspective: "900px", width: "calc(100% - 80px)", maxWidth: 900, display: "flex", justifyContent: "center" }}>
+        {/* Cube — center pivot, faces on outer surfaces, bottom face lands at front position */}
+        <div style={{ position: "absolute", perspective: "1200px", width: "calc(100% - 80px)", maxWidth: 900, display: "flex", justifyContent: "center" }}>
           <div
             ref={cubeRef}
             style={{
@@ -454,11 +453,11 @@ export default function HeroSection({ videoRef }) {
               width: "100%",
               height: "clamp(120px, 12vw, 160px)",
               transformStyle: "preserve-3d",
-              transformOrigin: "center bottom",
+              transformOrigin: "center center",
               opacity: 0,
             }}
           >
-            {/* Front face — identical layout to word-reveal div */}
+            {/* Front face — translateZ(80px) sits in front of center */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
               display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
@@ -466,23 +465,24 @@ export default function HeroSection({ videoRef }) {
               textAlign: "center",
               transform: "rotateX(0deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+              fontSize: "clamp(1.87rem, 3.74vw, 3.27rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>
               <span style={{ display: "block" }}>We handle the boring work,</span>
               <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
             </div>
 
-            {/* Bottom face — same layout */}
+            {/* Bottom face — rotateX(-90deg) translateZ(80px) lands at front face position after 90° roll */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
               backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
               textAlign: "center",
               transform: "rotateX(-90deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              fontSize: "clamp(1.87rem, 3.74vw, 3.27rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>
-              <span style={{ display: "block", textAlign: "center" }}>Drip Up plugs into your Shopify store<br />and takes over all the repetitive tasks.</span>
+              <span style={{ display: "block" }}>Drip Up plugs into your Shopify store</span>
+              <span style={{ display: "block" }}>and takes over all the repetitive tasks.</span>
             </div>
           </div>
         </div>

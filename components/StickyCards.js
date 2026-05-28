@@ -142,7 +142,7 @@ export default function StickyCards() {
     const cardYOffset = 5;
     const cardScaleStep = 0.075;
     const stackDist = window.innerHeight * 2.5;
-    const expandDist = window.innerHeight * 1.2;
+    const expandDist = window.innerHeight * 0.6;
     const totalDist = stackDist + expandDist;
 
     // Initial stacked positions

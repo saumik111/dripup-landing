@@ -137,7 +137,7 @@ export default function HeroSection({ videoRef }) {
         scrollTrigger: {
           trigger: container,
           start: "top 22%",
-          end: "top 5%",
+          end: "center center",
           scrub: true,
         },
       });
@@ -163,7 +163,7 @@ export default function HeroSection({ videoRef }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: "top 5%",
+          start: "center center",
           end: "+=500",
           pin: true,
           scrub: 1,

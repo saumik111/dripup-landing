@@ -448,13 +448,12 @@ export default function HeroSection({ videoRef }) {
             style={{
               position: "relative",
               width: "100%",
-              height: "clamp(120px, 12vw, 160px)",
               transformStyle: "preserve-3d",
               transformOrigin: "center center",
               opacity: 0,
             }}
           >
-            {/* Front face — display:block + br, identical to word-reveal div */}
+            {/* Front face — identical layout to word-reveal div */}
             <div style={{
               position: "absolute", width: "100%", height: "100%",
               display: "block",
@@ -463,10 +462,8 @@ export default function HeroSection({ videoRef }) {
               transform: "rotateX(0deg) translateZ(0px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.15em",
             }}>
-              <span style={{ display: "block" }}>We handle the boring work,</span>
-              <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
+              We handle the boring work,<br />so you can focus on <em>growing</em>
             </div>
 
             {/* Bottom face — same layout */}

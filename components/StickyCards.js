@@ -129,6 +129,8 @@ const UI_MAP = { photoshoots: <PhotoshootsUI />, listings: <ListingsUI />, insig
 export default function StickyCards() {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
+  const lastCardRef = useRef(null);
+  const lastCardImageRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -263,12 +265,13 @@ export default function StickyCards() {
           {/* Last card — hero image fills card, no text */}
           {i === CARDS.length - 1 ? (
             <img
+              ref={lastCardImageRef}
               src="/images/hero-bg.png"
               alt=""
               style={{
                 position: "absolute", inset: 0,
                 width: "100%", height: "100%",
-                objectFit: "cover", borderRadius: "1rem",
+                objectFit: "cover",
               }}
             />
           ) : (

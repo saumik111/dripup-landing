@@ -182,10 +182,14 @@ export default function HeroSection({ videoRef }) {
       // 1. Fade out word-reveal text, fade in cube (same position)
       tl.to(wordRevealEl, { opacity: 0, duration: 0.15 }, 0)
         .to(cube, { opacity: 1, duration: 0.15 }, 0)
-        // 2. Wind-up
-        .to(cube, { rotationX: -8, ease: "power1.out", duration: 0.15 })
-        // 3. Full 90° roll
-        .to(cube, { rotationX: 90, ease: "power3.inOut", duration: 0.7 });
+        // 2. Deeper wind-up — tilt back 12°
+        .to(cube, { rotationX: -12, ease: "power1.out", duration: 0.18 })
+        // 3. Brief pause — viewer registers the anticipation
+        .to({}, { duration: 0.08 })
+        // 4. Roll to 95° — 5° overshoot past target
+        .to(cube, { rotationX: 95, ease: "power3.inOut", duration: 0.65 })
+        // 5. Settle back to 90° — face "lands" with a beat
+        .to(cube, { rotationX: 90, ease: "back.out(1.5)", duration: 0.18 });
     }
     setup();
   }, []);
@@ -482,8 +486,8 @@ export default function HeroSection({ videoRef }) {
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
             }}>
-              <span style={{ display: "block" }}>Drip Up plugs into your Shopify store</span>
-              <span style={{ display: "block" }}>and takes over all the repetitive tasks.</span>
+              <span style={{ display: "block" }}>Drip Up plugs into your shopify store</span>
+              <span style={{ display: "block" }}>and takes over all the repetitive tasks</span>
             </div>
           </div>
         </div>

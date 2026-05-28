@@ -165,7 +165,7 @@ export default function StickyCards() {
       end: `+=${totalDist}`,
       pin: true,
       pinSpacing: true,
-      scrub: 1.5,
+      scrub: 0.6,
       onUpdate: (self) => {
         const totalProgress = self.progress;
         const stackFraction = stackDist / totalDist;

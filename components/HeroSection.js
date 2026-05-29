@@ -133,8 +133,8 @@ export default function HeroSection({ videoRef }) {
 
       ScrollTrigger.create({
         trigger: container,
-        start: "top -55%",
-        end: "top -90%",
+        start: "top -65%",
+        end: "top -100%",
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;

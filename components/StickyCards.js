@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const FONT_HEADING = '"EB Garamond", Georgia, serif';
-const FONT_BODY = '"Figtree", sans-serif';
+const FONT_BODY = '"Inter", sans-serif';
 
 const CARDS = [
   {

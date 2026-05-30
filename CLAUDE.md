@@ -2,13 +2,46 @@
 
 # DripUp Landing Page — Claude Working Instructions
 
-## Git / Version Control Rules
+## Git / Version Control Rules — Complete Instructions
 
-- **Commit after every meaningful change.** After each feature, fix, or section build, run `git add` + `git commit` with a clear message.
-- **Push to GitHub after every commit** unless the user says otherwise. Remote: `https://github.com/saumik111/dripup-landing`
-- **Tag approved versions.** When the user says "save this as a version" or "I like this", create a git tag: `git tag -a v<number> -m "<description>"` and push it: `git push origin --tags`. This lets us restore any approved state cleanly.
-- **Never force push to main.** If something breaks, branch off the last good tag and fix forward.
-- **Before any large change**, check `git status` to confirm the working tree is clean. If it isn't, commit or stash first.
+### Every single task, no matter how small:
+1. Make the code change
+2. `git add <specific files>` — never `git add -A` or `git add .`
+3. `git commit -m "descriptive message"` with `Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>` at the end
+4. `git push origin main` immediately after every commit
+5. **Update CLAUDE.md** after every task to reflect what changed
+
+### When user says "save this as a version" or approves something:
+1. `git tag -a v<next-number> -m "v<number> — short description of state"`
+2. `git push origin --tags`
+3. Add the tag to the Saved Versions table in CLAUDE.md
+
+### Restoring a version:
+- If user says "go back to v1.x": `git checkout v1.x -- <files>` then verify with `git diff HEAD`
+- Never use `git reset --hard` unless user explicitly says so
+- Never force push to main
+
+### Before any large change:
+- Check `git status` — working tree must be clean
+- If not clean, commit or stash first
+- Tag the current state before experimenting so we can always return
+
+### Why this matters:
+- New chat sessions can corrupt local files without pushing to GitHub
+- GitHub is the single source of truth — local files can be reverted from it
+- Every commit = a restore point, every tag = an approved milestone
+- If local files are ahead of GitHub and something goes wrong, the work is lost
+
+### Commit message format:
+```
+<type>: <short description>
+
+Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>
+```
+Types: `feat` (new feature), `fix` (bug fix), `style` (visual only), `copy` (text change), `asset` (image/video), `docs` (CLAUDE.md), `refactor` (restructure), `chore` (cleanup)
+
+### Remote:
+`https://github.com/saumik111/dripup-landing` (user: saumik111)
 
 ## Saved Versions
 
@@ -21,6 +54,7 @@
 | v1.4 | Word reveal working, cube positioned correctly, seamless swap |
 | v1.5 | Cube roll with anticipation/overshoot/settle, word reveal per-word |
 | v1.6 | StickyCards implemented, typography refined, cube roll polished |
+| v1.7 | 5th card expands to fullscreen, image zoom, CTA overlay, all animations |
 
 ---
 

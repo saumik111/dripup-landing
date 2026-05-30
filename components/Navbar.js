@@ -1,91 +1,74 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const FONT = '"Inter", sans-serif';
 
 function ExpandButton({ shortLabel, fullLabel, href, dark }) {
+  const [hovered, setHovered] = useState(false);
+
+  const baseStyle = {
+    fontFamily: FONT,
+    fontWeight: 200,
+    fontSize: 15,
+    textDecoration: "none",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    borderRadius: 99,
+    cursor: "pointer",
+    position: "relative",
+    // Fixed height so it never changes vertically
+    height: 36,
+    // Transition width + background
+    transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, box-shadow 0.25s ease",
+    // Width: collapsed vs expanded
+    width: hovered ? (dark ? 220 : 220) : (dark ? 48 : 72),
+    background: hovered
+      ? dark ? "rgba(28,28,26,0.88)" : "#2D5E52"
+      : dark ? "transparent" : "#1A3D35",
+    color: dark ? (hovered ? "#F5F0E8" : "#1C1C1A") : "#F5F0E8",
+    backdropFilter: hovered && dark ? "blur(8px)" : "none",
+    WebkitBackdropFilter: hovered && dark ? "blur(8px)" : "none",
+    boxShadow: hovered && dark ? "0 2px 16px rgba(0,0,0,0.18)" : "none",
+    padding: 0,
+  };
+
   return (
     <a
       href={href}
-      style={{
-        fontFamily: FONT,
-        fontWeight: 200,
-        fontSize: 15,
-        textDecoration: "none",
-        display: "inline-flex",
-        alignItems: "center",
-        overflow: "hidden",
-        whiteSpace: "nowrap",
-        borderRadius: 99,
-        padding: dark ? "8px 16px" : "8px 0px",
-        background: dark ? "transparent" : "#1A3D35",
-        color: dark ? "#1C1C1A" : "#F5F0E8",
-        transition: "padding 0.3s ease, background 0.3s ease, color 0.25s ease, box-shadow 0.3s ease",
-        position: "relative",
-        cursor: "pointer",
-      }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget;
-        const shortEl = el.querySelector(".short");
-        const fullEl = el.querySelector(".full");
-        shortEl.style.opacity = "0";
-        shortEl.style.maxWidth = "0";
-        shortEl.style.overflow = "hidden";
-        fullEl.style.opacity = "1";
-        fullEl.style.maxWidth = "300px";
-        if (dark) {
-          el.style.background = "rgba(28,28,26,0.88)";
-          el.style.color = "#F5F0E8";
-          el.style.backdropFilter = "blur(8px)";
-          el.style.WebkitBackdropFilter = "blur(8px)";
-          el.style.padding = "8px 20px";
-          el.style.boxShadow = "0 2px 16px rgba(0,0,0,0.18)";
-        } else {
-          el.style.background = "#2D5E52";
-          el.style.padding = "8px 20px";
-        }
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget;
-        const shortEl = el.querySelector(".short");
-        const fullEl = el.querySelector(".full");
-        shortEl.style.opacity = "1";
-        shortEl.style.maxWidth = "100px";
-        fullEl.style.opacity = "0";
-        fullEl.style.maxWidth = "0";
-        if (dark) {
-          el.style.background = "transparent";
-          el.style.color = "#1C1C1A";
-          el.style.backdropFilter = "none";
-          el.style.WebkitBackdropFilter = "none";
-          el.style.padding = "8px 16px";
-          el.style.boxShadow = "none";
-        } else {
-          el.style.background = "#1A3D35";
-          el.style.padding = "8px 20px";
-        }
-      }}
+      style={baseStyle}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
+      {/* Short label — fades out on hover */}
       <span
-        className="short"
         style={{
-          display: "inline-block",
-          maxWidth: "100px",
-          opacity: 1,
-          transition: "opacity 0.2s ease, max-width 0.3s ease",
-          overflow: "hidden",
+          position: "absolute",
+          fontWeight: dark ? 200 : 600,
+          fontSize: 15,
+          transition: "opacity 0.15s ease",
+          opacity: hovered ? 0 : 1,
+          pointerEvents: "none",
+          letterSpacing: dark ? "0.01em" : "0",
         }}
       >
         {shortLabel}
       </span>
+
+      {/* Full label — fades in after short fades out */}
       <span
-        className="full"
         style={{
-          display: "inline-block",
-          maxWidth: 0,
-          opacity: 0,
-          transition: "opacity 0.25s ease 0.05s, max-width 0.3s ease",
-          overflow: "hidden",
+          position: "absolute",
+          fontWeight: 200,
+          fontSize: 14,
+          transition: "opacity 0.2s ease 0.12s",
+          opacity: hovered ? 1 : 0,
+          pointerEvents: "none",
+          letterSpacing: "0.01em",
+          padding: "0 16px",
+          textAlign: "center",
         }}
       >
         {fullLabel}

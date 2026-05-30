@@ -46,7 +46,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
       <span
         style={{
           position: "absolute",
-          fontWeight: dark ? 200 : 600,
+          fontWeight: 500,
           fontSize: 15,
           transition: "opacity 0.15s ease",
           opacity: hovered ? 0 : 1,
@@ -96,11 +96,11 @@ export default function Navbar() {
           const scrollingDown = currentScrollY > lastScrollY;
 
           if (currentScrollY <= 80) {
-            gsap.to(nav, { yPercent: 0, duration: 0.35, ease: "power3.out", overwrite: true });
+            gsap.to(nav, { yPercent: 0, duration: 0.5, ease: "power2.out", overwrite: true });
           } else if (scrollingDown) {
-            gsap.to(nav, { yPercent: -100, duration: 0.3, ease: "power2.in", overwrite: true });
+            gsap.to(nav, { yPercent: -100, duration: 0.45, ease: "power2.inOut", overwrite: true });
           } else {
-            gsap.to(nav, { yPercent: 0, duration: 0.35, ease: "power3.out", overwrite: true });
+            gsap.to(nav, { yPercent: 0, duration: 0.5, ease: "power2.out", overwrite: true });
           }
 
           lastScrollY = currentScrollY;

@@ -133,6 +133,7 @@ export default function StickyCards() {
   const lastCardImageRef = useRef(null);
   const ctaHeadingWordsRef = useRef([]);
   const ctaPanelRef = useRef(null);
+  const ctaButtonRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -235,11 +236,13 @@ export default function StickyCards() {
           });
         }
 
-        // Panel fades in at end of expansion
+        // Badge + button fade in at end of expansion
+        const panelOpacity = Math.max(0, (expandProgress - 0.7) / 0.3);
         if (ctaPanelRef.current) {
-          gsap.set(ctaPanelRef.current, {
-            opacity: Math.max(0, (expandProgress - 0.7) / 0.3),
-          });
+          gsap.set(ctaPanelRef.current, { opacity: panelOpacity });
+        }
+        if (ctaButtonRef.current) {
+          gsap.set(ctaButtonRef.current, { opacity: panelOpacity });
         }
       },
     });
@@ -328,18 +331,47 @@ export default function StickyCards() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        {/* Heading — same position as hero H1 (12vh from top) */}
+        {/* Badge — fades in with panel, sits above heading */}
+        <div
+          ref={ctaPanelRef}
+          style={{
+            opacity: 0,
+            pointerEvents: "auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {/* Badge pill */}
+          <div
+            style={{
+              background: "rgba(28,28,26,0.07)",
+              border: "1px solid rgba(28,28,26,0.15)",
+              borderRadius: 999,
+              padding: "8px 16px",
+              fontFamily: '"Inter", sans-serif',
+              fontSize: 13,
+              fontWeight: 400,
+              color: "#1C1C1A",
+              letterSpacing: "0.01em",
+              marginBottom: 40,
+            }}
+          >
+            Free for 1 month
+          </div>
+        </div>
+
+        {/* Heading — word-by-word animation */}
         <div
           style={{
-            marginTop: "12vh",
             textAlign: "center",
             maxWidth: "min(95vw, 960px)",
             padding: "0 40px",
           }}
         >
-          {/* Line 1: Tell Drip Up what to do */}
           <span style={{ display: "block" }}>
             {["Tell", "Drip", "Up", "what", "to", "do"].map((word, i) => (
               <span
@@ -355,7 +387,6 @@ export default function StickyCards() {
               >{word}</span>
             ))}
           </span>
-          {/* Line 2: and it manages the rest */}
           <span style={{ display: "block" }}>
             {["and", "it", "manages", "the", "rest"].map((word, i) => (
               <span
@@ -373,37 +404,15 @@ export default function StickyCards() {
           </span>
         </div>
 
-        {/* Glass panel + CTA */}
+        {/* Button — 40px below heading */}
         <div
-          ref={ctaPanelRef}
+          ref={ctaButtonRef}
           style={{
             opacity: 0,
-            marginTop: 32,
+            marginTop: 40,
             pointerEvents: "auto",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 16,
           }}
         >
-          <div
-            style={{
-              background: "rgba(255, 255, 255, 0.08)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              borderRadius: 16,
-              padding: "14px 40px",
-              fontFamily: '"Figtree", sans-serif',
-              fontSize: 16,
-              fontWeight: 500,
-              color: "#1C1C1A",
-              letterSpacing: "0.01em",
-            }}
-          >
-            Free for 1 month
-          </div>
-
           <a
             href="/demo"
             style={{

@@ -332,6 +332,7 @@ export default function StickyCards() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          paddingTop: "8vh",
         }}
       >
         {/* Badge — fades in with panel, sits above heading */}
@@ -357,9 +358,13 @@ export default function StickyCards() {
               fontWeight: 400,
               color: "#1C1C1A",
               letterSpacing: "0.01em",
-              marginBottom: 40,
+              marginBottom: 16,
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
             }}
           >
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#1A3D35", display: "inline-block", flexShrink: 0 }} />
             Free for 1 month
           </div>
         </div>

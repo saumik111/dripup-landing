@@ -234,17 +234,6 @@ export default function HeroSection({ videoRef }) {
       <HeroCanvas heroRef={heroRef} />
 
 
-      {/* Logo — above canvas */}
-      <div
-        style={{
-          position: "absolute", top: 32, left: 40, zIndex: 30,
-          fontFamily: FONT, fontWeight: 600, fontSize: 15,
-          letterSpacing: "0.15em", color: "#1C1C1A",
-        }}
-      >
-        DRIP UP
-      </div>
-
       {/* Heading — z:1, below canvas so it gets dissolved */}
       <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: "12vh", pointerEvents: "none" }}>
         <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center" }}>

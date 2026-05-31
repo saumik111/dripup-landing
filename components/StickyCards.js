@@ -9,35 +9,35 @@ const FONT_BODY = '"Inter", sans-serif';
 
 const CARDS = [
   {
-    bg: "#F0EBE0",
+    bg: "#F0F3FF",
     heading: "Create",
     subline: "studio-free product photoshoots",
     ui: "photoshoots",
     zIndex: 5,
   },
   {
-    bg: "#E8E2D4",
+    bg: "#EBEef8",
     heading: "Expand your reach",
     subline: "SEO & GEO optimized listings",
     ui: "listings",
     zIndex: 4,
   },
   {
-    bg: "#DFD9CC",
+    bg: "#E6E9F5",
     heading: "Control the chaos",
     subline: "everything that matters,\nright in front of you",
     ui: "insights",
     zIndex: 3,
   },
   {
-    bg: "#D6D0C3",
+    bg: "#E1E4F2",
     heading: "Grow with confidence",
     subline: "know exactly how your\nbrand is performing",
     ui: "analytics",
     zIndex: 2,
   },
   {
-    bg: "#CCC6B8",
+    bg: "#DCDFF0",
     heading: "Watch it in action",
     subline: "see exactly what drip up\ncan do for your store",
     ui: "analytics",

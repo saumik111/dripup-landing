@@ -440,6 +440,6 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 - Production desktop check confirmed FAQ exists, first item opens by default, and accordion switching works.
 - Production mobile check confirmed FAQ exists, no horizontal overflow, accordion switching works, and no client-side error text or console errors were captured.
 
-**Commit:** Pending in this pass.
+**Commit:** `feat: add faq section and stabilize mobile stack`
 
 ---

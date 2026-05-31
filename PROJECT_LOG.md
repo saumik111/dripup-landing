@@ -522,3 +522,33 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Commit:** `feat: add founder placeholder from faq`
 
 ---
+
+### Entry 016 - 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6) + Codex
+
+**User instruction:**
+> Review Claude's changes, fix anything needed, and compact the session context.
+
+**Claude changes found:**
+- `4f5fb37 asset: update hero section background image` - replaced `public/images/hero-section-bg.png` with the newly dropped image from the parent folder.
+- `49e7353 fix: hydration mismatch — viewportMode init 'desktop' not null` - changed `StickyCards` viewport mode initial state from `null` to `"desktop"` and removed the SSR placeholder branch.
+
+**Codex follow-up fix:**
+- Verified the dropped image and `public/images/hero-section-bg.png` have the same SHA256 hash.
+- Found the first hero still referenced `/images/hero-section-bg-v2.png`, so Claude's image asset update was present but inactive.
+- Updated the first hero image source to `/images/hero-section-bg.png`.
+- Left `public/images/last-card-bg.png` and all final-card image references unchanged.
+
+**Files changed:**
+- `components/HeroSection.js` - first hero now uses `/images/hero-section-bg.png`.
+- `PROJECT_LOG.md` - this entry.
+
+**Verification:**
+- `npm run build` passed.
+- Confirmed first hero references `hero-section-bg.png`.
+- Confirmed final card still references `last-card-bg.png`.
+
+**Commit:** `fix: wire updated hero background`
+
+---

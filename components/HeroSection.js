@@ -224,7 +224,7 @@ export default function HeroSection({ videoRef }) {
       {/* Background image — scrolls with the section */}
       <img
         ref={videoRef}
-        src="/images/hero-section-bg-v2.png"
+        src="/images/hero-section-bg.png"
         alt=""
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
       />

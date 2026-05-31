@@ -387,7 +387,7 @@ export default function StickyCards() {
   const ctaHeadingWordsRef = useRef([]);
   const ctaPanelRef = useRef(null);
   const ctaButtonRef = useRef(null);
-  const [viewportMode, setViewportMode] = useState(null);
+  const [viewportMode, setViewportMode] = useState("desktop");
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 700px)");
@@ -524,10 +524,6 @@ export default function StickyCards() {
 
     return () => cardsTrigger.kill();
   }, [viewportMode]);
-
-  if (viewportMode === null) {
-    return <section aria-hidden="true" style={{ width: "100%", height: "100vh", background: "transparent" }} />;
-  }
 
   if (viewportMode === "mobile") {
     return <MobileStack />;

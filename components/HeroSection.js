@@ -481,7 +481,7 @@ export default function HeroSection({ videoRef }) {
               fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: INK,
             }}>
               <span style={{ display: "block" }}>Drip Up connects to your shopify store</span>
-              <span style={{ display: "block" }}>and takes over all the repetitive tasks</span>
+              <span style={{ display: "block" }}>and takes over all the <em>repetitive tasks</em></span>
             </div>
           </div>
         </div>

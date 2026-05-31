@@ -344,7 +344,7 @@ export default function StickyCards() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          paddingTop: "8vh",
+          paddingTop: "2vh",
         }}
       >
         {/* Badge — fades in with panel, sits above heading */}

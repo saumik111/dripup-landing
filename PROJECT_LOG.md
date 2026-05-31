@@ -173,3 +173,43 @@ Color progression deliberately gets bolder and darker from card 1 → 5 to reinf
 **Commit:** `feat: premium cards, mobile stack animation, WebGL fallback, mobile cube roll fix`
 
 ---
+
+### Entry 003 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction:**
+> "It is too bold, it is hurting the eyes. Fix the color — not too much but a bit. Secondly do a grey screen test of the cards to find out whether the colors go with the text color or not. If not then tell me what can we do to fix it."
+
+**What was understood:**
+1. Colors from Entry 002 were too saturated. Pull them back to a middle ground — keep the color personality and depth progression but remove the harshness. Not back to original pastels.
+2. Perform a grey screen test (luminance-only analysis) on card background vs subtext color combinations, identify contrast failures, and propose a fix.
+
+**Grey screen test findings:**
+- Cards 1 (Create) and 2 (Expand) had hue-matched muted text — `#2B3580` blue on blue bg, `#0D5C3A` green on green bg. Both pairs desaturate to similar grey values, meaning the subtext contrast fails in greyscale and on low-contrast displays.
+- Cards 1 and 2 also desaturated to nearly the same grey value as each other — the stack depth was invisible in monochrome.
+- Cards 3 and 4 were fine — yellow and coral have clearly different luminance and contrast.
+
+**Fix chosen:** Option A — change all colored-card muted text to `rgba(17,19,24,0.55)`. Always dark ink, always readable, opacity gives a designed-in softness without fighting the background. Applied to all 4 colored cards (black card keeps its existing `#D8DEEA`).
+
+**Decisions made:**
+
+**Color adjustment (toned down from Entry 002):**
+| Card | Entry 002 | Entry 003 | Change |
+|---|---|---|---|
+| Create | `#C9D4FF` | `#D8E2FF` | Lighter, softer periwinkle |
+| Expand | `#A8EDD4` | `#BDF0DC` | Lighter, softer mint |
+| Control | `#FFD43B` | `#FFE066` | Warmer, less harsh yellow |
+| Grow | `#FF8C5A` | `#FFB090` | Softer coral-peach |
+| Watch | `#111318` | `#111318` | Unchanged |
+
+**Subtext color fix:**
+All 4 colored cards: muted text changed from hue-matched dark colors to `rgba(17,19,24,0.55)` — neutral dark ink at 55% opacity. Readable in greyscale, passes contrast on all 4 backgrounds.
+
+**Files changed:**
+- `components/StickyCards.js` — CARDS array updated: bg colors toned down, all muted colors unified to `rgba(17,19,24,0.55)`
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `style: tone down card colors, fix subtext contrast (grey screen test)`
+
+---

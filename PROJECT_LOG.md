@@ -258,3 +258,23 @@ All card subtext (`muted`) should match the heading (`text`) color exactly on ea
 **Commit:** `copy: CTA labels updated to early access wording`
 
 ---
+
+### Entry 006 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction:**
+> "The navbar's Early access button's ratio to the text inside it isn't the same as the CTA in the page."
+
+**Root cause identified:**
+Navbar button uses fixed pixel width (`108px`) with `padding: 0`. "Early access" at 15px font is ~90px wide, leaving only ~9px on each side — far less breathing room than the page CTA which uses `padding: 12px 32px` (32px each side, grows with text).
+
+**Fix chosen:** Bump collapsed width from `108px` to `140px` — gives ~25px breathing room on each side, closer to the CTA's proportions. Expand width kept at `200px`.
+
+**Files changed:**
+- `components/Navbar.js` — collapsed width `108` → `140`
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `style: navbar early access button width 108 -> 140 for better text ratio`
+
+---

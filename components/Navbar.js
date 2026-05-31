@@ -27,7 +27,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
     // Transition width + background
     transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, box-shadow 0.25s ease",
     // Width: collapsed vs expanded
-    width: hovered ? (dark ? 220 : 200) : (dark ? 48 : 108),
+    width: hovered ? (dark ? 220 : 200) : (dark ? 48 : 140),
     background: hovered
       ? dark ? INK_SOFT : INK_SOFT
       : dark ? "transparent" : INK,

@@ -494,3 +494,31 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Commit:** `feat: add faq follow-up ctas`
 
 ---
+
+### Entry 015 - 2026-05-31
+
+**Session agent:** Codex
+
+**User instruction:**
+> Capitalize the "Got more questions?" heading, make both bottom FAQ buttons outlined/transparent at rest and black on hover, route "Contact the founder" to a new placeholder page, and replace the first FAQ question/answer.
+
+**Changes:**
+- Changed the bottom heading to "Got more questions?".
+- Replaced the first FAQ with "Is Drip Up for my kind of store?" and the provided e-commerce/D2C answer.
+- Updated both bottom CTA buttons to use the same transparent outlined rest state and black hover state.
+- Changed "Contact the founder" to link to `/founder`.
+- Added a placeholder founder page for future content planning.
+
+**Files changed:**
+- `components/FAQSection.js` - FAQ copy, heading capitalization, CTA styling, and founder link.
+- `pages/founder.js` - placeholder founder page.
+- `PROJECT_LOG.md` - this entry.
+
+**Verification:**
+- `npm run build` passed and generated `/founder`.
+- Production desktop/mobile checks confirmed the new FAQ copy, button styles, horizontal button layout, `/founder` href, and no horizontal overflow or client-side error text.
+- `/founder` returned 200 and rendered the placeholder page.
+
+**Commit:** Pending in this pass.
+
+---

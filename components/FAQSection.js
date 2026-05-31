@@ -2,9 +2,9 @@ import { useState } from "react";
 
 const FAQS = [
   {
-    question: "Who is Drip Up built for?",
+    question: "Is Drip Up for my kind of store?",
     answer:
-      "Drip Up is built for e-commerce and D2C brands that want to hand off the repetitive selling work like listings, images, pricing and store ops, and focus on growing the brand.",
+      "If you run an e-commerce or D2C brand and spend more time on your online store operations, Drip Up is built for you. It takes over the repetitive selling work so you can focus on growing your brand.",
   },
   {
     question: "How do I get started?",
@@ -181,7 +181,7 @@ export default function FAQSection() {
               letterSpacing: 0,
             }}
           >
-            got more questions?
+            Got more questions?
           </h2>
           <div
             style={{
@@ -229,14 +229,15 @@ export default function FAQSection() {
               Ask Drip Up what it can do
             </a>
             <a
-              href="/demo"
+              href="/founder"
               style={{
                 flex: "1 1 0",
                 minWidth: 0,
                 minHeight: 48,
                 borderRadius: 99,
-                background: INK,
-                color: SURFACE_TEXT,
+                border: `1px solid ${OUTLINE}`,
+                background: "transparent",
+                color: INK,
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -247,10 +248,18 @@ export default function FAQSection() {
                 fontWeight: 600,
                 textAlign: "center",
                 textDecoration: "none",
-                transition: "background 0.22s ease",
+                transition: "background 0.22s ease, color 0.22s ease, border-color 0.22s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = INK_SOFT)}
-              onMouseLeave={(e) => (e.currentTarget.style.background = INK)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = INK_SOFT;
+                e.currentTarget.style.borderColor = INK_SOFT;
+                e.currentTarget.style.color = SURFACE_TEXT;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.borderColor = OUTLINE;
+                e.currentTarget.style.color = INK;
+              }}
             >
               Contact the founder
             </a>

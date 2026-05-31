@@ -2,13 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const FONT = '"Inter", sans-serif';
+const INK = "#111318";
+const INK_SOFT = "#252832";
+const SURFACE = "#F7F9FF";
 
 function ExpandButton({ shortLabel, fullLabel, href, dark }) {
   const [hovered, setHovered] = useState(false);
 
   const baseStyle = {
     fontFamily: FONT,
-    fontWeight: 200,
+    fontWeight: 500,
     fontSize: 15,
     textDecoration: "none",
     display: "inline-flex",
@@ -24,11 +27,11 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
     // Transition width + background
     transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, box-shadow 0.25s ease",
     // Width: collapsed vs expanded
-    width: hovered ? (dark ? 220 : 220) : (dark ? 48 : 72),
+    width: hovered ? (dark ? 220 : 200) : (dark ? 48 : 108),
     background: hovered
-      ? dark ? "rgba(28,28,26,0.88)" : "#2D5E52"
-      : dark ? "transparent" : "#1A3D35",
-    color: dark ? (hovered ? "#F5F0E8" : "#1C1C1A") : "#F5F0E8",
+      ? dark ? INK_SOFT : INK_SOFT
+      : dark ? "transparent" : INK,
+    color: dark ? (hovered ? SURFACE : INK) : SURFACE,
     backdropFilter: hovered && dark ? "blur(8px)" : "none",
     WebkitBackdropFilter: hovered && dark ? "blur(8px)" : "none",
     boxShadow: hovered && dark ? "0 2px 16px rgba(0,0,0,0.18)" : "none",
@@ -46,7 +49,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
       <span
         style={{
           position: "absolute",
-          fontWeight: 500,
+          fontWeight: 600,
           fontSize: 15,
           transition: "opacity 0.15s ease",
           opacity: hovered ? 0 : 1,
@@ -61,7 +64,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
       <span
         style={{
           position: "absolute",
-          fontWeight: 200,
+          fontWeight: 500,
           fontSize: 14,
           transition: "opacity 0.2s ease 0.12s",
           opacity: hovered ? 1 : 0,
@@ -162,7 +165,7 @@ export default function Navbar() {
           fontWeight: 200,
           fontSize: 13,
           letterSpacing: "0.15em",
-          color: "#1C1C1A",
+          color: INK,
           textDecoration: "none",
           textTransform: "uppercase",
         }}
@@ -179,8 +182,8 @@ export default function Navbar() {
           dark={true}
         />
         <ExpandButton
-          shortLabel="Try it"
-          fullLabel="Try it now with your store"
+          shortLabel="Early access"
+          fullLabel="Get my early access"
           href="/demo"
           dark={false}
         />

@@ -371,7 +371,7 @@ function MobileStack() {
 
         <div ref={ctaButtonRef} style={{ opacity: 0, marginTop: 32, pointerEvents: "auto" }}>
           <a href="/demo" style={{ display: "inline-block", background: INK, color: SURFACE_TEXT, borderRadius: 99, padding: "11px 28px", fontFamily: FONT_BODY, fontSize: 15, fontWeight: 500, textDecoration: "none" }}>
-            Try it with your store
+            Get my early access
           </a>
         </div>
       </div>
@@ -714,7 +714,7 @@ export default function StickyCards() {
             onMouseEnter={(e) => (e.currentTarget.style.background = INK_SOFT)}
             onMouseLeave={(e) => (e.currentTarget.style.background = INK)}
           >
-            Try it with your store
+            Get my early access
           </a>
         </div>
       </div>

@@ -235,3 +235,26 @@ All card subtext (`muted`) should match the heading (`text`) color exactly on ea
 **Commit:** `style: card subtext color matches heading color`
 
 ---
+
+### Entry 005 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction:**
+> "Change all the CTAs — the one in the navigation bar and the last card's CTA — from 'Try it with your store' to 'Get my early access'. And in the nav bar instead of 'Try it' it should be 'Early access'."
+
+**What was understood:**
+- Navbar `ExpandButton` (dark=false): `shortLabel` → `"Early access"`, `fullLabel` → `"Get my early access"`
+- StickyCards desktop CTA button: `"Try it with your store"` → `"Get my early access"`
+- StickyCards MobileStack CTA button: same change
+- All `/demo` hrefs unchanged — only visible text changes
+- Navbar collapsed width adjusted from `72px` to `108px` to fit the longer "Early access" label without clipping
+
+**Files changed:**
+- `components/Navbar.js` — shortLabel, fullLabel, collapsed width updated
+- `components/StickyCards.js` — both CTA button labels updated (replace_all)
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `copy: CTA labels updated to early access wording`
+
+---

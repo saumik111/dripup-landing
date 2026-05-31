@@ -2,7 +2,12 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import HeroCanvas from "@/components/HeroCanvas";
 
-const FONT = '"Figtree", sans-serif';
+const FONT = '"Inter", sans-serif';
+const INK = "#111318";
+const SURFACE = "#F7F9FF";
+const PANEL_TINT = "rgba(238, 243, 255, 0.64)";
+const OUTLINE = "rgba(214, 224, 242, 0.72)";
+const ACCENT = "#536B9B";
 
 const SWAPPING_WORDS = ["shopify store", "online store"];
 
@@ -223,7 +228,7 @@ export default function HeroSection({ videoRef }) {
       {/* Background image — scrolls with the section */}
       <img
         ref={videoRef}
-        src="/images/hero-section-bg.png"
+        src="/images/hero-section-bg-v2.png"
         alt=""
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
       />
@@ -245,7 +250,7 @@ export default function HeroSection({ videoRef }) {
             fontSize: "clamp(2rem, 4vw, 3.5rem)",
             fontWeight: 500,
             lineHeight: 1.15,
-            color: "#1C1C1A",
+            color: INK,
             textAlign: "center",
             maxWidth: "min(95vw, 960px)",
             marginLeft: "auto",
@@ -254,7 +259,7 @@ export default function HeroSection({ videoRef }) {
           }}
         >
           {/* Line 1 — each word is its own span for entrance stagger */}
-          <span style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
+          <span className="hero-heading-row" style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
             {["Grow", "&", "manage", "your"].map((w, i) => (
               <span key={i} data-word style={{ display: "inline-block" }}>
                 {w}&nbsp;
@@ -267,7 +272,7 @@ export default function HeroSection({ videoRef }) {
             />
           </span>
           {/* Line 2 — each word is its own span */}
-          <span style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap", marginTop: "0.1em" }}>
+          <span className="hero-heading-row" style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap", marginTop: "0.1em" }}>
             {["simply", "by", "chatting"].map((w, i) => (
               <span key={i} data-word style={{ display: "inline-block" }}>
                 {i < 2 ? <>{w}&nbsp;</> : w}
@@ -284,25 +289,27 @@ export default function HeroSection({ videoRef }) {
 
         {/* Glass panel */}
         <div
+          className="hero-glass-panel"
           style={{
             width: "100%", maxWidth: 860,
-            background: "rgba(255, 255, 255, 0.04)",
+            background: PANEL_TINT,
             backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
-            border: "1px solid rgba(255, 255, 255, 0.28)",
+            border: `1px solid ${OUTLINE}`,
             borderRadius: 20,
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.10)",
+            boxShadow: "0 16px 46px rgba(30, 45, 78, 0.14)",
             padding: "40px 40px",
             display: "grid", gridTemplateColumns: "1fr 1fr",
             gap: 32, minHeight: 280,
           }}
         >
           {/* Left — chat */}
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
+          <div className="hero-chat-panel" style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <div
+                className="hero-chat-bubble"
                 ref={promptRef}
                 style={{
-                  background: "#1A3D35", color: "#F5F0E8",
+                  background: INK, color: SURFACE,
                   borderRadius: "16px 16px 4px 16px", padding: "10px 16px",
                   fontFamily: FONT, fontSize: 15, fontWeight: 500,
                   maxWidth: "80%", opacity: 0,
@@ -313,13 +320,14 @@ export default function HeroSection({ videoRef }) {
             </div>
             <div style={{ display: "flex", justifyContent: "flex-start" }}>
               <div
+                className="hero-chat-bubble"
                 ref={responseRef}
                 style={{
-                  background: "rgba(255,255,255,0.7)", color: "#1C1C1A",
+                  background: "rgba(255,255,255,0.86)", color: INK,
                   borderRadius: "16px 16px 16px 4px", padding: "10px 16px",
                   fontFamily: FONT, fontSize: 15, fontWeight: 500,
                   maxWidth: "80%", opacity: 0,
-                  border: "0.5px solid rgba(200,195,185,0.5)",
+                  border: `1px solid ${OUTLINE}`,
                 }}
               >
                 Listed your product across your store.
@@ -329,10 +337,11 @@ export default function HeroSection({ videoRef }) {
 
           {/* Right — synced product UI */}
           <div
+            className="hero-product-panel"
             ref={rightImageRef}
             style={{
-              background: "rgba(255,255,255,0.55)",
-              border: "0.5px solid rgba(200,195,185,0.5)",
+              background: "rgba(255,255,255,0.78)",
+              border: `1px solid ${OUTLINE}`,
               borderRadius: 16, display: "flex", alignItems: "center",
               justifyContent: "center", opacity: 0, minHeight: 180,
             }}
@@ -342,21 +351,21 @@ export default function HeroSection({ videoRef }) {
                 <div
                   key={i}
                   style={{
-                    width: "100%", height: 36, background: "rgba(26,61,53,0.08)",
+                    width: "100%", height: 36, background: "rgba(83,107,155,0.10)",
                     borderRadius: 8, display: "flex", alignItems: "center",
                     padding: "0 12px", gap: 8,
                   }}
                 >
-                  <div style={{ width: 24, height: 24, borderRadius: 4, background: "rgba(26,61,53,0.15)" }} />
-                  <div style={{ flex: 1, height: 8, background: "rgba(26,61,53,0.12)", borderRadius: 4 }} />
-                  <div style={{ width: 48, height: 20, borderRadius: 99, background: "#1A3D35", opacity: 0.85 }} />
+                  <div style={{ width: 24, height: 24, borderRadius: 4, background: "rgba(83,107,155,0.18)" }} />
+                  <div style={{ flex: 1, height: 8, background: "rgba(83,107,155,0.14)", borderRadius: 4 }} />
+                  <div style={{ width: 48, height: 20, borderRadius: 99, background: ACCENT, opacity: 0.9 }} />
                 </div>
               ))}
               <div
                 style={{
                   marginTop: 4, width: "100%", height: 32, borderRadius: 8,
-                  background: "#1A3D35", display: "flex", alignItems: "center",
-                  justifyContent: "center", color: "#F5F0E8",
+                  background: INK, display: "flex", alignItems: "center",
+                  justifyContent: "center", color: SURFACE,
                   fontSize: 12, fontWeight: 500, fontFamily: FONT,
                 }}
               >
@@ -371,24 +380,24 @@ export default function HeroSection({ videoRef }) {
           href="/demo"
           style={{
             display: "flex", alignItems: "center", width: "100%", maxWidth: 600,
-            height: 52, background: "rgba(245, 240, 232, 0.75)",
+            height: 52, background: "rgba(255, 255, 255, 0.84)",
             backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
-            border: "0.5px solid rgba(200, 195, 185, 0.5)",
+            border: `1px solid ${OUTLINE}`,
             borderRadius: 99, padding: "0 20px", cursor: "text",
             textDecoration: "none", gap: 10,
           }}
         >
-          <span style={{ flex: 1, fontFamily: FONT, fontSize: 15, fontWeight: 500, color: "#6B6860", userSelect: "none" }}>
+          <span style={{ flex: 1, fontFamily: FONT, fontSize: 15, fontWeight: 500, color: "#667386", userSelect: "none" }}>
             Tell me what….
           </span>
           <div
             style={{
-              width: 32, height: 32, borderRadius: 99, background: "#1A3D35",
+              width: 32, height: 32, borderRadius: 99, background: INK,
               display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
             }}
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 12V2M2 7l5-5 5 5" stroke="#F5F0E8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M7 12V2M2 7l5-5 5 5" stroke={SURFACE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         </a>
@@ -421,7 +430,7 @@ export default function HeroSection({ videoRef }) {
             height: "clamp(120px, 12vw, 160px)",
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-            fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+            fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: INK,
             textAlign: "center",
           }}
         >
@@ -459,7 +468,7 @@ export default function HeroSection({ videoRef }) {
               textAlign: "center",
               transform: "rotateX(0deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: INK,
             }}>
               <span style={{ display: "block" }}>We handle the boring work,</span>
               <span style={{ display: "block" }}>so you can focus on <em>growing</em></span>
@@ -473,7 +482,7 @@ export default function HeroSection({ videoRef }) {
               textAlign: "center",
               transform: "rotateX(-90deg) translateZ(80px)",
               fontFamily: '"EB Garamond", Georgia, serif', fontStyle: "normal",
-              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: "#1C1C1A",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 500, lineHeight: 1.3, color: INK,
             }}>
               <span style={{ display: "block" }}>Drip Up connects to your shopify store</span>
               <span style={{ display: "block" }}>and takes over all the repetitive tasks</span>

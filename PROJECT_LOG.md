@@ -491,6 +491,6 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 - `npm run build` passed.
 - Production desktop and mobile checks confirmed CTA text, hrefs, horizontal button layout, no horizontal overflow, no error text, and no console errors.
 
-**Commit:** Pending in this pass.
+**Commit:** `feat: add faq follow-up ctas`
 
 ---

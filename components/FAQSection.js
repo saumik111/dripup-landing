@@ -40,6 +40,7 @@ export default function FAQSection() {
         position: "relative",
         zIndex: 8,
         width: "100%",
+        marginTop: "clamp(-96px, -7vw, -48px)",
         background: FAQ_BACKGROUND,
         padding: "clamp(96px, 12vw, 160px) 20px clamp(112px, 13vw, 176px)",
       }}
@@ -50,12 +51,12 @@ export default function FAQSection() {
           position: "absolute",
           left: 0,
           right: 0,
-          top: 0,
+          top: "clamp(56px, 6vw, 80px)",
           height: "clamp(180px, 22vw, 340px)",
           transform: "translateY(-100%)",
           pointerEvents: "none",
           background:
-            "linear-gradient(to bottom, rgba(240,244,255,0) 0%, rgba(244,247,253,0.34) 34%, rgba(247,249,253,0.78) 68%, rgba(240,244,255,1) 100%)",
+            "linear-gradient(to bottom, rgba(240,244,255,0) 0%, rgba(244,247,253,0.16) 28%, rgba(247,249,253,0.68) 50%, rgba(240,244,255,1) 70%, rgba(240,244,255,1) 100%)",
         }}
       />
       <div

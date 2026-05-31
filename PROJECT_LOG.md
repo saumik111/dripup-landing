@@ -454,6 +454,7 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Changes:**
 - Added a negative-positioned gradient fade layer owned by `FAQSection`.
 - The fade sits above the FAQ section and overlays the bottom of the final floral image, blending it into the existing blue-white FAQ background.
+- Refined the fade so it starts lower in the floral image, reaches full opacity before the image edge, and lets the FAQ section overlap upward slightly to avoid a visible page cut.
 - Kept the FAQ layout, copy, accordion behavior, and card animation code unchanged.
 
 **Files changed:**
@@ -465,6 +466,6 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 - Production desktop and mobile screenshots confirmed the floral image fades into the FAQ section.
 - Production checks captured no horizontal overflow, error text, or console errors.
 
-**Commit:** `style: fade final image into faq`
+**Commit:** `style: smooth faq image transition`
 
 ---

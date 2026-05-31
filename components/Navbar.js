@@ -88,8 +88,10 @@ export default function Navbar() {
 
     let lastScrollY = window.scrollY;
     let ticking = false;
+    let forceVisible = false;
 
     function onScroll() {
+      if (forceVisible) return; // locked — ignore scroll
       if (!ticking) {
         requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
@@ -110,8 +112,25 @@ export default function Navbar() {
       }
     }
 
+    function onCardExpanded() {
+      forceVisible = true;
+      gsap.to(nav, { yPercent: 0, duration: 0.5, ease: "power2.out", overwrite: true });
+    }
+
+    function onCardCollapsed() {
+      forceVisible = false;
+      lastScrollY = window.scrollY; // reset so next scroll direction is correct
+    }
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("cardExpanded", onCardExpanded);
+    window.addEventListener("cardCollapsed", onCardCollapsed);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("cardExpanded", onCardExpanded);
+      window.removeEventListener("cardCollapsed", onCardCollapsed);
+    };
   }, []);
 
   return (

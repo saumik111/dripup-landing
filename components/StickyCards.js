@@ -162,6 +162,8 @@ export default function StickyCards() {
       gsap.set(lastCardImageRef.current, { scale: 1.2 });
     }
 
+    let wasFullyExpanded = false;
+
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
@@ -174,6 +176,16 @@ export default function StickyCards() {
         const stackFraction = stackDist / totalDist;
         const stackProgress = Math.min(totalProgress / stackFraction, 1);
         const expandProgress = Math.max(0, (totalProgress - stackFraction) / (1 - stackFraction));
+
+        // Fire navbar lock/unlock events when expansion completes or reverses
+        const isFullyExpanded = expandProgress >= 0.98;
+        if (isFullyExpanded && !wasFullyExpanded) {
+          window.dispatchEvent(new CustomEvent("cardExpanded"));
+          wasFullyExpanded = true;
+        } else if (!isFullyExpanded && wasFullyExpanded) {
+          window.dispatchEvent(new CustomEvent("cardCollapsed"));
+          wasFullyExpanded = false;
+        }
 
         // Stacking phase
         const activeIndex = Math.min(Math.floor(stackProgress / segmentSize), totalCards - 1);

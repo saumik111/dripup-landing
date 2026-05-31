@@ -1,0 +1,74 @@
+[
+  {
+    "severity": "P1",
+    "area": "Product flow",
+    "page": "/ask",
+    "evidence": "The navbar and FAQ CTA link to /ask, but the audited route returns HTTP 404.",
+    "impact": "A primary exploration path breaks when a visitor tries to ask Drip Up what it can do.",
+    "recommendation": "Create the /ask route or temporarily remove/redirect the Ask CTAs until the page exists.",
+    "codeChangesNeeded": true
+  },
+  {
+    "severity": "P1",
+    "area": "Browser health",
+    "page": "/ (mobile)",
+    "evidence": "The rendered page shows Next's client-side exception screen. Console includes NotFoundError: Failed to execute 'removeChild' on 'Node'.",
+    "impact": "The visitor cannot use the landing page on this viewport.",
+    "recommendation": "Stabilize the mobile StickyCards render path so desktop ScrollTrigger DOM is not created and replaced during mobile hydration.",
+    "codeChangesNeeded": true
+  },
+  {
+    "severity": "P2",
+    "area": "Product flow",
+    "page": "/demo",
+    "evidence": "The Early access CTA routes to a page that only says 'Demo coming soon'.",
+    "impact": "High-intent visitors cannot complete the early-access/onboarding action promised by the CTA.",
+    "recommendation": "Replace the placeholder with an early access form, waitlist flow, or clear interim contact path.",
+    "codeChangesNeeded": true
+  },
+  {
+    "severity": "P2",
+    "area": "Performance",
+    "page": "/",
+    "evidence": "Desktop home transferred 6.8 MB.",
+    "impact": "Large first-load transfer can slow the landing page on mobile and weaker networks.",
+    "recommendation": "Optimize large images, preload only critical assets, and review animation/image payload.",
+    "codeChangesNeeded": true
+  },
+  {
+    "severity": "P2",
+    "area": "Performance",
+    "page": "/ mobile",
+    "evidence": "Mobile home transferred 6.8 MB.",
+    "impact": "Mobile users pay the same heavy asset cost as desktop.",
+    "recommendation": "Serve smaller responsive images and avoid loading desktop-only media on mobile.",
+    "codeChangesNeeded": true
+  },
+  {
+    "severity": "P3",
+    "area": "Product flow",
+    "page": "/founder",
+    "evidence": "The Contact the founder CTA routes to a placeholder page.",
+    "impact": "The link works, but the visitor still cannot contact the founder from that page.",
+    "recommendation": "Add a minimal founder contact page with a clear method of contact when ready.",
+    "codeChangesNeeded": true
+  },
+  {
+    "severity": "P3",
+    "area": "Accessibility basics",
+    "page": "/demo (desktop)",
+    "evidence": "No h1 was found in the rendered DOM.",
+    "impact": "Screen reader and search context are weaker without a clear page-level heading.",
+    "recommendation": "Promote the main page title to h1 or provide an accessible equivalent.",
+    "codeChangesNeeded": true
+  },
+  {
+    "severity": "P3",
+    "area": "Accessibility basics",
+    "page": "/demo (mobile)",
+    "evidence": "No h1 was found in the rendered DOM.",
+    "impact": "Screen reader and search context are weaker without a clear page-level heading.",
+    "recommendation": "Promote the main page title to h1 or provide an accessible equivalent.",
+    "codeChangesNeeded": true
+  }
+]

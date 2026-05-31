@@ -465,6 +465,6 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 - Production desktop and mobile screenshots confirmed the floral image fades into the FAQ section.
 - Production checks captured no horizontal overflow, error text, or console errors.
 
-**Commit:** Pending in this pass.
+**Commit:** `style: fade final image into faq`
 
 ---

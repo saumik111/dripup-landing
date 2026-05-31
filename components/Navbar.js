@@ -25,9 +25,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
     height: 36,
     transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, box-shadow 0.25s ease",
     width: hovered ? (dark ? 220 : 200) : (dark ? 48 : 140),
-    background: hovered
-      ? INK_SOFT
-      : INK,
+    background: hovered ? INK_SOFT : INK,
     color: SURFACE,
     padding: 0,
   };

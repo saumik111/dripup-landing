@@ -334,3 +334,22 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Commit:** `fix: revert navbar refactor, ask button dark=false + mask-wipe fallback`
 
 ---
+
+### Entry 009 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction:**
+> "The text box on the Ask button should only come when I hover on it — it should be without the text box."
+
+**Root cause:** Ask was set to `dark={false}` in Entry 008, which gave it a collapsed width of `140px`. "Ask" is ~30px of text inside a 140px pill — looks like an empty input box with dead space on either side.
+
+**Fix:** Ask button back to `dark={true}` — collapses to `48px`, tight around the word "Ask". The `ExpandButton` component already makes both dark and non-dark variants solid black (from Entry 008 cleanup), so this is purely a width fix. No text visible until hover, then expands to "Ask Drip Up what it can do".
+
+**Files changed:**
+- `components/Navbar.js` — Ask button `dark={false}` → `dark={true}`
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `fix: ask button dark=true — collapsed to 48px, no empty pill`
+
+---

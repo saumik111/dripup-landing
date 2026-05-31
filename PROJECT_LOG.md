@@ -353,3 +353,23 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Commit:** `fix: ask button dark=true — collapsed to 48px, no empty pill`
 
 ---
+
+### Entry 010 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction:**
+> "Ask button: transparent at rest, black on hover. Free for 1 month dot should be the same color as the second card."
+
+**Changes:**
+- Navbar: restored original background logic — `dark={true}` → transparent at rest, black on hover. `dark={false}` (Early access) → black at rest. Text color also restored: dark variant shows INK text at rest, SURFACE on hover.
+- StickyCards: "Free for 1 month" dot changed from `INK` (#111318) to `#BDF0DC` (second card mint color) in both the desktop CTA overlay and the MobileStack CTA.
+
+**Files changed:**
+- `components/Navbar.js` — background/color logic restored for dark prop
+- `components/StickyCards.js` — dot color updated in both CTA locations
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `fix: ask transparent at rest + free for 1 month dot mint color`
+
+---

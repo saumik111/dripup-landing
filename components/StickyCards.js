@@ -345,7 +345,7 @@ function MobileStack() {
       >
         <div ref={ctaPanelRef} style={{ opacity: 0, pointerEvents: "auto", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ background: "rgba(255,255,255,0.76)", border: `1px solid ${OUTLINE}`, borderRadius: 999, padding: "7px 14px", fontFamily: FONT_BODY, fontSize: 12, fontWeight: 400, color: INK, letterSpacing: "0.01em", marginBottom: 14, display: "flex", alignItems: "center", gap: 7 }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: INK, display: "inline-block", flexShrink: 0 }} />
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#BDF0DC", display: "inline-block", flexShrink: 0 }} />
             Free for 1 month
           </div>
         </div>
@@ -643,7 +643,7 @@ export default function StickyCards() {
               gap: 8,
             }}
           >
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: INK, display: "inline-block", flexShrink: 0 }} />
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#BDF0DC", display: "inline-block", flexShrink: 0 }} />
             Free for 1 month
           </div>
         </div>

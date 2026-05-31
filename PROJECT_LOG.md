@@ -278,3 +278,35 @@ Navbar button uses fixed pixel width (`108px`) with `padding: 0`. "Early access"
 **Commit:** `style: navbar early access button width 108 -> 140 for better text ratio`
 
 ---
+
+### Entry 007 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instructions (two changes in one):**
+1. WebGL fallback should be a scroll-linked fade animation, same background color as the page (`linear-gradient(to right, #F0F4FF, #FAFAFA)`), seamless.
+2. "Ask" button in navbar should be black filled like "Early access" — not transparent. Hover expand behaviour preserved.
+
+**Decisions made:**
+
+**Navbar Ask button:**
+- Removed the `dark` prop entirely — it was controlling background color, collapsed width, and text color all in one, making it impossible to have two black buttons with different widths.
+- Replaced with explicit `collapsedWidth` and `expandedWidth` props on `ExpandButton`.
+- Both buttons now always use `INK` background at rest, `INK_SOFT` on hover, `SURFACE` text — unified.
+- Ask: `collapsedWidth: 60, expandedWidth: 220`
+- Early access: `collapsedWidth: 140, expandedWidth: 200`
+
+**WebGL fallback:**
+- Changed fallback background from vertical gradient to `linear-gradient(to right, #F0F4FF, #FAFAFA)` — exact page body background, seamless handoff.
+- Added scroll listener in both fallback paths (isWebGLSupported false + renderer catch). Same math as WebGL: `scrollY / maxScroll * CONFIG.speed`, clamped to 1.
+- Fallback starts `opacity: 0`, fades in as user scrolls, reversible on scroll back up.
+- Scroll listener cleaned up on unmount in the isWebGLSupported path.
+
+**Files changed:**
+- `components/Navbar.js` — `dark` prop removed, `collapsedWidth`/`expandedWidth` props added, both buttons now black
+- `components/HeroCanvas.js` — fallback background updated, scroll-linked opacity added to both fallback paths
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `feat: ask button black + WebGL fallback scroll-linked fade`
+
+---

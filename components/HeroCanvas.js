@@ -89,11 +89,25 @@ export default function HeroCanvas({ heroRef }) {
   const fallbackRef = useRef(null);
 
   useEffect(() => {
-    // If WebGL is unavailable, show CSS gradient fallback and skip Three.js entirely
+    // If WebGL is unavailable, use scroll-linked opacity fallback
     if (!isWebGLSupported()) {
       console.warn("[HeroCanvas] WebGL not available — using CSS gradient fallback.");
-      if (fallbackRef.current) fallbackRef.current.style.display = "block";
-      return;
+      const fallback = fallbackRef.current;
+      if (!fallback) return;
+      fallback.style.display = "block";
+      fallback.style.opacity = "0";
+
+      function onScrollFallback() {
+        const hero = heroRef?.current;
+        if (!hero) return;
+        const maxScroll = hero.offsetHeight - window.innerHeight;
+        if (maxScroll <= 0) return;
+        const progress = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1);
+        fallback.style.opacity = progress;
+      }
+      window.addEventListener("scroll", onScrollFallback, { passive: true });
+      onScrollFallback();
+      return () => window.removeEventListener("scroll", onScrollFallback);
     }
 
     const canvas = canvasRef.current;
@@ -115,7 +129,20 @@ export default function HeroCanvas({ heroRef }) {
         renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
       } catch (e) {
         console.warn("[HeroCanvas] WebGLRenderer init failed — using CSS gradient fallback.", e);
-        if (fallbackRef.current) fallbackRef.current.style.display = "block";
+        const fallback = fallbackRef.current;
+        if (fallback) {
+          fallback.style.display = "block";
+          fallback.style.opacity = "0";
+          function onScrollFallback2() {
+            const hero = heroRef?.current;
+            if (!hero) return;
+            const maxScroll = hero.offsetHeight - window.innerHeight;
+            if (maxScroll <= 0) return;
+            fallback.style.opacity = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1);
+          }
+          window.addEventListener("scroll", onScrollFallback2, { passive: true });
+          onScrollFallback2();
+        }
         return;
       }
 
@@ -201,7 +228,7 @@ export default function HeroCanvas({ heroRef }) {
           height: "100%",
           zIndex: 20,
           pointerEvents: "none",
-          background: "linear-gradient(to bottom, transparent 0%, transparent 30%, #F0F4FF 70%, #FAFAFA 100%)",
+          background: "linear-gradient(to right, #F0F4FF, #FAFAFA)",
         }}
       />
     </>

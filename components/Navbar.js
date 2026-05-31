@@ -6,7 +6,7 @@ const INK = "#111318";
 const INK_SOFT = "#252832";
 const SURFACE = "#F7F9FF";
 
-function ExpandButton({ shortLabel, fullLabel, href, dark }) {
+function ExpandButton({ shortLabel, fullLabel, href, collapsedWidth, expandedWidth }) {
   const [hovered, setHovered] = useState(false);
 
   const baseStyle = {
@@ -22,19 +22,11 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
     borderRadius: 99,
     cursor: "pointer",
     position: "relative",
-    // Fixed height so it never changes vertically
     height: 36,
-    // Transition width + background
-    transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, box-shadow 0.25s ease",
-    // Width: collapsed vs expanded
-    width: hovered ? (dark ? 220 : 200) : (dark ? 48 : 140),
-    background: hovered
-      ? dark ? INK_SOFT : INK_SOFT
-      : dark ? "transparent" : INK,
-    color: dark ? (hovered ? SURFACE : INK) : SURFACE,
-    backdropFilter: hovered && dark ? "blur(8px)" : "none",
-    WebkitBackdropFilter: hovered && dark ? "blur(8px)" : "none",
-    boxShadow: hovered && dark ? "0 2px 16px rgba(0,0,0,0.18)" : "none",
+    transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease",
+    width: hovered ? expandedWidth : collapsedWidth,
+    background: hovered ? INK_SOFT : INK,
+    color: SURFACE,
     padding: 0,
   };
 
@@ -54,7 +46,6 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
           transition: "opacity 0.15s ease",
           opacity: hovered ? 0 : 1,
           pointerEvents: "none",
-          letterSpacing: dark ? "0.01em" : "0",
         }}
       >
         {shortLabel}
@@ -179,13 +170,15 @@ export default function Navbar() {
           shortLabel="Ask"
           fullLabel="Ask Drip Up what it can do"
           href="/ask"
-          dark={true}
+          collapsedWidth={60}
+          expandedWidth={220}
         />
         <ExpandButton
           shortLabel="Early access"
           fullLabel="Get my early access"
           href="/demo"
-          dark={false}
+          collapsedWidth={140}
+          expandedWidth={200}
         />
       </div>
     </nav>

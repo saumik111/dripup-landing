@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main style={{ background: "#F5F0E8", overflowX: "hidden" }}>
+      <main style={{ background: "transparent", overflowX: "hidden" }}>
         <HeroSection videoRef={heroVideoRef} />
-        <div style={{ position: "relative", zIndex: 5, background: "#F5F0E8" }}>
+        <div style={{ position: "relative", zIndex: 5, background: "transparent" }}>
           <StickyCards />
         </div>
       </main>

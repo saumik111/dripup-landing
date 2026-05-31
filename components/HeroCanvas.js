@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 const CONFIG = {
-  color: "#F5F0E8",
+  color: "#FAFAFA",
   spread: 0.5,
   speed: 0.8,
 };

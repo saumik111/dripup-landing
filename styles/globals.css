@@ -12,7 +12,9 @@ html {
 }
 
 body {
-  background-color: #F5F0E8;
+  background: linear-gradient(to right, #F0F4FF, #FAFAFA);
+  background-attachment: fixed;
+  min-height: 100vh;
   color: #1C1C1A;
   font-family: "Figtree", sans-serif;
   font-weight: 500;

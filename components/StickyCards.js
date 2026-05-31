@@ -269,7 +269,7 @@ export default function StickyCards() {
         position: "relative",
         width: "100%",
         height: "100vh",
-        background: "#F5F0E8",
+        background: "transparent",
         perspective: "1000px",
         overflow: "hidden",
       }}

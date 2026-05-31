@@ -305,7 +305,7 @@ export default function StickyCards() {
           {i === CARDS.length - 1 ? (
             <img
               ref={lastCardImageRef}
-              src="/images/hero-bg.png"
+              src="/images/last-card-bg.png"
               alt=""
               style={{
                 position: "absolute", inset: 0,

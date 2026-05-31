@@ -320,7 +320,7 @@ export default function StickyCards() {
                 <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(28px, 3vw, 48px)", lineHeight: 1.0, color: "#1C1C1A", display: "block" }}>
                   {card.heading}
                 </span>
-                <span style={{ fontFamily: FONT_BODY, fontWeight: 200, fontSize: "clamp(17.5px, 1.875vw, 30px)", lineHeight: 1.3, letterSpacing: "-0.01em", color: "#1C1C1A", display: "block", marginTop: 4, whiteSpace: "pre-line" }}>
+                <span style={{ fontFamily: FONT_BODY, fontWeight: 300, fontSize: "clamp(13px, 0.95vw, 16px)", lineHeight: 1.3, letterSpacing: "-0.01em", color: "#888880", display: "block", marginTop: 10, whiteSpace: "pre-line" }}>
                   {card.subline}
                 </span>
               </div>

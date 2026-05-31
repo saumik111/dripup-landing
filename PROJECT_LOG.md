@@ -213,3 +213,25 @@ All 4 colored cards: muted text changed from hue-matched dark colors to `rgba(17
 **Commit:** `style: tone down card colors, fix subtext contrast (grey screen test)`
 
 ---
+
+### Entry 004 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction:**
+> "Make the subtext's font color same as the heading."
+
+**What was understood:**
+All card subtext (`muted`) should match the heading (`text`) color exactly on each card — no softening, no opacity.
+- Cards 1–4 (colored): `muted` → `INK` (`#111318`)
+- Card 5 (black): `muted` stays `#D8DEEA` — already matches the light heading color on black
+
+**Decision:** Replaced all 4 instances of `rgba(17,19,24,0.55)` with `INK` using replace_all. The black card's `#D8DEEA` was not touched — it already matched its heading.
+
+**Files changed:**
+- `components/StickyCards.js` — muted color on cards 1–4 changed to `INK`
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `style: card subtext color matches heading color`
+
+---

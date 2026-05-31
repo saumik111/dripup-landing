@@ -19,7 +19,7 @@ const CARDS = [
   {
     bg: "#D8E2FF",
     text: INK,
-    muted: "rgba(17,19,24,0.55)",
+    muted: INK,
     heading: "Create",
     subline: "studio-free product photoshoots",
     ui: "photoshoots",
@@ -28,7 +28,7 @@ const CARDS = [
   {
     bg: "#BDF0DC",
     text: INK,
-    muted: "rgba(17,19,24,0.55)",
+    muted: INK,
     heading: "Expand your reach",
     subline: "SEO & GEO optimized listings",
     ui: "listings",
@@ -37,7 +37,7 @@ const CARDS = [
   {
     bg: "#FFE066",
     text: INK,
-    muted: "rgba(17,19,24,0.55)",
+    muted: INK,
     heading: "Control the chaos",
     subline: "everything that matters, right in front of you",
     ui: "insights",
@@ -46,7 +46,7 @@ const CARDS = [
   {
     bg: "#FFB090",
     text: INK,
-    muted: "rgba(17,19,24,0.55)",
+    muted: INK,
     heading: "Grow with confidence",
     subline: "know exactly how your brand is performing",
     ui: "analytics",

@@ -28,7 +28,11 @@ const TEXT_SECONDARY = "#4F5B6B";
 const OUTLINE = "rgba(214,224,242,0.78)";
 const FONT_HEADING = '"EB Garamond", Georgia, serif';
 const FONT_BODY = '"Inter", sans-serif';
+const INK_SOFT = "#252832";
+const SURFACE_TEXT = "#F7F9FF";
 const FAQ_BACKGROUND = "linear-gradient(to right, #F0F4FF, #FAFAFA)";
+const FAQ_FADE_MASK =
+  "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.16) 28%, rgba(0,0,0,0.68) 50%, rgba(0,0,0,1) 70%, rgba(0,0,0,1) 100%)";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -55,8 +59,9 @@ export default function FAQSection() {
           height: "clamp(180px, 22vw, 340px)",
           transform: "translateY(-100%)",
           pointerEvents: "none",
-          background:
-            "linear-gradient(to bottom, rgba(240,244,255,0) 0%, rgba(244,247,253,0.16) 28%, rgba(247,249,253,0.68) 50%, rgba(240,244,255,1) 70%, rgba(240,244,255,1) 100%)",
+          background: FAQ_BACKGROUND,
+          WebkitMaskImage: FAQ_FADE_MASK,
+          maskImage: FAQ_FADE_MASK,
         }}
       />
       <div
@@ -156,6 +161,100 @@ export default function FAQSection() {
               </div>
             );
           })}
+        </div>
+
+        <div
+          style={{
+            marginTop: "clamp(88px, 11vw, 132px)",
+            textAlign: "center",
+          }}
+        >
+          <h2
+            style={{
+              margin: "0 0 clamp(28px, 4vw, 40px)",
+              fontFamily: FONT_HEADING,
+              fontSize: "clamp(2.4rem, 5vw, 4rem)",
+              lineHeight: 1.05,
+              fontWeight: 500,
+              color: INK,
+              textAlign: "center",
+              letterSpacing: 0,
+            }}
+          >
+            got more questions?
+          </h2>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "stretch",
+              gap: "clamp(8px, 2vw, 14px)",
+              width: "min(520px, 100%)",
+              margin: "0 auto",
+            }}
+          >
+            <a
+              href="/ask"
+              style={{
+                flex: "1 1 0",
+                minWidth: 0,
+                minHeight: 48,
+                borderRadius: 99,
+                border: `1px solid ${OUTLINE}`,
+                background: "transparent",
+                color: INK,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "10px clamp(10px, 2.8vw, 22px)",
+                fontFamily: FONT_BODY,
+                fontSize: "clamp(0.72rem, 2.7vw, 0.95rem)",
+                lineHeight: 1.15,
+                fontWeight: 600,
+                textAlign: "center",
+                textDecoration: "none",
+                transition: "background 0.22s ease, color 0.22s ease, border-color 0.22s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = INK_SOFT;
+                e.currentTarget.style.borderColor = INK_SOFT;
+                e.currentTarget.style.color = SURFACE_TEXT;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.borderColor = OUTLINE;
+                e.currentTarget.style.color = INK;
+              }}
+            >
+              Ask Drip Up what it can do
+            </a>
+            <a
+              href="/demo"
+              style={{
+                flex: "1 1 0",
+                minWidth: 0,
+                minHeight: 48,
+                borderRadius: 99,
+                background: INK,
+                color: SURFACE_TEXT,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "10px clamp(10px, 2.8vw, 22px)",
+                fontFamily: FONT_BODY,
+                fontSize: "clamp(0.72rem, 2.7vw, 0.95rem)",
+                lineHeight: 1.15,
+                fontWeight: 600,
+                textAlign: "center",
+                textDecoration: "none",
+                transition: "background 0.22s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = INK_SOFT)}
+              onMouseLeave={(e) => (e.currentTarget.style.background = INK)}
+            >
+              Contact the founder
+            </a>
+          </div>
         </div>
       </div>
     </section>

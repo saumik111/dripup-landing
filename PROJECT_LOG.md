@@ -469,3 +469,28 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Commit:** `style: smooth faq image transition`
 
 ---
+
+### Entry 014 - 2026-05-31
+
+**Session agent:** Codex
+
+**User instruction:**
+> Fix the FAQ fade so the right side blends with the background, then add a second heading "got more questions?" with two horizontal buttons: "Ask Drip Up what it can do" and "Contact the founder".
+
+**Changes:**
+- Reworked the FAQ fade overlay to use the actual left-to-right page gradient as its background with a vertical mask for transparency.
+- Added a bottom CTA block below the FAQ accordion with the heading "got more questions?" in the same EB Garamond heading style.
+- Added two horizontal pill buttons: "Ask Drip Up what it can do" linking to `/ask`, and "Contact the founder" linking to `/demo`.
+- Kept the two buttons horizontal on mobile with responsive sizing.
+
+**Files changed:**
+- `components/FAQSection.js` - fade blend and bottom CTA block.
+- `PROJECT_LOG.md` - this entry.
+
+**Verification:**
+- `npm run build` passed.
+- Production desktop and mobile checks confirmed CTA text, hrefs, horizontal button layout, no horizontal overflow, no error text, and no console errors.
+
+**Commit:** Pending in this pass.
+
+---

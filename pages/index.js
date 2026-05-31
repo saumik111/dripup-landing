@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import StickyCards from "@/components/StickyCards";
 import Navbar from "@/components/Navbar";
+import FAQSection from "@/components/FAQSection";
 import { useRef } from "react";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <div style={{ position: "relative", zIndex: 5, background: "transparent" }}>
           <StickyCards />
         </div>
+        <FAQSection />
       </main>
     </>
   );

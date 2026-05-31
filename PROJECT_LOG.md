@@ -411,6 +411,35 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 - `atoa/handoff_2_2026-05-31.md` - fresh handoff brief for Claude/Codex continuation.
 - `atoa/DOCKET.md` - counter updated to `2`.
 
-**Commit:** Not committed yet by Codex in this pass.
+**Commit:** `chore: clean project context and handoff assets`
+
+---
+
+### Entry 012 - 2026-05-31
+
+**Session agent:** Codex
+
+**User instruction:**
+> Add a bottom FAQ section after the final website section, using the provided Drip Up FAQ copy, and fix the existing mobile client exception so the new section can be verified on mobile.
+
+**Changes:**
+- Added a new FAQ section below `StickyCards` with the heading "Your questions, answered."
+- Added the four provided FAQ entries exactly as supplied.
+- Built the FAQ as an accessible accordion with the first answer open by default and one answer visible at a time.
+- Updated `StickyCards` mobile detection so the desktop pinned card stack does not mount before the mobile stack after hydration.
+- Verified the previous mobile `removeChild` client-side exception no longer appears in the production mobile check.
+
+**Files changed:**
+- `components/FAQSection.js` - new FAQ section and accordion.
+- `pages/index.js` - renders FAQ below the card/CTA section.
+- `components/StickyCards.js` - viewport mode guard for mobile/desktop render stability.
+- `PROJECT_LOG.md` - this entry.
+
+**Verification:**
+- `npm run build` passed.
+- Production desktop check confirmed FAQ exists, first item opens by default, and accordion switching works.
+- Production mobile check confirmed FAQ exists, no horizontal overflow, accordion switching works, and no client-side error text or console errors were captured.
+
+**Commit:** Pending in this pass.
 
 ---

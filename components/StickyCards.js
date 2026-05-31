@@ -387,11 +387,11 @@ export default function StickyCards() {
   const ctaHeadingWordsRef = useRef([]);
   const ctaPanelRef = useRef(null);
   const ctaButtonRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [viewportMode, setViewportMode] = useState(null);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 700px)");
-    const update = () => setIsMobile(query.matches);
+    const update = () => setViewportMode(query.matches ? "mobile" : "desktop");
     update();
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
@@ -400,7 +400,7 @@ export default function StickyCards() {
   useEffect(() => {
     const section = sectionRef.current;
     const cards = cardRefs.current;
-    if (isMobile) return;
+    if (viewportMode !== "desktop") return;
     if (!section || !cards.length) return;
 
     const totalCards = cards.length;
@@ -523,9 +523,13 @@ export default function StickyCards() {
     });
 
     return () => cardsTrigger.kill();
-  }, [isMobile]);
+  }, [viewportMode]);
 
-  if (isMobile) {
+  if (viewportMode === null) {
+    return <section aria-hidden="true" style={{ width: "100%", height: "100vh", background: "transparent" }} />;
+  }
+
+  if (viewportMode === "mobile") {
     return <MobileStack />;
   }
 

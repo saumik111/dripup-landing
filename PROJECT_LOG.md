@@ -122,3 +122,54 @@ All entries are in chronological order. Each entry records: what the user asked,
 **Commit:** `asset: new hero bg (hero-section-bg-v2) + PROJECT_LOG created`
 
 ---
+
+### Entry 002 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction (originally asked to Codex, then handed to Claude for execution):**
+
+Six changes requested:
+
+1. Remove `\n` line breaks from card subtexts in `StickyCards.js` — let text wrap naturally.
+2. Fix the WebGL animation not working in the user's own browser (works in Codex's browser, fails silently for user). Diagnose and fix.
+3. Build a mobile-specific stack animation identical in behaviour to the desktop one — pinned, scroll-driven, cards stack and slide — not just flat vertical cards.
+4. Make the cards feel more premium: bolder colors, stronger shadows, more contrast between card background and white UI mockup panel, more confident scale.
+5. Choose card colors based on text context (each card's meaning should drive its color), and make lower cards progressively darker to reinforce visual depth/stack effect.
+6. Fix cube roll animation overlapping the cards on mobile.
+
+**What was understood:**
+- Points 1, 4, 5: all in `StickyCards.js` — colors, shadows, subtext cleanup.
+- Point 2: `HeroCanvas.js` — add WebGL detection before init, add CSS gradient fallback div so the dissolve effect still visually works even without WebGL.
+- Point 3: `StickyCards.js` — replace the flat mobile vertical layout with a full `MobileStack` component that mirrors desktop: pinned section, ScrollTrigger scrub, cards stack/slide/expand identically to desktop, CTA overlay included.
+- Point 6: `HeroSection.js` — guard the cube roll `useEffect` with `if (window.innerWidth <= 700) return` so it never fires on mobile, eliminating the overlap.
+
+**Decisions made:**
+
+**Card colors chosen (with reasoning):**
+| Card | Old color | New color | Reasoning |
+|---|---|---|---|
+| Create | `#EEF3FF` pale blue | `#C9D4FF` bold periwinkle | Creative/visual production — bold blue signals energy |
+| Expand your reach | `#E6F4EA` pale mint | `#A8EDD4` vivid mint | SEO/reach/distribution — fresh teal energy, clearly different from blue |
+| Control the chaos | `#FFF2C2` pale yellow | `#FFD43B` rich yellow | Alerts/operations — strong yellow demands attention, matches "chaos" meaning |
+| Grow with confidence | `#FFE1CC` pale peach | `#FF8C5A` deep coral/orange | Growth/performance — warm, bold, clearly deeper than yellow above it |
+| Watch it in action | `#111318` black | `#111318` black (kept) | Final CTA — black is already correct, heaviest/deepest in the stack |
+
+Color progression deliberately gets bolder and darker from card 1 → 5 to reinforce the visual depth of the stack.
+
+**Shadow upgrade:** Desktop and mobile card shadows changed from `0 18px 46px rgba(30,45,78,0.11)` to `0 24px 64px rgba(10,20,60,0.22), 0 4px 16px rgba(10,20,60,0.10)` — deeper, cooler-toned, more separation.
+
+**WebGL fix approach:** Added `isWebGLSupported()` helper that probes a throwaway canvas before Three.js loads. If it returns false, the CSS fallback div (`display: none` by default) is made visible — a `linear-gradient(to bottom, transparent → #F0F4FF → #FAFAFA)` that mimics the dissolve visually. Both the canvas and fallback div are always in the DOM; only one is visible at a time. Added `console.warn` in both failure paths for dev debugging.
+
+**Mobile cube roll fix:** Added `if (window.innerWidth <= 700) return` as the first line of the cube roll `useEffect`. On mobile the word-reveal text stays visible (no cube), and no ScrollTrigger pin is created that could overlap the card section.
+
+**Mobile stack:** New `MobileStack` component inserted above `export default function StickyCards`. Uses same GSAP + ScrollTrigger pattern as desktop but with mobile geometry: cards at `88%` width, `62%` height, `cardYOffset: 3`, `cardScaleStep: 0.05`, `stackDist: 2.2 * vh`, `expandDist: 0.5 * vh`. Full CTA overlay with word-by-word heading animation and button. The `isMobile` branch in `StickyCards` now renders `<MobileStack />` instead of flat cards.
+
+**Files changed:**
+- `components/StickyCards.js` — new CARDS colors, \n removed from subtexts, `whiteSpace: "pre-line"` removed from desktop subline, stronger shadows on desktop cards, full `MobileStack` component added, mobile branch now renders `<MobileStack />`
+- `components/HeroCanvas.js` — `isWebGLSupported()` helper added, CSS gradient fallback div added, two `console.warn` paths for debugging, both canvas and fallback always in DOM
+- `components/HeroSection.js` — cube roll `useEffect` now guards `if (window.innerWidth <= 700) return` at top
+
+**Commit:** `feat: premium cards, mobile stack animation, WebGL fallback, mobile cube roll fix`
+
+---

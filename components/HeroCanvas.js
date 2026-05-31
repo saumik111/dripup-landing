@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 
 const CONFIG = {
-  color: "#FAFAFA",
+  colorStart: "#F0F4FF",
+  colorEnd: "#FAFAFA",
   spread: 0.5,
   speed: 0.8,
 };
@@ -25,7 +26,8 @@ const vertexShader = `
 const fragmentShader = `
   uniform float uProgress;
   uniform vec2 uResolution;
-  uniform vec3 uColor;
+  uniform vec3 uColorStart;
+  uniform vec3 uColorEnd;
   uniform float uSpread;
   varying vec2 vUv;
 
@@ -65,19 +67,41 @@ const fragmentShader = `
     float pixelSize = 1.0 / uResolution.y;
     float alpha = 1.0 - smoothstep(-pixelSize, pixelSize, d);
 
-    gl_FragColor = vec4(uColor, alpha);
+    vec3 gradientColor = mix(uColorStart, uColorEnd, uv.x);
+    gl_FragColor = vec4(gradientColor, alpha);
   }
 `;
 
+function isWebGLSupported() {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+    );
+  } catch {
+    return false;
+  }
+}
+
 export default function HeroCanvas({ heroRef }) {
   const canvasRef = useRef(null);
+  const fallbackRef = useRef(null);
 
   useEffect(() => {
+    // If WebGL is unavailable, show CSS gradient fallback and skip Three.js entirely
+    if (!isWebGLSupported()) {
+      console.warn("[HeroCanvas] WebGL not available — using CSS gradient fallback.");
+      if (fallbackRef.current) fallbackRef.current.style.display = "block";
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     let renderer, material, animId, killed = false;
-    const rgb = hexToRgb(CONFIG.color);
+    const rgbStart = hexToRgb(CONFIG.colorStart);
+    const rgbEnd = hexToRgb(CONFIG.colorEnd);
 
     async function init() {
       const THREE = await import("three");
@@ -90,10 +114,11 @@ export default function HeroCanvas({ heroRef }) {
       try {
         renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
       } catch (e) {
-        return; // WebGL context unavailable — skip silently
+        console.warn("[HeroCanvas] WebGLRenderer init failed — using CSS gradient fallback.", e);
+        if (fallbackRef.current) fallbackRef.current.style.display = "block";
+        return;
       }
 
-      // Sized to full hero dimensions — exact source behavior
       function resize() {
         renderer.setSize(hero.offsetWidth, hero.offsetHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -109,7 +134,8 @@ export default function HeroCanvas({ heroRef }) {
         uniforms: {
           uProgress: { value: 0 },
           uResolution: { value: new THREE.Vector2(hero.offsetWidth, hero.offsetHeight) },
-          uColor: { value: new THREE.Vector3(rgb.r, rgb.g, rgb.b) },
+          uColorStart: { value: new THREE.Vector3(rgbStart.r, rgbStart.g, rgbStart.b) },
+          uColorEnd: { value: new THREE.Vector3(rgbEnd.r, rgbEnd.g, rgbEnd.b) },
           uSpread: { value: CONFIG.spread },
         },
         transparent: true,
@@ -128,7 +154,6 @@ export default function HeroCanvas({ heroRef }) {
       }
       animate();
 
-      // Exact source scroll math using window.scrollY (Lenis equivalent)
       function onScroll() {
         const heroHeight = hero.offsetHeight;
         const windowHeight = window.innerHeight;
@@ -149,19 +174,36 @@ export default function HeroCanvas({ heroRef }) {
     };
   }, [heroRef]);
 
-  // Exact source CSS: position absolute, bottom 0, full width, full hero height
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        zIndex: 20,
-        pointerEvents: "none",
-      }}
-    />
+    <>
+      {/* WebGL canvas — primary dissolve */}
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 20,
+          pointerEvents: "none",
+        }}
+      />
+      {/* CSS gradient fallback — shown only when WebGL is unavailable */}
+      <div
+        ref={fallbackRef}
+        style={{
+          display: "none",
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 20,
+          pointerEvents: "none",
+          background: "linear-gradient(to bottom, transparent 0%, transparent 30%, #F0F4FF 70%, #FAFAFA 100%)",
+        }}
+      />
+    </>
   );
 }

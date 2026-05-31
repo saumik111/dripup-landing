@@ -160,8 +160,9 @@ export default function HeroSection({ videoRef }) {
     return () => {};
   }, []);
 
-  // Cube face roll — pinned, scrub-linked, reversible
+  // Cube face roll — desktop only (mobile: skip to avoid overlapping cards)
   useEffect(() => {
+    if (window.innerWidth <= 700) return;
     const cube = cubeRef.current;
     const container = heroContentRef.current;
     if (!cube || !container) return;
@@ -184,16 +185,11 @@ export default function HeroSection({ videoRef }) {
         },
       });
 
-      // 1. Fade out word-reveal text, fade in cube (same position)
       tl.to(wordRevealEl, { opacity: 0, duration: 0.15 }, 0)
         .to(cube, { opacity: 1, duration: 0.15 }, 0)
-        // 2. Deeper wind-up — tilt back 12°
         .to(cube, { rotationX: -12, ease: "power1.out", duration: 0.18 })
-        // 3. Brief pause — viewer registers the anticipation
         .to({}, { duration: 0.08 })
-        // 4. Roll to 95° — 5° overshoot past target
         .to(cube, { rotationX: 95, ease: "power3.inOut", duration: 0.65 })
-        // 5. Settle back to 90° — face "lands" with a beat
         .to(cube, { rotationX: 90, ease: "back.out(1.5)", duration: 0.18 });
     }
     setup();

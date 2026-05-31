@@ -218,17 +218,17 @@ export default function HeroSection({ videoRef }) {
   return (
     <section
       ref={heroRef}
-      style={{ position: "relative", width: "100%", height: "175vh", overflow: "hidden" }}
+      style={{ position: "relative", width: "100%", height: "175vh", overflow: "hidden", background: "transparent" }}
     >
       {/* Background image — scrolls with the section */}
       <img
         ref={videoRef}
         src="/images/hero-section-bg.png"
         alt=""
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", objectFit: "cover", zIndex: 0 }}
       />
       {/* Dark overlay */}
-      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
 
       {/* Dissolve canvas — positioned at BOTTOM of hero, one viewport tall */}
       <HeroCanvas heroRef={heroRef} />

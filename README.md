@@ -1,40 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Drip Up Landing
 
-## Getting Started
+Single-scroll landing page for Drip Up, an AI seller-management product for Shopify fashion sellers.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 Pages Router
+- React 19
+- Tailwind CSS v4
+- GSAP + ScrollTrigger
+- Three.js WebGL dissolve canvas with CSS mask-wipe fallback
+
+## Start Here
+
+Read these before working:
+
+```text
+PROJECT_LOG.md       Full chronological change log and project memory
+WORKING_CONTEXT.md   Collaboration rules, git rules, active files, skills
+DESIGN.md            Design system, copy lock, palette, motion rules
+atoa/                Agent-to-agent handoff briefs
+```
+
+## Active Structure
+
+```text
+pages/
+  index.js          Landing page composition
+  demo.js           Placeholder CTA destination
+  _app.js           Global CSS import
+  _document.js      Font loading
+
+components/
+  Navbar.js         Fixed glass navbar with Ask and Early access actions
+  HeroSection.js    Hero image, chat panel, word swap, reveal, desktop cube roll
+  HeroCanvas.js     WebGL dissolve overlay plus mask-wipe fallback
+  StickyCards.js    Desktop/mobile stacked cards and expanding final CTA card
+
+public/images/
+  hero-section-bg-v2.png  Active hero background
+  hero-section-bg.png     Preserved previous hero background
+  last-card-bg.png        Final sticky-card background
+
+styles/
+  globals.css       Base CSS, tokens, responsive overrides
+
+artifacts/
+  frontend-design-review/2026-05-31/  Review screenshots, reports, JSON
+
+atoa/
+  DOCKET.md
+  handoff_*.md      Numbered handoff briefs for other agents
+```
+
+## Commands
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Notes
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Archived reference projects, loose generated images, unused components, old template assets, mockups, videos, and stale agent handoff docs were moved to:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+```text
+C:\Users\saumi\Downloads\sellers website archive 2026-05-31
+```

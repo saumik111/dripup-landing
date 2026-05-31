@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Ink on page light",
+    "foreground": "#1C1C1A",
+    "background": "#FAFAFA",
+    "role": "large/body text",
+    "ratio": 16.35,
+    "wcagTextAA": true,
+    "wcagLargeAA": true,
+    "wcagUI": true
+  },
+  {
+    "name": "Muted stone on off-white",
+    "foreground": "#6B6860",
+    "background": "#F5F0E8",
+    "role": "placeholder/body",
+    "ratio": 4.9,
+    "wcagTextAA": true,
+    "wcagLargeAA": true,
+    "wcagUI": true
+  },
+  {
+    "name": "Muted gray card subline on blue card 1",
+    "foreground": "#888880",
+    "background": "#F0F3FF",
+    "role": "small subline",
+    "ratio": 3.23,
+    "wcagTextAA": false,
+    "wcagLargeAA": true,
+    "wcagUI": true
+  },
+  {
+    "name": "Muted gray card subline on blue card 5",
+    "foreground": "#888880",
+    "background": "#DCDFF0",
+    "role": "small subline",
+    "ratio": 2.7,
+    "wcagTextAA": false,
+    "wcagLargeAA": false,
+    "wcagUI": false
+  },
+  {
+    "name": "Green button text cream",
+    "foreground": "#F5F0E8",
+    "background": "#1A3D35",
+    "role": "button",
+    "ratio": 10.5,
+    "wcagTextAA": true,
+    "wcagLargeAA": true,
+    "wcagUI": true
+  },
+  {
+    "name": "Cream text on green hover",
+    "foreground": "#F5F0E8",
+    "background": "#2D5E52",
+    "role": "button hover",
+    "ratio": 6.53,
+    "wcagTextAA": true,
+    "wcagLargeAA": true,
+    "wcagUI": true
+  },
+  {
+    "name": "Green on cream pill",
+    "foreground": "#1A3D35",
+    "background": "#F5F0E8",
+    "role": "button/icon",
+    "ratio": 10.5,
+    "wcagTextAA": true,
+    "wcagLargeAA": true,
+    "wcagUI": true
+  },
+  {
+    "name": "Hero gray heading estimate on pale sky",
+    "foreground": "#8A8A8A",
+    "background": "#D9DADA",
+    "role": "large hero text estimate",
+    "ratio": 2.46,
+    "wcagTextAA": false,
+    "wcagLargeAA": false,
+    "wcagUI": false
+  },
+  {
+    "name": "White card on blue card 1",
+    "foreground": "#FFFFFF",
+    "background": "#F0F3FF",
+    "role": "surface contrast",
+    "ratio": 1.11,
+    "wcagTextAA": false,
+    "wcagLargeAA": false,
+    "wcagUI": false
+  },
+  {
+    "name": "Card border beige on blue card 1",
+    "foreground": "#C8C3B9",
+    "background": "#F0F3FF",
+    "role": "non-text border estimate",
+    "ratio": 1.59,
+    "wcagTextAA": false,
+    "wcagLargeAA": false,
+    "wcagUI": false
+  },
+  {
+    "name": "Error orange on white",
+    "foreground": "#E8673A",
+    "background": "#FFFFFF",
+    "role": "status dot",
+    "ratio": 3.26,
+    "wcagTextAA": false,
+    "wcagLargeAA": true,
+    "wcagUI": true
+  },
+  {
+    "name": "Warning ochre on white",
+    "foreground": "#D4A843",
+    "background": "#FFFFFF",
+    "role": "status dot",
+    "ratio": 2.21,
+    "wcagTextAA": false,
+    "wcagLargeAA": false,
+    "wcagUI": false
+  }
+]

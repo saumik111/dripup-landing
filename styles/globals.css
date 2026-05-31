@@ -1,6 +1,25 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+:root {
+  --page-bg-start: #F0F4FF;
+  --page-bg-end: #FAFAFA;
+  --ink: #111318;
+  --ink-soft: #252832;
+  --text-primary: #171717;
+  --text-secondary: #4F5B6B;
+  --text-muted: #667386;
+  --surface: #FFFFFF;
+  --surface-soft: #F8FAFF;
+  --outline: #D6E0F2;
+  --card-blue: #D8E2FF;
+  --card-mint: #BDF0DC;
+  --card-yellow: #FFE066;
+  --card-peach: #FFB090;
+  --card-black: #111318;
+  --card-black-text: #F7F9FF;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -12,12 +31,12 @@ html {
 }
 
 body {
-  background: linear-gradient(to right, #F0F4FF, #FAFAFA);
+  background: linear-gradient(to right, var(--page-bg-start), var(--page-bg-end));
   background-attachment: fixed;
   min-height: 100vh;
-  color: #1C1C1A;
-  font-family: "Figtree", sans-serif;
-  font-weight: 500;
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,4 +54,37 @@ h1 em {
 .line1, .line2 {
   display: block;
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .hero-heading-row {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    width: 100% !important;
+    padding: 0 16px !important;
+    font-size: 27px !important;
+  }
+
+  .hero-heading-row [data-word] {
+    white-space: nowrap !important;
+  }
+
+  .hero-glass-panel {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 26px 22px !important;
+    min-height: 0 !important;
+  }
+
+  .hero-chat-panel {
+    gap: 12px !important;
+  }
+
+  .hero-chat-bubble {
+    max-width: 92% !important;
+  }
+
+  .hero-product-panel {
+    min-height: 150px !important;
+  }
 }

@@ -1,0 +1,1084 @@
+{
+  "desktopTop": {
+    "elements": [
+      {
+        "backgroundColor": "rgb(245, 240, 232)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "body",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 5265,
+          "w": 1425,
+          "x": 0,
+          "y": -1233
+        },
+        "selector": "body",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store Grow & manage your shopify store simply by chatting List this product Listed your product across your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.06)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "navbar",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 64,
+          "w": 1425,
+          "x": 0,
+          "y": 0
+        },
+        "selector": "nav",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "200",
+        "label": "logo",
+        "lineHeight": "19.5px",
+        "overflow": "visible",
+        "rect": {
+          "h": 20,
+          "w": 64,
+          "x": 40,
+          "y": 22
+        },
+        "selector": "nav a[href=\"/\"]",
+        "text": "DRIP UP",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "ask link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 48,
+          "x": 1249,
+          "y": 13
+        },
+        "selector": "nav a[href=\"/ask\"]",
+        "text": "Ask Ask Drip Up what it can do",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgb(26, 61, 53)",
+        "color": "rgb(245, 240, 232)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "try link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 72,
+          "x": 1313,
+          "y": 13
+        },
+        "selector": "nav a[href=\"/demo\"]",
+        "text": "Try it Try it now with your store",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "\"EB Garamond\", Georgia, serif",
+        "fontSize": "56px",
+        "fontWeight": "500",
+        "label": "hero h1",
+        "lineHeight": "64.4px",
+        "overflow": "visible",
+        "rect": {
+          "h": 134,
+          "w": 738,
+          "x": 343,
+          "y": -1125
+        },
+        "selector": "h1",
+        "text": "Grow & manage your shopify store simply by chatting",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.04)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "hero glass panel",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 306,
+          "w": 860,
+          "x": 283,
+          "y": -909
+        },
+        "selector": "section div[style*=\"grid-template-columns\"]",
+        "text": "List this product Listed your product across your store. Ready to publish",
+        "whiteSpace": "normal"
+      },
+      {
+        "label": "hero command bar",
+        "missing": true,
+        "selector": "a[href=\"/demo\"][style*=\"cursor: text\"]"
+      },
+      {
+        "label": "sticky cards section",
+        "missing": true,
+        "selector": "section:nth-of-type(2)"
+      }
+    ],
+    "links": [
+      {
+        "href": "/",
+        "text": "Drip Up"
+      },
+      {
+        "href": "/ask",
+        "text": "AskAsk Drip Up what it can do"
+      },
+      {
+        "href": "/demo",
+        "text": "Try itTry it now with your store"
+      },
+      {
+        "href": "/demo",
+        "text": "Tell me what…."
+      },
+      {
+        "href": "/demo",
+        "text": "Try it with your store"
+      }
+    ],
+    "overflowing": [
+      {
+        "display": "block",
+        "position": "absolute",
+        "rect": {
+          "h": 21,
+          "w": 197,
+          "x": 1250,
+          "y": 21
+        },
+        "tag": "span",
+        "text": "Try it now with your store"
+      }
+    ],
+    "viewport": {
+      "bodyScrollWidth": 1425,
+      "documentScrollWidth": 1425,
+      "height": 900,
+      "scrollY": 1233,
+      "width": 1440
+    }
+  },
+  "desktopCards": {
+    "elements": [
+      {
+        "backgroundColor": "rgb(245, 240, 232)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "body",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 5265,
+          "w": 1425,
+          "x": 0,
+          "y": -1800
+        },
+        "selector": "body",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store Grow & manage your shopify store simply by chatting List this product Listed your product across your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.06)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "navbar",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 64,
+          "w": 1425,
+          "x": 0,
+          "y": -2
+        },
+        "selector": "nav",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "200",
+        "label": "logo",
+        "lineHeight": "19.5px",
+        "overflow": "visible",
+        "rect": {
+          "h": 20,
+          "w": 64,
+          "x": 40,
+          "y": 20
+        },
+        "selector": "nav a[href=\"/\"]",
+        "text": "DRIP UP",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "ask link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 48,
+          "x": 1249,
+          "y": 12
+        },
+        "selector": "nav a[href=\"/ask\"]",
+        "text": "Ask Ask Drip Up what it can do",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgb(26, 61, 53)",
+        "color": "rgb(245, 240, 232)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "try link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 72,
+          "x": 1313,
+          "y": 12
+        },
+        "selector": "nav a[href=\"/demo\"]",
+        "text": "Try it Try it now with your store",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "\"EB Garamond\", Georgia, serif",
+        "fontSize": "56px",
+        "fontWeight": "500",
+        "label": "hero h1",
+        "lineHeight": "64.4px",
+        "overflow": "visible",
+        "rect": {
+          "h": 134,
+          "w": 738,
+          "x": 343,
+          "y": -1692
+        },
+        "selector": "h1",
+        "text": "Grow & manage your shopify store simply by chatting",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.04)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "hero glass panel",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 306,
+          "w": 860,
+          "x": 283,
+          "y": -1476
+        },
+        "selector": "section div[style*=\"grid-template-columns\"]",
+        "text": "List this product Listed your product across your store. Ready to publish",
+        "whiteSpace": "normal"
+      },
+      {
+        "label": "hero command bar",
+        "missing": true,
+        "selector": "a[href=\"/demo\"][style*=\"cursor: text\"]"
+      },
+      {
+        "label": "sticky cards section",
+        "missing": true,
+        "selector": "section:nth-of-type(2)"
+      }
+    ],
+    "links": [
+      {
+        "href": "/",
+        "text": "Drip Up"
+      },
+      {
+        "href": "/ask",
+        "text": "AskAsk Drip Up what it can do"
+      },
+      {
+        "href": "/demo",
+        "text": "Try itTry it now with your store"
+      },
+      {
+        "href": "/demo",
+        "text": "Tell me what…."
+      },
+      {
+        "href": "/demo",
+        "text": "Try it with your store"
+      }
+    ],
+    "overflowing": [
+      {
+        "display": "block",
+        "position": "absolute",
+        "rect": {
+          "h": 21,
+          "w": 197,
+          "x": 1250,
+          "y": 19
+        },
+        "tag": "span",
+        "text": "Try it now with your store"
+      }
+    ],
+    "viewport": {
+      "bodyScrollWidth": 1425,
+      "documentScrollWidth": 1425,
+      "height": 900,
+      "scrollY": 1800,
+      "width": 1440
+    }
+  },
+  "mobileTop": {
+    "elements": [
+      {
+        "backgroundColor": "rgb(245, 240, 232)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "body",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 4937,
+          "w": 375,
+          "x": 0,
+          "y": 0
+        },
+        "selector": "body",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store Grow & manage your shopify store simply by chatting List this product Listed your product across your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.06)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "navbar",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 64,
+          "w": 375,
+          "x": 0,
+          "y": 0
+        },
+        "selector": "nav",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "200",
+        "label": "logo",
+        "lineHeight": "19.5px",
+        "overflow": "visible",
+        "rect": {
+          "h": 20,
+          "w": 64,
+          "x": 40,
+          "y": 22
+        },
+        "selector": "nav a[href=\"/\"]",
+        "text": "DRIP UP",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "ask link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 48,
+          "x": 199,
+          "y": 14
+        },
+        "selector": "nav a[href=\"/ask\"]",
+        "text": "Ask Ask Drip Up what it can do",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgb(26, 61, 53)",
+        "color": "rgb(245, 240, 232)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "try link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 72,
+          "x": 263,
+          "y": 14
+        },
+        "selector": "nav a[href=\"/demo\"]",
+        "text": "Try it Try it now with your store",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "\"EB Garamond\", Georgia, serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "label": "hero h1",
+        "lineHeight": "36.8px",
+        "overflow": "visible",
+        "rect": {
+          "h": 77,
+          "w": 371,
+          "x": 40,
+          "y": 101
+        },
+        "selector": "h1",
+        "text": "Grow & manage your shopify store simply by chatting",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.04)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "hero glass panel",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 343,
+          "w": 295,
+          "x": 40,
+          "y": 304
+        },
+        "selector": "section div[style*=\"grid-template-columns\"]",
+        "text": "List this product Listed your product across your store. Ready to publish",
+        "whiteSpace": "normal"
+      },
+      {
+        "label": "hero command bar",
+        "missing": true,
+        "selector": "a[href=\"/demo\"][style*=\"cursor: text\"]"
+      },
+      {
+        "label": "sticky cards section",
+        "missing": true,
+        "selector": "section:nth-of-type(2)"
+      }
+    ],
+    "links": [
+      {
+        "href": "/",
+        "text": "Drip Up"
+      },
+      {
+        "href": "/ask",
+        "text": "AskAsk Drip Up what it can do"
+      },
+      {
+        "href": "/demo",
+        "text": "Try itTry it now with your store"
+      },
+      {
+        "href": "/demo",
+        "text": "Tell me what…."
+      },
+      {
+        "href": "/demo",
+        "text": "Try it with your store"
+      }
+    ],
+    "overflowing": [
+      {
+        "display": "block",
+        "position": "absolute",
+        "rect": {
+          "h": 21,
+          "w": 197,
+          "x": 200,
+          "y": 21
+        },
+        "tag": "span",
+        "text": "Try it now with your store"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 77,
+          "w": 371,
+          "x": 40,
+          "y": 101
+        },
+        "tag": "h1",
+        "text": "Grow & manage your shopify store simply by chatting"
+      },
+      {
+        "display": "flex",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 371,
+          "x": 40,
+          "y": 101
+        },
+        "tag": "span",
+        "text": "Grow & manage your shopify store"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 151,
+          "x": 286,
+          "y": 101
+        },
+        "tag": "span",
+        "text": "shopify store"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 10,
+          "x": 383,
+          "y": 101
+        },
+        "tag": "span",
+        "text": "s"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 10,
+          "x": 394,
+          "y": 101
+        },
+        "tag": "span",
+        "text": "t"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 16,
+          "x": 404,
+          "y": 101
+        },
+        "tag": "span",
+        "text": "o"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 11,
+          "x": 420,
+          "y": 101
+        },
+        "tag": "span",
+        "text": "r"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 12,
+          "x": 430,
+          "y": 101
+        },
+        "tag": "span",
+        "text": "e"
+      },
+      {
+        "display": "flex",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 371,
+          "x": 40,
+          "y": 141
+        },
+        "tag": "span",
+        "text": "simply by chatting"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 28,
+          "w": 57,
+          "x": 338,
+          "y": 1915
+        },
+        "tag": "div",
+        "text": "Insights"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 28,
+          "w": 60,
+          "x": 394,
+          "y": 1915
+        },
+        "tag": "div",
+        "text": "Artifacts"
+      }
+    ],
+    "viewport": {
+      "bodyScrollWidth": 375,
+      "documentScrollWidth": 375,
+      "height": 844,
+      "scrollY": 0,
+      "width": 390
+    }
+  },
+  "mobileCards": {
+    "elements": [
+      {
+        "backgroundColor": "rgb(245, 240, 232)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "body",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 4937,
+          "w": 375,
+          "x": 0,
+          "y": -1600
+        },
+        "selector": "body",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store Grow & manage your shopify store simply by chatting List this product Listed your product across your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.06)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "navbar",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 64,
+          "w": 375,
+          "x": 0,
+          "y": -4
+        },
+        "selector": "nav",
+        "text": "DRIP UP Ask Ask Drip Up what it can do Try it Try it now with your store",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "200",
+        "label": "logo",
+        "lineHeight": "19.5px",
+        "overflow": "visible",
+        "rect": {
+          "h": 20,
+          "w": 64,
+          "x": 40,
+          "y": 18
+        },
+        "selector": "nav a[href=\"/\"]",
+        "text": "DRIP UP",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "ask link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 48,
+          "x": 199,
+          "y": 10
+        },
+        "selector": "nav a[href=\"/ask\"]",
+        "text": "Ask Ask Drip Up what it can do",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgb(26, 61, 53)",
+        "color": "rgb(245, 240, 232)",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "200",
+        "label": "try link",
+        "lineHeight": "22.5px",
+        "overflow": "hidden",
+        "rect": {
+          "h": 36,
+          "w": 72,
+          "x": 263,
+          "y": 10
+        },
+        "selector": "nav a[href=\"/demo\"]",
+        "text": "Try it Try it now with your store",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "\"EB Garamond\", Georgia, serif",
+        "fontSize": "32px",
+        "fontWeight": "500",
+        "label": "hero h1",
+        "lineHeight": "36.8px",
+        "overflow": "visible",
+        "rect": {
+          "h": 77,
+          "w": 371,
+          "x": 40,
+          "y": -1499
+        },
+        "selector": "h1",
+        "text": "Grow & manage your shopify store simply by chatting",
+        "whiteSpace": "normal"
+      },
+      {
+        "backgroundColor": "rgba(255, 255, 255, 0.04)",
+        "color": "rgb(28, 28, 26)",
+        "fontFamily": "Figtree, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "label": "hero glass panel",
+        "lineHeight": "24px",
+        "overflow": "visible",
+        "rect": {
+          "h": 343,
+          "w": 295,
+          "x": 40,
+          "y": -1296
+        },
+        "selector": "section div[style*=\"grid-template-columns\"]",
+        "text": "List this product Listed your product across your store. Ready to publish",
+        "whiteSpace": "normal"
+      },
+      {
+        "label": "hero command bar",
+        "missing": true,
+        "selector": "a[href=\"/demo\"][style*=\"cursor: text\"]"
+      },
+      {
+        "label": "sticky cards section",
+        "missing": true,
+        "selector": "section:nth-of-type(2)"
+      }
+    ],
+    "links": [
+      {
+        "href": "/",
+        "text": "Drip Up"
+      },
+      {
+        "href": "/ask",
+        "text": "AskAsk Drip Up what it can do"
+      },
+      {
+        "href": "/demo",
+        "text": "Try itTry it now with your store"
+      },
+      {
+        "href": "/demo",
+        "text": "Tell me what…."
+      },
+      {
+        "href": "/demo",
+        "text": "Try it with your store"
+      }
+    ],
+    "overflowing": [
+      {
+        "display": "block",
+        "position": "absolute",
+        "rect": {
+          "h": 21,
+          "w": 197,
+          "x": 200,
+          "y": 17
+        },
+        "tag": "span",
+        "text": "Try it now with your store"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 77,
+          "w": 371,
+          "x": 40,
+          "y": -1499
+        },
+        "tag": "h1",
+        "text": "Grow & manage your shopify store simply by chatting"
+      },
+      {
+        "display": "flex",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 371,
+          "x": 40,
+          "y": -1499
+        },
+        "tag": "span",
+        "text": "Grow & manage your shopify store"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 151,
+          "x": 286,
+          "y": -1499
+        },
+        "tag": "span",
+        "text": "shopify store"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 10,
+          "x": 383,
+          "y": -1499
+        },
+        "tag": "span",
+        "text": "s"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 10,
+          "x": 394,
+          "y": -1499
+        },
+        "tag": "span",
+        "text": "t"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 16,
+          "x": 404,
+          "y": -1499
+        },
+        "tag": "span",
+        "text": "o"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 11,
+          "x": 420,
+          "y": -1499
+        },
+        "tag": "span",
+        "text": "r"
+      },
+      {
+        "display": "inline-block",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 12,
+          "x": 430,
+          "y": -1499
+        },
+        "tag": "span",
+        "text": "e"
+      },
+      {
+        "display": "flex",
+        "position": "static",
+        "rect": {
+          "h": 37,
+          "w": 371,
+          "x": 40,
+          "y": -1459
+        },
+        "tag": "span",
+        "text": "simply by chatting"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 29,
+          "w": 58,
+          "x": 342,
+          "y": 421
+        },
+        "tag": "div",
+        "text": "Insights"
+      },
+      {
+        "display": "block",
+        "position": "static",
+        "rect": {
+          "h": 29,
+          "w": 61,
+          "x": 400,
+          "y": 421
+        },
+        "tag": "div",
+        "text": "Artifacts"
+      }
+    ],
+    "viewport": {
+      "bodyScrollWidth": 375,
+      "documentScrollWidth": 375,
+      "height": 844,
+      "scrollY": 1600,
+      "width": 390
+    }
+  },
+  "contrastPairs": [
+    {
+      "name": "ink on card blue",
+      "fg": "#1C1C1A",
+      "bg": "#F0F3FF",
+      "ratio": 15.42,
+      "aaNormal": true,
+      "aaLarge": true
+    },
+    {
+      "name": "subline gray on card blue",
+      "fg": "#888880",
+      "bg": "#F0F3FF",
+      "ratio": 3.23,
+      "aaNormal": false,
+      "aaLarge": true
+    },
+    {
+      "name": "stone on cream command",
+      "fg": "#6B6860",
+      "bg": "#F5F0E8",
+      "ratio": 4.9,
+      "aaNormal": true,
+      "aaLarge": true
+    },
+    {
+      "name": "cream on green",
+      "fg": "#F5F0E8",
+      "bg": "#1A3D35",
+      "ratio": 10.5,
+      "aaNormal": true,
+      "aaLarge": true
+    },
+    {
+      "name": "green on blue card",
+      "fg": "#1A3D35",
+      "bg": "#F0F3FF",
+      "ratio": 10.76,
+      "aaNormal": true,
+      "aaLarge": true
+    },
+    {
+      "name": "logo ink on pale sky approx",
+      "fg": "#1C1C1A",
+      "bg": "#DDE2E0",
+      "ratio": 13.03,
+      "aaNormal": true,
+      "aaLarge": true
+    },
+    {
+      "name": "design primary on page base",
+      "fg": "#164B8F",
+      "bg": "#F6F8FF",
+      "ratio": 8.12,
+      "aaNormal": true,
+      "aaLarge": true
+    }
+  ]
+}

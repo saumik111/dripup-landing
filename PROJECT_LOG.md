@@ -33,7 +33,7 @@ These rules were set by the user (Saumi) and must be followed by any agent worki
 **Local path:** `C:\Users\saumi\Downloads\sellers website\dripup-landing`
 
 **Stack:**
-- Next.js 15, React 19, Pages Router
+- Next.js 16, React 19, Pages Router
 - Tailwind CSS v4
 - GSAP + ScrollTrigger (scroll animations, word swap, cube roll, card stacking)
 - Three.js WebGL dissolve canvas (hero dissolve on scroll)
@@ -49,7 +49,7 @@ pages/
 components/
   Navbar.js         — Fixed glass navbar. Hides on scroll down, shows on scroll up.
                       Locks visible when last sticky card fully expands.
-                      Two hover-expand buttons: "Ask" (/ask) and "Try it" (/demo).
+                      Two hover-expand buttons: "Ask" (/ask) and "Early access" (/demo).
   HeroSection.js    — Hero section (175vh tall).
                       Background image + dark overlay.
                       Word-swap heading: "Grow & manage your [shopify store / online store] simply by chatting".
@@ -64,7 +64,7 @@ components/
                       3. Control the chaos (yellow, insights UI)
                       4. Grow with confidence (peach, analytics UI)
                       5. Watch it in action (black, last-card-bg.png fills card, expands full-screen,
-                         reveals CTA heading "Tell Drip Up what to do and it manages the rest" + Try it button)
+                         reveals CTA heading "Tell Drip Up what to do and it manages the rest" + early access button)
 
 public/images/
   hero-section-bg.png    — Original hero background (floral/sky, kept as backup)
@@ -81,8 +81,13 @@ styles/
 - Narrative headings: EB Garamond 500
 - UI / body / buttons: Inter
 - Primary CTA buttons: black (`#111318`)
-- Surface tints: blue-white family
+- Current card colors: `#D8E2FF`, `#BDF0DC`, `#FFE066`, `#FFB090`, `#111318`
 - Motion: GSAP scroll-scrubbed, reversible
+- Handoff: `/atoa` workflow writes numbered briefs under `atoa/`
+
+**Structured support folders:**
+- `artifacts/frontend-design-review/2026-05-31/` - design-review screenshots, reports, JSON, and browser profiles
+- `atoa/` - numbered agent-to-agent handoff briefs and `DOCKET.md`
 
 ---
 
@@ -371,5 +376,41 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 - `PROJECT_LOG.md` — this entry
 
 **Commit:** `fix: ask transparent at rest + free for 1 month dot mint color`
+
+---
+
+### Entry 011 - 2026-05-31
+
+**Session agent:** Codex
+
+**User instruction:**
+> "update all and make the complete folder clean but still remember that it should still have the files but structured in a manner so that claude has all the context of how we are working what is the current state and every single thing we have discussed while workding and before you hit your limits i want you to make use this skill to hand off the task to claude also make a skill of it in codex as well"
+
+**What was understood:**
+1. Update project memory/docs so they match the real current state after Claude's work.
+2. Clean the folder structure without deleting useful context or artifacts.
+3. Preserve enough context for Claude or Codex to continue from a cold start.
+4. Turn the pasted `/atoa` handoff workflow into a reusable Codex skill.
+5. Use the handoff workflow to create a fresh handoff brief.
+
+**Decisions made:**
+- Keep `PROJECT_LOG.md`, `WORKING_CONTEXT.md`, and `DESIGN.md` at the repo root so agents can find the project memory immediately.
+- Move design-review artifacts out of the old loose `test folder/` path and into `artifacts/frontend-design-review/2026-05-31/`.
+- Keep `atoa/` at the repo root because the handoff workflow writes numbered handoff briefs there.
+- Create the reusable Codex skill at `C:\Users\saumi\.codex\skills\atoa`.
+
+**Files changed or moved:**
+- `README.md` - updated active structure, start-here docs, artifacts, and handoff folder map.
+- `WORKING_CONTEXT.md` - rewritten to reflect current state, current card colors, active hero image, artifact path, and reusable skills.
+- `DESIGN.md` - updated current card tokens and CTA copy ledger.
+- `PROJECT_LOG.md` - corrected Next.js version and current project snapshot; added this entry.
+- `styles/globals.css` - updated card CSS variables to match the current implemented palette.
+- `tailwind.config.js` - updated card color tokens to match the current implemented palette.
+- `artifacts/frontend-design-review/2026-05-31/` - moved existing design-review screenshots/reports/JSON/browser profiles here from `test folder/2026-05-31/frontend-design-review/`.
+- `C:\Users\saumi\.codex\skills\atoa\` - created reusable Codex handoff skill.
+- `atoa/handoff_2_2026-05-31.md` - fresh handoff brief for Claude/Codex continuation.
+- `atoa/DOCKET.md` - counter updated to `2`.
+
+**Commit:** Not committed yet by Codex in this pass.
 
 ---

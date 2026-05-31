@@ -519,6 +519,6 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 - Production desktop/mobile checks confirmed the new FAQ copy, button styles, horizontal button layout, `/founder` href, and no horizontal overflow or client-side error text.
 - `/founder` returned 200 and rendered the placeholder page.
 
-**Commit:** Pending in this pass.
+**Commit:** `feat: add founder placeholder from faq`
 
 ---

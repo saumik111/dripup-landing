@@ -310,3 +310,27 @@ Navbar button uses fixed pixel width (`108px`) with `padding: 0`. "Early access"
 **Commit:** `feat: ask button black + WebGL fallback scroll-linked fade`
 
 ---
+
+### Entry 008 — 2026-05-31
+
+**Session agent:** Claude (Sonnet 4.6)
+
+**User instruction:**
+> "Option B — and why did you add the text box on top of the Ask — it should only have the text box when we hover. I just asked you to change the color of it."
+
+**Mistake acknowledged:**
+Entry 007 over-engineered the navbar. The user only asked to change Ask button background to black. The correct fix was one line: `dark={false}` on the Ask button. Instead the entire `ExpandButton` component was refactored, removing the `dark` prop and introducing `collapsedWidth`/`expandedWidth` props — this broke the hover-expand behaviour and widths.
+
+**Fix for navbar:** Restored the original `ExpandButton` component with the `dark` prop system exactly as it was before Entry 007. Only change: `dark={true}` → `dark={false}` on the Ask button so it gets the same solid black background as Early access. Both buttons now: black at rest, INK_SOFT on hover, expand on hover to show full label.
+
+**Fix for WebGL fallback (Option B — mask wipe):**
+Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The fallback div always has `background: linear-gradient(to right, #F0F4FF, #FAFAFA)`. As the user scrolls, a `linear-gradient(to top, black ${wipeEdge}%, transparent ${wipeEdge+30}%)` mask is applied — the solid region grows upward from the bottom, wiping the image away in the same direction as the WebGL shader dissolve. At progress=0 the mask reveals nothing (image visible), at progress=1 the entire div is revealed. Applied to both fallback code paths (isWebGLSupported=false and renderer catch).
+
+**Files changed:**
+- `components/Navbar.js` — fully restored to pre-Entry-007 state, only Ask button changed to `dark={false}`
+- `components/HeroCanvas.js` — both fallback paths replaced with mask-wipe, fallback div updated with initial mask
+- `PROJECT_LOG.md` — this entry
+
+**Commit:** `fix: revert navbar refactor, ask button dark=false + mask-wipe fallback`
+
+---

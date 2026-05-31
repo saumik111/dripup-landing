@@ -6,7 +6,7 @@ const INK = "#111318";
 const INK_SOFT = "#252832";
 const SURFACE = "#F7F9FF";
 
-function ExpandButton({ shortLabel, fullLabel, href, collapsedWidth, expandedWidth }) {
+function ExpandButton({ shortLabel, fullLabel, href, dark }) {
   const [hovered, setHovered] = useState(false);
 
   const baseStyle = {
@@ -23,9 +23,11 @@ function ExpandButton({ shortLabel, fullLabel, href, collapsedWidth, expandedWid
     cursor: "pointer",
     position: "relative",
     height: 36,
-    transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease",
-    width: hovered ? expandedWidth : collapsedWidth,
-    background: hovered ? INK_SOFT : INK,
+    transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, box-shadow 0.25s ease",
+    width: hovered ? (dark ? 220 : 200) : (dark ? 48 : 140),
+    background: hovered
+      ? INK_SOFT
+      : INK,
     color: SURFACE,
     padding: 0,
   };
@@ -46,6 +48,7 @@ function ExpandButton({ shortLabel, fullLabel, href, collapsedWidth, expandedWid
           transition: "opacity 0.15s ease",
           opacity: hovered ? 0 : 1,
           pointerEvents: "none",
+          letterSpacing: "0.01em",
         }}
       >
         {shortLabel}
@@ -85,7 +88,7 @@ export default function Navbar() {
     let forceVisible = false;
 
     function onScroll() {
-      if (forceVisible) return; // locked — ignore scroll
+      if (forceVisible) return;
       if (!ticking) {
         requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
@@ -113,7 +116,7 @@ export default function Navbar() {
 
     function onCardCollapsed() {
       forceVisible = false;
-      lastScrollY = window.scrollY; // reset so next scroll direction is correct
+      lastScrollY = window.scrollY;
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -170,15 +173,13 @@ export default function Navbar() {
           shortLabel="Ask"
           fullLabel="Ask Drip Up what it can do"
           href="/ask"
-          collapsedWidth={60}
-          expandedWidth={220}
+          dark={true}
         />
         <ExpandButton
           shortLabel="Early access"
           fullLabel="Get my early access"
           href="/demo"
-          collapsedWidth={140}
-          expandedWidth={200}
+          dark={false}
         />
       </div>
     </nav>

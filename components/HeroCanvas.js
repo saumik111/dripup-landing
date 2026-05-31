@@ -89,13 +89,20 @@ export default function HeroCanvas({ heroRef }) {
   const fallbackRef = useRef(null);
 
   useEffect(() => {
-    // If WebGL is unavailable, use scroll-linked opacity fallback
+    // If WebGL is unavailable, use scroll-driven mask wipe fallback
     if (!isWebGLSupported()) {
-      console.warn("[HeroCanvas] WebGL not available — using CSS gradient fallback.");
+      console.warn("[HeroCanvas] WebGL not available — using mask-wipe fallback.");
       const fallback = fallbackRef.current;
       if (!fallback) return;
       fallback.style.display = "block";
-      fallback.style.opacity = "0";
+
+      function applyMask(progress) {
+        // Wipe from bottom to top — same direction as the WebGL shader
+        // At progress=0: fully transparent (image visible), progress=1: fully covered
+        const wipeEdge = Math.round(progress * 120); // 0% → 120% bottom offset
+        fallback.style.webkitMaskImage = `linear-gradient(to top, black ${wipeEdge}%, transparent ${wipeEdge + 30}%)`;
+        fallback.style.maskImage = `linear-gradient(to top, black ${wipeEdge}%, transparent ${wipeEdge + 30}%)`;
+      }
 
       function onScrollFallback() {
         const hero = heroRef?.current;
@@ -103,8 +110,9 @@ export default function HeroCanvas({ heroRef }) {
         const maxScroll = hero.offsetHeight - window.innerHeight;
         if (maxScroll <= 0) return;
         const progress = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1);
-        fallback.style.opacity = progress;
+        applyMask(progress);
       }
+      applyMask(0);
       window.addEventListener("scroll", onScrollFallback, { passive: true });
       onScrollFallback();
       return () => window.removeEventListener("scroll", onScrollFallback);
@@ -128,18 +136,23 @@ export default function HeroCanvas({ heroRef }) {
       try {
         renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
       } catch (e) {
-        console.warn("[HeroCanvas] WebGLRenderer init failed — using CSS gradient fallback.", e);
+        console.warn("[HeroCanvas] WebGLRenderer init failed — using mask-wipe fallback.", e);
         const fallback = fallbackRef.current;
         if (fallback) {
           fallback.style.display = "block";
-          fallback.style.opacity = "0";
+          function applyMask2(progress) {
+            const wipeEdge = Math.round(progress * 120);
+            fallback.style.webkitMaskImage = `linear-gradient(to top, black ${wipeEdge}%, transparent ${wipeEdge + 30}%)`;
+            fallback.style.maskImage = `linear-gradient(to top, black ${wipeEdge}%, transparent ${wipeEdge + 30}%)`;
+          }
           function onScrollFallback2() {
             const hero = heroRef?.current;
             if (!hero) return;
             const maxScroll = hero.offsetHeight - window.innerHeight;
             if (maxScroll <= 0) return;
-            fallback.style.opacity = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1);
+            applyMask2(Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1));
           }
+          applyMask2(0);
           window.addEventListener("scroll", onScrollFallback2, { passive: true });
           onScrollFallback2();
         }
@@ -216,7 +229,7 @@ export default function HeroCanvas({ heroRef }) {
           pointerEvents: "none",
         }}
       />
-      {/* CSS gradient fallback — shown only when WebGL is unavailable */}
+      {/* Mask-wipe fallback — shown only when WebGL is unavailable */}
       <div
         ref={fallbackRef}
         style={{
@@ -229,6 +242,8 @@ export default function HeroCanvas({ heroRef }) {
           zIndex: 20,
           pointerEvents: "none",
           background: "linear-gradient(to right, #F0F4FF, #FAFAFA)",
+          WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 30%)",
+          maskImage: "linear-gradient(to top, black 0%, transparent 30%)",
         }}
       />
     </>

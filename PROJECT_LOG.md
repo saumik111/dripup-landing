@@ -443,3 +443,28 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Commit:** `feat: add faq section and stabilize mobile stack`
 
 ---
+
+### Entry 013 - 2026-05-31
+
+**Session agent:** Codex
+
+**User instruction:**
+> Add a fade transition between the final image section and the newly created FAQ section, like the supplied reference, but on top of the image we already have.
+
+**Changes:**
+- Added a negative-positioned gradient fade layer owned by `FAQSection`.
+- The fade sits above the FAQ section and overlays the bottom of the final floral image, blending it into the existing blue-white FAQ background.
+- Kept the FAQ layout, copy, accordion behavior, and card animation code unchanged.
+
+**Files changed:**
+- `components/FAQSection.js` - added FAQ background token and top fade overlay.
+- `PROJECT_LOG.md` - this entry.
+
+**Verification:**
+- `npm run build` passed.
+- Production desktop and mobile screenshots confirmed the floral image fades into the FAQ section.
+- Production checks captured no horizontal overflow, error text, or console errors.
+
+**Commit:** Pending in this pass.
+
+---

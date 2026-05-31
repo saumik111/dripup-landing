@@ -28,6 +28,7 @@ const TEXT_SECONDARY = "#4F5B6B";
 const OUTLINE = "rgba(214,224,242,0.78)";
 const FONT_HEADING = '"EB Garamond", Georgia, serif';
 const FONT_BODY = '"Inter", sans-serif';
+const FAQ_BACKGROUND = "linear-gradient(to right, #F0F4FF, #FAFAFA)";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -37,14 +38,29 @@ export default function FAQSection() {
       aria-labelledby="faq-heading"
       style={{
         position: "relative",
-        zIndex: 4,
+        zIndex: 8,
         width: "100%",
-        background: "linear-gradient(to right, #F0F4FF, #FAFAFA)",
+        background: FAQ_BACKGROUND,
         padding: "clamp(96px, 12vw, 160px) 20px clamp(112px, 13vw, 176px)",
       }}
     >
       <div
+        aria-hidden="true"
         style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 0,
+          height: "clamp(180px, 22vw, 340px)",
+          transform: "translateY(-100%)",
+          pointerEvents: "none",
+          background:
+            "linear-gradient(to bottom, rgba(240,244,255,0) 0%, rgba(244,247,253,0.34) 34%, rgba(247,249,253,0.78) 68%, rgba(240,244,255,1) 100%)",
+        }}
+      />
+      <div
+        style={{
+          position: "relative",
           width: "min(860px, calc(100vw - 40px))",
           margin: "0 auto",
         }}

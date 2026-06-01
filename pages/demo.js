@@ -81,7 +81,7 @@ export default function Demo() {
         <section className="earlyContent" aria-labelledby="early-title">
           <div className="copyBlock">
             <h1 id="early-title">
-              <span>Built just for</span>
+              <span>Built just for </span>
               <em>your brand</em>
             </h1>
             <p>Get access to Drip Up early</p>
@@ -215,7 +215,7 @@ export default function Demo() {
 
         .copyBlock h1 span,
         .copyBlock h1 em {
-          display: block;
+          display: inline;
         }
 
         .copyBlock h1 em {

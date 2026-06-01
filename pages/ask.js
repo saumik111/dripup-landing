@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import BackNavbar from "@/components/BackNavbar";
+import { getAskMessages, setAskMessages } from "@/lib/askSession";
 
 const MAX_MESSAGES_PER_DAY = 10;
 const COUNT_KEY = "dripup_ask_count";
@@ -81,7 +83,7 @@ async function getAiReply(messages, userText) {
 }
 
 export default function Ask() {
-  const [messages, setMessages] = useState(() => [createMessage("ai", OPENING_MESSAGE)]);
+  const [messages, setMessages] = useState(() => getAskMessages() || [createMessage("ai", OPENING_MESSAGE)]);
   const [input, setInput] = useState("");
   const [remainingMessages, setRemainingMessages] = useState(MAX_MESSAGES_PER_DAY);
   const [isLoading, setIsLoading] = useState(false);
@@ -90,6 +92,10 @@ export default function Ask() {
   useEffect(() => {
     setRemainingMessages(readRemainingMessages());
   }, []);
+
+  useEffect(() => {
+    setAskMessages(messages);
+  }, [messages]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -151,14 +157,7 @@ export default function Ask() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <nav className="askNav" aria-label="Ask Drip Up navigation">
-        <Link href="/" className="askLogo">
-          Drip Up
-        </Link>
-        <Link href="/" className="backLink">
-          <span aria-hidden="true">{"\u2190"}</span> Back to home
-        </Link>
-      </nav>
+      <BackNavbar fallbackHref="/" />
 
       <main className="askPage">
         <div className="chatFrame">
@@ -237,63 +236,6 @@ export default function Ask() {
       </footer>
 
       <style jsx global>{`
-        .askNav {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 64px;
-          z-index: 100;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 20px;
-          padding: 0 40px;
-          background: rgba(255, 255, 255, 0.06);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .askLogo {
-          font-family: ${FONT_BODY};
-          font-weight: 200;
-          font-size: 13px;
-          letter-spacing: 0.15em;
-          color: ${INK};
-          text-decoration: none;
-          text-transform: uppercase;
-          flex: 0 0 auto;
-        }
-
-        .backLink {
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
-          min-width: 0;
-          min-height: 36px;
-          border-radius: 99px;
-          padding: 0 18px;
-          background: ${INK};
-          color: ${SURFACE_TEXT};
-          font-family: ${FONT_BODY};
-          font-weight: 600;
-          font-size: 13px;
-          line-height: 1;
-          text-decoration: none;
-          white-space: nowrap;
-          transition:
-            background 0.2s ease,
-            color 0.2s ease,
-            transform 0.2s ease;
-        }
-
-        .backLink:hover {
-          background: ${INK_SOFT};
-          color: ${SURFACE_TEXT};
-          transform: translateY(-1px);
-        }
-
         .askPage {
           min-height: 100vh;
           color: ${INK};
@@ -553,17 +495,6 @@ export default function Ask() {
         }
 
         @media (max-width: 700px) {
-          .askNav {
-            padding: 0 18px;
-            gap: 12px;
-          }
-
-          .backLink {
-            min-height: 34px;
-            padding: 0 13px;
-            font-size: 12px;
-          }
-
           .chatFrame {
             width: 100%;
           }
@@ -607,8 +538,8 @@ export default function Ask() {
 }
 
 function ActionLink({ action }) {
-  const href = action === "contact_founder" ? "/founder" : "/demo";
-  const label = action === "contact_founder" ? "Contact the founder" : "Book demo";
+  const href = action === "contact_founder" ? "/founder?from=/ask" : "/demo?from=/ask";
+  const label = action === "contact_founder" ? "Contact the founder" : "Get early access";
 
   return (
     <Link href={href} className="actionLink">

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
+import BackNavbar from "@/components/BackNavbar";
 
 const INK = "#111318";
 const INK_SOFT = "#252832";
@@ -17,7 +17,7 @@ export default function Founder() {
       <Head>
         <title>Contact the founder | Drip Up</title>
       </Head>
-      <Navbar />
+      <BackNavbar fallbackHref="/" />
       <main
         style={{
           minHeight: "100vh",

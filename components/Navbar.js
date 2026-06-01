@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
@@ -31,7 +32,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
   };
 
   return (
-    <a
+    <Link
       href={href}
       style={baseStyle}
       onMouseEnter={() => setHovered(true)}
@@ -68,7 +69,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
       >
         {fullLabel}
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -150,7 +151,7 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <a
+      <Link
         href="/"
         style={{
           fontFamily: FONT,
@@ -163,7 +164,7 @@ export default function Navbar() {
         }}
       >
         Drip Up
-      </a>
+      </Link>
 
       {/* Nav items */}
       <div style={{ display: "flex", alignItems: "center", gap: 16 }}>

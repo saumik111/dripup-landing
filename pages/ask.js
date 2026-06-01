@@ -167,10 +167,18 @@ export default function Ask() {
                 key={message.id}
                 className={`messageRow ${message.role === "user" ? "messageRowUser" : "messageRowAi"}`}
               >
-                <div className={message.role === "user" ? "userMessage" : "aiMessage"}>
-                  {message.text}
-                  {message.action && <ActionLink action={message.action} />}
-                </div>
+                {message.role === "user" ? (
+                  <div className="userMessage">{message.text}</div>
+                ) : (
+                  <div className="aiMessage">
+                    <div className="aiMessageText">{message.text}</div>
+                    {message.action && (
+                      <div className="actionWrap">
+                        <ActionLink action={message.action} />
+                      </div>
+                    )}
+                  </div>
+                )}
               </article>
             ))}
 
@@ -291,6 +299,9 @@ export default function Ask() {
 
         .aiMessage {
           max-width: 85%;
+        }
+
+        .aiMessageText {
           white-space: pre-wrap;
           font-family: ${FONT_HEADING};
           font-weight: 400;
@@ -298,6 +309,12 @@ export default function Ask() {
           line-height: 1.7;
           color: ${INK};
           overflow-wrap: anywhere;
+        }
+
+        .actionWrap {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 18px;
         }
 
         .userMessage {
@@ -316,7 +333,6 @@ export default function Ask() {
 
         .actionLink {
           width: fit-content;
-          margin-top: 18px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -514,6 +530,9 @@ export default function Ask() {
 
           .aiMessage {
             max-width: 94%;
+          }
+
+          .aiMessageText {
             font-size: 17px;
             line-height: 1.68;
           }

@@ -6,7 +6,7 @@ const INK = "#111318";
 const INK_SOFT = "#252832";
 const SURFACE = "#F7F9FF";
 
-function ExpandButton({ shortLabel, fullLabel, href, dark, onClick }) {
+function ExpandButton({ shortLabel, fullLabel, href, dark }) {
   const [hovered, setHovered] = useState(false);
 
   const baseStyle = {
@@ -32,11 +32,10 @@ function ExpandButton({ shortLabel, fullLabel, href, dark, onClick }) {
 
   return (
     <a
-      href={onClick ? undefined : href}
+      href={href}
       style={baseStyle}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={onClick ? (e) => { e.preventDefault(); onClick(); } : undefined}
     >
       {/* Short label — fades out on hover */}
       <span
@@ -73,7 +72,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark, onClick }) {
   );
 }
 
-export default function Navbar({ onAskClick }) {
+export default function Navbar() {
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -173,7 +172,6 @@ export default function Navbar({ onAskClick }) {
           fullLabel="Ask Drip Up what it can do"
           href="/ask"
           dark={true}
-          onClick={onAskClick}
         />
         <ExpandButton
           shortLabel="Early access"

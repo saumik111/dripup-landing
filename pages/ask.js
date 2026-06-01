@@ -539,7 +539,7 @@ export default function Ask() {
 
 function ActionLink({ action }) {
   const href = action === "contact_founder" ? "/founder?from=/ask" : "/demo?from=/ask";
-  const label = action === "contact_founder" ? "Contact the founder" : "Get early access";
+  const label = action === "contact_founder" ? "Contact the founder" : "Get my early access";
 
   return (
     <Link href={href} className="actionLink">

@@ -11,6 +11,55 @@ const FONT_BODY = '"Inter", sans-serif';
 
 export default function Demo() {
   const [submitted, setSubmitted] = useState(false);
+  const [phone, setPhone] = useState("+91 ");
+  const [errors, setErrors] = useState({});
+
+  function handlePhoneChange(event) {
+    const rawValue = event.target.value;
+    const startsWithPlus = rawValue.trim().startsWith("+");
+    const digits = rawValue.replace(/\D/g, "");
+    const nextValue = `${startsWithPlus || digits ? "+" : ""}${digits}`.replace(/^\+91/, "+91 ");
+
+    setPhone(nextValue);
+    setErrors((currentErrors) => ({ ...currentErrors, phone: "" }));
+  }
+
+  function validatePhone(value) {
+    const compactValue = value.replace(/\s/g, "");
+    const digits = compactValue.replace(/\D/g, "");
+
+    if (!digits) return "Phone number is required";
+    if (!compactValue.startsWith("+")) return "Start with country code";
+    if (digits.startsWith("91") && digits.length !== 12) return "Use +91 and 10 digits";
+    if (digits.length < 8 || digits.length > 15) return "Enter a valid phone number";
+    return "";
+  }
+
+  function validateEmail(value) {
+    const email = value.trim();
+
+    if (!email) return "Email is required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "Enter a valid email";
+    return "";
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const nextErrors = {
+      name: formData.get("name")?.toString().trim() ? "" : "Name is required",
+      email: validateEmail(formData.get("email")?.toString() || ""),
+      phone: validatePhone(phone),
+      brand: formData.get("brand")?.toString().trim() ? "" : "Brand name is required",
+    };
+
+    setErrors(nextErrors);
+
+    if (Object.values(nextErrors).some(Boolean)) return;
+
+    setSubmitted(true);
+  }
 
   return (
     <>
@@ -32,42 +81,72 @@ export default function Demo() {
 
         <section className="earlyContent" aria-labelledby="early-title">
           <div className="copyBlock">
-            <h1 id="early-title">Built just for your brand</h1>
+            <h1 id="early-title">
+              <span>Built just for</span>
+              <em>your brand</em>
+            </h1>
             <p>Get access to Drip Up early</p>
           </div>
 
           <div className={`flipShell ${submitted ? "isSubmitted" : ""}`}>
             <form
               className="glassForm flipFace flipFront"
-              onSubmit={(event) => {
-                event.preventDefault();
-                setSubmitted(true);
-              }}
+              noValidate
+              onSubmit={handleSubmit}
             >
-              <label>
+              <label className={errors.name ? "hasError" : ""}>
                 Name
-                <input required type="text" name="name" placeholder="Your name" autoComplete="name" />
+                <input
+                  required
+                  type="text"
+                  name="name"
+                  placeholder={errors.name || "Your name"}
+                  autoComplete="name"
+                  aria-invalid={Boolean(errors.name)}
+                  onChange={() => setErrors((currentErrors) => ({ ...currentErrors, name: "" }))}
+                />
+                {errors.name && <span className="fieldError">{errors.name}</span>}
               </label>
-              <label>
+              <label className={errors.email ? "hasError" : ""}>
                 Email
-                <input required type="email" name="email" placeholder="you@brand.com" autoComplete="email" />
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  placeholder={errors.email || "you@brand.com"}
+                  autoComplete="email"
+                  aria-invalid={Boolean(errors.email)}
+                  onChange={() => setErrors((currentErrors) => ({ ...currentErrors, email: "" }))}
+                />
+                {errors.email && <span className="fieldError">{errors.email}</span>}
               </label>
-              <label>
+              <label className={errors.phone ? "hasError" : ""}>
                 Phone number
                 <input
                   required
                   type="tel"
                   name="phone"
-                  defaultValue="+91 "
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  placeholder={errors.phone || "+91 98765 43210"}
                   inputMode="tel"
                   autoComplete="tel"
-                  pattern="^\\+[0-9][0-9\\s()-]{6,}$"
-                  title="Enter an international phone number starting with a country code, for example +91."
+                  aria-invalid={Boolean(errors.phone)}
                 />
+                {errors.phone && <span className="fieldError">{errors.phone}</span>}
               </label>
-              <label>
+              <label className={errors.brand ? "hasError" : ""}>
                 Brand name
-                <input required type="text" name="brand" placeholder="Your brand name" autoComplete="organization" />
+                <input
+                  required
+                  type="text"
+                  name="brand"
+                  placeholder={errors.brand || "Your brand name"}
+                  autoComplete="organization"
+                  aria-invalid={Boolean(errors.brand)}
+                  onChange={() => setErrors((currentErrors) => ({ ...currentErrors, brand: "" }))}
+                />
+                {errors.brand && <span className="fieldError">{errors.brand}</span>}
               </label>
               <button
                 type="submit"
@@ -92,7 +171,7 @@ export default function Demo() {
           overflow: hidden;
           color: ${INK};
           background: linear-gradient(to right, #F0F4FF, #FAFAFA);
-          padding: 112px 20px 64px;
+          padding: 110px 20px 58px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -110,8 +189,8 @@ export default function Demo() {
           display: block;
           object-fit: cover;
           object-position: center bottom;
-          opacity: 0.84;
-          filter: saturate(1.02);
+          opacity: 1;
+          filter: saturate(1.04);
         }
 
         .imageWash {
@@ -119,10 +198,8 @@ export default function Demo() {
           inset: 0;
           z-index: 1;
           background:
-            linear-gradient(to bottom, rgba(247, 249, 255, 0.56) 0%, rgba(247, 249, 255, 0.34) 42%, rgba(247, 249, 255, 0.62) 100%),
-            linear-gradient(to right, rgba(240, 244, 255, 0.34), rgba(250, 250, 250, 0.24));
-          backdrop-filter: blur(1.5px);
-          -webkit-backdrop-filter: blur(1.5px);
+            linear-gradient(to bottom, rgba(247, 249, 255, 0.2) 0%, rgba(247, 249, 255, 0.08) 46%, rgba(247, 249, 255, 0.22) 100%),
+            linear-gradient(to right, rgba(240, 244, 255, 0.1), rgba(250, 250, 250, 0.06));
         }
 
         .earlyContent {
@@ -132,22 +209,32 @@ export default function Demo() {
           margin: 0 auto;
           display: grid;
           justify-items: center;
-          gap: clamp(28px, 5vw, 40px);
+          gap: clamp(26px, 4.5vw, 38px);
           text-align: center;
         }
 
         .copyBlock h1 {
           margin: 0;
           font-family: ${FONT_HEADING};
-          font-size: clamp(3rem, 8vw, 5.9rem);
+          font-size: clamp(3.4rem, 7.4vw, 6.4rem);
           font-weight: 500;
-          line-height: 0.96;
+          line-height: 0.88;
           letter-spacing: 0;
           text-wrap: balance;
         }
 
+        .copyBlock h1 span,
+        .copyBlock h1 em {
+          display: block;
+        }
+
+        .copyBlock h1 em {
+          font-style: italic;
+          font-weight: 400;
+        }
+
         .copyBlock p {
-          margin: 18px 0 0;
+          margin: 22px 0 0;
           font-family: ${FONT_BODY};
           font-size: clamp(1rem, 2vw, 1.15rem);
           font-weight: 500;
@@ -158,7 +245,7 @@ export default function Demo() {
         .flipShell {
           position: relative;
           width: min(480px, 100%);
-          min-height: 428px;
+          min-height: 548px;
           perspective: 1400px;
         }
 
@@ -192,22 +279,20 @@ export default function Demo() {
         }
 
         .glassForm {
-          background: rgba(255, 255, 255, 0.72);
-          border: 1px solid ${OUTLINE};
+          background: linear-gradient(to right, rgba(240, 244, 255, 0.97), rgba(250, 250, 250, 0.97));
+          border: 1px solid rgba(214, 224, 242, 0.92);
           border-radius: 20px;
           box-shadow:
             0 1px 0 rgba(255, 255, 255, 0.9) inset,
-            0 28px 80px rgba(20, 34, 70, 0.18),
-            0 8px 24px rgba(20, 34, 70, 0.08);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
-          padding: clamp(22px, 4vw, 34px);
+            0 28px 80px rgba(20, 34, 70, 0.2),
+            0 8px 24px rgba(20, 34, 70, 0.1);
+          padding: clamp(24px, 4vw, 36px);
         }
 
         .glassForm label {
           display: grid;
           gap: 8px;
-          margin: 0 0 16px;
+          margin: 0 0 18px;
           text-align: left;
           font-family: ${FONT_BODY};
           font-size: 15px;
@@ -218,9 +303,9 @@ export default function Demo() {
 
         .glassForm input {
           width: 100%;
-          border: 1px solid ${OUTLINE};
+          border: 1px solid rgba(205, 218, 240, 0.96);
           border-radius: 13px;
-          background: rgba(255, 255, 255, 0.86);
+          background: rgba(255, 255, 255, 0.88);
           padding: 13px 14px;
           font-family: ${FONT_BODY};
           font-size: 15px;
@@ -234,6 +319,27 @@ export default function Demo() {
             background 0.2s ease;
         }
 
+        .glassForm .hasError input {
+          border-color: rgba(210, 70, 72, 0.62);
+          background: rgba(255, 255, 255, 0.96);
+          box-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.88) inset,
+            0 0 0 4px rgba(210, 70, 72, 0.08);
+        }
+
+        .glassForm .hasError input::placeholder {
+          color: rgba(156, 45, 47, 0.84);
+        }
+
+        .fieldError {
+          margin-top: -2px;
+          font-family: ${FONT_BODY};
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 1.35;
+          color: rgba(156, 45, 47, 0.9);
+        }
+
         .glassForm input:focus {
           border-color: rgba(83, 107, 155, 0.58);
           background: rgba(255, 255, 255, 0.95);
@@ -245,6 +351,7 @@ export default function Demo() {
         .glassForm button {
           width: 100%;
           min-height: 50px;
+          margin-top: 4px;
           border: 0;
           border-radius: 99px;
           background: ${INK};
@@ -273,7 +380,7 @@ export default function Demo() {
           max-width: 360px;
           margin: 0;
           font-family: ${FONT_HEADING};
-          font-size: clamp(2.4rem, 6vw, 4rem);
+          font-size: clamp(2.35rem, 5.8vw, 3.9rem);
           font-style: italic;
           font-weight: 400;
           line-height: 1.03;
@@ -284,7 +391,7 @@ export default function Demo() {
 
         @media (max-width: 700px) {
           .earlyPage {
-            padding: 104px 18px 42px;
+            padding: 100px 18px 40px;
             align-items: flex-start;
           }
 
@@ -297,7 +404,12 @@ export default function Demo() {
           }
 
           .flipShell {
-            min-height: 414px;
+            min-height: 540px;
+          }
+
+          .copyBlock h1 {
+            font-size: clamp(3rem, 15vw, 4.8rem);
+            line-height: 0.9;
           }
         }
       `}</style>

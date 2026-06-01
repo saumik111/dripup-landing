@@ -206,9 +206,9 @@ export default function Demo() {
         .copyBlock h1 {
           margin: 0;
           font-family: ${FONT_HEADING};
-          font-size: clamp(3.4rem, 7.4vw, 6.4rem);
+          font-size: clamp(2rem, 4vw, 3.5rem);
           font-weight: 500;
-          line-height: 0.92;
+          line-height: 1.15;
           letter-spacing: 0;
           text-wrap: balance;
         }
@@ -399,10 +399,6 @@ export default function Demo() {
             min-height: 540px;
           }
 
-          .copyBlock h1 {
-            font-size: clamp(3rem, 15vw, 4.8rem);
-            line-height: 0.9;
-          }
         }
       `}</style>
     </>

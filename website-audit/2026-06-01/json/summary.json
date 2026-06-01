@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-01",
+  "baseUrl": "http://127.0.0.1:3010",
+  "mode": "full",
+  "startedServer": true,
+  "routesAudited": [
+    "/",
+    "/demo",
+    "/founder",
+    "/ask"
+  ],
+  "discoveredInternalRoutes": [
+    "/",
+    "/ask",
+    "/demo",
+    "/founder"
+  ],
+  "verdict": "No P0/P1 issues captured in this audit pass.",
+  "issueCounts": {},
+  "reportPath": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\website-audit\\2026-06-01\\report.md",
+  "jsonPath": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\website-audit\\2026-06-01\\json",
+  "scratchPath": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit"
+}

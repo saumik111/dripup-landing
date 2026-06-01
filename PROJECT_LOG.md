@@ -552,3 +552,44 @@ Replaced the flat opacity approach with a scroll-driven `mask-image` wipe. The f
 **Commit:** `fix: wire updated hero background`
 
 ---
+
+### Entry 017 - 2026-06-01
+
+**Session agent:** Codex
+
+**User instruction:**
+> Fix everything from the website audit and continue after interruption.
+
+**Changes:**
+- Restored the `StickyCards` neutral initial viewport state so mobile no longer hydrates desktop ScrollTrigger DOM before switching to the mobile stack.
+- Added `/ask` as a real interactive preview page instead of a 404.
+- Replaced the `/demo` placeholder with an early-access intake page.
+- Replaced the `/founder` placeholder with a founder-contact intake page.
+- Converted the two large landing images into responsive WebP variants and wired desktop/mobile `<picture>` sources.
+- Moved Inter and EB Garamond from Google-hosted stylesheet links to local `@fontsource` packages.
+- Added `three` as an explicit dependency because `HeroCanvas` imports it directly.
+- Improved the website-audit harness so failed network requests include URLs and so audit output dates resolve from the current local date.
+
+**Files changed:**
+- `components/HeroSection.js` - responsive hero background sources.
+- `components/StickyCards.js` - mobile hydration guard and responsive final-card image sources.
+- `pages/ask.js` - new Ask Drip Up preview page.
+- `pages/demo.js` - early-access intake page.
+- `pages/founder.js` - founder-contact intake page.
+- `pages/_app.js` and `pages/_document.js` - local font loading and removal of Google Fonts network links.
+- `public/images/*-desktop.webp` and `public/images/*-mobile.webp` - optimized responsive image assets.
+- `package.json` and `package-lock.json` - local fonts and explicit `three` dependency.
+- `website-audit/2026-06-01/` and `test folder/2026-06-01/website-audit/` - final clean audit report, JSON, screenshots, logs, and harness.
+
+**Verification:**
+- `npm run build` passed and generated `/`, `/ask`, `/demo`, and `/founder`.
+- Fresh production browser audit on `http://127.0.0.1:3010` passed with no captured issues.
+- Final audit showed desktop home transfer reduced to about `1.07 MB` and mobile home transfer to about `696 KB`.
+- Confirmed audit JSON files parse successfully.
+
+**Residual note:**
+- `npm audit` still reports 2 moderate advisories through Next's bundled PostCSS dependency. The suggested automatic fix is a major downgrade path, so it was not applied.
+
+**Commit:** `fix: resolve website audit findings`
+
+---

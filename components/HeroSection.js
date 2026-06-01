@@ -222,12 +222,16 @@ export default function HeroSection({ videoRef }) {
       style={{ position: "relative", width: "100%", height: "175vh", overflow: "hidden" }}
     >
       {/* Background image — scrolls with the section */}
-      <img
-        ref={videoRef}
-        src="/images/hero-section-bg.png"
-        alt=""
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
-      />
+      <picture style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0, display: "block" }}>
+        <source media="(max-width: 700px)" srcSet="/images/hero-section-bg-mobile.webp" type="image/webp" />
+        <source srcSet="/images/hero-section-bg-desktop.webp" type="image/webp" />
+        <img
+          ref={videoRef}
+          src="/images/hero-section-bg.png"
+          alt=""
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        />
+      </picture>
       {/* Dark overlay */}
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
 

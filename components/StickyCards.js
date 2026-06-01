@@ -144,6 +144,21 @@ function AnalyticsUI() {
 
 const UI_MAP = { photoshoots: <PhotoshootsUI />, listings: <ListingsUI />, insights: <InsightsUI />, analytics: <AnalyticsUI /> };
 
+function LastCardImage({ imageRef }) {
+  return (
+    <picture style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }}>
+      <source media="(max-width: 700px)" srcSet="/images/last-card-bg-mobile.webp" type="image/webp" />
+      <source srcSet="/images/last-card-bg-desktop.webp" type="image/webp" />
+      <img
+        ref={imageRef}
+        src="/images/last-card-bg.png"
+        alt=""
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
+    </picture>
+  );
+}
+
 // Mobile-specific stack animation — pinned section, scroll-driven card stack, mirrors desktop behaviour
 function MobileStack() {
   const sectionRef = useRef(null);
@@ -307,12 +322,7 @@ function MobileStack() {
           }}
         >
           {i === CARDS.length - 1 ? (
-            <img
-              ref={lastCardImageRef}
-              src="/images/last-card-bg.png"
-              alt=""
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            <LastCardImage imageRef={lastCardImageRef} />
           ) : (
             <>
               <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: 30, lineHeight: 1.05, color: card.text, display: "block" }}>
@@ -387,7 +397,7 @@ export default function StickyCards() {
   const ctaHeadingWordsRef = useRef([]);
   const ctaPanelRef = useRef(null);
   const ctaButtonRef = useRef(null);
-  const [viewportMode, setViewportMode] = useState("desktop");
+  const [viewportMode, setViewportMode] = useState(null);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 700px)");
@@ -529,6 +539,20 @@ export default function StickyCards() {
     return <MobileStack />;
   }
 
+  if (viewportMode === null) {
+    return (
+      <section
+        aria-hidden="true"
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100vh",
+          background: "transparent",
+        }}
+      />
+    );
+  }
+
   return (
     <section
       ref={sectionRef}
@@ -570,16 +594,7 @@ export default function StickyCards() {
         >
           {/* Last card — hero image fills card, no text */}
           {i === CARDS.length - 1 ? (
-            <img
-              ref={lastCardImageRef}
-              src="/images/last-card-bg.png"
-              alt=""
-              style={{
-                position: "absolute", inset: 0,
-                width: "100%", height: "100%",
-                objectFit: "cover",
-              }}
-            />
+            <LastCardImage imageRef={lastCardImageRef} />
           ) : (
             <>
               {/* Left col — text */}

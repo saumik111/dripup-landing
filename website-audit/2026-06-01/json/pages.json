@@ -1,0 +1,5586 @@
+[
+  {
+    "route": "/",
+    "url": "http://127.0.0.1:3010/",
+    "viewport": "desktop",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283267330.486,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283267331.088,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 264
+      },
+      {
+        "url": "http://127.0.0.1:3010/images/hero-section-bg-desktop.webp",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Image",
+        "mimeType": "image/webp",
+        "encodedDataLength": 284
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/063ipip4anvug.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0jvr_t219-e4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0g.8i16fn5mf2.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 346
+      },
+      {
+        "url": "http://127.0.0.1:3010/images/last-card-bg-desktop.webp",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Image",
+        "mimeType": "image/webp",
+        "encodedDataLength": 284
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "",
+      "path": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scroll": {
+        "scrollWidth": 1425,
+        "clientWidth": 1425,
+        "scrollHeight": 6938,
+        "clientHeight": 1000,
+        "hasHorizontalOverflow": false,
+        "overflowers": [
+          {
+            "tag": "div",
+            "id": null,
+            "className": "",
+            "text": "",
+            "left": -7,
+            "right": 1433,
+            "width": 1440
+          },
+          {
+            "tag": "picture",
+            "id": null,
+            "className": "",
+            "text": "",
+            "left": -6,
+            "right": 1432,
+            "width": 1438
+          },
+          {
+            "tag": "img",
+            "id": null,
+            "className": "",
+            "text": "",
+            "left": -6,
+            "right": 1432,
+            "width": 1438
+          }
+        ]
+      },
+      "h1s": [
+        "Grow & manage your shopify store simply by chatting"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Grow & manage your shopify store simply by chatting"
+        },
+        {
+          "tag": "h2",
+          "text": "Your questions, answered."
+        },
+        {
+          "tag": "h2",
+          "text": "Got more questions?"
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access Grow & manage your shopify store simply by chatting Update price to ₹1,299 Price updated on all variants. Ready to publish Tell me what…. We handle the boring work, so you can focus on growing We handle the boring work, so you can focus on growing Drip Up connects to your shopify store and takes over all the repetitive tasks Create studio-free product photoshoots Ready to publish Publish Expand your reach SEO & GEO optimized",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        },
+        {
+          "text": "Tell me what….",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Tell me what…."
+        },
+        {
+          "text": "Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Get my early access"
+        },
+        {
+          "text": "Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Drip Up what it can do"
+        },
+        {
+          "text": "Contact the founder",
+          "href": "http://127.0.0.1:3010/founder",
+          "name": "Contact the founder"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Is Drip Up for my kind of store? -",
+          "name": "Is Drip Up for my kind of store? -",
+          "ariaExpanded": "true",
+          "ariaControls": "faq-answer-0"
+        },
+        {
+          "text": "How do I get started? +",
+          "name": "How do I get started? +",
+          "ariaExpanded": "false",
+          "ariaControls": "faq-answer-1"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "name": "Will it make changes to my store without me approving? +",
+          "ariaExpanded": "false",
+          "ariaControls": "faq-answer-2"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "name": "Is my store data safe? +",
+          "ariaExpanded": "false",
+          "ariaControls": "faq-answer-3"
+        }
+      ],
+      "images": [
+        {
+          "src": "http://127.0.0.1:3010/images/hero-section-bg-desktop.webp",
+          "alt": "",
+          "complete": true,
+          "naturalWidth": 1672,
+          "naturalHeight": 941,
+          "renderedWidth": 1425,
+          "renderedHeight": 1750
+        },
+        {
+          "src": "http://127.0.0.1:3010/images/last-card-bg-desktop.webp",
+          "alt": "",
+          "complete": true,
+          "naturalWidth": 1672,
+          "naturalHeight": 941,
+          "renderedWidth": 1438,
+          "renderedHeight": 998
+        }
+      ],
+      "missingButtonNames": [],
+      "faqState": [
+        {
+          "text": "Is Drip Up for my kind of store? -",
+          "expanded": "true",
+          "controls": "faq-answer-0"
+        },
+        {
+          "text": "How do I get started? +",
+          "expanded": "false",
+          "controls": "faq-answer-1"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "expanded": "false",
+          "controls": "faq-answer-2"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "expanded": "false",
+          "controls": "faq-answer-3"
+        }
+      ]
+    },
+    "faqInteraction": {
+      "before": [
+        {
+          "text": "Is Drip Up for my kind of store? -",
+          "expanded": "true"
+        },
+        {
+          "text": "How do I get started? +",
+          "expanded": "false"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "expanded": "false"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "expanded": "false"
+        }
+      ],
+      "after": [
+        {
+          "text": "Is Drip Up for my kind of store? +",
+          "expanded": "false"
+        },
+        {
+          "text": "How do I get started? -",
+          "expanded": "true"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "expanded": "false"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "expanded": "false"
+        }
+      ]
+    },
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 11,
+        "dom_interactive_ms": 34,
+        "dom_complete_ms": 553,
+        "full_load_ms": 554
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 356
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 356
+        }
+      ],
+      "first_paint_ms": 356,
+      "fcp_ms": 356,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 23,
+        "total_transfer_bytes": 1118038,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 55
+          },
+          "script": {
+            "count": 13,
+            "transfer": 354408,
+            "duration": 3281
+          },
+          "img": {
+            "count": 2,
+            "transfer": 593216,
+            "duration": 278
+          },
+          "css": {
+            "count": 6,
+            "transfer": 155396,
+            "duration": 1415
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 142
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 55
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 62
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 264
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 124
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/063ipip4anvug.js",
+          "type": "script",
+          "transfer": 6573,
+          "decodedBodySize": 16689,
+          "duration_ms": 125
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+          "type": "script",
+          "transfer": 9781,
+          "decodedBodySize": 38374,
+          "duration_ms": 219
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+          "type": "script",
+          "transfer": 17780,
+          "decodedBodySize": 43357,
+          "duration_ms": 242
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 379
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0jvr_t219-e4-.js",
+          "type": "script",
+          "transfer": 4466,
+          "decodedBodySize": 10616,
+          "duration_ms": 379
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 379
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 402
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 400
+        },
+        {
+          "name": "http://127.0.0.1:3010/images/hero-section-bg-desktop.webp",
+          "type": "img",
+          "transfer": 322416,
+          "decodedBodySize": 322116,
+          "duration_ms": 147
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 154
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 158
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 188
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 200
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+          "type": "css",
+          "transfer": 22472,
+          "decodedBodySize": 22172,
+          "duration_ms": 238
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+          "type": "script",
+          "transfer": 183095,
+          "decodedBodySize": 723488,
+          "duration_ms": 264
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0g.8i16fn5mf2.js",
+          "type": "script",
+          "transfer": 498,
+          "decodedBodySize": 198,
+          "duration_ms": 42
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 142
+        },
+        {
+          "name": "http://127.0.0.1:3010/images/last-card-bg-desktop.webp",
+          "type": "img",
+          "transfer": 270800,
+          "decodedBodySize": 270500,
+          "duration_ms": 131
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+          "type": "css",
+          "transfer": 36324,
+          "decodedBodySize": 36024,
+          "duration_ms": 477
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+          "type": "css",
+          "transfer": 36324,
+          "decodedBodySize": 36024,
+          "duration_ms": 477
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 402
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 400
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 379
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0jvr_t219-e4-.js",
+          "type": "script",
+          "transfer": 4466,
+          "decodedBodySize": 10616,
+          "duration_ms": 379
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 379
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 264
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+          "type": "script",
+          "transfer": 183095,
+          "decodedBodySize": 723488,
+          "duration_ms": 264
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+          "type": "script",
+          "transfer": 17780,
+          "decodedBodySize": 43357,
+          "duration_ms": 242
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+          "type": "css",
+          "transfer": 22472,
+          "decodedBodySize": 22172,
+          "duration_ms": 238
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+          "type": "script",
+          "transfer": 9781,
+          "decodedBodySize": 38374,
+          "duration_ms": 219
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 200
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 188
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 158
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 154
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/images/hero-section-bg-desktop.webp",
+          "type": "img",
+          "transfer": 322416,
+          "decodedBodySize": 322116,
+          "duration_ms": 147
+        },
+        {
+          "name": "http://127.0.0.1:3010/images/last-card-bg-desktop.webp",
+          "type": "img",
+          "transfer": 270800,
+          "decodedBodySize": 270500,
+          "duration_ms": 131
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+          "type": "script",
+          "transfer": 183095,
+          "decodedBodySize": 723488,
+          "duration_ms": 264
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 264
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+          "type": "css",
+          "transfer": 36324,
+          "decodedBodySize": 36024,
+          "duration_ms": 477
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 379
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 158
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 188
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 154
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 200
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+          "type": "css",
+          "transfer": 22472,
+          "decodedBodySize": 22172,
+          "duration_ms": 238
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+          "type": "script",
+          "transfer": 17780,
+          "decodedBodySize": 43357,
+          "duration_ms": 242
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+          "type": "script",
+          "transfer": 9781,
+          "decodedBodySize": 38374,
+          "duration_ms": 219
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 142
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/063ipip4anvug.js",
+          "type": "script",
+          "transfer": 6573,
+          "decodedBodySize": 16689,
+          "duration_ms": 125
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "warning"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_-bottom.png"
+    }
+  },
+  {
+    "route": "/",
+    "url": "http://127.0.0.1:3010/",
+    "viewport": "mobile",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283288385.556,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283288385.665,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 264
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/images/hero-section-bg-mobile.webp",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Image",
+        "mimeType": "image/webp",
+        "encodedDataLength": 284
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/063ipip4anvug.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0jvr_t219-e4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/images/last-card-bg-mobile.webp",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Image",
+        "mimeType": "image/webp",
+        "encodedDataLength": 283
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0g.8i16fn5mf2.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 346
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "",
+      "path": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 5594,
+        "clientHeight": 844,
+        "hasHorizontalOverflow": false,
+        "overflowers": []
+      },
+      "h1s": [
+        "Grow & manage your online store simply by chatting"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Grow & manage your online store simply by chatting"
+        },
+        {
+          "tag": "h2",
+          "text": "Your questions, answered."
+        },
+        {
+          "tag": "h2",
+          "text": "Got more questions?"
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access Grow & manage your online store simply by chatting List this product Listed your product across your store. Ready to publish Tell me what…. We handle the boring work, so you can focus on growing We handle the boring work, so you can focus on growing Drip Up connects to your shopify store and takes over all the repetitive tasks Create studio-free product photoshoots Ready to publish Publish Expand your reach SEO & GEO optimiz",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        },
+        {
+          "text": "Tell me what….",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Tell me what…."
+        },
+        {
+          "text": "Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Get my early access"
+        },
+        {
+          "text": "Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Drip Up what it can do"
+        },
+        {
+          "text": "Contact the founder",
+          "href": "http://127.0.0.1:3010/founder",
+          "name": "Contact the founder"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Is Drip Up for my kind of store? -",
+          "name": "Is Drip Up for my kind of store? -",
+          "ariaExpanded": "true",
+          "ariaControls": "faq-answer-0"
+        },
+        {
+          "text": "How do I get started? +",
+          "name": "How do I get started? +",
+          "ariaExpanded": "false",
+          "ariaControls": "faq-answer-1"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "name": "Will it make changes to my store without me approving? +",
+          "ariaExpanded": "false",
+          "ariaControls": "faq-answer-2"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "name": "Is my store data safe? +",
+          "ariaExpanded": "false",
+          "ariaControls": "faq-answer-3"
+        }
+      ],
+      "images": [
+        {
+          "src": "http://127.0.0.1:3010/images/hero-section-bg-mobile.webp",
+          "alt": "",
+          "complete": true,
+          "naturalWidth": 820,
+          "naturalHeight": 461,
+          "renderedWidth": 390,
+          "renderedHeight": 1477
+        },
+        {
+          "src": "http://127.0.0.1:3010/images/last-card-bg-mobile.webp",
+          "alt": "",
+          "complete": true,
+          "naturalWidth": 820,
+          "naturalHeight": 461,
+          "renderedWidth": 388,
+          "renderedHeight": 842
+        }
+      ],
+      "missingButtonNames": [],
+      "faqState": [
+        {
+          "text": "Is Drip Up for my kind of store? -",
+          "expanded": "true",
+          "controls": "faq-answer-0"
+        },
+        {
+          "text": "How do I get started? +",
+          "expanded": "false",
+          "controls": "faq-answer-1"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "expanded": "false",
+          "controls": "faq-answer-2"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "expanded": "false",
+          "controls": "faq-answer-3"
+        }
+      ]
+    },
+    "faqInteraction": {
+      "before": [
+        {
+          "text": "Is Drip Up for my kind of store? -",
+          "expanded": "true"
+        },
+        {
+          "text": "How do I get started? +",
+          "expanded": "false"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "expanded": "false"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "expanded": "false"
+        }
+      ],
+      "after": [
+        {
+          "text": "Is Drip Up for my kind of store? +",
+          "expanded": "false"
+        },
+        {
+          "text": "How do I get started? -",
+          "expanded": "true"
+        },
+        {
+          "text": "Will it make changes to my store without me approving? +",
+          "expanded": "false"
+        },
+        {
+          "text": "Is my store data safe? +",
+          "expanded": "false"
+        }
+      ]
+    },
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 11,
+        "dom_interactive_ms": 37,
+        "dom_complete_ms": 336,
+        "full_load_ms": 336
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 332
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 332
+        }
+      ],
+      "first_paint_ms": 332,
+      "fcp_ms": 332,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 23,
+        "total_transfer_bytes": 713026,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 27
+          },
+          "script": {
+            "count": 13,
+            "transfer": 354408,
+            "duration": 1464
+          },
+          "img": {
+            "count": 2,
+            "transfer": 188204,
+            "duration": 63
+          },
+          "css": {
+            "count": 6,
+            "transfer": 155396,
+            "duration": 800
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 18
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 27
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 31
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 133
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 57
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/063ipip4anvug.js",
+          "type": "script",
+          "transfer": 6573,
+          "decodedBodySize": 16689,
+          "duration_ms": 53
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+          "type": "script",
+          "transfer": 9781,
+          "decodedBodySize": 38374,
+          "duration_ms": 87
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+          "type": "script",
+          "transfer": 17780,
+          "decodedBodySize": 43357,
+          "duration_ms": 107
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 122
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0jvr_t219-e4-.js",
+          "type": "script",
+          "transfer": 4466,
+          "decodedBodySize": 10616,
+          "duration_ms": 130
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 107
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 261
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 261
+        },
+        {
+          "name": "http://127.0.0.1:3010/images/hero-section-bg-mobile.webp",
+          "type": "img",
+          "transfer": 105104,
+          "decodedBodySize": 104804,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 79
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 121
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 146
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 158
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+          "type": "css",
+          "transfer": 22472,
+          "decodedBodySize": 22172,
+          "duration_ms": 195
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+          "type": "script",
+          "transfer": 183095,
+          "decodedBodySize": 723488,
+          "duration_ms": 101
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0g.8i16fn5mf2.js",
+          "type": "script",
+          "transfer": 498,
+          "decodedBodySize": 198,
+          "duration_ms": 14
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/images/last-card-bg-mobile.webp",
+          "type": "img",
+          "transfer": 83100,
+          "decodedBodySize": 82800,
+          "duration_ms": 33
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+          "type": "css",
+          "transfer": 36324,
+          "decodedBodySize": 36024,
+          "duration_ms": 101
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 261
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 261
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+          "type": "css",
+          "transfer": 22472,
+          "decodedBodySize": 22172,
+          "duration_ms": 195
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 158
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 146
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 133
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0jvr_t219-e4-.js",
+          "type": "script",
+          "transfer": 4466,
+          "decodedBodySize": 10616,
+          "duration_ms": 130
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 122
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 121
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+          "type": "script",
+          "transfer": 17780,
+          "decodedBodySize": 43357,
+          "duration_ms": 107
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 107
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+          "type": "script",
+          "transfer": 183095,
+          "decodedBodySize": 723488,
+          "duration_ms": 101
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+          "type": "css",
+          "transfer": 36324,
+          "decodedBodySize": 36024,
+          "duration_ms": 101
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+          "type": "script",
+          "transfer": 9781,
+          "decodedBodySize": 38374,
+          "duration_ms": 87
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 79
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0oifmyrv_q0qn.js",
+          "type": "script",
+          "transfer": 183095,
+          "decodedBodySize": 723488,
+          "duration_ms": 101
+        },
+        {
+          "name": "http://127.0.0.1:3010/images/hero-section-bg-mobile.webp",
+          "type": "img",
+          "transfer": 105104,
+          "decodedBodySize": 104804,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 133
+        },
+        {
+          "name": "http://127.0.0.1:3010/images/last-card-bg-mobile.webp",
+          "type": "img",
+          "transfer": 83100,
+          "decodedBodySize": 82800,
+          "duration_ms": 33
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-ext-500-normal.0876mliq8ouqp.woff2",
+          "type": "css",
+          "transfer": 36324,
+          "decodedBodySize": 36024,
+          "duration_ms": 101
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 122
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 121
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 146
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 79
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 158
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-400-italic.0pbs6swy0cx-a.woff2",
+          "type": "css",
+          "transfer": 22472,
+          "decodedBodySize": 22172,
+          "duration_ms": 195
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/085ogllz1k.xb.js",
+          "type": "script",
+          "transfer": 17780,
+          "decodedBodySize": 43357,
+          "duration_ms": 107
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0-xjpgz66y4gh.js",
+          "type": "script",
+          "transfer": 9781,
+          "decodedBodySize": 38374,
+          "duration_ms": 87
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/063ipip4anvug.js",
+          "type": "script",
+          "transfer": 6573,
+          "decodedBodySize": 16689,
+          "duration_ms": 53
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "warning"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_-bottom.png"
+    }
+  },
+  {
+    "route": "/demo",
+    "url": "http://127.0.0.1:3010/demo",
+    "viewport": "desktop",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283292593.333,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283292593.42,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/demo",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 264
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "Get early access | Drip Up",
+      "path": "/demo",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scroll": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "clientHeight": 1000,
+        "hasHorizontalOverflow": false,
+        "overflowers": []
+      },
+      "h1s": [
+        "Let Drip Up start with your store."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Let Drip Up start with your store."
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access EARLY ACCESS Let Drip Up start with your store. Share the store you want help with. During onboarding, Drip Up connects to Shopify, reviews the work in front of it, and asks before anything goes live. Store URL Work email What should Drip Up take over first? Get my early access",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get my early access",
+          "name": "Get my early access",
+          "ariaExpanded": null,
+          "ariaControls": null
+        }
+      ],
+      "images": [],
+      "missingButtonNames": [],
+      "faqState": []
+    },
+    "faqInteraction": null,
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 6,
+        "dom_interactive_ms": 22,
+        "dom_complete_ms": 709,
+        "full_load_ms": 709
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 668
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 668
+        }
+      ],
+      "first_paint_ms": 668,
+      "fcp_ms": 668,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 15,
+        "total_transfer_bytes": 256670,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 12
+          },
+          "script": {
+            "count": 9,
+            "transfer": 145052,
+            "duration": 2278
+          },
+          "css": {
+            "count": 4,
+            "transfer": 96600,
+            "duration": 2322
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 4
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 12
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 498
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+          "type": "script",
+          "transfer": 8400,
+          "decodedBodySize": 22286,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+          "type": "script",
+          "transfer": 4437,
+          "decodedBodySize": 10550,
+          "duration_ms": 22
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 499
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 594
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 597
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 579
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 597
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 594
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 579
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 499
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 498
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+          "type": "script",
+          "transfer": 4437,
+          "decodedBodySize": 10550,
+          "duration_ms": 22
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+          "type": "script",
+          "transfer": 8400,
+          "decodedBodySize": 22286,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 12
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 498
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 579
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 581
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+          "type": "script",
+          "transfer": 8400,
+          "decodedBodySize": 22286,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 12
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+          "type": "script",
+          "transfer": 4437,
+          "decodedBodySize": 10550,
+          "duration_ms": 22
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 499
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 597
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 594
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "good"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_demo-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_demo-bottom.png"
+    }
+  },
+  {
+    "route": "/demo",
+    "url": "http://127.0.0.1:3010/demo",
+    "viewport": "mobile",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283296338.537,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283296338.656,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/demo",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 264
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "Get early access | Drip Up",
+      "path": "/demo",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 1009,
+        "clientHeight": 844,
+        "hasHorizontalOverflow": false,
+        "overflowers": []
+      },
+      "h1s": [
+        "Let Drip Up start with your store."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Let Drip Up start with your store."
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access EARLY ACCESS Let Drip Up start with your store. Share the store you want help with. During onboarding, Drip Up connects to Shopify, reviews the work in front of it, and asks before anything goes live. Store URL Work email What should Drip Up take over first? Get my early access",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Get my early access",
+          "name": "Get my early access",
+          "ariaExpanded": null,
+          "ariaControls": null
+        }
+      ],
+      "images": [],
+      "missingButtonNames": [],
+      "faqState": []
+    },
+    "faqInteraction": null,
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 5,
+        "dom_interactive_ms": 18,
+        "dom_complete_ms": 120,
+        "full_load_ms": 120
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 76
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 76
+        }
+      ],
+      "first_paint_ms": 76,
+      "fcp_ms": 76,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 15,
+        "total_transfer_bytes": 256670,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 5
+          },
+          "script": {
+            "count": 9,
+            "transfer": 145052,
+            "duration": 146
+          },
+          "css": {
+            "count": 4,
+            "transfer": 96600,
+            "duration": 44
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 4
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 5
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 5
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 31
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 10
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+          "type": "script",
+          "transfer": 8400,
+          "decodedBodySize": 22286,
+          "duration_ms": 12
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+          "type": "script",
+          "transfer": 4437,
+          "decodedBodySize": 10550,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 17
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 19
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 31
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 19
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+          "type": "script",
+          "transfer": 4437,
+          "decodedBodySize": 10550,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 17
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+          "type": "script",
+          "transfer": 8400,
+          "decodedBodySize": 22286,
+          "duration_ms": 12
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 10
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 5
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 5
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 31
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/03-c9p2-uf1cv.js",
+          "type": "script",
+          "transfer": 8400,
+          "decodedBodySize": 22286,
+          "duration_ms": 12
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 5
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 5
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 10
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0c14v18gl_kti.js",
+          "type": "script",
+          "transfer": 4437,
+          "decodedBodySize": 10550,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 19
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 17
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "good"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_demo-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_demo-bottom.png"
+    }
+  },
+  {
+    "route": "/founder",
+    "url": "http://127.0.0.1:3010/founder",
+    "viewport": "desktop",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283299723.924,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283299724.231,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/founder",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 265
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "Contact the founder | Drip Up",
+      "path": "/founder",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scroll": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "clientHeight": 1000,
+        "hasHorizontalOverflow": false,
+        "overflowers": []
+      },
+      "h1s": [
+        "Talk to the person building Drip Up."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Talk to the person building Drip Up."
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access FOUNDER NOTE Talk to the person building Drip Up. Use this when you want to ask about the product direction, share what your store needs, or shape the early version before it opens wider. Your name Email Note Prepare founder note",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Prepare founder note",
+          "name": "Prepare founder note",
+          "ariaExpanded": null,
+          "ariaControls": null
+        }
+      ],
+      "images": [],
+      "missingButtonNames": [],
+      "faqState": []
+    },
+    "faqInteraction": null,
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 4,
+        "dom_interactive_ms": 22,
+        "dom_complete_ms": 147,
+        "full_load_ms": 147
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 120
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 120
+        }
+      ],
+      "first_paint_ms": 120,
+      "fcp_ms": 120,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 15,
+        "total_transfer_bytes": 256627,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 8
+          },
+          "script": {
+            "count": 9,
+            "transfer": 145009,
+            "duration": 271
+          },
+          "css": {
+            "count": 4,
+            "transfer": 96600,
+            "duration": 93
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 4
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 8
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 8
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 36
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 20
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+          "type": "script",
+          "transfer": 8358,
+          "decodedBodySize": 22092,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+          "type": "script",
+          "transfer": 4436,
+          "decodedBodySize": 10550,
+          "duration_ms": 32
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 24
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 32
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 46
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 52
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 52
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 46
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 36
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+          "type": "script",
+          "transfer": 4436,
+          "decodedBodySize": 10550,
+          "duration_ms": 32
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 32
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 24
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+          "type": "script",
+          "transfer": 8358,
+          "decodedBodySize": 22092,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 20
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 8
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 8
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 36
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 24
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+          "type": "script",
+          "transfer": 8358,
+          "decodedBodySize": 22092,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 8
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 8
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 20
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+          "type": "script",
+          "transfer": 4436,
+          "decodedBodySize": 10550,
+          "duration_ms": 32
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 32
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 52
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 46
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "good"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_founder-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_founder-bottom.png"
+    }
+  },
+  {
+    "route": "/founder",
+    "url": "http://127.0.0.1:3010/founder",
+    "viewport": "mobile",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283303766.708,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283303766.851,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/founder",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 265
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "Contact the founder | Drip Up",
+      "path": "/founder",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 1018,
+        "clientHeight": 844,
+        "hasHorizontalOverflow": false,
+        "overflowers": []
+      },
+      "h1s": [
+        "Talk to the person building Drip Up."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Talk to the person building Drip Up."
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access FOUNDER NOTE Talk to the person building Drip Up. Use this when you want to ask about the product direction, share what your store needs, or shape the early version before it opens wider. Your name Email Note Prepare founder note",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Prepare founder note",
+          "name": "Prepare founder note",
+          "ariaExpanded": null,
+          "ariaControls": null
+        }
+      ],
+      "images": [],
+      "missingButtonNames": [],
+      "faqState": []
+    },
+    "faqInteraction": null,
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 4,
+        "dom_interactive_ms": 20,
+        "dom_complete_ms": 112,
+        "full_load_ms": 112
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 80
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 80
+        }
+      ],
+      "first_paint_ms": 80,
+      "fcp_ms": 80,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 15,
+        "total_transfer_bytes": 256627,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 9
+          },
+          "script": {
+            "count": 9,
+            "transfer": 145009,
+            "duration": 184
+          },
+          "css": {
+            "count": 4,
+            "transfer": 96600,
+            "duration": 70
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 4
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 9
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 15
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+          "type": "script",
+          "transfer": 8358,
+          "decodedBodySize": 22092,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+          "type": "script",
+          "transfer": 4436,
+          "decodedBodySize": 10550,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 25
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 25
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 28
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 13
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 15
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 28
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 25
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 25
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+          "type": "script",
+          "transfer": 4436,
+          "decodedBodySize": 10550,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+          "type": "script",
+          "transfer": 8358,
+          "decodedBodySize": 22092,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 15
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 15
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 13
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 9
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 30
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 15
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 13
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 21
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 4
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/01ay_2mrpdozf.js",
+          "type": "script",
+          "transfer": 8358,
+          "decodedBodySize": 22092,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 11
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 9
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 15
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0dcn~5ss6xtwx.js",
+          "type": "script",
+          "transfer": 4436,
+          "decodedBodySize": 10550,
+          "duration_ms": 18
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 25
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 28
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 25
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "good"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_founder-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_founder-bottom.png"
+    }
+  },
+  {
+    "route": "/ask",
+    "url": "http://127.0.0.1:3010/ask",
+    "viewport": "desktop",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283307678.719,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283307679.366,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/ask",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 264
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "Ask Drip Up | Drip Up",
+      "path": "/ask",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scroll": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "clientHeight": 1000,
+        "hasHorizontalOverflow": false,
+        "overflowers": []
+      },
+      "h1s": [
+        "See what it can do for your store."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "See what it can do for your store."
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access ASK DRIP UP See what it can do for your store. Type a selling task, a store problem, or a messy workflow. Drip Up turns it into the kind of action it would prepare for approval. I have 12 products missing photos. What should Drip Up do first? Rewrite my product listings so they are ready for Shopify search. Find what is blocking orders from going out today. Show me the first move",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "I have 12 products missing photos. What should Drip Up do first?",
+          "name": "I have 12 products missing photos. What should Drip Up do first?",
+          "ariaExpanded": null,
+          "ariaControls": null
+        },
+        {
+          "text": "Rewrite my product listings so they are ready for Shopify search.",
+          "name": "Rewrite my product listings so they are ready for Shopify search.",
+          "ariaExpanded": null,
+          "ariaControls": null
+        },
+        {
+          "text": "Find what is blocking orders from going out today.",
+          "name": "Find what is blocking orders from going out today.",
+          "ariaExpanded": null,
+          "ariaControls": null
+        },
+        {
+          "text": "Show me the first move",
+          "name": "Show me the first move",
+          "ariaExpanded": null,
+          "ariaControls": null
+        }
+      ],
+      "images": [],
+      "missingButtonNames": [],
+      "faqState": []
+    },
+    "faqInteraction": null,
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 5,
+        "dom_interactive_ms": 30,
+        "dom_complete_ms": 225,
+        "full_load_ms": 225
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 196
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 196
+        }
+      ],
+      "first_paint_ms": 196,
+      "fcp_ms": 196,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 15,
+        "total_transfer_bytes": 256747,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 16
+          },
+          "script": {
+            "count": 9,
+            "transfer": 145129,
+            "duration": 721
+          },
+          "css": {
+            "count": 4,
+            "transfer": 96600,
+            "duration": 200
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 12
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 43
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 84
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 42
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+          "type": "script",
+          "transfer": 8475,
+          "decodedBodySize": 22328,
+          "duration_ms": 45
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+          "type": "script",
+          "transfer": 4439,
+          "decodedBodySize": 10550,
+          "duration_ms": 55
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 126
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 129
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 139
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 49
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 49
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 51
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 51
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 12
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 139
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 129
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 126
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 84
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+          "type": "script",
+          "transfer": 4439,
+          "decodedBodySize": 10550,
+          "duration_ms": 55
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 51
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 51
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 49
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 49
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+          "type": "script",
+          "transfer": 8475,
+          "decodedBodySize": 22328,
+          "duration_ms": 45
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 43
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 42
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 12
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 84
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 49
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 51
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 49
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 51
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 12
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+          "type": "script",
+          "transfer": 8475,
+          "decodedBodySize": 22328,
+          "duration_ms": 45
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 43
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 16
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 42
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+          "type": "script",
+          "transfer": 4439,
+          "decodedBodySize": 10550,
+          "duration_ms": 55
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 126
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 139
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 129
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "good"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_ask-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\desktop-_ask-bottom.png"
+    }
+  },
+  {
+    "route": "/ask",
+    "url": "http://127.0.0.1:3010/ask",
+    "viewport": "mobile",
+    "status": 200,
+    "consoleEntries": [],
+    "exceptions": [],
+    "logEntries": [
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283312155.181,
+        "lineNumber": 3,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 3,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      },
+      {
+        "source": "javascript",
+        "level": "warning",
+        "text": "Deprecated API for given entry type.",
+        "timestamp": 1780283312155.318,
+        "lineNumber": 4,
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 4,
+              "columnNumber": 30
+            },
+            {
+              "functionName": "",
+              "scriptId": "18",
+              "url": "",
+              "lineNumber": 44,
+              "columnNumber": 6
+            }
+          ]
+        }
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:3010/ask",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Document",
+        "mimeType": "text/html",
+        "encodedDataLength": 264
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Stylesheet",
+        "mimeType": "text/css",
+        "encodedDataLength": 365
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 379
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 347
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Font",
+        "mimeType": "font/woff2",
+        "encodedDataLength": 300
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 380
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Script",
+        "mimeType": "application/javascript",
+        "encodedDataLength": 345
+      },
+      {
+        "url": "http://127.0.0.1:3010/favicon.ico",
+        "status": 200,
+        "statusText": "OK",
+        "type": "Other",
+        "mimeType": "image/x-icon",
+        "encodedDataLength": 336
+      }
+    ],
+    "failedRequests": [],
+    "dom": {
+      "title": "Ask Drip Up | Drip Up",
+      "path": "/ask",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 958,
+        "clientHeight": 844,
+        "hasHorizontalOverflow": false,
+        "overflowers": []
+      },
+      "h1s": [
+        "See what it can do for your store."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "See what it can do for your store."
+        }
+      ],
+      "bodyText": "DRIP UP Ask Ask Drip Up what it can do Early access Get my early access ASK DRIP UP See what it can do for your store. Type a selling task, a store problem, or a messy workflow. Drip Up turns it into the kind of action it would prepare for approval. I have 12 products missing photos. What should Drip Up do first? Rewrite my product listings so they are ready for Shopify search. Find what is blocking orders from going out today. Show me the first move",
+      "anchors": [
+        {
+          "text": "DRIP UP",
+          "href": "http://127.0.0.1:3010/",
+          "name": "DRIP UP"
+        },
+        {
+          "text": "Ask Ask Drip Up what it can do",
+          "href": "http://127.0.0.1:3010/ask",
+          "name": "Ask Ask Drip Up what it can do"
+        },
+        {
+          "text": "Early access Get my early access",
+          "href": "http://127.0.0.1:3010/demo",
+          "name": "Early access Get my early access"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "I have 12 products missing photos. What should Drip Up do first?",
+          "name": "I have 12 products missing photos. What should Drip Up do first?",
+          "ariaExpanded": null,
+          "ariaControls": null
+        },
+        {
+          "text": "Rewrite my product listings so they are ready for Shopify search.",
+          "name": "Rewrite my product listings so they are ready for Shopify search.",
+          "ariaExpanded": null,
+          "ariaControls": null
+        },
+        {
+          "text": "Find what is blocking orders from going out today.",
+          "name": "Find what is blocking orders from going out today.",
+          "ariaExpanded": null,
+          "ariaControls": null
+        },
+        {
+          "text": "Show me the first move",
+          "name": "Show me the first move",
+          "ariaExpanded": null,
+          "ariaControls": null
+        }
+      ],
+      "images": [],
+      "missingButtonNames": [],
+      "faqState": []
+    },
+    "faqInteraction": null,
+    "performance": {
+      "navigation": {
+        "ttfb_ms": 6,
+        "dom_interactive_ms": 29,
+        "dom_complete_ms": 243,
+        "full_load_ms": 243
+      },
+      "paint": [
+        {
+          "name": "first-paint",
+          "start_ms": 160
+        },
+        {
+          "name": "first-contentful-paint",
+          "start_ms": 160
+        }
+      ],
+      "first_paint_ms": 160,
+      "fcp_ms": 160,
+      "lcp_ms": null,
+      "cls": 0,
+      "resources_summary": {
+        "total_requests": 15,
+        "total_transfer_bytes": 256747,
+        "by_type": {
+          "link": {
+            "count": 1,
+            "transfer": 5426,
+            "duration": 17
+          },
+          "script": {
+            "count": 9,
+            "transfer": 145129,
+            "duration": 806
+          },
+          "css": {
+            "count": 4,
+            "transfer": 96600,
+            "duration": 210
+          },
+          "other": {
+            "count": 1,
+            "transfer": 9592,
+            "duration": 7
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 17
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 40
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 141
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+          "type": "script",
+          "transfer": 8475,
+          "decodedBodySize": 22328,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 59
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+          "type": "script",
+          "transfer": 4439,
+          "decodedBodySize": 10550,
+          "duration_ms": 63
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 89
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 144
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 154
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 41
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 55
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 57
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 57
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 7
+        }
+      ],
+      "slowest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 154
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 144
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 141
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 89
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+          "type": "script",
+          "transfer": 4439,
+          "decodedBodySize": 10550,
+          "duration_ms": 63
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 59
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+          "type": "script",
+          "transfer": 8475,
+          "decodedBodySize": 22328,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 57
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 57
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 55
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 41
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 40
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 17
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 7
+        }
+      ],
+      "largest_resources": [
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0p4ziyoz21l5u.js",
+          "type": "script",
+          "transfer": 92781,
+          "decodedBodySize": 309393,
+          "duration_ms": 141
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/04amandw51su~.js",
+          "type": "script",
+          "transfer": 27867,
+          "decodedBodySize": 71075,
+          "duration_ms": 59
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-600-normal.0rm8x4lrq0d8z.woff2",
+          "type": "css",
+          "transfer": 24752,
+          "decodedBodySize": 24452,
+          "duration_ms": 55
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-500-normal.0frew35n-hgkk.woff2",
+          "type": "css",
+          "transfer": 24572,
+          "decodedBodySize": 24272,
+          "duration_ms": 57
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/inter-latin-400-normal.0vig85~_2mxl3.woff2",
+          "type": "css",
+          "transfer": 23964,
+          "decodedBodySize": 23664,
+          "duration_ms": 41
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/media/eb-garamond-latin-500-normal.10b8h-huvizwo.woff2",
+          "type": "css",
+          "transfer": 23312,
+          "decodedBodySize": 23012,
+          "duration_ms": 57
+        },
+        {
+          "name": "http://127.0.0.1:3010/favicon.ico",
+          "type": "other",
+          "transfer": 9592,
+          "decodedBodySize": 25931,
+          "duration_ms": 7
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/08fksug-l822w.js",
+          "type": "script",
+          "transfer": 8475,
+          "decodedBodySize": 22328,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/0jmddwki8dj4-.js",
+          "type": "script",
+          "transfer": 5511,
+          "decodedBodySize": 13914,
+          "duration_ms": 40
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/160mwrts1q8o7.css",
+          "type": "link",
+          "transfer": 5426,
+          "decodedBodySize": 27444,
+          "duration_ms": 17
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-0rcx-chl75g6t.js",
+          "type": "script",
+          "transfer": 4440,
+          "decodedBodySize": 10551,
+          "duration_ms": 58
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/chunks/turbopack-10mfgxoc-3w6c.js",
+          "type": "script",
+          "transfer": 4439,
+          "decodedBodySize": 10550,
+          "duration_ms": 63
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_buildManifest.js",
+          "type": "script",
+          "transfer": 844,
+          "decodedBodySize": 544,
+          "duration_ms": 89
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_clientMiddlewareManifest.js",
+          "type": "script",
+          "transfer": 396,
+          "decodedBodySize": 96,
+          "duration_ms": 154
+        },
+        {
+          "name": "http://127.0.0.1:3010/_next/static/b3jDZlCogxSs-X3-o2Qgk/_ssgManifest.js",
+          "type": "script",
+          "transfer": 376,
+          "decodedBodySize": 76,
+          "duration_ms": 144
+        }
+      ]
+    },
+    "budgets": {
+      "fcp_ms": "good",
+      "lcp_ms": "unknown",
+      "full_load_ms": "good",
+      "total_transfer_bytes": "good",
+      "total_requests": "good",
+      "total_js_bytes": "good",
+      "total_css_bytes": "good"
+    },
+    "screenshots": {
+      "top": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_ask-top.png",
+      "bottom": "C:\\Users\\saumi\\Downloads\\sellers website\\dripup-landing\\test folder\\2026-06-01\\website-audit\\screenshots\\mobile-_ask-bottom.png"
+    }
+  }
+]

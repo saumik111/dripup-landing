@@ -77,7 +77,6 @@ export default function Demo() {
           <source srcSet="/images/last-card-bg-desktop.webp" type="image/webp" />
           <img src="/images/last-card-bg.png" alt="" />
         </picture>
-        <div className="imageWash" aria-hidden="true" />
 
         <section className="earlyContent" aria-labelledby="early-title">
           <div className="copyBlock">
@@ -158,7 +157,7 @@ export default function Demo() {
             </form>
 
             <div className="glassForm flipFace flipBack" aria-live="polite">
-              <p>Perfect, we will be reaching out to you soon !!!</p>
+              <p>Perfect, we will reach out to you soon !!!</p>
             </div>
           </div>
         </section>
@@ -193,18 +192,9 @@ export default function Demo() {
           filter: saturate(1.04);
         }
 
-        .imageWash {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          background:
-            linear-gradient(to bottom, rgba(247, 249, 255, 0.2) 0%, rgba(247, 249, 255, 0.08) 46%, rgba(247, 249, 255, 0.22) 100%),
-            linear-gradient(to right, rgba(240, 244, 255, 0.1), rgba(250, 250, 250, 0.06));
-        }
-
         .earlyContent {
           position: relative;
-          z-index: 2;
+          z-index: 1;
           width: min(560px, 100%);
           margin: 0 auto;
           display: grid;
@@ -218,7 +208,7 @@ export default function Demo() {
           font-family: ${FONT_HEADING};
           font-size: clamp(3.4rem, 7.4vw, 6.4rem);
           font-weight: 500;
-          line-height: 0.88;
+          line-height: 0.92;
           letter-spacing: 0;
           text-wrap: balance;
         }
@@ -230,7 +220,9 @@ export default function Demo() {
 
         .copyBlock h1 em {
           font-style: italic;
-          font-weight: 400;
+          font-weight: 500;
+          font-size: inherit;
+          line-height: inherit;
         }
 
         .copyBlock p {

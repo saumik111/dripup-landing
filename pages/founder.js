@@ -33,6 +33,14 @@ const contactOptions = [
     accent: INK,
     icon: "phone",
   },
+  {
+    label: "Email",
+    value: "saumikmodak97@gmail.com",
+    href: "mailto:saumikmodak97@gmail.com",
+    external: false,
+    accent: "#536B9B",
+    icon: "email",
+  },
 ];
 
 export default function Founder() {
@@ -107,7 +115,7 @@ export default function Founder() {
         .contactGrid {
           width: min(760px, 100%);
           display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(4, minmax(0, 1fr));
           gap: 16px;
         }
 
@@ -185,6 +193,12 @@ export default function Founder() {
           overflow-wrap: anywhere;
         }
 
+        @media (max-width: 900px) {
+          .contactGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+
         @media (max-width: 760px) {
           .founderPage {
             padding: 112px 18px 48px;
@@ -229,6 +243,15 @@ function ContactIcon({ type }) {
     return (
       <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
         <path d="M27.2 4H4.8A.8.8 0 0 0 4 4.8v22.4c0 .44.36.8.8.8h22.4a.8.8 0 0 0 .8-.8V4.8a.8.8 0 0 0-.8-.8ZM11.12 24.16H7.56V12.74h3.56v11.42ZM9.34 11.18a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm14.82 12.98h-3.55V18.6c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.65h-3.55V12.74h3.41v1.56h.05c.47-.9 1.64-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.26Z" />
+      </svg>
+    );
+  }
+
+  if (type === "email") {
+    return (
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M6.5 8.5h19a2.5 2.5 0 0 1 2.5 2.5v10a2.5 2.5 0 0 1-2.5 2.5h-19A2.5 2.5 0 0 1 4 21V11a2.5 2.5 0 0 1 2.5-2.5Z" />
+        <path d="m5 10 11 8 11-8" />
       </svg>
     );
   }

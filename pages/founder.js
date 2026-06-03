@@ -36,8 +36,8 @@ const contactOptions = [
   {
     label: "Email",
     value: "saumikmodak97@gmail.com",
-    href: "mailto:saumikmodak97@gmail.com",
-    external: false,
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=saumikmodak97@gmail.com",
+    external: true,
     accent: "#536B9B",
     icon: "email",
   },
@@ -55,7 +55,9 @@ export default function Founder() {
 
       <main className="founderPage">
         <section className="founderInner" aria-labelledby="founder-title">
-          <h1 id="founder-title">I’d love to hear from you</h1>
+          <h1 id="founder-title">
+            I&apos;d love to hear <em>from you!</em>
+          </h1>
 
           <div className="contactGrid" aria-label="Founder contact options">
             {contactOptions.map((option) => (
@@ -105,11 +107,16 @@ export default function Founder() {
           max-width: 760px;
           margin: 0;
           font-family: ${FONT_HEADING};
-          font-size: clamp(2.6rem, 5.8vw, 5.6rem);
-          line-height: 0.98;
+          font-size: clamp(2rem, 4vw, 3.5rem);
+          line-height: 1.15;
           font-weight: 500;
           letter-spacing: 0;
           text-wrap: balance;
+        }
+
+        h1 em {
+          font-style: italic;
+          font-weight: 500;
         }
 
         .contactGrid {

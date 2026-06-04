@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 const FONT = '"Inter", sans-serif';
 const INK = "#111318";
@@ -9,11 +10,18 @@ const SURFACE = "#F7F9FF";
 
 function ExpandButton({ shortLabel, fullLabel, href, dark }) {
   const [hovered, setHovered] = useState(false);
+  const fontSize = useDesignLabValue("navbar", "fontSize", 15);
+  const ink = useDesignLabValue("navbar", "ink", INK);
+  const inkSoft = useDesignLabValue("navbar", "inkSoft", INK_SOFT);
+  const buttonText = useDesignLabValue("navbar", "buttonText", SURFACE);
+  const buttonHeight = useDesignLabValue("navbar", "buttonHeight", 36);
+  const hoverWidthAsk = useDesignLabValue("navbar", "hoverWidthAsk", 220);
+  const hoverWidthEarly = useDesignLabValue("navbar", "hoverWidthEarly", 200);
 
   const baseStyle = {
     fontFamily: FONT,
     fontWeight: 500,
-    fontSize: 15,
+    fontSize,
     textDecoration: "none",
     display: "inline-flex",
     alignItems: "center",
@@ -23,11 +31,11 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
     borderRadius: 99,
     cursor: "pointer",
     position: "relative",
-    height: 36,
+    height: buttonHeight,
     transition: "width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, box-shadow 0.25s ease",
-    width: hovered ? (dark ? 220 : 200) : (dark ? 48 : 140),
-    background: hovered ? INK_SOFT : (dark ? "transparent" : INK),
-    color: dark ? (hovered ? SURFACE : INK) : SURFACE,
+    width: hovered ? (dark ? hoverWidthAsk : hoverWidthEarly) : (dark ? 48 : 140),
+    background: hovered ? inkSoft : (dark ? "transparent" : ink),
+    color: dark ? (hovered ? buttonText : ink) : buttonText,
     padding: 0,
   };
 
@@ -43,7 +51,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
         style={{
           position: "absolute",
           fontWeight: 600,
-          fontSize: 15,
+          fontSize,
           transition: "opacity 0.15s ease",
           opacity: hovered ? 0 : 1,
           pointerEvents: "none",
@@ -58,7 +66,7 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
         style={{
           position: "absolute",
           fontWeight: 500,
-          fontSize: 14,
+          fontSize: Math.max(12, fontSize - 1),
           transition: "opacity 0.2s ease 0.12s",
           opacity: hovered ? 1 : 0,
           pointerEvents: "none",
@@ -75,6 +83,17 @@ function ExpandButton({ shortLabel, fullLabel, href, dark }) {
 
 export default function Navbar() {
   const navRef = useRef(null);
+  const logoText = useDesignLabValue("navbar", "logoText", "Drip Up");
+  const logoLetterSpacing = useDesignLabValue("navbar", "logoLetterSpacing", 0.15);
+  const ink = useDesignLabValue("navbar", "ink", INK);
+  const height = useDesignLabValue("navbar", "height", 64);
+  const paddingX = useDesignLabValue("navbar", "paddingX", 40);
+  const gap = useDesignLabValue("navbar", "gap", 16);
+  const backgroundAlpha = useDesignLabValue("navbar", "backgroundAlpha", 0.06);
+  const askShortLabel = useDesignLabValue("navbar", "askShortLabel", "Ask");
+  const askFullLabel = useDesignLabValue("navbar", "askFullLabel", "Ask Drip Up what it can do");
+  const earlyShortLabel = useDesignLabValue("navbar", "earlyShortLabel", "Early access");
+  const earlyFullLabel = useDesignLabValue("navbar", "earlyFullLabel", "Get my early access");
 
   useEffect(() => {
     const nav = navRef.current;
@@ -137,13 +156,13 @@ export default function Navbar() {
         top: 0,
         left: 0,
         width: "100%",
-        height: 64,
+        height,
         zIndex: 100,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 40px",
-        background: "rgba(255, 255, 255, 0.06)",
+        padding: `0 ${paddingX}px`,
+        background: `rgba(255, 255, 255, ${backgroundAlpha})`,
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
         borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
@@ -157,26 +176,26 @@ export default function Navbar() {
           fontFamily: FONT,
           fontWeight: 200,
           fontSize: 13,
-          letterSpacing: "0.15em",
-          color: INK,
+          letterSpacing: `${logoLetterSpacing}em`,
+          color: ink,
           textDecoration: "none",
           textTransform: "uppercase",
         }}
       >
-        Drip Up
+        {logoText}
       </Link>
 
       {/* Nav items */}
-      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+      <div style={{ display: "flex", alignItems: "center", gap }}>
         <ExpandButton
-          shortLabel="Ask"
-          fullLabel="Ask Drip Up what it can do"
+          shortLabel={askShortLabel}
+          fullLabel={askFullLabel}
           href="/ask"
           dark={true}
         />
         <ExpandButton
-          shortLabel="Early access"
-          fullLabel="Get my early access"
+          shortLabel={earlyShortLabel}
+          fullLabel={earlyFullLabel}
           href="/demo"
           dark={false}
         />

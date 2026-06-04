@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import HeroCanvas from "@/components/HeroCanvas";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 const FONT = '"Inter", sans-serif';
 const INK = "#111318";
@@ -35,6 +36,22 @@ export default function HeroSection({ videoRef }) {
   const rightImageRef = useRef(null);
   const swapRef = useRef(null);
   const headingRef = useRef(null);
+  const ink = useDesignLabValue("hero", "ink", INK);
+  const headingFontSize = useDesignLabValue("hero", "headingFontSize", "clamp(2rem, 4vw, 3.5rem)");
+  const headingLineHeight = useDesignLabValue("hero", "headingLineHeight", 1.15);
+  const headingTop = useDesignLabValue("hero", "headingTop", 12);
+  const panelTop = useDesignLabValue("hero", "panelTop", 36);
+  const panelTint = useDesignLabValue("hero", "panelTint", PANEL_TINT);
+  const overlayOpacity = useDesignLabValue("hero", "overlayOpacity", 0.18);
+  const imageOpacity = useDesignLabValue("hero", "imageOpacity", 1);
+  const panelMaxWidth = useDesignLabValue("hero", "panelMaxWidth", 860);
+  const panelRadius = useDesignLabValue("hero", "panelRadius", 20);
+  const wordSwapDelay = useDesignLabValue("hero", "wordSwapDelay", 3.2);
+  const heroLine1 = useDesignLabValue("hero", "line1", "Grow & manage your");
+  const heroLine2 = useDesignLabValue("hero", "line2", "simply by chatting");
+  const inputPlaceholder = useDesignLabValue("hero", "inputPlaceholder", "Tell me what....");
+  const heroLine1Words = heroLine1.trim().split(/\s+/).filter(Boolean);
+  const heroLine2Words = heroLine2.trim().split(/\s+/).filter(Boolean);
 
   // Word swap + one-time entrance animation
   useEffect(() => {
@@ -73,7 +90,7 @@ export default function HeroSection({ videoRef }) {
 
       tl
         .to(letters, { y: 0, opacity: 1, duration: 0.38, ease: "power3.out", stagger: 0.05 })
-        .to({}, { duration: 3.2 })
+        .to({}, { duration: wordSwapDelay })
         .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
         .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }
@@ -93,7 +110,7 @@ export default function HeroSection({ videoRef }) {
       });
 
       tl
-        .to({}, { duration: 2.5 })
+        .to({}, { duration: Math.max(0.5, wordSwapDelay - 0.7) })
         .to(letters, { y: 5, duration: 0.14, ease: "power1.in", stagger: 0 })
         .to(letters, { y: -24, opacity: 0, duration: 0.28, ease: "power2.in", stagger: 0.04 });
     }
@@ -118,7 +135,7 @@ export default function HeroSection({ videoRef }) {
     });
 
     return () => { killed = true; };
-  }, []);
+  }, [wordSwapDelay]);
 
   // Line-by-line opacity reveal — IronHill exact method, two lines
   useEffect(() => {
@@ -229,28 +246,28 @@ export default function HeroSection({ videoRef }) {
           ref={videoRef}
           src="/images/hero-section-bg.png"
           alt=""
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: imageOpacity }}
         />
       </picture>
       {/* Dark overlay */}
-      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 1 }} />
+      <div style={{ position: "absolute", inset: 0, background: `rgba(0,0,0,${overlayOpacity})`, zIndex: 1 }} />
 
       {/* Dissolve canvas — positioned at BOTTOM of hero, one viewport tall */}
       <HeroCanvas heroRef={heroRef} />
 
 
       {/* Heading — z:1, below canvas so it gets dissolved */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: "12vh", pointerEvents: "none" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: `${headingTop}vh`, pointerEvents: "none" }}>
         <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <h1
           ref={headingRef}
           style={{
             fontFamily: '"EB Garamond", Georgia, serif',
             fontStyle: "normal",
-            fontSize: "clamp(2rem, 4vw, 3.5rem)",
+            fontSize: headingFontSize,
             fontWeight: 500,
-            lineHeight: 1.15,
-            color: INK,
+            lineHeight: headingLineHeight,
+            color: ink,
             textAlign: "center",
             maxWidth: "min(95vw, 960px)",
             marginLeft: "auto",
@@ -260,7 +277,7 @@ export default function HeroSection({ videoRef }) {
         >
           {/* Line 1 — each word is its own span for entrance stagger */}
           <span className="hero-heading-row" style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap" }}>
-            {["Grow", "&", "manage", "your"].map((w, i) => (
+            {heroLine1Words.map((w, i) => (
               <span key={i} data-word style={{ display: "inline-block" }}>
                 {w}&nbsp;
               </span>
@@ -273,9 +290,9 @@ export default function HeroSection({ videoRef }) {
           </span>
           {/* Line 2 — each word is its own span */}
           <span className="hero-heading-row" style={{ display: "flex", justifyContent: "center", alignItems: "baseline", whiteSpace: "nowrap", marginTop: "0.1em" }}>
-            {["simply", "by", "chatting"].map((w, i) => (
+            {heroLine2Words.map((w, i) => (
               <span key={i} data-word style={{ display: "inline-block" }}>
-                {i < 2 ? <>{w}&nbsp;</> : w}
+                {i < heroLine2Words.length - 1 ? <>{w}&nbsp;</> : w}
               </span>
             ))}
           </span>
@@ -284,18 +301,18 @@ export default function HeroSection({ videoRef }) {
       </div>{/* end heading wrapper */}
 
       {/* Panel + CTA — z:3, above image/overlay but below canvas, gets dissolved */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: "36vh" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: `${panelTop}vh` }}>
       <div style={{ width: "100%", maxWidth: 1200, padding: "0 40px", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
 
         {/* Glass panel */}
         <div
           className="hero-glass-panel"
           style={{
-            width: "100%", maxWidth: 860,
-            background: PANEL_TINT,
+            width: "100%", maxWidth: panelMaxWidth,
+            background: panelTint,
             backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
             border: `1px solid ${OUTLINE}`,
-            borderRadius: 20,
+            borderRadius: panelRadius,
             boxShadow: "0 16px 46px rgba(30, 45, 78, 0.14)",
             padding: "40px 40px",
             display: "grid", gridTemplateColumns: "1fr 1fr",
@@ -388,7 +405,7 @@ export default function HeroSection({ videoRef }) {
           }}
         >
           <span style={{ flex: 1, fontFamily: FONT, fontSize: 15, fontWeight: 500, color: "#667386", userSelect: "none" }}>
-            Tell me what….
+            {inputPlaceholder}
           </span>
           <div
             style={{

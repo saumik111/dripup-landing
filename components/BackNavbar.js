@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 const FONT = '"Inter", sans-serif';
 const INK = "#111318";
@@ -16,6 +17,15 @@ export default function BackNavbar({ fallbackHref = "/" }) {
   const router = useRouter();
   const from = Array.isArray(router.query.from) ? router.query.from[0] : router.query.from;
   const backHref = normalizeBackHref(from, fallbackHref);
+  const logoText = useDesignLabValue("backNavbar", "logoText", "Drip Up");
+  const backLabel = useDesignLabValue("backNavbar", "backLabel", "← Back");
+  const ink = useDesignLabValue("backNavbar", "ink", INK);
+  const inkSoft = useDesignLabValue("backNavbar", "inkSoft", INK_SOFT);
+  const buttonText = useDesignLabValue("backNavbar", "buttonText", SURFACE);
+  const height = useDesignLabValue("backNavbar", "height", 64);
+  const paddingX = useDesignLabValue("backNavbar", "paddingX", 40);
+  const fontSize = useDesignLabValue("backNavbar", "fontSize", 15);
+  const buttonWidth = useDesignLabValue("backNavbar", "buttonWidth", 92);
 
   return (
     <nav
@@ -24,12 +34,12 @@ export default function BackNavbar({ fallbackHref = "/" }) {
         top: 0,
         left: 0,
         width: "100%",
-        height: 64,
+        height,
         zIndex: 100,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 40px",
+        padding: `0 ${paddingX}px`,
         background: "rgba(255, 255, 255, 0.06)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
@@ -44,12 +54,12 @@ export default function BackNavbar({ fallbackHref = "/" }) {
           fontWeight: 200,
           fontSize: 13,
           letterSpacing: "0.15em",
-          color: INK,
+          color: ink,
           textDecoration: "none",
           textTransform: "uppercase",
         }}
       >
-        Drip Up
+        {logoText}
       </Link>
 
       <Link
@@ -57,7 +67,7 @@ export default function BackNavbar({ fallbackHref = "/" }) {
         style={{
           fontFamily: FONT,
           fontWeight: 500,
-          fontSize: 15,
+          fontSize,
           textDecoration: "none",
           display: "inline-flex",
           alignItems: "center",
@@ -65,23 +75,23 @@ export default function BackNavbar({ fallbackHref = "/" }) {
           overflow: "hidden",
           whiteSpace: "nowrap",
           borderRadius: 99,
-          minWidth: 92,
+          minWidth: buttonWidth,
           height: 36,
-          background: INK,
-          color: SURFACE,
+          background: ink,
+          color: buttonText,
           padding: "0 18px",
           transition: "background 0.25s ease, transform 0.25s ease",
         }}
         onMouseEnter={(event) => {
-          event.currentTarget.style.background = INK_SOFT;
+          event.currentTarget.style.background = inkSoft;
           event.currentTarget.style.transform = "translateY(-1px)";
         }}
         onMouseLeave={(event) => {
-          event.currentTarget.style.background = INK;
+          event.currentTarget.style.background = ink;
           event.currentTarget.style.transform = "translateY(0)";
         }}
       >
-        ← Back
+        {backLabel}
       </Link>
     </nav>
   );

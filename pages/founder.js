@@ -1,5 +1,6 @@
 import Head from "next/head";
 import BackNavbar from "@/components/BackNavbar";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 const INK = "#111318";
 const INK_SOFT = "#252832";
@@ -44,6 +45,20 @@ const contactOptions = [
 ];
 
 export default function Founder() {
+  const headingSize = useDesignLabValue("founder", "headingSize", "clamp(2rem, 4vw, 3.5rem)");
+  const pageBg = useDesignLabValue("founder", "pageBg", "linear-gradient(to right, #F0F4FF, #FAFAFA)");
+  const cardBg = useDesignLabValue("founder", "cardBg", "linear-gradient(to right, rgba(240, 244, 255, 0.94), rgba(250, 250, 250, 0.96))");
+  const cardRadius = useDesignLabValue("founder", "cardRadius", 18);
+  const cardGap = useDesignLabValue("founder", "cardGap", 16);
+  const headingBefore = useDesignLabValue("founder", "headingBefore", "I'd love to hear ");
+  const headingItalic = useDesignLabValue("founder", "headingItalic", "from you!");
+  const labelOverrides = {
+    WhatsApp: useDesignLabValue("founder", "whatsappLabel", "WhatsApp"),
+    LinkedIn: useDesignLabValue("founder", "linkedinLabel", "LinkedIn"),
+    Phone: useDesignLabValue("founder", "phoneLabel", "Phone"),
+    Email: useDesignLabValue("founder", "emailLabel", "Email"),
+  };
+
   return (
     <>
       <Head>
@@ -56,7 +71,7 @@ export default function Founder() {
       <main className="founderPage">
         <section className="founderInner" aria-labelledby="founder-title">
           <h1 id="founder-title">
-            I&apos;d love to hear <em>from you!</em>
+            {headingBefore}<em>{headingItalic}</em>
           </h1>
 
           <div className="contactGrid" aria-label="Founder contact options">
@@ -73,7 +88,7 @@ export default function Founder() {
                   <ContactIcon type={option.icon} />
                 </span>
                 <span className="contactText">
-                  <span className="contactLabel">{option.label}</span>
+                  <span className="contactLabel">{labelOverrides[option.label] || option.label}</span>
                   <span className="contactValue">{option.value}</span>
                 </span>
               </a>
@@ -90,7 +105,7 @@ export default function Founder() {
           align-items: center;
           justify-content: center;
           color: ${INK};
-          background: linear-gradient(to right, #F0F4FF, #FAFAFA);
+          background: ${pageBg};
           background-attachment: fixed;
         }
 
@@ -107,7 +122,7 @@ export default function Founder() {
           max-width: 760px;
           margin: 0;
           font-family: ${FONT_HEADING};
-          font-size: clamp(2rem, 4vw, 3.5rem);
+          font-size: ${headingSize};
           line-height: 1.15;
           font-weight: 500;
           letter-spacing: 0;
@@ -123,7 +138,7 @@ export default function Founder() {
           width: min(760px, 100%);
           display: grid;
           grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: 16px;
+          gap: ${cardGap}px;
         }
 
         .contactCard {
@@ -135,8 +150,8 @@ export default function Founder() {
           gap: 18px;
           padding: 24px 18px;
           border: 1px solid ${OUTLINE};
-          border-radius: 18px;
-          background: linear-gradient(to right, rgba(240, 244, 255, 0.94), rgba(250, 250, 250, 0.96));
+          border-radius: ${cardRadius}px;
+          background: ${cardBg};
           box-shadow:
             0 1px 0 rgba(255, 255, 255, 0.9) inset,
             0 22px 60px rgba(20, 34, 70, 0.12),

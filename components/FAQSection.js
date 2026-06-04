@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 const FAQS = [
   {
@@ -36,6 +37,17 @@ const FAQ_FADE_MASK =
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
+  const background = useDesignLabValue("faq", "background", FAQ_BACKGROUND);
+  const ink = useDesignLabValue("faq", "ink", INK);
+  const muted = useDesignLabValue("faq", "muted", TEXT_SECONDARY);
+  const headingSize = useDesignLabValue("faq", "headingSize", "clamp(2.4rem, 5vw, 4rem)");
+  const questionSize = useDesignLabValue("faq", "questionSize", "clamp(1rem, 2vw, 1.18rem)");
+  const topPadding = useDesignLabValue("faq", "topPadding", 128);
+  const rowPadding = useDesignLabValue("faq", "rowPadding", 24);
+  const heading = useDesignLabValue("faq", "heading", "Your questions, answered.");
+  const moreHeading = useDesignLabValue("faq", "moreHeading", "Got more questions?");
+  const askButton = useDesignLabValue("faq", "askButton", "Ask Drip Up what it can do");
+  const founderButton = useDesignLabValue("faq", "founderButton", "Contact the founder");
 
   return (
     <section
@@ -45,8 +57,8 @@ export default function FAQSection() {
         zIndex: 8,
         width: "100%",
         marginTop: "clamp(-96px, -7vw, -48px)",
-        background: FAQ_BACKGROUND,
-        padding: "clamp(96px, 12vw, 160px) 20px clamp(112px, 13vw, 176px)",
+        background,
+        padding: `${topPadding}px 20px clamp(112px, 13vw, 176px)`,
       }}
     >
       <div
@@ -59,7 +71,7 @@ export default function FAQSection() {
           height: "clamp(180px, 22vw, 340px)",
           transform: "translateY(-100%)",
           pointerEvents: "none",
-          background: FAQ_BACKGROUND,
+          background,
           WebkitMaskImage: FAQ_FADE_MASK,
           maskImage: FAQ_FADE_MASK,
         }}
@@ -76,15 +88,15 @@ export default function FAQSection() {
           style={{
             margin: "0 0 clamp(42px, 6vw, 68px)",
             fontFamily: FONT_HEADING,
-            fontSize: "clamp(2.4rem, 5vw, 4rem)",
+            fontSize: headingSize,
             lineHeight: 1.05,
             fontWeight: 500,
-            color: INK,
+            color: ink,
             textAlign: "center",
             letterSpacing: 0,
           }}
         >
-          Your questions, answered.
+          {heading}
         </h2>
 
         <div style={{ borderTop: `1px solid ${OUTLINE}` }}>
@@ -106,16 +118,16 @@ export default function FAQSection() {
                     appearance: "none",
                     border: 0,
                     background: "transparent",
-                    padding: "24px 0",
+                    padding: `${rowPadding}px 0`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                     gap: 24,
                     cursor: "pointer",
                     textAlign: "left",
-                    color: INK,
+                    color: ink,
                     fontFamily: FONT_BODY,
-                    fontSize: "clamp(1rem, 2vw, 1.18rem)",
+                    fontSize: questionSize,
                     lineHeight: 1.35,
                     fontWeight: 500,
                   }}
@@ -132,7 +144,7 @@ export default function FAQSection() {
                       alignItems: "center",
                       justifyContent: "center",
                       flexShrink: 0,
-                      color: INK,
+                      color: ink,
                       fontFamily: FONT_BODY,
                       fontSize: 18,
                       fontWeight: 400,
@@ -148,8 +160,8 @@ export default function FAQSection() {
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
                   style={{
-                    padding: isOpen ? "0 56px 28px 0" : 0,
-                    color: TEXT_SECONDARY,
+                    padding: isOpen ? `0 56px ${Math.max(16, rowPadding + 4)}px 0` : 0,
+                    color: muted,
                     fontFamily: FONT_BODY,
                     fontSize: "clamp(0.98rem, 1.8vw, 1.12rem)",
                     lineHeight: 1.65,
@@ -173,15 +185,15 @@ export default function FAQSection() {
             style={{
               margin: "0 0 clamp(28px, 4vw, 40px)",
               fontFamily: FONT_HEADING,
-              fontSize: "clamp(2.4rem, 5vw, 4rem)",
+              fontSize: headingSize,
               lineHeight: 1.05,
               fontWeight: 500,
-              color: INK,
+              color: ink,
               textAlign: "center",
               letterSpacing: 0,
             }}
           >
-            Got more questions?
+            {moreHeading}
           </h2>
           <div
             style={{
@@ -202,7 +214,7 @@ export default function FAQSection() {
                 borderRadius: 99,
                 border: `1px solid ${OUTLINE}`,
                 background: "transparent",
-                color: INK,
+                color: ink,
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -223,10 +235,10 @@ export default function FAQSection() {
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
                 e.currentTarget.style.borderColor = OUTLINE;
-                e.currentTarget.style.color = INK;
+                e.currentTarget.style.color = ink;
               }}
             >
-              Ask Drip Up what it can do
+                {askButton}
             </a>
             <a
               href="/founder"
@@ -237,7 +249,7 @@ export default function FAQSection() {
                 borderRadius: 99,
                 border: `1px solid ${OUTLINE}`,
                 background: "transparent",
-                color: INK,
+                color: ink,
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -258,10 +270,10 @@ export default function FAQSection() {
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
                 e.currentTarget.style.borderColor = OUTLINE;
-                e.currentTarget.style.color = INK;
+                e.currentTarget.style.color = ink;
               }}
             >
-              Contact the founder
+              {founderButton}
             </a>
           </div>
         </div>

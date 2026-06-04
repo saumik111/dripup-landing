@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import BackNavbar from "@/components/BackNavbar";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 const INK = "#111318";
 const INK_SOFT = "#252832";
@@ -13,6 +14,19 @@ export default function Demo() {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState("+91 ");
   const [errors, setErrors] = useState({});
+  const headingSize = useDesignLabValue("demo", "headingSize", "clamp(2rem, 4vw, 3.5rem)");
+  const successSize = useDesignLabValue("demo", "successSize", "clamp(2.35rem, 5.8vw, 3.9rem)");
+  const panelBg = useDesignLabValue("demo", "panelBg", "linear-gradient(to right, rgba(240, 244, 255, 0.97), rgba(250, 250, 250, 0.97))");
+  const buttonBg = useDesignLabValue("demo", "buttonBg", INK);
+  const panelWidth = useDesignLabValue("demo", "panelWidth", 480);
+  const panelRadius = useDesignLabValue("demo", "panelRadius", 20);
+  const headingBefore = useDesignLabValue("demo", "headingBefore", "Built just for ");
+  const headingItalic = useDesignLabValue("demo", "headingItalic", "your brand");
+  const subtext = useDesignLabValue("demo", "subtext", "Get access to Drip Up early");
+  const buttonLabel = useDesignLabValue("demo", "button", "Get my early access");
+  const successMessage = useDesignLabValue("demo", "success", "Perfect, we will reach out to you soon !!!");
+  const imageOpacity = useDesignLabValue("demo", "imageOpacity", 1);
+  const imagePosition = useDesignLabValue("demo", "imagePosition", "center bottom");
 
   function handlePhoneChange(event) {
     const rawValue = event.target.value;
@@ -81,10 +95,10 @@ export default function Demo() {
         <section className="earlyContent" aria-labelledby="early-title">
           <div className="copyBlock">
             <h1 id="early-title">
-              <span>Built just for </span>
-              <em>your brand</em>
+              <span>{headingBefore}</span>
+              <em>{headingItalic}</em>
             </h1>
-            <p>Get access to Drip Up early</p>
+            <p>{subtext}</p>
           </div>
 
           <div className={`flipShell ${submitted ? "isSubmitted" : ""}`}>
@@ -150,14 +164,14 @@ export default function Demo() {
               <button
                 type="submit"
                 onMouseEnter={(event) => (event.currentTarget.style.background = INK_SOFT)}
-                onMouseLeave={(event) => (event.currentTarget.style.background = INK)}
+                onMouseLeave={(event) => (event.currentTarget.style.background = buttonBg)}
               >
-                Get my early access
+                {buttonLabel}
               </button>
             </form>
 
             <div className="glassForm flipFace flipBack" aria-live="polite">
-              <p>Perfect, we will reach out to you soon !!!</p>
+              <p>{successMessage}</p>
             </div>
           </div>
         </section>
@@ -187,8 +201,8 @@ export default function Demo() {
           height: 100%;
           display: block;
           object-fit: cover;
-          object-position: center bottom;
-          opacity: 1;
+          object-position: ${imagePosition};
+          opacity: ${imageOpacity};
           filter: saturate(1.04);
         }
 
@@ -206,7 +220,7 @@ export default function Demo() {
         .copyBlock h1 {
           margin: 0;
           font-family: ${FONT_HEADING};
-          font-size: clamp(2rem, 4vw, 3.5rem);
+          font-size: ${headingSize};
           font-weight: 500;
           line-height: 1.15;
           letter-spacing: 0;
@@ -236,7 +250,7 @@ export default function Demo() {
 
         .flipShell {
           position: relative;
-          width: min(480px, 100%);
+          width: min(${panelWidth}px, 100%);
           min-height: 548px;
           perspective: 1400px;
         }
@@ -271,9 +285,9 @@ export default function Demo() {
         }
 
         .glassForm {
-          background: linear-gradient(to right, rgba(240, 244, 255, 0.97), rgba(250, 250, 250, 0.97));
+          background: ${panelBg};
           border: 1px solid rgba(214, 224, 242, 0.92);
-          border-radius: 20px;
+          border-radius: ${panelRadius}px;
           box-shadow:
             0 1px 0 rgba(255, 255, 255, 0.9) inset,
             0 28px 80px rgba(20, 34, 70, 0.2),
@@ -346,7 +360,7 @@ export default function Demo() {
           margin-top: 4px;
           border: 0;
           border-radius: 99px;
-          background: ${INK};
+          background: ${buttonBg};
           color: #F7F9FF;
           font-family: ${FONT_BODY};
           font-size: 15px;
@@ -372,7 +386,7 @@ export default function Demo() {
           max-width: 360px;
           margin: 0;
           font-family: ${FONT_HEADING};
-          font-size: clamp(2.35rem, 5.8vw, 3.9rem);
+          font-size: ${successSize};
           font-style: italic;
           font-weight: 400;
           line-height: 1.03;

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 const CONFIG = {
   colorStart: "#F0F4FF",
@@ -87,6 +88,10 @@ function isWebGLSupported() {
 export default function HeroCanvas({ heroRef }) {
   const canvasRef = useRef(null);
   const fallbackRef = useRef(null);
+  const colorStart = useDesignLabValue("heroCanvas", "colorStart", CONFIG.colorStart);
+  const colorEnd = useDesignLabValue("heroCanvas", "colorEnd", CONFIG.colorEnd);
+  const spread = useDesignLabValue("heroCanvas", "spread", CONFIG.spread);
+  const speed = useDesignLabValue("heroCanvas", "speed", CONFIG.speed);
 
   useEffect(() => {
     // If WebGL is unavailable, use scroll-driven mask wipe fallback
@@ -109,7 +114,7 @@ export default function HeroCanvas({ heroRef }) {
         if (!hero) return;
         const maxScroll = hero.offsetHeight - window.innerHeight;
         if (maxScroll <= 0) return;
-        const progress = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1);
+        const progress = Math.min((window.scrollY / maxScroll) * speed, 1);
         applyMask(progress);
       }
       applyMask(0);
@@ -122,8 +127,10 @@ export default function HeroCanvas({ heroRef }) {
     if (!canvas) return;
 
     let renderer, material, animId, killed = false;
-    const rgbStart = hexToRgb(CONFIG.colorStart);
-    const rgbEnd = hexToRgb(CONFIG.colorEnd);
+    let resizeHandler = null;
+    let scrollHandler = null;
+    const rgbStart = hexToRgb(colorStart);
+    const rgbEnd = hexToRgb(colorEnd);
 
     async function init() {
       const THREE = await import("three");
@@ -150,10 +157,11 @@ export default function HeroCanvas({ heroRef }) {
             if (!hero) return;
             const maxScroll = hero.offsetHeight - window.innerHeight;
             if (maxScroll <= 0) return;
-            applyMask2(Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1));
+            applyMask2(Math.min((window.scrollY / maxScroll) * speed, 1));
           }
           applyMask2(0);
-          window.addEventListener("scroll", onScrollFallback2, { passive: true });
+          scrollHandler = onScrollFallback2;
+          window.addEventListener("scroll", scrollHandler, { passive: true });
           onScrollFallback2();
         }
         return;
@@ -165,7 +173,8 @@ export default function HeroCanvas({ heroRef }) {
         if (material) material.uniforms.uResolution.value.set(hero.offsetWidth, hero.offsetHeight);
       }
       resize();
-      window.addEventListener("resize", resize);
+      resizeHandler = resize;
+      window.addEventListener("resize", resizeHandler);
 
       const geometry = new THREE.PlaneGeometry(2, 2);
       material = new THREE.ShaderMaterial({
@@ -176,7 +185,7 @@ export default function HeroCanvas({ heroRef }) {
           uResolution: { value: new THREE.Vector2(hero.offsetWidth, hero.offsetHeight) },
           uColorStart: { value: new THREE.Vector3(rgbStart.r, rgbStart.g, rgbStart.b) },
           uColorEnd: { value: new THREE.Vector3(rgbEnd.r, rgbEnd.g, rgbEnd.b) },
-          uSpread: { value: CONFIG.spread },
+          uSpread: { value: spread },
         },
         transparent: true,
       });
@@ -199,9 +208,10 @@ export default function HeroCanvas({ heroRef }) {
         const windowHeight = window.innerHeight;
         const maxScroll = heroHeight - windowHeight;
         if (maxScroll <= 0) return;
-        scrollProgress = Math.min((window.scrollY / maxScroll) * CONFIG.speed, 1.1);
+        scrollProgress = Math.min((window.scrollY / maxScroll) * speed, 1.1);
       }
-      window.addEventListener("scroll", onScroll, { passive: true });
+      scrollHandler = onScroll;
+      window.addEventListener("scroll", scrollHandler, { passive: true });
       onScroll();
     }
 
@@ -210,9 +220,11 @@ export default function HeroCanvas({ heroRef }) {
     return () => {
       killed = true;
       cancelAnimationFrame(animId);
+      if (resizeHandler) window.removeEventListener("resize", resizeHandler);
+      if (scrollHandler) window.removeEventListener("scroll", scrollHandler);
       renderer?.dispose();
     };
-  }, [heroRef]);
+  }, [heroRef, colorStart, colorEnd, spread, speed]);
 
   return (
     <>
@@ -241,7 +253,7 @@ export default function HeroCanvas({ heroRef }) {
           height: "100%",
           zIndex: 20,
           pointerEvents: "none",
-          background: "linear-gradient(to right, #F0F4FF, #FAFAFA)",
+          background: `linear-gradient(to right, ${colorStart}, ${colorEnd})`,
           WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 30%)",
           maskImage: "linear-gradient(to top, black 0%, transparent 30%)",
         }}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useDesignLabValue } from "@/components/DesignLab";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -144,7 +145,7 @@ function AnalyticsUI() {
 
 const UI_MAP = { photoshoots: <PhotoshootsUI />, listings: <ListingsUI />, insights: <InsightsUI />, analytics: <AnalyticsUI /> };
 
-function LastCardImage({ imageRef }) {
+function LastCardImage({ imageRef, opacity = 1 }) {
   return (
     <picture style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }}>
       <source media="(max-width: 700px)" srcSet="/images/last-card-bg-mobile.webp" type="image/webp" />
@@ -153,14 +154,22 @@ function LastCardImage({ imageRef }) {
         ref={imageRef}
         src="/images/last-card-bg.png"
         alt=""
-        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", opacity }}
       />
     </picture>
   );
 }
 
 // Mobile-specific stack animation — pinned section, scroll-driven card stack, mirrors desktop behaviour
-function MobileStack() {
+function MobileStack({
+  cards = CARDS,
+  badgeText = "Free for 1 month",
+  ctaLine1 = "Tell Drip Up what to do",
+  ctaLine2 = "and it manages the rest",
+  ctaButton = "Get my early access",
+  ctaHeadingSize = "clamp(1.6rem, 7vw, 2.4rem)",
+  finalImageOpacity = 1,
+}) {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
   const lastCardRef = useRef(null);
@@ -295,12 +304,12 @@ function MobileStack() {
         overflow: "hidden",
       }}
     >
-      {CARDS.map((card, i) => (
+      {cards.map((card, i) => (
         <div
           key={i}
           ref={(el) => {
             cardRefs.current[i] = el;
-            if (i === CARDS.length - 1) lastCardRef.current = el;
+            if (i === cards.length - 1) lastCardRef.current = el;
           }}
           style={{
             position: "absolute",
@@ -310,19 +319,19 @@ function MobileStack() {
             height: "62%",
             display: "flex",
             flexDirection: "column",
-            padding: i === CARDS.length - 1 ? 0 : "22px",
+            padding: i === cards.length - 1 ? 0 : "22px",
             borderRadius: "20px",
-            overflow: i === CARDS.length - 1 ? "hidden" : "visible",
+            overflow: i === cards.length - 1 ? "hidden" : "visible",
             background: card.bg,
-            border: `1px solid ${i === CARDS.length - 1 ? "rgba(17,19,24,0.22)" : OUTLINE}`,
+            border: `1px solid ${i === cards.length - 1 ? "rgba(17,19,24,0.22)" : OUTLINE}`,
             boxShadow: "0 20px 52px rgba(10,20,60,0.20), 0 4px 14px rgba(10,20,60,0.10)",
             zIndex: card.zIndex,
             transformOrigin: "center bottom",
             willChange: "transform",
           }}
         >
-          {i === CARDS.length - 1 ? (
-            <LastCardImage imageRef={lastCardImageRef} />
+          {i === cards.length - 1 ? (
+            <LastCardImage imageRef={lastCardImageRef} opacity={finalImageOpacity} />
           ) : (
             <>
               <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: 30, lineHeight: 1.05, color: card.text, display: "block" }}>
@@ -356,23 +365,23 @@ function MobileStack() {
         <div ref={ctaPanelRef} style={{ opacity: 0, pointerEvents: "auto", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ background: "rgba(255,255,255,0.76)", border: `1px solid ${OUTLINE}`, borderRadius: 999, padding: "7px 14px", fontFamily: FONT_BODY, fontSize: 12, fontWeight: 400, color: INK, letterSpacing: "0.01em", marginBottom: 14, display: "flex", alignItems: "center", gap: 7 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#BDF0DC", display: "inline-block", flexShrink: 0 }} />
-            Free for 1 month
+            {badgeText}
           </div>
         </div>
 
         <div style={{ textAlign: "center", maxWidth: "90vw", padding: "0 20px" }}>
           <span style={{ display: "block" }}>
-            {["Tell", "Drip", "Up", "what", "to", "do"].map((word, i) => (
+            {ctaLine1.split(/\s+/).filter(Boolean).map((word, i) => (
               <span key={`l1-${i}`} ref={(el) => { ctaHeadingWordsRef.current[i] = el; }}
-                style={{ display: "inline-block", opacity: 0, fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(1.6rem, 7vw, 2.4rem)", lineHeight: 1.15, color: INK, marginRight: "0.22em" }}>
+                style={{ display: "inline-block", opacity: 0, fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: ctaHeadingSize, lineHeight: 1.15, color: INK, marginRight: "0.22em" }}>
                 {word}
               </span>
             ))}
           </span>
           <span style={{ display: "block" }}>
-            {["and", "it", "manages", "the", "rest"].map((word, i) => (
-              <span key={`l2-${i}`} ref={(el) => { ctaHeadingWordsRef.current[6 + i] = el; }}
-                style={{ display: "inline-block", opacity: 0, fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(1.6rem, 7vw, 2.4rem)", lineHeight: 1.15, color: INK, marginRight: "0.22em" }}>
+            {ctaLine2.split(/\s+/).filter(Boolean).map((word, i) => (
+              <span key={`l2-${i}`} ref={(el) => { ctaHeadingWordsRef.current[ctaLine1.split(/\s+/).filter(Boolean).length + i] = el; }}
+                style={{ display: "inline-block", opacity: 0, fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: ctaHeadingSize, lineHeight: 1.15, color: INK, marginRight: "0.22em" }}>
                 {word}
               </span>
             ))}
@@ -381,7 +390,7 @@ function MobileStack() {
 
         <div ref={ctaButtonRef} style={{ opacity: 0, marginTop: 32, pointerEvents: "auto" }}>
           <a href="/demo" style={{ display: "inline-block", background: INK, color: SURFACE_TEXT, borderRadius: 99, padding: "11px 28px", fontFamily: FONT_BODY, fontSize: 15, fontWeight: 500, textDecoration: "none" }}>
-            Get my early access
+            {ctaButton}
           </a>
         </div>
       </div>
@@ -398,6 +407,31 @@ export default function StickyCards() {
   const ctaPanelRef = useRef(null);
   const ctaButtonRef = useRef(null);
   const [viewportMode, setViewportMode] = useState(null);
+  const cardHeadingSize = useDesignLabValue("stickyCards", "cardHeadingSize", "clamp(32px, 3.2vw, 52px)");
+  const ctaHeadingSize = useDesignLabValue("stickyCards", "ctaHeadingSize", "clamp(2rem, 4vw, 3.5rem)");
+  const cardRadius = useDesignLabValue("stickyCards", "cardRadius", 16);
+  const desktopWidth = useDesignLabValue("stickyCards", "desktopWidth", 65);
+  const desktopHeight = useDesignLabValue("stickyCards", "desktopHeight", 60);
+  const cardGap = useDesignLabValue("stickyCards", "cardGap", 40);
+  const desktopStackDistance = useDesignLabValue("stickyCards", "desktopStackDistance", 2.5);
+  const desktopExpandDistance = useDesignLabValue("stickyCards", "desktopExpandDistance", 0.6);
+  const imageStartScale = useDesignLabValue("stickyCards", "imageStartScale", 1.2);
+  const badgeText = useDesignLabValue("stickyCards", "badgeText", "Free for 1 month");
+  const ctaLine1 = useDesignLabValue("stickyCards", "ctaLine1", "Tell Drip Up what to do");
+  const ctaLine2 = useDesignLabValue("stickyCards", "ctaLine2", "and it manages the rest");
+  const ctaButton = useDesignLabValue("stickyCards", "ctaButton", "Get my early access");
+  const finalImageOpacity = useDesignLabValue("stickyCards", "finalImageOpacity", 1);
+  const card1Bg = useDesignLabValue("stickyCards", "card1Bg", CARDS[0].bg);
+  const card2Bg = useDesignLabValue("stickyCards", "card2Bg", CARDS[1].bg);
+  const card3Bg = useDesignLabValue("stickyCards", "card3Bg", CARDS[2].bg);
+  const card4Bg = useDesignLabValue("stickyCards", "card4Bg", CARDS[3].bg);
+  const finalBg = useDesignLabValue("stickyCards", "finalBg", CARDS[4].bg);
+  const cards = CARDS.map((card, index) => ({
+    ...card,
+    bg: [card1Bg, card2Bg, card3Bg, card4Bg, finalBg][index],
+  }));
+  const ctaLine1Words = ctaLine1.split(/\s+/).filter(Boolean);
+  const ctaLine2Words = ctaLine2.split(/\s+/).filter(Boolean);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 700px)");
@@ -417,8 +451,8 @@ export default function StickyCards() {
     const segmentSize = 1 / totalCards;
     const cardYOffset = 5;
     const cardScaleStep = 0.075;
-    const stackDist = window.innerHeight * 2.5;
-    const expandDist = window.innerHeight * 0.6;
+    const stackDist = window.innerHeight * desktopStackDistance;
+    const expandDist = window.innerHeight * desktopExpandDistance;
     const totalDist = stackDist + expandDist;
 
     // Initial stacked positions
@@ -432,7 +466,7 @@ export default function StickyCards() {
 
     // Set last card image initial zoom
     if (lastCardImageRef.current) {
-      gsap.set(lastCardImageRef.current, { scale: 1.2 });
+      gsap.set(lastCardImageRef.current, { scale: imageStartScale });
     }
 
     let wasFullyExpanded = false;
@@ -494,15 +528,15 @@ export default function StickyCards() {
           const vw = window.innerWidth;
           const vh = window.innerHeight;
           gsap.set(lastCardRef.current, {
-            width: gsap.utils.interpolate(vw * 0.65, vw, expandProgress),
-            height: gsap.utils.interpolate(vh * 0.60, vh, expandProgress),
-            borderRadius: gsap.utils.interpolate(16, 0, expandProgress),
+            width: gsap.utils.interpolate(vw * (desktopWidth / 100), vw, expandProgress),
+            height: gsap.utils.interpolate(vh * (desktopHeight / 100), vh, expandProgress),
+            borderRadius: gsap.utils.interpolate(cardRadius, 0, expandProgress),
           });
         }
 
         if (lastCardImageRef.current) {
           gsap.set(lastCardImageRef.current, {
-            scale: gsap.utils.interpolate(1.2, 1, expandProgress),
+            scale: gsap.utils.interpolate(imageStartScale, 1, expandProgress),
           });
         }
 
@@ -533,10 +567,20 @@ export default function StickyCards() {
     });
 
     return () => cardsTrigger.kill();
-  }, [viewportMode]);
+  }, [viewportMode, desktopStackDistance, desktopExpandDistance, imageStartScale, desktopWidth, desktopHeight, cardRadius]);
 
   if (viewportMode === "mobile") {
-    return <MobileStack />;
+    return (
+      <MobileStack
+        cards={cards}
+        badgeText={badgeText}
+        ctaLine1={ctaLine1}
+        ctaLine2={ctaLine2}
+        ctaButton={ctaButton}
+        ctaHeadingSize={ctaHeadingSize}
+        finalImageOpacity={finalImageOpacity}
+      />
+    );
   }
 
   if (viewportMode === null) {
@@ -565,27 +609,27 @@ export default function StickyCards() {
         overflow: "hidden",
       }}
     >
-      {CARDS.map((card, i) => (
+      {cards.map((card, i) => (
         <div
           key={i}
           ref={(el) => {
             cardRefs.current[i] = el;
-            if (i === CARDS.length - 1) lastCardRef.current = el;
+            if (i === cards.length - 1) lastCardRef.current = el;
           }}
           style={{
             position: "absolute",
             top: "50%",
             left: "50%",
-            width: "65%",
-            height: "60%",
+            width: `${desktopWidth}%`,
+            height: `${desktopHeight}%`,
             display: "flex",
             alignItems: "center",
-            gap: "2.5rem",
-            padding: i === CARDS.length - 1 ? 0 : "2.5rem",
-            borderRadius: "16px",
-            overflow: i === CARDS.length - 1 ? "hidden" : "visible",
+            gap: `${cardGap}px`,
+            padding: i === cards.length - 1 ? 0 : "2.5rem",
+            borderRadius: `${cardRadius}px`,
+            overflow: i === cards.length - 1 ? "hidden" : "visible",
             background: card.bg,
-            border: `1px solid ${i === CARDS.length - 1 ? "rgba(17,19,24,0.22)" : OUTLINE}`,
+            border: `1px solid ${i === cards.length - 1 ? "rgba(17,19,24,0.22)" : OUTLINE}`,
             boxShadow: "0 24px 64px rgba(10,20,60,0.22), 0 4px 16px rgba(10,20,60,0.10)",
             zIndex: card.zIndex,
             transformOrigin: "center bottom",
@@ -593,13 +637,13 @@ export default function StickyCards() {
           }}
         >
           {/* Last card — hero image fills card, no text */}
-          {i === CARDS.length - 1 ? (
-            <LastCardImage imageRef={lastCardImageRef} />
+          {i === cards.length - 1 ? (
+            <LastCardImage imageRef={lastCardImageRef} opacity={finalImageOpacity} />
           ) : (
             <>
               {/* Left col — text */}
               <div style={{ flex: 1, height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0.5rem 0.75rem" }}>
-                <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: "clamp(32px, 3.2vw, 52px)", lineHeight: 1.02, color: card.text, display: "block" }}>
+                <span style={{ fontFamily: FONT_HEADING, fontStyle: "normal", fontWeight: 500, fontSize: cardHeadingSize, lineHeight: 1.02, color: card.text, display: "block" }}>
                   {card.heading}
                 </span>
                 <span style={{ fontFamily: FONT_BODY, fontWeight: 500, fontSize: "clamp(14px, 1vw, 17px)", lineHeight: 1.5, letterSpacing: 0, color: card.muted, display: "block", marginTop: 18, maxWidth: 360 }}>
@@ -659,7 +703,7 @@ export default function StickyCards() {
             }}
           >
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#BDF0DC", display: "inline-block", flexShrink: 0 }} />
-            Free for 1 month
+            {badgeText}
           </div>
         </div>
 
@@ -672,7 +716,7 @@ export default function StickyCards() {
           }}
         >
           <span style={{ display: "block" }}>
-            {["Tell", "Drip", "Up", "what", "to", "do"].map((word, i) => (
+            {ctaLine1Words.map((word, i) => (
               <span
                 key={`l1-${i}`}
                 ref={(el) => { ctaHeadingWordsRef.current[i] = el; }}
@@ -680,22 +724,22 @@ export default function StickyCards() {
                   display: "inline-block", opacity: 0,
                   fontFamily: '"EB Garamond", Georgia, serif',
                   fontStyle: "normal", fontWeight: 500,
-                  fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.15,
+                  fontSize: ctaHeadingSize, lineHeight: 1.15,
                   color: INK, marginRight: "0.25em",
                 }}
               >{word}</span>
             ))}
           </span>
           <span style={{ display: "block" }}>
-            {["and", "it", "manages", "the", "rest"].map((word, i) => (
+            {ctaLine2Words.map((word, i) => (
               <span
                 key={`l2-${i}`}
-                ref={(el) => { ctaHeadingWordsRef.current[6 + i] = el; }}
+                ref={(el) => { ctaHeadingWordsRef.current[ctaLine1Words.length + i] = el; }}
                 style={{
                   display: "inline-block", opacity: 0,
                   fontFamily: '"EB Garamond", Georgia, serif',
                   fontStyle: "normal", fontWeight: 500,
-                  fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.15,
+                  fontSize: ctaHeadingSize, lineHeight: 1.15,
                   color: INK, marginRight: "0.25em",
                 }}
               >{word}</span>
@@ -729,7 +773,7 @@ export default function StickyCards() {
             onMouseEnter={(e) => (e.currentTarget.style.background = INK_SOFT)}
             onMouseLeave={(e) => (e.currentTarget.style.background = INK)}
           >
-            Get my early access
+            {ctaButton}
           </a>
         </div>
       </div>

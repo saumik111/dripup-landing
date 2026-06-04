@@ -6,6 +6,7 @@ import "@fontsource/inter/700.css";
 import "@fontsource/eb-garamond/400.css";
 import "@fontsource/eb-garamond/500.css";
 import "@fontsource/eb-garamond/400-italic.css";
+import { DesignLabProvider } from "@/components/DesignLab";
 import { clearAskMessagesOnPageRefresh } from "@/lib/askSession";
 import "../styles/globals.css";
 
@@ -14,5 +15,9 @@ export default function App({ Component, pageProps }) {
     clearAskMessagesOnPageRefresh();
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <DesignLabProvider>
+      <Component {...pageProps} />
+    </DesignLabProvider>
+  );
 }

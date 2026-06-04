@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import BackNavbar from "@/components/BackNavbar";
+import { useDesignLabValue } from "@/components/DesignLab";
 import { getAskMessages, setAskMessages } from "@/lib/askSession";
 
 const MAX_MESSAGES_PER_DAY = 10;
@@ -83,7 +84,16 @@ async function getAiReply(messages, userText) {
 }
 
 export default function Ask() {
-  const [messages, setMessages] = useState(() => getAskMessages() || [createMessage("ai", OPENING_MESSAGE)]);
+  const openingMessage = useDesignLabValue("ask", "openingMessage", OPENING_MESSAGE);
+  const pageBg = useDesignLabValue("ask", "pageBg", "linear-gradient(to right, #F0F4FF, #FAFAFA)");
+  const aiSize = useDesignLabValue("ask", "aiSize", 18);
+  const userSize = useDesignLabValue("ask", "userSize", 15);
+  const columnWidth = useDesignLabValue("ask", "columnWidth", 680);
+  const inputHeight = useDesignLabValue("ask", "inputHeight", 60);
+  const placeholder = useDesignLabValue("ask", "placeholder", "tell me ...");
+  const userBubble = useDesignLabValue("ask", "userBubble", INK);
+  const inputBorder = useDesignLabValue("ask", "inputBorder", "rgba(205, 218, 240, 0.95)");
+  const [messages, setMessages] = useState(() => getAskMessages() || [createMessage("ai", openingMessage)]);
   const [input, setInput] = useState("");
   const [remainingMessages, setRemainingMessages] = useState(MAX_MESSAGES_PER_DAY);
   const [isLoading, setIsLoading] = useState(false);
@@ -210,7 +220,7 @@ export default function Ask() {
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="tell me ..."
+                  placeholder={placeholder}
                   disabled={isLoading}
                 />
                 <button
@@ -247,7 +257,7 @@ export default function Ask() {
         .askPage {
           min-height: 100vh;
           color: ${INK};
-          background: linear-gradient(to right, #F0F4FF, #FAFAFA);
+          background: ${pageBg};
           background-attachment: fixed;
         }
 
@@ -279,7 +289,7 @@ export default function Ask() {
 
         .messageColumn {
           width: 100%;
-          max-width: 680px;
+          max-width: ${columnWidth}px;
           margin: 0 auto;
           padding: 96px 24px 160px;
         }
@@ -305,7 +315,7 @@ export default function Ask() {
           white-space: pre-wrap;
           font-family: ${FONT_HEADING};
           font-weight: 400;
-          font-size: 18px;
+          font-size: ${aiSize}px;
           line-height: 1.7;
           color: ${INK};
           overflow-wrap: anywhere;
@@ -322,10 +332,10 @@ export default function Ask() {
           white-space: pre-wrap;
           font-family: ${FONT_BODY};
           font-weight: 500;
-          font-size: 15px;
+          font-size: ${userSize}px;
           line-height: 1.45;
           color: ${SURFACE_TEXT};
-          background: ${INK};
+          background: ${userBubble};
           padding: 10px 18px;
           border-radius: 18px 18px 4px 18px;
           overflow-wrap: anywhere;
@@ -401,7 +411,7 @@ export default function Ask() {
 
         .inputDockInner {
           width: 100%;
-          max-width: 680px;
+          max-width: ${columnWidth}px;
           margin: 0 auto;
         }
 
@@ -421,8 +431,8 @@ export default function Ask() {
           gap: 10px;
           width: 100%;
           max-width: 100%;
-          min-height: 60px;
-          border: 1px solid rgba(205, 218, 240, 0.95);
+          min-height: ${inputHeight}px;
+          border: 1px solid ${inputBorder};
           border-radius: 99px;
           background: linear-gradient(
             180deg,
@@ -557,8 +567,10 @@ export default function Ask() {
 }
 
 function ActionLink({ action }) {
+  const earlyLabel = useDesignLabValue("ask", "earlyLabel", "Get my early access");
+  const founderLabel = useDesignLabValue("ask", "founderLabel", "Contact the founder");
   const href = action === "contact_founder" ? "/founder?from=/ask" : "/demo?from=/ask";
-  const label = action === "contact_founder" ? "Contact the founder" : "Get my early access";
+  const label = action === "contact_founder" ? founderLabel : earlyLabel;
 
   return (
     <Link href={href} className="actionLink">
